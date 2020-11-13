@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 22:33:28 by yeschall          #+#    #+#             */
-/*   Updated: 2020/11/12 16:07:24 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/11/13 21:02:33 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ char			**ft_split(char const *s, char c)
 	i = -1;
 	while (++i < arr_len)
 	{
-		arr[i] = ft_substr(s, 0, get_first_word_len(&s, c));
-		if (arr[i] == NULL)
+		if ((arr[i] = ft_substr(s, 0, get_first_word_len(&s, c))) == NULL)
 		{
 			while (--i >= 0)
 				free(arr[i]);
+			free(arr);
 			return (NULL);
 		}
 	}
