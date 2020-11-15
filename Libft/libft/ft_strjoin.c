@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 16:52:05 by yeschall          #+#    #+#             */
-/*   Updated: 2020/11/06 22:29:21 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/11/15 14:59:42 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char		*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
 	size_t	len;
-	size_t	size;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
@@ -25,7 +24,7 @@ char		*ft_strjoin(char const *s1, char const *s2)
 	if (res == NULL)
 		return (NULL);
 	ft_bzero(res, len);
-	size = ft_strlcat(res, s1, len);
-	size = ft_strlcat(res, s2, len);
+	ft_strlcat(res, s1, len);
+	ft_strlcat(res, s2, len);
 	return (res);
 }
