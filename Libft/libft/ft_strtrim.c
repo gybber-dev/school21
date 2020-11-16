@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/06 16:53:38 by yeschall          #+#    #+#             */
-/*   Updated: 2020/11/06 21:54:07 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/11/16 18:05:48 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ char				*ft_strtrim(char const *s1, char const *set)
 		len = ft_strlen(s1);
 		if (len == 0)
 			return (ft_substr(s1, 0, 0));
-		while (len-- != 0 && (ft_strchr(set, s1[len]) != NULL))
-			;
+		while (len != 0 && (ft_strchr(set, s1[len]) != NULL))
+			len--;
 	}
 	return (ft_substr(s1, 0, len + 1));
 }
