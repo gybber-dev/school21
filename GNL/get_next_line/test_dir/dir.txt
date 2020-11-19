@@ -1,0 +1,16 @@
+this
+
+	is
+
+		a file
+
+			from
+
+		other
+
+	dir
+and
+	with
+		tabs
+
+oops!
