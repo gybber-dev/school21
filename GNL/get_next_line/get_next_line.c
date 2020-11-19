@@ -1,21 +1,46 @@
-#include <stdio.h> // for printf
-#include <fcntl.h> // for open
-#include <string.h> // for strdup
-#include <unistd.h>
+#include <stdio.h>
+#include <fcntl.h> //open
 #include "get_next_line.h"
-#include "libft/libft.h"
+#include <unistd.h>
 
-#define	SAMPLE "str.txt"
-#define	NONREAD "non-read.txt"
-#define	SHORT "short.txt"
+// #define	FILE "short.txt"
+// #define	FILE "str.txt"
+// #define	FILE "0.txt"
+// #define	FILE "n0.txt"
+// #define	FILE "no_read.txt"
+// #define	FILE "test_dir"
+#define	FILE "test_dir/dir.txt"
 
-char			*read_mem(char *mem, char **line)
+
+/*	returns:
+	NULL on error and free mem and line
+	... Non NULL on success
+*/
+int				edit_mem(char **mem, char **line, char *pn)
 {
-	
-	return (mem);
+	char		*tmp;
+
+	// printf("edit mem:\n\tline: '%s'\n\tmem : '%s'\n", *line, *mem);
+	while (1)
+	{
+		*pn = '\0';
+		// *line = *mem; // ??? leaks may be
+		tmp = *line;
+		if (!(*line = ft_strdup(*mem)))
+			break ;
+		free(tmp);
+		tmp = *mem;
+		if (!(*mem = ft_strdup(pn + 1)))
+			break ;
+		free(tmp);
+		return (1);
+	}
+	printf("error\n");
+	free(tmp);
+	free(*mem);
+	free(*line);
+	return (-1);
 }
-
-
 /*	returns:
 	1 : A line has been read
 	0 : EOF has been reached
@@ -23,90 +48,82 @@ char			*read_mem(char *mem, char **line)
 */
 int				get_next_line(int fd, char **line)
 {
+	static char	*mem; // accumulate line
 	char		buf[BUFFER_SIZE + 1];
-	int			end_read;
-	int			result;
-	char		*end_line;
-	int			flag;
-	static char	*mem;
-	result = 1;
-	if (ft_strlen(mem))
-		*line = ft_strdup(mem);
-	else
-		*line = "";
-	while ((end_read = read(fd, buf, BUFFER_SIZE)) != -1)
+	char		*tmp;
+	ssize_t		bytes;
+
+	if (!mem)
+		mem = ft_strdup("");
+	*line = ft_strdup("");
+	if (fd < 0 || *line == NULL)
+		return (-1);
+	while (1)
 	{
-		printf("->line is: '%s'\n->mem is: '%s'\n", *line, mem);
-		printf("read symbols: '%s' (%d)\n", buf, end_read);
-		if (end_read < BUFFER_SIZE) // end of doc
+		printf("line: '%s'\nmem : '%s'\n", *line, mem);
+		if ((tmp = ft_strchr(mem, '\n')))
 		{
-			flag = 0;
-			buf[end_read] = 0;
+			return (edit_mem(&mem, line, tmp) ? 1 : -1);
 		}
-		if ((end_line = ft_strchr(buf, '\n')) != NULL) // end of line
+		else
 		{
-			flag = 2;
-			printf("last symbol in line: '%c'\n", *(end_line));
-			// set 0;
-			*end_line = 0;
-			// save lost string
-			mem = end_line + 1;
-		}
-		else if (end_line == NULL) // center of line
-		{
-			flag = 1;
-			buf[BUFFER_SIZE] = 0;
-		}
-		printf("__flag is: %d\n", flag);
-		if (flag == 1)
-		{
-			*line = ft_strjoin(*line, buf);
-		}
-		if (flag == 0)
-		{
-			*line = ft_strjoin(*line, buf);
-			break ;
-		}
-		if (flag == 2)
-		{
-			printf("buf is '%s'\n", buf);
-			*line = ft_strjoin(*line, buf);
-			break ;
+			if ((bytes = (read(fd, buf, BUFFER_SIZE))) > 0)
+			{
+				buf[bytes] = '\0';
+				tmp = mem;
+				mem = ft_strjoin(mem, buf);
+				if (!mem)
+					break ;
+				free(tmp);
+			}
+			else if (bytes == 0)
+			{
+				/* записать в line всё до '\0' */
+				// *line = mem; // ??? leaks may be
+				tmp = *line;
+				*line = ft_strdup(mem);
+				free(tmp);
+				free(mem);
+				if (!line || bytes == -1)
+					break ;
+				return (0);
+			}
+			else
+			{
+				printf("file reading error\n");
+				break ;
+			}
+			
+			
 		}
 	}
-	printf("<-mem: '%s'\n", mem);
-	if (end_read == -1) // error: trying to read unreadable file 
-		return (-1);
-	return (result);
+	printf("error:\n\tline: '%s'\n\tmem : '%s'\n", *line, mem);
+	free(*line);
+	free(tmp);
+	free(mem);
+	return (-1);
+
 }
 
 int			main(void)
 {
-	int		fd;
-	char	*str =  "";
-	int		N = 2;
+	int		i = 0;
+	// int		fd = open(FILE, O_RDONLY);
+	int		fd = 1;
+	char	*line;
 	int		res;
-	char	*filename = SAMPLE;
 
-	printf("BUFFER_SIZE = %d\n", BUFFER_SIZE);
-	fd = open(filename, O_RDONLY);
-	while(N--){
-		res = get_next_line(fd, &str);
+	while ((res = get_next_line(fd, &line)) >= 0)
+	{
+		printf("===[%d]: '%s'\n\n", ++i, line);
 		if (res == 0)
-		{
-			printf("result: %d, line: '%s'\n", res, str);
-			printf("\n==Text is off.==\n");
-			return (0);
-		}
-		else if(res == -1)
-		{
-			printf("\n==Error==\n");
 			break ;
-		}
-		else
-		{
-			printf("result: %d, line: '%s'\n", res, str);
-		}
+		free(line);
 	}
-	
+	if (res == -1)
+		printf("===ERROR\n");
+	// while (1)
+	// {
+	// 	;
+	// }
 }
