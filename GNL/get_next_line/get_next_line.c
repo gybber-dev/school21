@@ -4,14 +4,14 @@
 #include <unistd.h>
 
 // #define	FILE "short.txt"
-// #define	FILE "str.txt"
+#define	FILE "str.txt"
 // #define	FILE "0.txt"
 // #define	FILE "n0.txt"
 // #define	FILE "no_read.txt"
 // #define	FILE "test_dir"
 // #define	FILE "test_dir/dir.txt"
 // #define FILE "64bit_paragraph.txt"
-#define FILE "long_line.txt"
+// #define FILE "long_line.txt"
 
 
 void	free_mem(char **mem)
@@ -22,8 +22,8 @@ void	free_mem(char **mem)
 }
 
 /*	returns:
-	NULL on error and free mem and line
-	... Non NULL on success
+	-1:	on error and free mem and line
+	1:	on success
 */
 int				edit_mem(char **mem, char **line, char *pn)
 {
@@ -62,21 +62,18 @@ int				get_next_line(int fd, char **line)
 	char		*tmp;
 	ssize_t		bytes;
 
+	if (BUFFER_SIZE <= 0 || !(buf = (char *)malloc(BUFFER_SIZE + 1)))
+		return (-1);
+	if (fd < 0 || (*line = ft_strdup("")) == NULL)
+		return (-1);
 	if (!mem)
 		mem = ft_strdup("");
-	*line = ft_strdup("");
-	tmp = ft_strdup("");
-	if (!(buf = (char *)malloc(BUFFER_SIZE + 1)))
-		return (-1);
-	if (fd < 0 || *line == NULL)
-		return (-1);
 	while (1)
 	{
-		// printf("line: '%s'\nmem : '%s'\n", *line, mem);
 		if ((tmp = ft_strchr(mem, '\n')))
 		{
 			free_mem(&buf);
-			return (edit_mem(&mem, line, tmp) ? 1 : -1);
+			return (edit_mem(&mem, line, tmp));
 		}
 		else
 		{
@@ -85,17 +82,13 @@ int				get_next_line(int fd, char **line)
 				buf[bytes] = '\0';
 				tmp = mem;
 				mem = ft_strjoin(mem, buf);
-				buf[bytes] = '\n'; // to free all
+				free_mem(&tmp);
 				if (!mem)
 					break ;
-				free_mem(&tmp);
-				// free_mem(&buf);
 			}
-			else if (bytes == 0)
+			else
 			{
 				/* записать в line всё до '\0' */
-				// *line = mem; // ??? leaks may be
-				// printf("check for buf: '%s'", buf)
 				tmp = *line;
 				*line = ft_strdup(mem);
 				free_mem(&tmp);
@@ -104,14 +97,7 @@ int				get_next_line(int fd, char **line)
 					break ;
 				free_mem(&buf);
 				return (0);
-			}
-			else
-			{
-				// printf("file reading error\n");
-				break ;
-			}
-			
-			
+			}		
 		}
 	}
 	// printf("error:\n\tline: '%s'\n\tmem : '%s'\n", *line, mem);
@@ -123,22 +109,22 @@ int				get_next_line(int fd, char **line)
 
 }
 
-int			main(void)
-{
-	int		i = 0;
-	int		fd = open(FILE, O_RDONLY);
-	// int		fd = 1;
-	char	*line;
-	int		res;
+// int			main(void)
+// {
+// 	int		i = 0;
+// 	int		fd = open(FILE, O_RDONLY);
+// 	// int		fd = 1;
+// 	char	*line;
+// 	int		res;
 
-	while ((res = get_next_line(fd, &line)) >= 0)
-	{
-		printf("===[%d]: '%s'\n\n", ++i, line);
-		if (res == 0)
-			break ;
-		free_mem(&line);
-	}
-	if (res == -1)
-		printf("===ERROR\n");
-	while (1);
-}
+// 	while ((res = get_next_line(fd, &line)) >= 0)
+// 	{
+// 		printf("===[%d]: '%s'\n\n", ++i, line);
+// 		if (res == 0)
+// 			break ;
+// 		free_mem(&line);
+// 	}
+// 	if (res == -1)
+// 		printf("===ERROR\n");
+// 	// while (1);
+// }
