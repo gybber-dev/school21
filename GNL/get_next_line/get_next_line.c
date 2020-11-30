@@ -14,41 +14,69 @@
 // #define FILE "long_line.txt"
 
 
-void	free_mem(char **mem)
+void			free_mem(char **arg0, char **arg1)
 {
-	if (*mem != NULL)
-		free(*mem);
-	*mem = NULL;
+	if (*arg0 != NULL)
+		free(*arg0);
+	*arg0 = NULL;
+	if (*arg1 != NULL)
+		free(*arg1);
+	*arg1 = NULL;
 }
 
-/*	returns:
-	-1:	on error and free mem and line
+/*	returns: move string before \n to *line. After \n - to mem
+	-1:	on error then free mem and line
 	1:	on success
 */
-int				edit_mem(char **mem, char **line, char *pn)
+int				edit_mem(char **m, char **l, char *p)
 {
-	char		*tmp;
-
-	// printf("edit mem:\n\tline: '%s'\n\tmem : '%s'\n", *line, *mem);
-	while (1)
-	{
-		*pn = '\0';
-		tmp = *line;
-		if (!(*line = ft_strdup(*mem)))
-			break ;
-		free_mem(&tmp);
-		tmp = *mem;
-		if (!(*mem = ft_strdup(pn + 1)))
-			break ;
-		free_mem(&tmp);
+	*p = '\0';
+	if ((*l = ft_strjoin(*m, NULL, *l)) && (*m = ft_strjoin((p + 1), NULL, *m)))
 		return (1);
-	}
-	// printf("error\n");
-	free_mem(&tmp);
-	free_mem(mem);
-	free_mem(line);
+	free_mem(l, m);
 	return (-1);
 }
+
+
+
+/*
+	returns:
+	2	- buffer
+	-1	- on error
+	0	- end of text
+	1	- end of line
+*/
+int				read_line(char **line, char **buf, char **mem, int fd)
+{
+	char		*tmp;
+	ssize_t		bytes;
+
+	if ((tmp = ft_strchr(*mem, '\n')))
+		{
+			free_mem(buf, buf);
+			return (edit_mem(mem, line, tmp));
+		}
+		else
+		{
+			if ((bytes = (read(fd, *buf, BUFFER_SIZE))) > 0)
+			{
+				(*buf)[bytes] = '\0';
+				if (!(*mem = ft_strjoin(*mem, *buf, *mem)))
+					return (-1);
+			}
+			else
+			{
+				*line = ft_strjoin(*mem, NULL, *line);
+				free_mem(mem, buf);
+				if (!(*line) || bytes == -1)
+					return (-1);
+				return (0);
+			}		
+		}
+	return (2);
+}
+
+
 /*	returns:
 	1 : A line has been read
 	0 : EOF has been reached
@@ -58,71 +86,25 @@ int				get_next_line(int fd, char **line)
 {
 	static char	*mem;
 	char		*buf;
-	char		*tmp;
-	ssize_t		bytes;
+	int			result;
 
-	if (BUFFER_SIZE <= 0 || !(buf = (char *)malloc(BUFFER_SIZE + 1)))
+	result = -1;
+	if (BUFFER_SIZE <= 0 || !(buf = (char *)malloc(BUFFER_SIZE + 1)) ||
+			fd < 0 || (*line = (char *)malloc(1)) == NULL)
 		return (-1);
-	if (fd < 0 || (*line = ft_strdup("")) == NULL)
-		return (-1);
+	*line[0] = '\0';
 	if (!mem)
-		mem = ft_strdup("");
-	while (1)
 	{
-		if ((tmp = ft_strchr(mem, '\n')))
-		{
-			free_mem(&buf);
-			return (edit_mem(&mem, line, tmp));
-		}
-		else
-		{
-			if ((bytes = (read(fd, buf, BUFFER_SIZE))) > 0)
-			{
-				buf[bytes] = '\0';
-				tmp = mem;
-				mem = ft_strjoin(mem, buf);
-				free_mem(&tmp);
-				if (!mem)
-					break ;
-			}
-			else
-			{
-				/* записать в line всё до '\0' */
-				tmp = *line;
-				*line = ft_strdup(mem);
-				free_mem(&tmp);
-				free_mem(&mem);
-				free_mem(&buf);
-				if (!line || bytes == -1)
-					break ;
-				return (0);
-			}		
-		}
+		if (!(mem = (char *)malloc(1)))
+			return (-1);
+		mem[0] = '\0';
 	}
-	free_mem(&buf);
-	free_mem(line);
-	free_mem(&tmp);
-	free_mem(&mem);
-	return (-1);
-
+	while ((result = read_line(line, &buf, &mem, fd)) == 2)
+		;
+	if (result == -1)
+	{
+		free_mem(&buf, line);
+		free_mem(&mem, &mem);
+	}
+	return (result);
 }
-
-// int			main(void)
-// {
-// 	int		i = 0;
-// 	int		fd = open(FILE, O_RDONLY);
-// 	// int		fd = 1;
-// 	char	*line;
-// 	int		res;
-
-// 	while ((res = get_next_line(fd, &line)) >= 0)
-// 	{
-// 		printf("===[%d]: '%s'\n\n", ++i, line);
-// 		if (res == 0)
-// 			break ;
-// 		free_mem(&line);
-// 	}
-// 	if (res == -1)
-// 		printf("===ERROR\n");
-// 	// while (1);
-// }

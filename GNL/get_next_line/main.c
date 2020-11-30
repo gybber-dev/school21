@@ -2,21 +2,36 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 #include <string.h>
+#include <fcntl.h> //open
 
-void	free_mem(char **arg1, char **arg2, char arg3, char arg4)
-{
-	if (!arg1)
-		printf("arg1 not defined\n");
-	if (!arg2)
-		printf("arg2 not defined\n");
-	if (!arg3)
-		printf("arg3 not defined\n");
-	if (!arg4)
-		printf("arg4 not defined\n");
-}
+// #define	FILE "short.txt"
+// #define	FILE "str.txt"
+// #define	FILE "0.txt"
+// #define	FILE "n0.txt"
+// #define	FILE "no_read.txt"
+// #define	FILE "test_dir"
+// #define	FILE "test_dir/dir.txt"
+// #define FILE "64bit_paragraph.txt"
+// #define FILE "long_line.txt"
+#define FILE "fewchar_perline.txt"
 
-int main (void)
+int			main(void)
 {
-	char *str1 = "str1";
-	free_mem(&str1, &NULL, &NULL, &NULL);
+	int		i = 0;
+	int		fd = open(FILE, O_RDONLY);
+	// int		fd = 1;
+	char	*line;
+	int		res;
+
+	while ((res = get_next_line(fd, &line)) == 1 || res == 0)
+	{
+		printf("===[%d]: '%s'\n\n", ++i, line);
+		if (res == 0)
+			break ;
+		free_mem(&line, &line, &line);
+		// free_mem(&line);
+	}
+	if (res == -1)
+		printf("===ERROR\n");
+	// while (1);
 }
