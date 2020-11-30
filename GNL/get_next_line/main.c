@@ -3,22 +3,20 @@
 #include "get_next_line.h"
 #include <string.h>
 
-void	free_mem(char **mem)
+void	free_mem(char **arg1, char **arg2, char arg3, char arg4)
 {
-	if (*mem != NULL)
-		free(*mem);
-	*mem = NULL;
+	if (!arg1)
+		printf("arg1 not defined\n");
+	if (!arg2)
+		printf("arg2 not defined\n");
+	if (!arg3)
+		printf("arg3 not defined\n");
+	if (!arg4)
+		printf("arg4 not defined\n");
 }
 
 int main (void)
 {
-	int N = 5;
-	char *str = (char *)malloc(N);
-	memcpy(str, "asdf", N);
-	str[N - 1] = 0;
-	printf("sizeof: '%s' is [%lu]\n", str, sizeof(str));
-	free_mem(&str);
-	printf("sizeof: '%s' is [%lu]\n", str, sizeof(str));
-	free_mem(&str);
-	printf("'%s'\n", str);
+	char *str1 = "str1";
+	free_mem(&str1, &NULL, &NULL, &NULL);
 }
