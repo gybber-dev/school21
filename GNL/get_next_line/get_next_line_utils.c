@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 01:57:10 by yeschall          #+#    #+#             */
-/*   Updated: 2020/11/19 02:39:01 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/11/30 21:14:59 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,85 +21,6 @@ size_t		ft_strlen(const char *str)
 		i++;
 	return (i);
 }
-
-void		ft_bzero(void *b, size_t len)
-{
-	char	*p;
-
-	p = b;
-	while (len-- > 0)
-		*p++ = 0;
-}
-
-size_t		ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	j;
-	size_t	filling;
-
-	i = 0;
-	j = 0;
-	while (i <= dstsize && dst[i++] != '\0')
-		;
-	if (--i == dstsize)
-		return (i + ft_strlen(src));
-	filling = i;
-	while (src[j] && (dstsize - i - 1 > 0))
-		dst[i++] = src[j++];
-	dst[i] = 0;
-	if (filling > dstsize)
-		filling = dstsize;
-	return (filling + ft_strlen(src));
-}
-
-size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-
-	if (dst == NULL || src == NULL)
-		return (0);
-	i = 0;
-	if (dstsize > 0)
-	{
-		while (src[i] && (dstsize - i - 1) > 0)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = 0;
-	}
-	while (src[i])
-		i++;
-	return (i);
-}
-
-void		*ft_memcpy(void *dst, const void *src, size_t len)
-{
-	char	*p_dst;
-	char	*p_src;
-
-	p_src = (char *)src;
-	p_dst = (char *)dst;
-	if (p_dst == NULL && p_src == NULL)
-		return (NULL);
-	while (len-- > 0)
-		*p_dst++ = *p_src++;
-	return (dst);
-}
-
-char		*ft_strdup(const char *s1)
-{
-	char	*res;
-	size_t	len;
-
-	len = ft_strlen(s1) + 1;
-	res = (char *)malloc(len * sizeof(char));
-	if (res == NULL)
-		return (NULL);
-	ft_memcpy(res, s1, len);
-	return (res);
-}
-
 
 char			*ft_strchr(const char *s, int c)
 {
@@ -116,19 +37,57 @@ char			*ft_strchr(const char *s, int c)
 	return (char *)NULL;
 }
 
-char		*ft_strjoin(char const *s1, char const *s2)
+void			*ft_memmove(void *dst, const void *src, size_t len)
+{
+	const char	*src_p;
+	const char	*src_end;
+	char		*dst_p;
+	char		*dst_end;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	dst_p = (char *)dst;
+	src_p = (char *)src;
+	if (dst_p < src_p)
+		while (len--)
+			*dst_p++ = *src_p++;
+	else
+	{
+		src_end = src_p + (len - 1);
+		dst_end = dst_p + (len - 1);
+		while (len--)
+			*dst_end-- = *src_end--;
+	}
+	return (dst);
+}
+
+char		*ft_strjoin(char *s1, char *s2, char *clear)
 {
 	char	*res;
-	size_t	len;
+	size_t	len1;
+	size_t	len2;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
 		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = (char *)malloc(len);
-	if (res == NULL)
+	if (s2 == NULL)
+	{
+		if (!(s2 = (char *)malloc(1)))
+			return (NULL);
+		*s2 = '\0';
+	}
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
+	{
+		!(len2) ? free_mem(&s2, &s2) : 0;
 		return (NULL);
-	ft_bzero(res, len);
-	ft_strlcat(res, s1, len);
-	ft_strlcat(res, s2, len);
+	}
+	ft_memmove(res, s1, len1 * sizeof(char));
+	ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
+	res[len1 + len2] = 0;
+	// printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
+	!(len2) ? free_mem(&s2, &s2) : 0;
+	(clear) ? free_mem(&clear, &clear) : 0;
+	// printf("s1: '%s', s2: '%s', res: '%s'\n", s1, s2, res);
 	return (res);
 }
