@@ -1,18 +1,6 @@
 #include <stdio.h>
-#include <fcntl.h> //open
 #include "get_next_line.h"
 #include <unistd.h>
-
-#define	FILE "short.txt"
-// #define	FILE "str.txt"
-// #define	FILE "0.txt"
-// #define	FILE "n0.txt"
-// #define	FILE "no_read.txt"
-// #define	FILE "test_dir"
-// #define	FILE "test_dir/dir.txt"
-// #define FILE "64bit_paragraph.txt"
-// #define FILE "long_line.txt"
-
 
 size_t		ft_strlen(const char *str)
 {
@@ -85,6 +73,7 @@ s2 == NULL?
  clear == 1?
 	free(s1)
 */
+// char		*ft_strjoin(char **dst, char *src1, char *src2, int clear)
 char		*ft_strjoin(char *s1, char *s2, int clear)
 {
 	char	*res;
@@ -109,10 +98,10 @@ char		*ft_strjoin(char *s1, char *s2, int clear)
 	ft_memmove(res, s1, len1 * sizeof(char));
 	ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
 	res[len1 + len2] = 0;
-	printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
+	// printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
 	!(len2) ? free_mem(&s2, &s2, &s2) : 0;
 	(clear) ? free_mem(&s1, &s1, &s1) : 0;
-	printf("s1: '%s', s2: '%s', res: '%s'\n", s1, s2, res);
+	// printf("s1: '%s', s2: '%s', res: '%s'\n", s1, s2, res);
 	return (res);
 }
 
@@ -181,18 +170,18 @@ int				read_line(char **line, char **buf, char **mem, int fd)
 
 	if ((tmp = ft_strchr(*mem, '\n')))
 	{
-		printf("n in line detected...\n");
-		printf("..clearing buf: '%s'...", *buf);
+		// printf("n in line detected...\n");
+		// printf("..clearing buf: '%s'...", *buf);
 		free_mem(buf, buf, buf);
-		printf("buf is cleared: '%s'\n", *buf);
+		// printf("buf is cleared: '%s'\n", *buf);
 		return (edit_mem(mem, line, tmp));
 	}
 	else
 	{
-		printf("n not in line:\n");
+		// printf("n not in line:\n");
 		if ((bytes = (read(fd, *buf, BUFFER_SIZE))) > 0)
 		{
-			printf("read [%zu]. 0 is not in line\n", bytes);
+			// printf("read [%zu]. 0 is not in line\n", bytes);
 			(*buf)[bytes] = '\0';
 			*mem = ft_strjoin(*mem, *buf, 1);
 			if (!mem)
@@ -200,8 +189,8 @@ int				read_line(char **line, char **buf, char **mem, int fd)
 		}
 		else
 		{
-			printf("0 in line detected...\n");
-			printf("____, line: '%s', mem: '%s'\n", *line, *mem);
+			// printf("0 in line detected...\n");
+			// printf("____, line: '%s', mem: '%s'\n", *line, *mem);
 			*line = ft_strjoin(*line, *mem, 1);
 			if (!(*line) || bytes == -1)
 				return (-1); //break ;
@@ -230,41 +219,21 @@ int				get_next_line(int fd, char **line)
 	*line[0] = '\0';
 	if (!mem)
 	{
-		printf("mem is empty\n");
+		// printf("mem is empty\n");
 		if (!(mem = (char *)malloc(1)))
 			return (-1);
 		mem[0] = '\0';
 	}
 	else
 	{
-		printf("mem is not empty: '%s'\n", mem);
+		// printf("mem is not empty: '%s'\n", mem);
 	}
 	
 	while ((result = read_line(line, &buf, &mem, fd)) == 2)
-		printf("result: %d\n", result);
-	printf("result: %d\n", result);
+		; // printf("result: %d\n", result);
+	// printf("result: %d\n", result);
 	if (result == -1)
 		free_mem(&mem, &buf, line);
 	return (result);
 
-}
-
-int			main(void)
-{
-	int		i = 0;
-	int		fd = open(FILE, O_RDONLY);
-	// int		fd = 1;
-	char	*line;
-	int		res;
-
-	while ((res = get_next_line(fd, &line)) >= 0)
-	{
-		printf("===[%d]: '%s'\n\n", ++i, line);
-		if (res == 0)
-			break ;
-		free_mem(&line, &line, &line);
-	}
-	if (res == -1)
-		printf("===ERROR\n");
-	// while (1);
 }
