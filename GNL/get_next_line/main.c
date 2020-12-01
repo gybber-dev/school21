@@ -2,23 +2,36 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 #include <string.h>
+#include <fcntl.h> //open
 
-void	free_mem(char **mem)
-{
-	if (*mem != NULL)
-		free(*mem);
-	*mem = NULL;
-}
+// #define	FILE "short.txt"
+// #define	FILE "str.txt"
+// #define	FILE "0.txt"
+// #define	FILE "n0.txt"
+// #define	FILE "no_read.txt"
+// #define	FILE "test_dir"
+// #define	FILE "test_dir/dir.txt"
+// #define FILE "64bit_paragraph.txt"
+// #define FILE "long_line.txt"
+#define FILE "fewchar_perline.txt"
 
-int main (void)
+int			main(void)
 {
-	int N = 5;
-	char *str = (char *)malloc(N);
-	memcpy(str, "asdf", N);
-	str[N - 1] = 0;
-	printf("sizeof: '%s' is [%lu]\n", str, sizeof(str));
-	free_mem(&str);
-	printf("sizeof: '%s' is [%lu]\n", str, sizeof(str));
-	free_mem(&str);
-	printf("'%s'\n", str);
+	int		i = 0;
+	int		fd = open(FILE, O_RDONLY);
+	// int		fd = 1;
+	char	*line;
+	int		res;
+
+	while ((res = get_next_line(fd, &line)) == 1 || res == 0)
+	{
+		printf("===[%d]: '%s'\n\n", ++i, line);
+		if (res == 0)
+			break ;
+		free_mem(&line, &line, &line);
+		// free_mem(&line);
+	}
+	if (res == -1)
+		printf("===ERROR\n");
+	// while (1);
 }
