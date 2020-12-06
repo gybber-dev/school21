@@ -5,10 +5,10 @@
 # endif
 #include	<unistd.h>
 #include	<stdlib.h>
-#include	<stdio.h>
+// #include	<stdio.h>
 int			get_next_line(int fd, char **line);
 char		*ft_strchr(const char *s, int c);
 size_t		ft_strlen(const char *str);
-void		free_mem(char **arg0, char **arg1);
+void		free_mem(char **arg0);
 int			ft_strjoin(char **dst, char *s1, char *s2, int clear);
 #endif

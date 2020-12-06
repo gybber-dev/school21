@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 01:57:10 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/06 17:35:09 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/06 19:37:25 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,25 +80,26 @@ int			ft_strjoin(char **dst, char *s1, char *s2, int clear)
 	size_t	len1;
 	size_t	len2;
 
+	// printf("joining:\ns1(%zu): '%s'\ns2(%zu): '%s'\n\tclear? %d\n", ft_strlen(s1), s1, ft_strlen(s2), s2, clear);
 	tmp = *dst;
-	(tmp != NULL) ? free(tmp) : 0;
-	if (s1 == NULL)
-		return (0);
-	len1 = ft_strlen(s1);
-	len2 = (s2 == NULL)? 0: ft_strlen(s2);
-	if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
-		return (0);
-	ft_memmove(res, s1, len1 * sizeof(char));
-	if (len2)
-		ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
-	res[len1 + len2] = 0;
-	printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
-	*dst = res;
-	if (clear == 1 || clear == 3)
-		free(s1);
-	if (clear == 2 || clear == 3)
-		free(s2);
-	printf("end join\n");
-	// printf("s1: '%s', s2: '%s', res: '%s'\n", s1, s2, res);
-	return (1);
+	while (s1 != NULL)
+	{
+		len1 = ft_strlen(s1);
+		len2 = (s2 == NULL)? 0: ft_strlen(s2);
+		if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
+			break ;
+		ft_memmove(res, s1, len1 * sizeof(char));
+		if (len2)
+			ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
+		res[len1 + len2] = 0;
+		*dst = res;
+		if (clear == 1 || clear == 3)
+			free_mem(&s1);
+		if (clear == 2 || clear == 3)
+			free_mem(&s2);
+		(tmp != NULL) ? free_mem(&tmp) : 0;
+		return (1);
+	}
+	(tmp != NULL) ? free_mem(&tmp) : 0;
+	return (0);
 }

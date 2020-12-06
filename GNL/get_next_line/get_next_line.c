@@ -3,25 +3,23 @@
 #include "get_next_line.h"
 #include <unistd.h>
 
-// #define	FILE "short.txt"
-#define	FILE "str.txt"
-// #define	FILE "0.txt"
-// #define	FILE "n0.txt"
-// #define	FILE "no_read.txt"
-// #define	FILE "test_dir"
-// #define	FILE "test_dir/dir.txt"
-// #define FILE "64bit_paragraph.txt"
-// #define FILE "long_line.txt"
-
-
-void			free_mem(char **arg0, char **arg1)
+void			free_mem(char **arg0)
 {
+	// printf("FREE MEM: '%s'\n", *arg0);
+	// free(*arg0);
 	if (*arg0 != NULL)
+	{
+		// printf("FR")
 		free(*arg0);
-	*arg0 = NULL;
-	if (*arg1 != NULL)
-		free(*arg1);
-	*arg1 = NULL;
+		*arg0 = NULL;
+	}
+	else
+	{
+		printf("!!!!!!CATCH IT!!!!!!!!!!!!!!!!!\n");
+	}
+	// if (*arg1 != NULL)
+	// 	free(*arg1);
+	// *arg1 = NULL;
 }
 
 /*	
@@ -35,11 +33,11 @@ int				edit_mem(char **mem, char **line, char *p)
 
 	*p = '\0';
 	
-	printf("edit mem:\n\tmem : '%s'\n\tline: '%s'\n", *mem, *line);
+	// printf("edit mem:\n\tmem : '%s'\n\tline: '%s'\n", *mem, *line);
 	tmp = NULL;
 	if (ft_strjoin(&tmp, (p + 1), NULL, 0))
 	{
-		printf("tmp is: %s\n", tmp);
+		// printf("tmp is: %s\n", tmp);
 		if ((ft_strjoin(line, *mem, NULL, 1)) && (*mem = tmp))
 			return (1);
 	}
@@ -60,32 +58,37 @@ ssize_t			read_line(char **line, char **buf, char **mem, int fd)
 	char		*tmp;
 	ssize_t		bytes;
 
-	printf("\n\n_____tik___\n");
-	printf("buf: '%s'\nline: '%s'\nmem: '%s'\n", *buf, *line, *mem);
+	// printf("\n\n==============\nbuf: '%s'\nline: '%s'\nmem: '%s'\n\n", *buf, *line, *mem);
 	if ((tmp = ft_strchr(*mem, '\n')))
 	{
-		printf("CHECK_0\n");
-		if ((bytes = edit_mem(mem, line, tmp)) != -1)
-			free(buf);
-		return (bytes);
+		// printf("CHECK_0\n");
+		free_mem(buf);
+		return (edit_mem(mem, line, tmp));
+			// printf("\n\nerror2\n");
+		// return (bytes);
 	}
 	else
 	{
 		if ((bytes = (read(fd, *buf, BUFFER_SIZE))) > 0)
 		{
-			printf("CHECK_1\n");
+			// printf("CHECK_1 %zd\n", bytes);
 			(*buf)[bytes] = '\0';
 			if (!ft_strjoin(mem, *mem, *buf, 0))
+			{
+				// printf("\n\nerror1\n\n");
 				return (-1);
+			}
 		}
 		else
 		{
-			printf("CHECK_2\n");
+			// printf("CHECK_2\n");
 			ft_strjoin(line, *mem, NULL, 1);
-			free(buf);
-			printf("tmp: '%s'\n", tmp);
 			if (!(*line) || bytes == -1)
+			{
+				// printf("\n\nerror0\n");
 				return (-1);
+			}
+			free_mem(buf);
 			return (0);
 		}		
 	}
@@ -118,11 +121,12 @@ int				get_next_line(int fd, char **line)
 		mem[0] = '\0';
 	}
 	while ((result = read_line(line, &buf, &mem, fd)) == 2)
-		;
+		; // printf("RESULT: %zu, is end? '%s'\n", result, ft_strchr(mem, '\0'));
 	if (result == -1)
 	{
-		free_mem(&buf, line);
-		free_mem(&mem, &mem);
+		free_mem(&buf);
+		free_mem(line);
+		free_mem(&mem);
 	}
 	return (result);
 }
