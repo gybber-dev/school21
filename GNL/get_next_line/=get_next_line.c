@@ -24,25 +24,16 @@ void			free_mem(char **arg0, char **arg1)
 	*arg1 = NULL;
 }
 
-/*	
-	returns: move string before \n to *line. After \n - to mem
-	-1:	on error (don't free mem and line)
+/*	returns: move string before \n to *line. After \n - to mem
+	-1:	on error then free mem and line
 	1:	on success
 */
-int				edit_mem(char **mem, char **line, char *p)
+int				edit_mem(char **m, char **l, char *p)
 {
-	char		*tmp;
-
 	*p = '\0';
-	
-	printf("edit mem:\n\tmem : '%s'\n\tline: '%s'\n", *mem, *line);
-	tmp = NULL;
-	if (ft_strjoin(&tmp, (p + 1), NULL, 0))
-	{
-		printf("tmp is: %s\n", tmp);
-		if ((ft_strjoin(line, *mem, NULL, 1)) && (*mem = tmp))
-			return (1);
-	}
+	if ((*l = ft_strjoin(*m, NULL, l)) && (*m = ft_strjoin((p + 1), NULL, m)))
+		return (1);
+	free_mem(l, m);
 	return (-1);
 }
 
@@ -51,45 +42,41 @@ int				edit_mem(char **mem, char **line, char *p)
 /*
 	returns:
 	2	- buffer
-	-1	- on error don't free mem, buf and line
+	-1	- on error
 	0	- end of text
 	1	- end of line
 */
-ssize_t			read_line(char **line, char **buf, char **mem, int fd)
+int				read_line(char **line, char **buf, char **mem, int fd)
 {
 	char		*tmp;
 	ssize_t		bytes;
 
-	printf("\n\n_____tik___\n");
-	printf("buf: '%s'\nline: '%s'\nmem: '%s'\n", *buf, *line, *mem);
 	if ((tmp = ft_strchr(*mem, '\n')))
-	{
-		printf("CHECK_0\n");
-		if ((bytes = edit_mem(mem, line, tmp)) != -1)
-			free(buf);
-		return (bytes);
-	}
-	else
-	{
-		if ((bytes = (read(fd, *buf, BUFFER_SIZE))) > 0)
 		{
-			printf("CHECK_1\n");
-			(*buf)[bytes] = '\0';
-			if (!ft_strjoin(mem, *mem, *buf, 0))
-				return (-1);
+			free_mem(buf, buf);
+			return (edit_mem(mem, line, tmp));
 		}
 		else
 		{
-			printf("CHECK_2\n");
-			ft_strjoin(line, *mem, NULL, 1);
-			free(buf);
-			printf("tmp: '%s'\n", tmp);
-			if (!(*line) || bytes == -1)
-				return (-1);
-			return (0);
-		}		
-	}
-	return (2); //continue
+			if ((bytes = (read(fd, *buf, BUFFER_SIZE))) > 0)
+			{
+				(*buf)[bytes] = '\0';
+				if (!(*mem = ft_strjoin(*mem, *buf, mem)))
+					return (-1);
+			}
+			else
+			{
+				tmp = *line;
+				*line = ft_strjoin(*mem, NULL, line);
+				free_mem(mem, buf);
+				// printf("tmp: '%s'\n", tmp);
+				free_mem(&tmp, &tmp);
+				if (!(*line) || bytes == -1)
+					return (-1);
+				return (0);
+			}		
+		}
+	return (2);
 }
 
 
@@ -102,13 +89,11 @@ int				get_next_line(int fd, char **line)
 {
 	static char	*mem;
 	char		*buf;
-	ssize_t		result;
+	int			result;
 
 	result = -1;
 	if (BUFFER_SIZE <= 0 || !(buf = (char *)malloc(BUFFER_SIZE + 1)) ||
-			fd < 0)
-		return (-1);
-	if ((*line = (char *)malloc(1)) == NULL)
+			fd < 0 || (*line = (char *)malloc(1)) == NULL)
 		return (-1);
 	*line[0] = '\0';
 	if (!mem)

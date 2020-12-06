@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 01:57:10 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/06 17:35:09 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/01 15:25:28 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,44 +61,33 @@ void			*ft_memmove(void *dst, const void *src, size_t len)
 	return (dst);
 }
 
-/*
-	join s1 and s2, and put the result in dst.
-	dst's contant will be saved to *tmp and will be cleared
-	at the end of function ALWAYS! At the end because s1 may be
-	the pointer to the memory of dst
-	it works like:
-		dst = (s2 == NULL)? s1 : s1 + s2;
-	optionaly for clear:
-	1: free(s1)
-	2: free(s2)
-	3: free(s1), free(s2)
-*/
-int			ft_strjoin(char **dst, char *s1, char *s2, int clear)
+char		*ft_strjoin(char *s1, char *s2, char **clear)
 {
 	char	*res;
-	char	*tmp;
 	size_t	len1;
 	size_t	len2;
 
-	tmp = *dst;
-	(tmp != NULL) ? free(tmp) : 0;
 	if (s1 == NULL)
-		return (0);
+		return (NULL);
+	if (s2 == NULL)
+	{
+		if (!(s2 = (char *)malloc(1)))
+			return (NULL);
+		*s2 = '\0';
+	}
 	len1 = ft_strlen(s1);
-	len2 = (s2 == NULL)? 0: ft_strlen(s2);
+	len2 = ft_strlen(s2);
 	if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
-		return (0);
+	{
+		!(len2) ? free_mem(&s2, &s2) : 0;
+		return (NULL);
+	}
 	ft_memmove(res, s1, len1 * sizeof(char));
-	if (len2)
-		ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
+	ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
 	res[len1 + len2] = 0;
-	printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
-	*dst = res;
-	if (clear == 1 || clear == 3)
-		free(s1);
-	if (clear == 2 || clear == 3)
-		free(s2);
-	printf("end join\n");
+	// printf("joining: s1: '%s', s2: '%s', res: '%s'\n\tclear s1? %d\n", s1, s2, res, clear);
+	!(len2) ? free_mem(&s2, &s2) : 0;
+	(*clear) ? free_mem(clear, clear) : 0;
 	// printf("s1: '%s', s2: '%s', res: '%s'\n", s1, s2, res);
-	return (1);
+	return (res);
 }

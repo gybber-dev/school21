@@ -4,7 +4,7 @@
 #include <string.h>
 #include <fcntl.h> //open
 
-#define	FILE "short.txt"
+// #define	FILE "short.txt"
 // #define	FILE "str.txt"
 // #define	FILE "0.txt"
 // #define	FILE "n0.txt"
@@ -13,13 +13,8 @@
 // #define	FILE "test_dir/dir.txt"
 // #define FILE "64bit_paragraph.txt"
 // #define FILE "long_line.txt"
-// #define FILE "fewchar_perline.txt"
+#define FILE "fewchar_perline.txt"
 
-
-
-/*
-valgrind --leak-check=yes ./a.out 
-*/
 int			main(void)
 {
 	int		i = 0;
