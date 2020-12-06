@@ -4,6 +4,9 @@
 #include <string.h>
 #include <fcntl.h> //open
 
+
+#define	FILE "short.txt"
+
 #define	FILE "short.txt"
 // #define	FILE "str.txt"
 // #define	FILE "0.txt"
@@ -20,6 +23,8 @@
 /*
 valgrind --leak-check=yes ./a.out 
 */
+// #define FILE "fewchar_perline.txt"
+
 int			main(void)
 {
 	int		i = 0;
@@ -33,8 +38,9 @@ int			main(void)
 		printf("===[%d]: '%s'\n\n", ++i, line);
 		if (res == 0)
 			break ;
+
 		free_mem(&line, &line);
-		// free_mem(&line);
+	// free_mem(&line);
 	}
 	if (res == -1)
 		printf("===ERROR\n");
