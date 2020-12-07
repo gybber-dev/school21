@@ -100,26 +100,3 @@ int		get_next_line(int fd, char **line)
 	}
 	return (res);
 }
-
-int			main(void)
-{
-	int		i = 0;
-	int		fd = open("tt.txt", O_RDONLY);
-	// int		fd = 1;
-	char	*line;
-	int		res;
-
-	while ((res = get_next_line(fd, &line)) >= 0)
-	{
-		printf("===[%d]: '%s'\n\n", ++i, line);
-		if (res == 0)
-			break ;
-		free(line);
-	}
-	if (res == -1)
-		printf("===ERROR\n");
-	// while (1)
-	// {
-	// 	;
-	// }
-}

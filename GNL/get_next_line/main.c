@@ -34,10 +34,9 @@ int			main(void)
 	while ((res = get_next_line(fd, &line)) == 1 || res == 0)
 	{
 		printf("===[%d]: '%s'\n\n", ++i, line);
+		free(line);
 		if (res == 0)
 			break ;
-
-		free(line);
 	// free_mem(&line);
 	}
 	if (res == -1)

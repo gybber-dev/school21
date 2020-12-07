@@ -11,4 +11,5 @@ char		*ft_strchr(const char *s, int c);
 size_t		ft_strlen(const char *str);
 void		free_mem(char **arg0);
 int			ft_strjoin(char **dst, char *s1, char *s2, int clear);
+char		*ft_strjoin1(char *s1, char *s2);
 #endif

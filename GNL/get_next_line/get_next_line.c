@@ -2,12 +2,13 @@
 #include <fcntl.h> //open
 #include "get_next_line.h"
 #include <unistd.h>
+#include <string.h>
 
 void			free_mem(char **arg0)
 {
 	// printf("FREE MEM: '%s'\n", *arg0);
 	// free(*arg0);
-	if (*arg0 != NULL)
+	if (arg0 != NULL && (*arg0) != NULL)
 	{
 		// printf("FR")
 		free(*arg0);
@@ -32,15 +33,12 @@ int				edit_mem(char **mem, char **line, char *p)
 	char		*tmp;
 
 	*p = '\0';
-	
-	// printf("edit mem:\n\tmem : '%s'\n\tline: '%s'\n", *mem, *line);
-	tmp = NULL;
-	if (ft_strjoin(&tmp, (p + 1), NULL, 0))
-	{
-		// printf("tmp is: %s\n", tmp);
-		if ((ft_strjoin(line, *mem, NULL, 1)) && (*mem = tmp))
-			return (1);
-	}
+    if ((*line = ft_strjoin1(*mem, NULL)) == NULL)
+        return (-1);
+    if ((tmp = ft_strjoin1((p + 1), NULL)) == NULL)
+        return (-1);
+	free(*mem);
+	*mem = tmp;
 	return (-1);
 }
 
@@ -62,7 +60,6 @@ ssize_t			read_line(char **line, char **buf, char **mem, int fd)
 	if ((tmp = ft_strchr(*mem, '\n')))
 	{
 		// printf("CHECK_0\n");
-		free_mem(buf);
 		return (edit_mem(mem, line, tmp));
 			// printf("\n\nerror2\n");
 		// return (bytes);
@@ -94,7 +91,24 @@ ssize_t			read_line(char **line, char **buf, char **mem, int fd)
 	}
 	return (2); //continue
 }
-
+/*
+ * s1 is a static variable. It'll be initialized if it is empty
+ * */
+int                init_mem2(char **s1, char **s2)
+{
+    if (!(*s1))
+        if (*s1 = (char *)malloc(1) == NULL)
+            return (-1);
+    if (*s2 = (char *)malloc(1) == NULL)
+    {
+        free(s1);
+        return (-1);
+    }
+    if (!(*s1))
+        *s1[0] = '\0';
+    *s2[0] = '\0';
+    return (1);
+}
 
 /*	returns:
 	1 : A line has been read
@@ -108,25 +122,11 @@ int				get_next_line(int fd, char **line)
 	ssize_t		result;
 
 	result = -1;
-	if (BUFFER_SIZE <= 0 || !(buf = (char *)malloc(BUFFER_SIZE + 1)) ||
-			fd < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || init_mem3(&mem, &buf) == -1)
 		return (-1);
-	if ((*line = (char *)malloc(1)) == NULL)
-		return (-1);
-	*line[0] = '\0';
-	if (!mem)
-	{
-		if (!(mem = (char *)malloc(1)))
-			return (-1);
-		mem[0] = '\0';
-	}
 	while ((result = read_line(line, &buf, &mem, fd)) == 2)
 		; // printf("RESULT: %zu, is end? '%s'\n", result, ft_strchr(mem, '\0'));
-	if (result == -1)
-	{
-		free_mem(&buf);
-		free_mem(line);
-		free_mem(&mem);
-	}
+    free_mem(&buf);
+    free_mem(&mem);
 	return (result);
 }
