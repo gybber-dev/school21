@@ -1,11 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "get_next_line.h"
-#include <string.h>
 #include <fcntl.h> //open
 
 
- #define	FILE "/Users/yeschall/Desktop/Projects/GitHub/GNL/get_next_line/short.txt"
+ #define	FILE "short.txt"
 // #define	FILE "str.txt"
 // #define	FILE "0.txt"
 // #define	FILE "n0.txt"
@@ -37,7 +35,7 @@ int			main(void)
 	{
 	    res = get_next_line(fd, &line);
 		printf("===[%d]: '%s'\n\n", ++i, line);
-		free_mem(&line);
+		free(line);
 	}
 	if (res == -1)
 		printf("===ERROR\n");

@@ -1,5 +1,4 @@
 PATH_GNL = ../../get_next_line
-# PATH_GNL = ../../from_check
 
 NAME = gnl_out
 NAME_SUB = run_out
