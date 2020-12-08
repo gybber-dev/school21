@@ -1,0 +1,1849 @@
+
+==========================================
+========== TEST 1 : The Alphabet =========
+==========================================
+
+
+
+==============
+buf: ''
+line: '(null)'
+mem: ''
+
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+BBBBBBB'
+line: '(null)'
+mem: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+BBBBBBB'
+
+|AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+BBBBBBB'
+line: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa'
+mem: 'BBBBBBB'
+
+
+
+==============
+buf: 'BBBBBBBBBBBBBBBBBBBBBBBBBb
+CCCCCCCCCCCCCCC'
+line: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa'
+mem: 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
+CCCCCCCCCCCCCCC'
+
+|BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb
+
+
+==============
+buf: 'BBBBBBBBBBBBBBBBBBBBBBBBBb
+CCCCCCCCCCCCCCC'
+line: 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb'
+mem: 'CCCCCCCCCCCCCCC'
+
+
+
+==============
+buf: 'CCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDDDD'
+line: 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBb'
+mem: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDDDD'
+
+|CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+
+
+==============
+buf: 'CCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDDDD'
+line: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc'
+mem: 'DDDDDDDDDDDDDDDDDDDDDDDD'
+
+
+
+==============
+buf: 'DDDDDDd
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+FFF'
+line: 'CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc'
+mem: 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+FFF'
+
+|DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd
+
+
+==============
+buf: 'DDDDDDd
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+FFF'
+line: 'DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDd'
+mem: 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+FFF'
+
+|EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+
+
+==============
+buf: 'DDDDDDd
+EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe
+FFF'
+line: 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe'
+mem: 'FFF'
+
+
+
+==============
+buf: 'FFFFFFFFFFFFFFFFFFFFFFFFFf
+GGGGGGGGGGGGGGG'
+line: 'EEEEEEEEEEEEEEEEEEEEEEEEEEEEEe'
+mem: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFf
+GGGGGGGGGGGGGGG'
+
+|FFFFFFFFFFFFFFFFFFFFFFFFFFFFf
+
+
+==============
+buf: 'FFFFFFFFFFFFFFFFFFFFFFFFFf
+GGGGGGGGGGGGGGG'
+line: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFf'
+mem: 'GGGGGGGGGGGGGGG'
+
+
+
+==============
+buf: 'GGGGGGGGGGGGg
+HHHHHHHHHHHHHHHHHHHHHHHHHHh
+'
+line: 'FFFFFFFFFFFFFFFFFFFFFFFFFFFFf'
+mem: 'GGGGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHHHHHHHHHHHHHHHHHHHHHHHHh
+'
+
+|GGGGGGGGGGGGGGGGGGGGGGGGGGGg
+
+
+==============
+buf: 'GGGGGGGGGGGGg
+HHHHHHHHHHHHHHHHHHHHHHHHHHh
+'
+line: 'GGGGGGGGGGGGGGGGGGGGGGGGGGGg'
+mem: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh
+'
+
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+
+
+==============
+buf: 'GGGGGGGGGGGGg
+HHHHHHHHHHHHHHHHHHHHHHHHHHh
+'
+line: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh'
+mem: ''
+
+
+
+==============
+buf: 'IIIIIIIIIIIIIIIIIIIIIIIIIi
+JJJJJJJJJJJJJJJ'
+line: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh'
+mem: 'IIIIIIIIIIIIIIIIIIIIIIIIIi
+JJJJJJJJJJJJJJJ'
+
+|IIIIIIIIIIIIIIIIIIIIIIIIIi
+
+
+==============
+buf: 'IIIIIIIIIIIIIIIIIIIIIIIIIi
+JJJJJJJJJJJJJJJ'
+line: 'IIIIIIIIIIIIIIIIIIIIIIIIIi'
+mem: 'JJJJJJJJJJJJJJJ'
+
+
+
+==============
+buf: 'JJJJJJJJJj
+KKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLL'
+line: 'IIIIIIIIIIIIIIIIIIIIIIIIIi'
+mem: 'JJJJJJJJJJJJJJJJJJJJJJJJj
+KKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLL'
+
+|JJJJJJJJJJJJJJJJJJJJJJJJj
+
+
+==============
+buf: 'JJJJJJJJJj
+KKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLL'
+line: 'JJJJJJJJJJJJJJJJJJJJJJJJj'
+mem: 'KKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLL'
+
+|KKKKKKKKKKKKKKKKKKKKKKKk
+
+
+==============
+buf: 'JJJJJJJJJj
+KKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLL'
+line: 'KKKKKKKKKKKKKKKKKKKKKKKk'
+mem: 'LLLLLL'
+
+
+
+==============
+buf: 'LLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMm
+N'
+line: 'KKKKKKKKKKKKKKKKKKKKKKKk'
+mem: 'LLLLLLLLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMm
+N'
+
+|LLLLLLLLLLLLLLLLLLLLLLl
+
+
+==============
+buf: 'LLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMm
+N'
+line: 'LLLLLLLLLLLLLLLLLLLLLLl'
+mem: 'MMMMMMMMMMMMMMMMMMMMMm
+N'
+
+|MMMMMMMMMMMMMMMMMMMMMm
+
+
+==============
+buf: 'LLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMm
+N'
+line: 'MMMMMMMMMMMMMMMMMMMMMm'
+mem: 'N'
+
+
+
+==============
+buf: 'NNNNNNNNNNNNNNNNNNNn
+OOOOOOOOOOOOOOOOOOOo
+'
+line: 'MMMMMMMMMMMMMMMMMMMMMm'
+mem: 'NNNNNNNNNNNNNNNNNNNNn
+OOOOOOOOOOOOOOOOOOOo
+'
+
+|NNNNNNNNNNNNNNNNNNNNn
+
+
+==============
+buf: 'NNNNNNNNNNNNNNNNNNNn
+OOOOOOOOOOOOOOOOOOOo
+'
+line: 'NNNNNNNNNNNNNNNNNNNNn'
+mem: 'OOOOOOOOOOOOOOOOOOOo
+'
+
+|OOOOOOOOOOOOOOOOOOOo
+
+
+==============
+buf: 'NNNNNNNNNNNNNNNNNNNn
+OOOOOOOOOOOOOOOOOOOo
+'
+line: 'OOOOOOOOOOOOOOOOOOOo'
+mem: ''
+
+
+
+==============
+buf: 'PPPPPPPPPPPPPPPPPPp
+QQQQQQQQQQQQQQQQQq
+RRR'
+line: 'OOOOOOOOOOOOOOOOOOOo'
+mem: 'PPPPPPPPPPPPPPPPPPp
+QQQQQQQQQQQQQQQQQq
+RRR'
+
+|PPPPPPPPPPPPPPPPPPp
+
+
+==============
+buf: 'PPPPPPPPPPPPPPPPPPp
+QQQQQQQQQQQQQQQQQq
+RRR'
+line: 'PPPPPPPPPPPPPPPPPPp'
+mem: 'QQQQQQQQQQQQQQQQQq
+RRR'
+
+|QQQQQQQQQQQQQQQQQq
+
+
+==============
+buf: 'PPPPPPPPPPPPPPPPPPp
+QQQQQQQQQQQQQQQQQq
+RRR'
+line: 'QQQQQQQQQQQQQQQQQq'
+mem: 'RRR'
+
+
+
+==============
+buf: 'RRRRRRRRRRRRRr
+SSSSSSSSSSSSSSSs
+TTTTTTTTTT'
+line: 'QQQQQQQQQQQQQQQQQq'
+mem: 'RRRRRRRRRRRRRRRRr
+SSSSSSSSSSSSSSSs
+TTTTTTTTTT'
+
+|RRRRRRRRRRRRRRRRr
+
+
+==============
+buf: 'RRRRRRRRRRRRRr
+SSSSSSSSSSSSSSSs
+TTTTTTTTTT'
+line: 'RRRRRRRRRRRRRRRRr'
+mem: 'SSSSSSSSSSSSSSSs
+TTTTTTTTTT'
+
+|SSSSSSSSSSSSSSSs
+
+
+==============
+buf: 'RRRRRRRRRRRRRr
+SSSSSSSSSSSSSSSs
+TTTTTTTTTT'
+line: 'SSSSSSSSSSSSSSSs'
+mem: 'TTTTTTTTTT'
+
+
+
+==============
+buf: 'TTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+line: 'SSSSSSSSSSSSSSSs'
+mem: 'TTTTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+
+|TTTTTTTTTTTTTTt
+
+
+==============
+buf: 'TTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+line: 'TTTTTTTTTTTTTTt'
+mem: 'UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+
+|UUUUUUUUUUUUUu
+
+
+==============
+buf: 'TTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+line: 'UUUUUUUUUUUUUu'
+mem: 'VVVVVVVVVVVVv
+WWWWWWW'
+
+|VVVVVVVVVVVVv
+
+
+==============
+buf: 'TTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVVVVv
+WWWWWWW'
+line: 'VVVVVVVVVVVVv'
+mem: 'WWWWWWW'
+
+
+
+==============
+buf: 'WWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+line: 'VVVVVVVVVVVVv'
+mem: 'WWWWWWWWWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+
+|WWWWWWWWWWWw
+
+
+==============
+buf: 'WWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+line: 'WWWWWWWWWWWw'
+mem: 'XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+
+|XXXXXXXXXXx
+
+
+==============
+buf: 'WWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+line: 'XXXXXXXXXXx'
+mem: 'YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+
+|YYYYYYYYYy
+
+
+==============
+buf: 'WWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+line: 'YYYYYYYYYy'
+mem: 'ZZZZZZZZz
+AAA'
+
+|ZZZZZZZZz
+
+
+==============
+buf: 'WWWWw
+XXXXXXXXXXx
+YYYYYYYYYy
+ZZZZZZZZz
+AAA'
+line: 'ZZZZZZZZz'
+mem: 'AAA'
+
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'ZZZZZZZZz'
+mem: 'AAAAAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+
+|AAAAAAAa
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'AAAAAAAa'
+mem: 'BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+
+|BBBBBBb
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'BBBBBBb'
+mem: 'CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+
+|CCCCCc
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'CCCCCc'
+mem: 'DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+
+|DDDDd
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'DDDDd'
+mem: 'EEEe
+FFf
+Gg
+h
+I'
+
+|EEEe
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'EEEe'
+mem: 'FFf
+Gg
+h
+I'
+
+|FFf
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'FFf'
+mem: 'Gg
+h
+I'
+
+|Gg
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'Gg'
+mem: 'h
+I'
+
+|h
+
+
+==============
+buf: 'AAAAa
+BBBBBBb
+CCCCCc
+DDDDd
+EEEe
+FFf
+Gg
+h
+I'
+line: 'h'
+mem: 'I'
+
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'h'
+mem: 'Ii
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+
+|Ii
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'Ii'
+mem: 'JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+
+|JJj
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'JJj'
+mem: 'KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+
+|KKKk
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'KKKk'
+mem: 'LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+
+|LLLLl
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'LLLLl'
+mem: 'MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+
+|MMMMMm
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'MMMMMm'
+mem: 'NNNNNNn
+OOOOOOOo
+P'
+
+|NNNNNNn
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'NNNNNNn'
+mem: 'OOOOOOOo
+P'
+
+|OOOOOOOo
+
+
+==============
+buf: 'i
+JJj
+KKKk
+LLLLl
+MMMMMm
+NNNNNNn
+OOOOOOOo
+P'
+line: 'OOOOOOOo'
+mem: 'P'
+
+
+
+==============
+buf: 'PPPPPPPp
+QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+line: 'OOOOOOOo'
+mem: 'PPPPPPPPp
+QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+
+|PPPPPPPPp
+
+
+==============
+buf: 'PPPPPPPp
+QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+line: 'PPPPPPPPp'
+mem: 'QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+
+|QQQQQQQQQq
+
+
+==============
+buf: 'PPPPPPPp
+QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+line: 'QQQQQQQQQq'
+mem: 'RRRRRRRRRRr
+SSSSSSSSSS'
+
+|RRRRRRRRRRr
+
+
+==============
+buf: 'PPPPPPPp
+QQQQQQQQQq
+RRRRRRRRRRr
+SSSSSSSSSS'
+line: 'RRRRRRRRRRr'
+mem: 'SSSSSSSSSS'
+
+
+
+==============
+buf: 'Ss
+TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+line: 'RRRRRRRRRRr'
+mem: 'SSSSSSSSSSSs
+TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+
+|SSSSSSSSSSSs
+
+
+==============
+buf: 'Ss
+TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+line: 'SSSSSSSSSSSs'
+mem: 'TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+
+|TTTTTTTTTTTTt
+
+
+==============
+buf: 'Ss
+TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+line: 'TTTTTTTTTTTTt'
+mem: 'UUUUUUUUUUUUUu
+VVVVVVVVVV'
+
+|UUUUUUUUUUUUUu
+
+
+==============
+buf: 'Ss
+TTTTTTTTTTTTt
+UUUUUUUUUUUUUu
+VVVVVVVVVV'
+line: 'UUUUUUUUUUUUUu'
+mem: 'VVVVVVVVVV'
+
+
+
+==============
+buf: 'VVVVv
+WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+line: 'UUUUUUUUUUUUUu'
+mem: 'VVVVVVVVVVVVVVv
+WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+
+|VVVVVVVVVVVVVVv
+
+
+==============
+buf: 'VVVVv
+WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+line: 'VVVVVVVVVVVVVVv'
+mem: 'WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+
+|WWWWWWWWWWWWWWWw
+
+
+==============
+buf: 'VVVVv
+WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+line: 'WWWWWWWWWWWWWWWw'
+mem: 'XXXXXXXXXXXXXXXXx
+Y'
+
+|XXXXXXXXXXXXXXXXx
+
+
+==============
+buf: 'VVVVv
+WWWWWWWWWWWWWWWw
+XXXXXXXXXXXXXXXXx
+Y'
+line: 'XXXXXXXXXXXXXXXXx'
+mem: 'Y'
+
+
+
+==============
+buf: 'YYYYYYYYYYYYYYYYy
+ZZZZZZZZZZZZZZZZZZz
+AAAA'
+line: 'XXXXXXXXXXXXXXXXx'
+mem: 'YYYYYYYYYYYYYYYYYy
+ZZZZZZZZZZZZZZZZZZz
+AAAA'
+
+|YYYYYYYYYYYYYYYYYy
+
+
+==============
+buf: 'YYYYYYYYYYYYYYYYy
+ZZZZZZZZZZZZZZZZZZz
+AAAA'
+line: 'YYYYYYYYYYYYYYYYYy'
+mem: 'ZZZZZZZZZZZZZZZZZZz
+AAAA'
+
+|ZZZZZZZZZZZZZZZZZZz
+
+
+==============
+buf: 'YYYYYYYYYYYYYYYYy
+ZZZZZZZZZZZZZZZZZZz
+AAAA'
+line: 'ZZZZZZZZZZZZZZZZZZz'
+mem: 'AAAA'
+
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAa
+BBBBBBBBBBBBBBBBBBBBb
+CCC'
+line: 'ZZZZZZZZZZZZZZZZZZz'
+mem: 'AAAAAAAAAAAAAAAAAAAa
+BBBBBBBBBBBBBBBBBBBBb
+CCC'
+
+|AAAAAAAAAAAAAAAAAAAa
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAa
+BBBBBBBBBBBBBBBBBBBBb
+CCC'
+line: 'AAAAAAAAAAAAAAAAAAAa'
+mem: 'BBBBBBBBBBBBBBBBBBBBb
+CCC'
+
+|BBBBBBBBBBBBBBBBBBBBb
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAa
+BBBBBBBBBBBBBBBBBBBBb
+CCC'
+line: 'BBBBBBBBBBBBBBBBBBBBb'
+mem: 'CCC'
+
+
+
+==============
+buf: 'CCCCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDD'
+line: 'BBBBBBBBBBBBBBBBBBBBb'
+mem: 'CCCCCCCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDD'
+
+|CCCCCCCCCCCCCCCCCCCCCc
+
+
+==============
+buf: 'CCCCCCCCCCCCCCCCCCc
+DDDDDDDDDDDDDDDDDDDDDD'
+line: 'CCCCCCCCCCCCCCCCCCCCCc'
+mem: 'DDDDDDDDDDDDDDDDDDDDDD'
+
+
+
+==============
+buf: 'd
+EEEEEEEEEEEEEEEEEEEEEEEe
+FFFFFFFFFFFFFFF'
+line: 'CCCCCCCCCCCCCCCCCCCCCc'
+mem: 'DDDDDDDDDDDDDDDDDDDDDDd
+EEEEEEEEEEEEEEEEEEEEEEEe
+FFFFFFFFFFFFFFF'
+
+|DDDDDDDDDDDDDDDDDDDDDDd
+
+
+==============
+buf: 'd
+EEEEEEEEEEEEEEEEEEEEEEEe
+FFFFFFFFFFFFFFF'
+line: 'DDDDDDDDDDDDDDDDDDDDDDd'
+mem: 'EEEEEEEEEEEEEEEEEEEEEEEe
+FFFFFFFFFFFFFFF'
+
+|EEEEEEEEEEEEEEEEEEEEEEEe
+
+
+==============
+buf: 'd
+EEEEEEEEEEEEEEEEEEEEEEEe
+FFFFFFFFFFFFFFF'
+line: 'EEEEEEEEEEEEEEEEEEEEEEEe'
+mem: 'FFFFFFFFFFFFFFF'
+
+
+
+==============
+buf: 'FFFFFFFFFf
+GGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHH'
+line: 'EEEEEEEEEEEEEEEEEEEEEEEe'
+mem: 'FFFFFFFFFFFFFFFFFFFFFFFFf
+GGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHH'
+
+|FFFFFFFFFFFFFFFFFFFFFFFFf
+
+
+==============
+buf: 'FFFFFFFFFf
+GGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHH'
+line: 'FFFFFFFFFFFFFFFFFFFFFFFFf'
+mem: 'GGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHH'
+
+|GGGGGGGGGGGGGGGGGGGGGGGGGg
+
+
+==============
+buf: 'FFFFFFFFFf
+GGGGGGGGGGGGGGGGGGGGGGGGGg
+HHHH'
+line: 'GGGGGGGGGGGGGGGGGGGGGGGGGg'
+mem: 'HHHH'
+
+
+
+==============
+buf: 'HHHHHHHHHHHHHHHHHHHHHHh
+IIIIIIIIIIIIIIIIII'
+line: 'GGGGGGGGGGGGGGGGGGGGGGGGGg'
+mem: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh
+IIIIIIIIIIIIIIIIII'
+
+|HHHHHHHHHHHHHHHHHHHHHHHHHHh
+
+
+==============
+buf: 'HHHHHHHHHHHHHHHHHHHHHHh
+IIIIIIIIIIIIIIIIII'
+line: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh'
+mem: 'IIIIIIIIIIIIIIIIII'
+
+
+
+==============
+buf: 'IIIIIIIIIi
+JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+K'
+line: 'HHHHHHHHHHHHHHHHHHHHHHHHHHh'
+mem: 'IIIIIIIIIIIIIIIIIIIIIIIIIIIi
+JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+K'
+
+|IIIIIIIIIIIIIIIIIIIIIIIIIIIi
+
+
+==============
+buf: 'IIIIIIIIIi
+JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+K'
+line: 'IIIIIIIIIIIIIIIIIIIIIIIIIIIi'
+mem: 'JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+K'
+
+|JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+
+
+==============
+buf: 'IIIIIIIIIi
+JJJJJJJJJJJJJJJJJJJJJJJJJJJJj
+K'
+line: 'JJJJJJJJJJJJJJJJJJJJJJJJJJJJj'
+mem: 'K'
+
+
+
+==============
+buf: 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLLLLLLLL'
+line: 'JJJJJJJJJJJJJJJJJJJJJJJJJJJJj'
+mem: 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLLLLLLLL'
+
+|KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+
+
+==============
+buf: 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKk
+LLLLLLLLLLLL'
+line: 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk'
+mem: 'LLLLLLLLLLLL'
+
+
+
+==============
+buf: 'LLLLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMM'
+line: 'KKKKKKKKKKKKKKKKKKKKKKKKKKKKKk'
+mem: 'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMM'
+
+|LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl
+
+
+==============
+buf: 'LLLLLLLLLLLLLLLLLLl
+MMMMMMMMMMMMMMMMMMMMMM'
+line: 'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl'
+mem: 'MMMMMMMMMMMMMMMMMMMMMM'
+
+
+
+==============
+buf: 'MMMMMMMMMm
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'
+line: 'LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLl'
+mem: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'
+
+|MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm
+
+
+==============
+buf: 'MMMMMMMMMm
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'
+line: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm'
+mem: 'NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN'
+
+
+
+==============
+buf: 'Nn'
+line: 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm'
+mem: 'NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn'
+
+|NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNn
+
+Right number of lines
+
+==========================================
+========= TEST 2 : Empty Lines ===========
+==========================================
+
+
+
+==============
+buf: 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa'
+line: ''
+mem: ''
+
+
+
+==============
+buf: 'Cette ligne se termine par un point.
+La li'
+line: ''
+mem: 'Cette ligne se termine par un point.
+La li'
+
+|Cette ligne se termine par un point.
+
+
+==============
+buf: 'Cette ligne se termine par un point.'
+line: 'Cette ligne se termine par un point.'
+mem: 'La li'
+
+
+
+==============
+buf: 'gne suivante est vide.
+
+Les 2 lignes suiva'
+line: 'gne suivante est vide.
+
+Les 2 lignes suiva'
+mem: 'La ligne suivante est vide.
+
+Les 2 lignes suiva'
+
+|La ligne suivante est vide.
+
+
+==============
+buf: ''
+line: 'La ligne suivante est vide.'
+mem: '
+Les 2 lignes suiva'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: 'Les 2 lignes suiva'
+
+
+
+==============
+buf: 'ntes sont vides
+
+
+Et encore les 2 suivante'
+line: ''
+mem: 'Les 2 lignes suivantes sont vides
+
+
+Et encore les 2 suivante'
+
+|Les 2 lignes suivantes sont vides
+
+
+==============
+buf: 'Les 2 lignes suivantes sont vides'
+line: 'Les 2 lignes suivantes sont vides'
+mem: '
+
+Et encore les 2 suivante'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: '
+Et encore les 2 suivante'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: 'Et encore les 2 suivante'
+
+
+
+==============
+buf: 's.
+
+'
+line: ''
+mem: 'Et encore les 2 suivantes.
+
+'
+
+|Et encore les 2 suivantes.
+
+
+==============
+buf: ''
+line: 'Et encore les 2 suivantes.'
+mem: '
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+|
+
+Right number of lines
+
+==========================================
+======== TEST 3 : The Empty File =========
+==========================================
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+|
+
+Right number of lines
+
+==========================================
+========= TEST 4 : One New Line ==========
+==========================================
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+
+
+==============
+buf: '
+'
+line: ''
+mem: '
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+|
+
+Right number of lines
+
+==========================================
+========= TEST 5 : Four New Lines ========
+==========================================
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+
+
+==============
+buf: '
+
+
+
+'
+line: ''
+mem: '
+
+
+
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: '
+
+
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: '
+
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: '
+'
+
+|
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+|
+
+Right number of lines
+
+==========================================
+============== TEST 6 : 42 ===============
+==========================================
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+
+
+==============
+buf: 'answer to life the universe and everythin'
+line: ''
+mem: 'answer to life the universe and everythin'
+
+|answer to life the universe and everythin
+
+
+==============
+buf: 'answer to life the universe and everythin'
+line: 'answer to life the universe and everythin'
+mem: ''
+
+
+
+==============
+buf: 'answer to life the universe and everything'
+line: 'answer to life the universe and everything'
+mem: 'answer to life the universe and everything'
+
+|answer to life the universe and everything
+
+
+==============
+buf: 'answer to life the universe and everything'
+line: 'answer to life the universe and everything'
+mem: ''
+
+
+
+==============
+buf: 'answer to life the universe and everything'
+line: 'answer to life the universe and everything'
+mem: 'answer to life the universe and everything'
+
+
+
+==============
+buf: '-'
+line: '-'
+mem: 'answer to life the universe and everything-'
+
+|answer to life the universe and everything-
+
+Right number of lines
+
+==========================================
+============= TEST 7 : Marge =============
+==========================================
+
+
+
+==============
+buf: 'answer to life the universe and everything-'
+line: 'answer to life the universe and everything-'
+mem: ''
+
+
+
+==============
+buf: '   OOOO
+ OOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOO'
+line: '   OOOO
+ OOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOO'
+mem: '   OOOO
+ OOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOO'
+
+   OOOO
+
+
+==============
+buf: ''
+line: '   OOOO'
+mem: ' OOOOOOOOO
+OOOOOOOOOOOO
+OOOOOOOOOO'
+
+ OOOOOOOOO
+
+
+==============
+buf: ''
+line: ' OOOOOOOOO'
+mem: 'OOOOOOOOOOOO
+OOOOOOOOOO'
+
+OOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: 'OOOOOOOOOOOO'
+mem: 'OOOOOOOOOO'
+
+
+
+==============
+buf: 'OOO
+OOOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+ OOOOOOO'
+line: ''
+mem: 'OOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+ OOOOOOO'
+
+OOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: 'OOOOOOOOOOOOO'
+mem: 'OOOOOOOOOOOOOO
+OOOOOOOOOOOOOO
+ OOOOOOO'
+
+OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: 'OOOOOOOOOOOOOO'
+mem: 'OOOOOOOOOOOOOO
+ OOOOOOO'
+
+OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: 'OOOOOOOOOOOOOO'
+mem: ' OOOOOOO'
+
+
+
+==============
+buf: 'OOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+  '
+line: ''
+mem: ' OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+  '
+
+ OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: ' OOOOOOOOOOOOOO'
+mem: ' OOOOOOOOOOOOOO
+ OOOOOOOOOOOOOO
+  '
+
+ OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: ' OOOOOOOOOOOOOO'
+mem: ' OOOOOOOOOOOOOO
+  '
+
+ OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: ' OOOOOOOOOOOOOO'
+mem: '  '
+
+
+
+==============
+buf: 'OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  '
+line: ''
+mem: '  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+  '
+
+  OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '  OOOOOOOOOOOOOO'
+mem: '  OOOOOOOOOOOOOO
+  '
+
+  OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '  OOOOOOOOOOOOOO'
+mem: '  '
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+
+
+==============
+buf: '  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+   OOOOO'
+line: ''
+mem: '  OOOOOOOOOOOOOO
+  OOOOOOOOOOOOOO
+   OOOOO'
+
+  OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '  OOOOOOOOOOOOOO'
+mem: '  OOOOOOOOOOOOOO
+   OOOOO'
+
+  OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '  OOOOOOOOOOOOOO'
+mem: '   OOOOO'
+
+
+
+==============
+buf: 'OOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOO \_| \'
+line: 'o'
+mem: '   OOOOOOOOOOOOOO
+   OOOOOOOOOOOOOO
+   OOOOO \_| \'
+
+   OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '   OOOOOOOOOOOOOO'
+mem: '   OOOOOOOOOOOOOO
+   OOOOO \_| \'
+
+   OOOOOOOOOOOOOO
+
+
+==============
+buf: ''
+line: '   OOOOOOOOOOOOOO'
+mem: '   OOOOO \_| \'
+
+
+
+==============
+buf: '_|O
+   OOOO \/  \/  \
+   OOOO (o   )o  )
+ '
+line: '   OOOOOOOOOOOOOO'
+mem: '   OOOOO \_| \_|O
+   OOOO \/  \/  \
+   OOOO (o   )o  )
+ '
+
+   OOOOO \_| \_|O
+
+
+==============
+buf: ''
+line: '   OOOOO \_| \_|O'
+mem: '   OOOO \/  \/  \
+   OOOO (o   )o  )
+ '
+
+   OOOO \/  \/  \
+
+
+==============
+buf: ''
+line: '   OOOO \/  \/  \'
+mem: '   OOOO (o   )o  )
+ '
+
+   OOOO (o   )o  )
+
+
+==============
+buf: ''
+line: '   OOOO (o   )o  )'
+mem: ' '
+
+
+
+==============
+buf: '  O/c   \__/ --.
+   O\_   ,     -'
+    O| '
+line: ''
+mem: '   O/c   \__/ --.
+   O\_   ,     -'
+    O| '
+
+   O/c   \__/ --.
+
+
+==============
+buf: ''
+line: '   O/c   \__/ --.'
+mem: '   O\_   ,     -'
+    O| '
+
+   O\_   ,     -'
+
+
+==============
+buf: ''
+line: '   O\_   ,     -''
+mem: '    O| '
+
+
+
+==============
+buf: ' '\_______)
+     |       _)
+     |      |
+'
+line: '   O\_   ,     -''
+mem: '    O|  '\_______)
+     |       _)
+     |      |
+'
+
+    O|  '\_______)
+
+
+==============
+buf: ''
+line: '    O|  '\_______)'
+mem: '     |       _)
+     |      |
+'
+
+     |       _)
+
+
+==============
+buf: ''
+line: '     |       _)'
+mem: '     |      |
+'
+
+     |      |
+
+
+==============
+buf: ''
+line: '     |      |'
+mem: ''
+
+
+
+==============
+buf: '     oooooooo
+    /        \'
+line: ''
+mem: '     oooooooo
+    /        \'
+
+     oooooooo
+
+
+==============
+buf: ''
+line: '     oooooooo'
+mem: '    /        \'
+
+    /        \
+
+Right number of lines
+
+==========================================
+========= TEST 8 : Wrong Input ===========
+==========================================
+
+
+
+==============
+buf: ''
+line: ''
+mem: ''
+
+Well Done, you return -1 if no FD
+

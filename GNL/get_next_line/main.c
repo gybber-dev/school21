@@ -5,7 +5,7 @@
 #include <fcntl.h> //open
 
 
- #define	FILE "short.txt"
+ #define	FILE "/Users/yeschall/Desktop/Projects/GitHub/GNL/get_next_line/short.txt"
 // #define	FILE "str.txt"
 // #define	FILE "0.txt"
 // #define	FILE "n0.txt"
@@ -32,14 +32,14 @@ int			main(void)
 	char	*line;
 	int		res;
 
-	while ((res = get_next_line(fd, &line)) == 1 || res == 0)
+	res = 1;
+	while (res == 1)
 	{
+	    res = get_next_line(fd, &line);
 		printf("===[%d]: '%s'\n\n", ++i, line);
-		free(line);
-		if (res == 0)
-			break ;
+		free_mem(&line);
 	}
 	if (res == -1)
 		printf("===ERROR\n");
-	 while (1);
+//	 while (1);
 }

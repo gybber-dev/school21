@@ -15,6 +15,16 @@
 #include <unistd.h>
 #include <string.h>
 
+void            free_mem(char **mem)
+{
+    if (*mem != NULL)
+    {
+        free(*mem);
+        *mem = NULL;
+    }
+}
+
+
 /*
 ** returns: move string before \n to *line. After \n - to mem
 */
@@ -25,16 +35,15 @@ int				edit_mem(char **mem, char **line, char *p)
 
 //	printf("split string: '%s'\n", *mem);
 	*p = '\0';
-	if ((*line = ft_strjoin1(*mem, NULL)) == NULL)
-		return (-1);
 //	printf("line: '%s'\n", *line);
-	tmp = *mem;
-	if ((*mem = ft_strjoin1(p + 1, NULL)) == NULL)
+	if ((tmp = ft_strjoin1(p + 1, NULL)) == NULL)
 	{
-		*mem = tmp;
 		return (-1);
 	}
-	free(tmp);
+	if ((*line = ft_strjoin1(*mem, NULL)) == NULL)
+		return (-1);
+    free_mem(mem);
+	*mem = tmp;
 //	printf("mem: '%s'\n", *mem);
 	return (1);
 }
@@ -46,12 +55,12 @@ int				edit_mem(char **mem, char **line, char *p)
 **	0	: end of file
 **	1	: end of line
 */
-ssize_t			read_line(char **line, char **mem, char *buf, int fd)
+int 			read_line(char **line, char **mem, char *buf, int fd)
 {
 	char		*tmp;
 	ssize_t		bytes;
 
-//	printf("\n\n==============\nbuf: '%s'\nline: '%s'\nmem: '%s'\n\n", buf, *line, *mem);
+	printf("\n\n==============\nbuf: '%s'\nline: '%s'\nmem: '%s'\n\n", buf, *line, *mem);
 	if ((tmp = ft_strchr(*mem, '\n')))
 		return (edit_mem(mem, line, tmp));
 	else
@@ -65,13 +74,13 @@ ssize_t			read_line(char **line, char **mem, char *buf, int fd)
 				*mem = tmp;
 				return (-1);
 			}
-			free(tmp);
+            free_mem(&tmp);
 		}
 		else
 		{
 			// printf("CHECK_2\n");
-			*line = *mem;
-			//line = ft_strjoin(line, *mem, NULL, 1);
+//			*line = *mem;
+			*line = ft_strjoin1(*mem, NULL);
 			if (!(*line) || bytes == -1)
 			{
 				// printf("\n\nerror0\n");
@@ -94,7 +103,7 @@ int				init_mem(char **mem, char **buf)
 	}
 	if ((*buf = (char *)malloc(BUFFER_SIZE + 1)) == NULL)
 	{
-		free(mem);
+        free_mem(mem);
 		return (-1);
 	}
 	return (1);
@@ -108,17 +117,23 @@ int				init_mem(char **mem, char **buf)
 int				get_next_line(int fd, char **line)
 {
 	static char	*mem;
-	ssize_t		result;
+	int 		result;
 	char 		*buf;
 
 	result = -1;
-	if (BUFFER_SIZE <= 0 || fd < 0 || init_mem(&mem, &buf) == -1)
-		return (-1);
+	if (BUFFER_SIZE <= 0 || fd < 0 || (init_mem(&mem, &buf) == -1))
+		return (result);
 //	printf("check\n");
 	while ((result = read_line(line, &mem, buf, fd)) == 2)
 		; // printf("RESULT: %zu, is end? '%s'\n", result, ft_strchr(mem, '\0'));
-	free(buf);
-	if (result == -1)
-		free(mem);
+
+//    if (result == 0 && (buf[0] == 0 || buf[0] == '\n'))
+//    {
+//        *line = (char *) malloc(1);
+//        *line[0] = 0;
+//    }
+    if (result < 1)
+        free_mem(&mem);
+    free_mem(&buf);
 	return (result);
 }
