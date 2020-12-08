@@ -46,7 +46,7 @@ int				edit_mem(char **m, char **l, char *p)
 	0	- end of text
 	1	- end of line
 */
-int				read_line(char **line, char **buf, char **mem, int fd)
+int				read_line(char **line, char *buf, char **mem, int fd)
 {
 	char		*tmp;
 	ssize_t		bytes;
