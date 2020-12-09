@@ -6,13 +6,13 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 20:46:44 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/07 20:47:08 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:04:58 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t		ft_strlen(const char *str)
+size_t			ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -70,15 +70,15 @@ void			*ft_memmove(void *dst, const void *src, size_t len)
 
 char			*ft_strjoin(char *s1, char *s2)
 {
-	char	*res;
-	size_t	len1;
-	size_t	len2;
+	char		*res;
+	size_t		len1;
+	size_t		len2;
 
 	res = NULL;
 	if (s1 != NULL)
 	{
 		len1 = ft_strlen(s1);
-		len2 = (s2 == NULL)? 0: ft_strlen(s2);
+		len2 = (s2 == NULL) ? 0 : ft_strlen(s2);
 		if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
 			return (res);
 		ft_memmove(res, s1, len1 * sizeof(char));

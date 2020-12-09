@@ -6,11 +6,10 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 06:33:22 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/08 06:40:51 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:14:02 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
 #include "get_next_line.h"
 
 void			free_mem(char **mem)
@@ -21,7 +20,6 @@ void			free_mem(char **mem)
 		*mem = NULL;
 	}
 }
-
 
 /*
 ** returns: move string before \n to *line. After \n - to mem
@@ -36,7 +34,7 @@ int				split_mem(char **mem, char **line, char *p)
 		return (-1);
 	if ((*line = ft_strjoin(*mem, NULL)) == NULL)
 		return (-1);
-    free_mem(mem);
+	free_mem(mem);
 	*mem = tmp;
 	return (1);
 }
@@ -48,7 +46,8 @@ int				split_mem(char **mem, char **line, char *p)
 **	0	: end of file
 **	1	: end of line
 */
-int 			read_line(char **line, char **mem, char *buf, int fd)
+
+int				read_line(char **line, char **mem, char *buf, int fd)
 {
 	char		*tmp;
 	ssize_t		bytes;
@@ -60,24 +59,20 @@ int 			read_line(char **line, char **mem, char *buf, int fd)
 		if ((bytes = read(fd, buf, BUFFER_SIZE)) > 0)
 		{
 			buf[bytes] = '\0';
-			tmp = *mem;
-			if (!(*mem = ft_strjoin(*mem, buf)))
-			{
-				*mem = tmp;
+			if (!(tmp = ft_strjoin(*mem, buf)))
 				return (-1);
-			}
-			free_mem(&tmp);
+			free_mem(mem);
+			*mem = tmp;
 		}
 		else
 		{
-//			*line = *mem;
 			*line = ft_strjoin(*mem, NULL);
 			if (!(*line) || bytes == -1)
 				return (-1);
 			return (0);
-		}		
+		}
 	}
-	return (2); //continue
+	return (2);
 }
 
 int				init_mem(char **mem, char **buf)
@@ -90,22 +85,24 @@ int				init_mem(char **mem, char **buf)
 	}
 	if ((*buf = (char *)malloc(BUFFER_SIZE + 1)) == NULL)
 	{
-        free_mem(mem);
+		free_mem(mem);
 		return (-1);
 	}
 	return (1);
 }
 
-/*	returns:
+/*
+**	returns:
 **	1	: A line has been read
 **	0	: EOF has been reached
 **	-1	: An error happened
 */
+
 int				get_next_line(int fd, char **line)
 {
 	static char	*mem;
-	int 		result;
-	char 		*buf;
+	int			result;
+	char		*buf;
 
 	result = -1;
 	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0)
