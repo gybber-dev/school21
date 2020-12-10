@@ -6,7 +6,7 @@
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 06:33:22 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/09 16:32:52 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:59:54 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ int				get_next_line(int fd, char **line)
 	char		*buf;
 
 	result = -1;
-	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0)
+	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0 || !line)
 		return (result);
 	while ((result = read_line(line, &mem, buf, fd)) == 2)
 		;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 06:33:22 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/09 16:32:52 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/09 17:01:26 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ int				init_mem(char **mem, char **buf)
 
 int				get_next_line(int fd, char **line)
 {
-	static char	*mem;
+	static char	*mem[256];
 	int			result;
 	char		*buf;
 
 	result = -1;
-	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0)
+	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0 || !line)
 		return (result);
 	while ((result = read_line(line, &mem, buf, fd)) == 2)
 		;
