@@ -78,13 +78,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line.c">
+		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line_bonus.c">
 			<Option target="get_next_line"/>
 		</Unit>
-		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line.h">
+		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line_bonus.h">
 			<Option target="get_next_line"/>
 		</Unit>
-		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line_utils.c">
+		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/get_next_line_utils_bonus.c">
 			<Option target="get_next_line"/>
 		</Unit>
 		<Unit filename="/home/azat/school21/Github/GNL/get_next_line/main.c">

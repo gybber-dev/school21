@@ -143,59 +143,59 @@ get_next_line/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/build
 .PHONY : get_next_line/fast
 
-get_next_line.o: get_next_line.c.o
+get_next_line_bonus.o: get_next_line_bonus.c.o
 
-.PHONY : get_next_line.o
-
-# target to build an object file
-get_next_line.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.o
-.PHONY : get_next_line.c.o
-
-get_next_line.i: get_next_line.c.i
-
-.PHONY : get_next_line.i
-
-# target to preprocess a source file
-get_next_line.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.i
-.PHONY : get_next_line.c.i
-
-get_next_line.s: get_next_line.c.s
-
-.PHONY : get_next_line.s
-
-# target to generate assembly for a file
-get_next_line.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line.c.s
-.PHONY : get_next_line.c.s
-
-get_next_line_utils.o: get_next_line_utils.c.o
-
-.PHONY : get_next_line_utils.o
+.PHONY : get_next_line_bonus.o
 
 # target to build an object file
-get_next_line_utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.o
-.PHONY : get_next_line_utils.c.o
+get_next_line_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_bonus.c.o
+.PHONY : get_next_line_bonus.c.o
 
-get_next_line_utils.i: get_next_line_utils.c.i
+get_next_line_bonus.i: get_next_line_bonus.c.i
 
-.PHONY : get_next_line_utils.i
+.PHONY : get_next_line_bonus.i
 
 # target to preprocess a source file
-get_next_line_utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.i
-.PHONY : get_next_line_utils.c.i
+get_next_line_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_bonus.c.i
+.PHONY : get_next_line_bonus.c.i
 
-get_next_line_utils.s: get_next_line_utils.c.s
+get_next_line_bonus.s: get_next_line_bonus.c.s
 
-.PHONY : get_next_line_utils.s
+.PHONY : get_next_line_bonus.s
 
 # target to generate assembly for a file
-get_next_line_utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils.c.s
-.PHONY : get_next_line_utils.c.s
+get_next_line_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_bonus.c.s
+.PHONY : get_next_line_bonus.c.s
+
+get_next_line_utils_bonus.o: get_next_line_utils_bonus.c.o
+
+.PHONY : get_next_line_utils_bonus.o
+
+# target to build an object file
+get_next_line_utils_bonus.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils_bonus.c.o
+.PHONY : get_next_line_utils_bonus.c.o
+
+get_next_line_utils_bonus.i: get_next_line_utils_bonus.c.i
+
+.PHONY : get_next_line_utils_bonus.i
+
+# target to preprocess a source file
+get_next_line_utils_bonus.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils_bonus.c.i
+.PHONY : get_next_line_utils_bonus.c.i
+
+get_next_line_utils_bonus.s: get_next_line_utils_bonus.c.s
+
+.PHONY : get_next_line_utils_bonus.s
+
+# target to generate assembly for a file
+get_next_line_utils_bonus.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/get_next_line.dir/build.make CMakeFiles/get_next_line.dir/get_next_line_utils_bonus.c.s
+.PHONY : get_next_line_utils_bonus.c.s
 
 main.o: main.c.o
 
@@ -233,12 +233,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... get_next_line"
-	@echo "... get_next_line.o"
-	@echo "... get_next_line.i"
-	@echo "... get_next_line.s"
-	@echo "... get_next_line_utils.o"
-	@echo "... get_next_line_utils.i"
-	@echo "... get_next_line_utils.s"
+	@echo "... get_next_line_bonus.o"
+	@echo "... get_next_line_bonus.i"
+	@echo "... get_next_line_bonus.s"
+	@echo "... get_next_line_utils_bonus.o"
+	@echo "... get_next_line_utils_bonus.i"
+	@echo "... get_next_line_utils_bonus.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
