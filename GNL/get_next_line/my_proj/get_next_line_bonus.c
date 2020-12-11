@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 06:33:22 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/09 17:01:26 by yeschall         ###   ########.fr       */
+/*   Updated: 2020/12/09 16:14:02 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void			free_mem(char **mem)
 {
@@ -100,17 +100,19 @@ int				init_mem(char **mem, char **buf)
 
 int				get_next_line(int fd, char **line)
 {
-	static char	*mem[256];
+	static char	*mem[1024];
 	int			result;
 	char		*buf;
 
 	result = -1;
-	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0 || !line)
+	if (fd < 0)
 		return (result);
-	while ((result = read_line(line, &mem, buf, fd)) == 2)
+	if (BUFFER_SIZE <= 0 || init_mem(&mem[fd], &buf) == -1 || !line)
+		return (result);
+	while ((result = read_line(line, &mem[fd], buf, fd)) == 2)
 		;
 	if (result < 1)
-		free_mem(&mem);
+		free_mem(&mem[fd]);
 	free_mem(&buf);
 	return (result);
 }
