@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "get_next_line.h"
+#include "../TESTS/GNL_lover/copy_in_here_GNL_files/get_next_line.h"
 #include <fcntl.h> //open
 
 #ifndef BUFFER_SIZE

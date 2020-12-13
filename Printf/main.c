@@ -1,8 +1,12 @@
-#include <stdio.h>
+#include "ft_printf.h"
 
 int		main(void)
 {
-	printf("orig printf: %0*.*d\n", 15, 5, -321);
-	printf("'value of number': %-*.5s\n", 4, "value of number");
-	printf( "%0*x\n", 8, 15 );
+	int		int_v = 12;
+//	char	*str_v = "hello";
+//	char	ch_v = 'c';
+
+	int orig = printf("orig: '%---d'\n", int_v);
+	int repl = ft_printf("repl: '%---d'\n", int_v);
+	printf("res_o: %d\nres_r: %d", orig, repl);
 }
