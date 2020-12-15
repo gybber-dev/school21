@@ -1,43 +1,53 @@
-SRCS	= main.c
+SRCS	= \
+			./ft_printf.c \
+			./parser/ft_parse.c \
+
 
 # BONUS	= ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c 			\
 # 			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJS	= ${SRCS:.c=.o}
+OBJS		= ${SRCS:.c=.o}
 
-BOBJS	= ${BONUS:.c=.o}
+BOBJS		= ${BONUS:.c=.o}
 
-NAME	= libftprintf.a
+NAME		= libftprintf.a
+# NAME		= my_printf
 
-CC		= gcc
+CC			= gcc
 
-RM		= rm -f
+RM			= rm -f
 
-HEADER	= -I printf.h
+HEADER		= ft_printf.h
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 
-.c.o:	${HEADER}
-		${CC} $(FLAGS) -c $< -o ${<:.c=.o}
+.c.o:
+			${CC} $(FLAGS) -c $< -o ${<:.c=.o}
 
-$(NAME): ${OBJS}
-		ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJS) $(HEADER) libft.a
+			ar rc $(NAME) $(OBJS) ./libft/*.o
+			ranlib libftprintf.a
 
-all:	${NAME}
+libft.a:
+			(cd ./libft/.;$(MAKE))
 
-do:		${OBJS}
-		${CC} $(FLAGS) $(OBJS) -c $< -o ${<:.c=.o}
+all:		${NAME}
+
+do_prev:	all
+			$(CC) $(FLAGS) main.c libftprintf.a -o my_printf
+
+do:			do_prev fclean
 
 clean:
-		${RM} ${OBJS} ${BOBJS} *.out
+			${RM} ${OBJS} ${BOBJS} *.out
+			(cd ./libft/.;$(MAKE) clean)
+			(cd ..)
 		
-fclean:	clean 
-		${RM} ${NAME} *.a
+fclean:		clean
+			${RM} ${NAME} *.a
+			(cd ./libft/.;$(MAKE) fclean)
+			(cd ..)
 
-re:		fclean all
+re:			fclean all
 
-bonus:	${OBJS} ${BOBJS}
-		ar rcs $(NAME) ${OBJS} ${BOBJS}
-
-do:     #{}
-.PHONY:	all clean fclean re bonus
+.PHONY:		all clean fclean re

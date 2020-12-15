@@ -20,6 +20,15 @@
 
 # include <stdio.h>
 
+typedef struct	s_struct
+{
+	int			flags;
+	int			width;
+	int			precision;
+	int			size;
+	int			type;
+}				t_struct;
 int				ft_printf(char *str, ...);
+t_struct		ft_parse(char *str);
 
 #endif
