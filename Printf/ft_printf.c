@@ -1,11 +1,10 @@
 #include "ft_printf.h"
 
-int				ft_printf(char *str, ...)
+int				ft_printf(const char *str, ...)
 {
 	va_list		p;
 	t_struct	obj;
 
-	str = "sample";
 	printf("PRINT STRING: '%s'\n", str);
 	va_start(p, str);
 	obj = ft_parse(str);
