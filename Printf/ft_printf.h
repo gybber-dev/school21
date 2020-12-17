@@ -20,14 +20,22 @@
 
 # include <stdio.h>
 
-typedef struct	s_struct
+typedef struct	s_part
 {
-	int			flags;
-	int			width;
-	int			precision;
-	int			type;
-}				t_struct;
+	ssize_t		size;
+	int			on;
+	char		*began;
+	char		val;
+}				t_part;
+
+typedef struct	s_obj
+{
+	struct		s_part s_flag;
+	struct		s_part s_width;
+	struct		s_part s_precision;
+	struct		s_part s_type;
+}				t_obj;
 int				ft_printf(const char *str, ...);
-t_struct		ft_parse(const char *str);
+t_obj			ft_parse(const char *str);
 
 #endif
