@@ -13,6 +13,8 @@
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# define SUBJ_TYPES "cspdiuxX"
+
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,7 +26,7 @@ typedef struct	s_part
 {
 	ssize_t		size;
 	int			on;
-	char		*began;
+	const char	*began;
 	char		val;
 }				t_part;
 
