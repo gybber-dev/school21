@@ -12,6 +12,6 @@ int		main(void)
 	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 	repl = ft_printf("repl: '%---*22d'\n", int_v);
 	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf("repl: '%---22.3'\n", int_v);
+	repl = ft_printf("repl: '%---22.34d'\n", int_v);
 	printf("res_o: %d\nres_r: %d\n", orig, repl);
 }

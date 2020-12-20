@@ -13,7 +13,7 @@ int				ft_printf(const char *str, ...)
 //		{
 //		}
 //	}
-	obj = ft_parse(str);
+	obj = ft_parse(str, p);
 	printf("\tobj.flags: %zd\n", obj.s_flag.size);
 	va_end(p);
 	return (-1);

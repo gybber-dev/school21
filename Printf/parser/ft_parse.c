@@ -18,44 +18,52 @@ static void		check_flag(const char **str, t_obj *obj)
 	return ;
 }
 
-static void		check_width(const char **str, t_obj *obj)
+static void		check_width(const char **str, t_obj *obj, va_list p)
 {
 	printf("\nCHECK WIDTH: ('%s')\n", *str);
-
-	int just_once;
-
-	just_once = 0;
-	while ((**str == '*' && just_once == 0) || (ft_isdigit(**str) && just_once != 1))
+	obj->s_width.type = 0;
+	obj->s_width.numb = 0;
+	while (**str == '*' || ft_isdigit(**str))
 	{
-		printf("\twidth [%c] is detected\n", **str);
-		obj->s_width.size++;
-		obj->s_width.began = (just_once == 0) ? *str : NULL;
-		just_once = (**str == '*')? 1 : 2;
+		obj->s_width.on = 1;
+		if (**str == '*' && obj->s_width.type == 0)	// only first *
+		{
+			obj->s_width.type = 2;
+			obj->s_width.numb = va_arg(p, int);
+		}
+		else if (obj->s_width.type != 2)			// first and following digits
+		{
+			obj->s_width.numb = obj->s_width.numb * 10 + (**str) - '0';
+			obj->s_width.type = 1;
+		}
 		(*str)++;
 	}
+	printf("\twidth: '%d'\n", obj->s_width.numb);
 	return ;
 }
-//
-static void		check_precision(const char **str, t_obj *obj)
-{
-	int just_once;
 
+static void		check_precision(const char **str, t_obj *obj, va_list p)
+{
 	printf("CHECK PRECISION: ('%s')\n", *str);
-	just_once = 0;
 	if (**str == '.')
 	{
 		obj->s_precision.on = 1;
+		obj->s_width.type = 0;
+		obj->s_width.numb = 0;
 		printf("\tprecision [%c] is detected\n", **str);
-		while ((*(++(*str)) == '*' && !just_once) || (ft_isdigit(**str) && just_once != 1))
+		while (*(++(*str)) == '*' || ft_isdigit(**str))
 		{
-			printf("\tprecision val [%c]\n", **str);
+			//
+
+			// доделать!
+
+			//
 			obj->s_precision.size++;
-			just_once = (**str == '*')? 1 : 2;
 		}
 	}
 	return ;
 }
-//
+
 static void		check_type(const char **str, t_obj *obj)
 {
 	printf("CHECK TYPE: ('%s')\n", *str);
@@ -67,7 +75,7 @@ static void		check_type(const char **str, t_obj *obj)
 	return ;
 }
 
-t_obj			ft_parse(const char *str)
+t_obj			ft_parse(const char *str, va_list p)
 {
 	t_obj		obj;
 
@@ -76,9 +84,9 @@ t_obj			ft_parse(const char *str)
 	{
 		if (*str == '%' && *(++str) != '%' )
 		{
-			check_flag(&str, &obj);
-			check_width(&str, &obj);
-			check_precision(&str, &obj);
+			check_flag(str, &obj);
+			check_width(&str, &obj, p);
+//			check_precision(&str, &obj, p);
 			check_type(&str, &obj);
 		}
 		else

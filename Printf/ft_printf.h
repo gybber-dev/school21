@@ -22,12 +22,24 @@
 
 # include <stdio.h>
 
+
+/*
+** on	-	flag is in a line
+** numb	-	parsed value
+** type	-	for params with *:
+**		 0	init value;
+**		 1	describes by digits;
+**		 2	describes by *;
+**		-1	reserved for errors;
+*/
 typedef struct	s_part
 {
 	ssize_t		size;
 	int			on;
+	int			type;
 	const char	*began;
 	char		val;
+	int			numb;
 }				t_part;
 
 typedef struct	s_obj
@@ -38,6 +50,6 @@ typedef struct	s_obj
 	struct		s_part s_type;
 }				t_obj;
 int				ft_printf(const char *str, ...);
-t_obj			ft_parse(const char *str);
+t_obj			ft_parse(const char *str, va_list p);
 
 #endif

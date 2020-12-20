@@ -3,6 +3,8 @@
 
 int main(void)
 {
+	int		int_v = 12;
+	printf("repl: '%22.3d'\n", int_v);
 	//- then 0: is last 0 a width?		-last 0 included to flag
 	printf("Sample: '%000000002d'\n", 2);
 
@@ -10,7 +12,7 @@ int main(void)
 	printf("Sample: '%-12d'\n", 2);
 
 	// test the behavior when several * in width: - Only one * is required
-	printf("Sample: '%-*d'\n", 1, 2);
+	printf("Sample: '%-**d'\n", 1, 2);
 
 	// test the precision beginning from 0:
 	printf("Sample: '%.00000005d'\n", 2);
