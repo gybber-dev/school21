@@ -49,7 +49,9 @@ typedef struct	s_obj
 	struct		s_part s_precision;
 	struct		s_part s_type;
 }				t_obj;
+
 int				ft_printf(const char *str, ...);
 t_obj			ft_parse(const char *str, va_list p);
+void			ft_processor(t_obj *obj, va_list p);
 
 #endif
