@@ -69,7 +69,7 @@ static size_t	get_first_word_len(const char **p, char c)
 char			**ft_split(char const *s, char c)
 {
 	char		**arr;
-	size_t		i;
+	int			i;
 	size_t		arr_len;
 
 	if (s == NULL)
@@ -81,7 +81,7 @@ char			**ft_split(char const *s, char c)
 	if (arr == NULL)
 		return (NULL);
 	i = -1;
-	while (++i < arr_len)
+	while (++i < (int)arr_len)
 	{
 		if ((arr[i] = ft_substr(s, 0, get_first_word_len(&s, c))) == NULL)
 		{

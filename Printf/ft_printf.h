@@ -21,6 +21,7 @@
 # include "./libft/libft.h"
 
 # include <stdio.h>
+# define DEBUG 1 == 1 ? printf("%s", "") : // TRUE condition to OFF debug mode
 
 
 /*
@@ -53,5 +54,6 @@ typedef struct	s_obj
 int				ft_printf(const char *str, ...);
 t_obj			ft_parse(const char *str, va_list p);
 void			ft_processor(t_obj *obj, va_list p);
+char			*ft_int(t_obj *obj, int val);
 
 #endif

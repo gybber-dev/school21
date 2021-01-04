@@ -1,6 +1,5 @@
 #include "ft_printf.h"
 
-
 int				ft_printf(const char *str, ...)
 {
 	va_list		p;
@@ -16,7 +15,7 @@ int				ft_printf(const char *str, ...)
 //	}
 	obj = ft_parse(str, p);
 	ft_processor(&obj, p);
-	printf("\tobj.flags: %d\n", obj.s_precision.numb);
+	DEBUG printf("\tobj.flags: %d\n", obj.s_precision.numb);
 	va_end(p);
 	return (-1);
 }

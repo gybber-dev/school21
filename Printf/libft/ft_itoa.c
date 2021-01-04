@@ -28,7 +28,6 @@ char			*ft_itoa(int n)
 {
 	size_t		len;
 	char		*str;
-	char		*p;
 
 	len = count_len(n);
 	str = (char *)malloc(len + 1);
@@ -37,7 +36,6 @@ char			*ft_itoa(int n)
 	ft_bzero(str, len + 1);
 	str[0] = (n < 0) ? '-' : str[0];
 	str[0] = (n == 0) ? '0' : str[0];
-	p = (n < 0) ? str + 1 : str;
 	while (len-- && n != 0)
 	{
 		str[len] = (n < 0) ? -(n % 10) + '0' : (n % 10) + '0';
