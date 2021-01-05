@@ -91,6 +91,6 @@ char			*ft_int(t_obj *obj, int val)
 			return (NULL);
 	if (obj->s_width.on)
 		str_val = ft_check_width(obj, str_val);
-	printf("STR: '%s'\n", str_val);
+	DEBUG printf("STR: '%s'\n", str_val);
 	return (str_val);
 }

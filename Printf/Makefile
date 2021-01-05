@@ -3,6 +3,7 @@ SRCS	= \
 			./parser/ft_parse.c \
 			./processor/ft_processor.c \
 			./processor/ft_int.c \
+			./processor/ft_u.c \
 
 
 # BONUS	= ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c 			\

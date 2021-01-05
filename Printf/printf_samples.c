@@ -31,4 +31,6 @@ int main(void)
 	printf("PRECISION for digits :\n\t%.3d\n", (int_v * 100));	//1200 - not cut
 	printf("PRECISION for digits :\n\t'%8.6d'\n", (int_v * -100));	//001200 - not cut
 
+	//	test printf behaviour with type 'u':
+	printf("With type 'u': '%u'\n", int_v * -1);
 }

@@ -96,29 +96,29 @@ static void		check_type(const char **str, t_obj *obj)
 	return ;
 }
 
-t_obj			ft_parse(const char *str, va_list p)
+t_obj			ft_parse(const char **str, va_list p)
 {
 	t_obj		obj;
 	const char	*p_f;
 
-	DEBUG printf("PARSER: ('%s')\n\n", str);
-	while (*str)
-	{
-		if (*str == '%' && *(++str) != '%' )
-		{
-			p_f = str;
-			check_flag(&str, &obj);
-			check_width(&str, &obj, p);
-			check_precision(&str, &obj, p);
-			check_type(&str, &obj);
-			DEBUG printf("str: '%s'\nflag: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
-			p_f, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
-		}
-		else
-		{
-			write(1, str, 1);
-		}
-		str++;
-	}
+	DEBUG printf("PARSER: ('%s')\n\n", *str);
+//	while (*str)
+//	{
+//	if (*str == '%' && *(++str) != '%' )
+//	{
+	p_f = *str;
+	check_flag(str, &obj);
+	check_width(str, &obj, p);
+	check_precision(str, &obj, p);
+	check_type(str, &obj);
+	DEBUG printf("str: '%s'\nflag: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
+	p_f, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
+//	}
+//	else
+//	{
+//		write(1, str, 1);
+//	}
+//		str++;
+//	}
 	return (obj);
 }
