@@ -11,21 +11,32 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-char		*ft_strjoin(char const *s1, char const *s2)
+/*
+** Just join s1 and s2. If s2 == NULL malloc the memory for s1
+** return:
+** malloced char* on success
+** NULL on error
+*/
+
+char			*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*res;
-	size_t	len;
-	size_t	size;
+	char		*res;
+	size_t		len1;
+	size_t		len2;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = (char *)malloc(len);
-	if (res == NULL)
-		return (NULL);
-	ft_bzero(res, len);
-	size = ft_strlcat(res, s1, len);
-	size = ft_strlcat(res, s2, len);
+	res = NULL;
+	if (s1 != NULL)
+	{
+		len1 = ft_strlen(s1);
+		len2 = (s2 == NULL) ? 0 : ft_strlen(s2);
+		if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
+			return (res);
+		ft_memmove(res, s1, len1 * sizeof(char));
+		if (len2)
+			ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
+		res[len1 + len2] = 0;
+	}
 	return (res);
 }
