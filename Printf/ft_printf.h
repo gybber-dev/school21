@@ -37,7 +37,7 @@
 */
 typedef struct	s_part
 {
-	ssize_t		size;
+	size_t		size;
 	int			on;
 	int			type;
 	const char	*began;
@@ -51,13 +51,13 @@ typedef struct	s_obj
 	struct		s_part s_width;
 	struct		s_part s_precision;
 	struct		s_part s_type;
+	size_t		len;
 }				t_obj;
 
 int				ft_printf(const char *str, ...);
 t_obj			ft_parse(const char **str, va_list p);
 char			*ft_processor(t_obj *obj, va_list p);
 char			*ft_check_precision(t_obj *obj, char *str);
-char			*ft_strmultiply(char *c, size_t times);
 char			*ft_check_width(t_obj *obj, char *str);
 char			*ft_int(t_obj *obj, int val);
 char			*ft_u(t_obj *obj, unsigned int val);

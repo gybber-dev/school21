@@ -103,10 +103,6 @@ t_obj			ft_parse(const char **str, va_list p)
 	const char	*p_f;
 
 	DEBUG printf("PARSER: ('%s')\n\n", *str);
-//	while (*str)
-//	{
-//	if (*str == '%' && *(++str) != '%' )
-//	{
 	p_f = *str;
 	check_flag(str, &obj);
 	check_width(str, &obj, p);
@@ -114,12 +110,5 @@ t_obj			ft_parse(const char **str, va_list p)
 	check_type(str, &obj);
 	DEBUG printf("str: '%s'\nflag: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
 	p_f, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
-//	}
-//	else
-//	{
-//		write(1, str, 1);
-//	}
-//		str++;
-//	}
 	return (obj);
 }

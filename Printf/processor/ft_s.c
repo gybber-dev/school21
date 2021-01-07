@@ -1,33 +1,5 @@
 #include "../ft_printf.h"
 
-/*
-** returns repeated string [*c] N [times] times
-** 	NULL on error
-*/
-char			*ft_strmultiply(char *c, size_t times)
-{
-	char		*res;
-	char		*tmp;
-
-	res = NULL;
-	DEBUG printf("times: [%zu]\n", times);
-	if (times == 0)
-		return (ft_strdup(""));
-	while (times--)
-	{
-		tmp = res;
-		if (!(res = ft_strjoin(c, res)))
-		{
-			if (tmp)
-				free(tmp);
-			break ;
-		}
-		if (tmp)
-			free(tmp);
-	}
-	return (res);
-}
-
 char			*ft_check_precision(t_obj *obj, char *str)
 {
 	char		*addition;

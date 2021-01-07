@@ -33,4 +33,7 @@ int main(void)
 
 	//	test printf behaviour with type 'u':
 	printf("With type 'u': '%u'\n", int_v * -1);
+
+	//	test printf behaviour with type 'c':
+	printf("With type 'c': '%4c'\n", int_v * 10);
 }
