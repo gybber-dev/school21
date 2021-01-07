@@ -23,7 +23,7 @@
 # include <stdio.h>
 # define DEBUG_ON 1 == 0 ? printf("%s", "") : // TRUE condition to OFF debug mode
 # define DEBUG_OFF 1 == 1 ? printf("%s", "") :
-# define DEBUG DEBUG_OFF
+# define DEBUG DEBUG_ON
 
 
 /*
@@ -63,4 +63,5 @@ char			*ft_int(t_obj *obj, int val);
 char			*ft_u(t_obj *obj, unsigned int val);
 char			*ft_x(t_obj *obj, unsigned int val);
 char			*ft_char(t_obj *obj, int val);
+char			*ft_s(t_obj *obj, char **val);
 #endif

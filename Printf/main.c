@@ -7,10 +7,12 @@
 #define STR_5 "With type 'c': '%4c'\n", int_v * 10
 #define STR_6 "With type 'c': '%-*c'\n", 4, int_v * 10
 #define STR_7 "With type 'c': '%-4c' next: '%5d'\n", int_v * 10, 11
+#define STR_8 "With type 's': '%s'\n", s_v
 
 int		main(void)
 {
 	int		int_v = 12;
+	char	*s_v = "hello";
 	int		repl;
 	int		orig;
 //	char	*str_v = "hello";
@@ -20,8 +22,8 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_6);
-	printf("======================\n");
-	orig = printf(STR_6);
+	repl = ft_printf(STR_8);
+	printf("===================%d===\n", int_v);
+	orig = printf(STR_8);
 	DEBUG printf("res_o: %d\nres_r: %d\n", orig, repl);
 }

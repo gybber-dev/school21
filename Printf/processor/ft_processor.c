@@ -3,6 +3,7 @@
 char			*ft_processor(t_obj *obj, va_list p)
 {
 	char		*res;
+	char		*tmp;
 	DEBUG printf("PROCESSOR\n\twidth: %c\n", obj->s_width.numb);
 //	printf("%d\n", va_arg(p, int));
 //	int			str_len;
@@ -15,5 +16,11 @@ char			*ft_processor(t_obj *obj, va_list p)
 		res = ft_x(obj, va_arg(p, unsigned int));
 	if (obj->s_type.numb == 'c')
 		res = ft_char(obj, va_arg(p, int));
+	if (obj->s_type.numb == 's')
+	{
+		tmp = va_arg(p, char*);
+		DEBUG printf("for type 's': '%s'\n", tmp);
+		res = ft_s(obj, &tmp);
+	}
 	return (res);
 }
