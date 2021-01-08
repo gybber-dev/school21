@@ -1,13 +1,23 @@
 #include "../ft_printf.h"
 
-char			*ft_p(t_obj *obj, char **val)
+char					*ft_p(t_obj *obj, char **val)
 {
-	char		*str_val;
-
+	char				*str_val;
+	long unsigned int	numb;
+	DEBUG printf("PRINTING POINtER:\t%lu\n", numb);
 	str_val = NULL;
 	if (*val == NULL)
-		*val = "(null)";
-	DEBUG printf("PRINTING STRING:\t%s[%c]\n", *val, obj->s_precision.numb);
+	{
+
+		*val = "0x0";
+	}
+	else
+	{
+		numb = (long unsigned int)&(**val);
+		str_val = ft_itoa_uhex((long unsigned int)val);
+	}
+
+
 	if (obj->s_precision.on == 1)
 	{
 		if ((size_t )obj->s_precision.numb < ft_strlen(*val))

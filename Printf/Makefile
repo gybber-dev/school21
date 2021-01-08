@@ -8,6 +8,7 @@ SRCS	= \
 			./processor/ft_x.c \
 			./processor/ft_char.c \
 			./processor/ft_s.c \
+			./processor/ft_p.c \
 
 
 

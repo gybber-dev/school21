@@ -25,7 +25,7 @@ static size_t	count_len(unsigned int n)
 	return (count_len(n / 16) + 1);
 }
 
-char			*ft_itoa_uhex(unsigned int n)
+char			*ft_itoa_uhex(unsigned long int n)
 {
 	size_t		len;
 	char		*str;

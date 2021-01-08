@@ -22,5 +22,11 @@ char			*ft_processor(t_obj *obj, va_list p)
 		DEBUG printf("for type 's': '%s'\n", tmp);
 		res = ft_s(obj, &tmp);
 	}
+	if (obj->s_type.numb == 'p')
+	{
+		tmp = va_arg(p, char*);
+		DEBUG printf("for type 's': '%s'\n", tmp);
+		res = ft_p(obj, &tmp);
+	}
 	return (res);
 }

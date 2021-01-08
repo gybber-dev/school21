@@ -8,6 +8,8 @@
 #define STR_6 "With type 'c': '%-*c'\n", 4, int_v * 10
 #define STR_7 "Twice sample 'c': '%-4c' next: '%5d'\n", int_v * 10, 11
 #define STR_8 "With type 's': '%20.8s'\n", s_v
+#define STR_9 "With type 's': '%p'\n", s_v
+#define STR_10 "With type 's': '%p'\n", NULL // '0x0'
 
 int		main(void)
 {
@@ -22,8 +24,8 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_8);
-	printf("===================%d===\n", int_v);
-	orig = printf(STR_8);
+	repl = ft_printf(STR_9);
+	printf("===================%d==%s=\n", int_v, s_v);
+	orig = printf(STR_9);
 	DEBUG printf("res_o: %d\nres_r: %d\n", orig, repl);
 }
