@@ -23,7 +23,7 @@ char			*ft_s(t_obj *obj, char **val)
 
 	str_val = NULL;
 	DEBUG printf("PRINTING STRING:\t%s[%c]\n", *val, obj->s_type.numb);
-	str_val = ft_strdup(val);
+	str_val = ft_strdup(*val);
 	DEBUG printf("STR: '%s'\n", str_val);
 	// максимальное число символов, которые будут выведены для типа s;
 	if (obj->s_precision.on)

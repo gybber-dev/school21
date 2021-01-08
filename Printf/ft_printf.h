@@ -23,7 +23,7 @@
 # include <stdio.h>
 # define DEBUG_ON 1 == 0 ? printf("%s", "") : // TRUE condition to OFF debug mode
 # define DEBUG_OFF 1 == 1 ? printf("%s", "") :
-# define DEBUG DEBUG_ON
+# define DEBUG DEBUG_OFF
 
 
 /*
@@ -56,6 +56,7 @@ typedef struct	s_obj
 
 int				ft_printf(const char *str, ...);
 t_obj			ft_parse(const char **str, va_list p);
+void			ft_init_obj(t_obj *obj);
 char			*ft_processor(t_obj *obj, va_list p);
 char			*ft_check_precision(t_obj *obj, char *str);
 char			*ft_check_width(t_obj *obj, char *str);

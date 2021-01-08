@@ -1,12 +1,14 @@
 SRCS	= \
 			./ft_printf.c \
 			./parser/ft_parse.c \
+			./parser/ft_init_obj.c \
 			./processor/ft_processor.c \
 			./processor/ft_int.c \
 			./processor/ft_u.c \
 			./processor/ft_x.c \
 			./processor/ft_char.c \
 			./processor/ft_s.c \
+
 
 
 # BONUS	= ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstsize.c 			\
