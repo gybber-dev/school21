@@ -27,13 +27,17 @@ int main(void)
 
 	//	test the string displaying for different values of precision:
 	char *s = "sample";
-	printf("PRECISION for strings:\n\t%.3s\n", s);		// sam - cut the string
-	printf("PRECISION for digits :\n\t%.3d\n", (int_v * 100));	//1200 - not cut
+	printf("PRECISION for strings:\n\t'%.9s'\n", s);		// sam - cut the string
+	printf("PRECISION for NULL:\n\t'%.3s'\n", NULL);		// '(nu' if precision < strlen("(null)")
+	printf("PRECISION for digits :\n\t'%.3d'\n", (int_v * 100));	//1200 - not cut
 	printf("PRECISION for digits :\n\t'%8.6d'\n", (int_v * -100));	//001200 - not cut
 
 	//	test printf behaviour with type 'u':
 	printf("With type 'u': '%u'\n", int_v * -1);
 
 	//	test printf behaviour with type 'c':
-	printf("With type 'c': '%4c'\n", int_v * 10);
+	printf("With type 'c': '%4c'\n", int_v * 10); // '   x'
+
+	//	test printf's behaviour with type 'p':
+	printf("With type 'c': '%p'\n", s);
 }

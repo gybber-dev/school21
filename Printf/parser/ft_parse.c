@@ -103,7 +103,7 @@ t_obj			ft_parse(const char **str, va_list p)
 	const char	*p_f;
 
 	DEBUG printf("PARSER: ('%s')\n\n", *str);
-	ft_init_obj(&obj);
+//	ft_init_obj(&obj);
 	p_f = *str;
 	check_flag(str, &obj);
 	check_width(str, &obj, p);

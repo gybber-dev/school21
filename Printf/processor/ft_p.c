@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-char			*ft_s(t_obj *obj, char **val)
+char			*ft_p(t_obj *obj, char **val)
 {
 	char		*str_val;
 
