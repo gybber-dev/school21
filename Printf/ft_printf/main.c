@@ -10,6 +10,7 @@
 #define STR_8 "With type 's': '%20.8s'\n", s_v
 #define STR_9 "With type 's': '%20p'\n", s_v
 #define STR_10 "With type 's': '%p'\n", NULL // '0x0'
+#define STR_11 "'!%62c!'\n", 0
 
 int		main(void)
 {
@@ -24,8 +25,8 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_8);
+	repl = ft_printf(STR_11);
 	printf("===================%d==%s=\n", int_v, s_v);
-	orig = printf(STR_8);
+	orig = printf(STR_11);
 	printf("res_o: %d\nres_r: %d\n", orig, repl);
 }

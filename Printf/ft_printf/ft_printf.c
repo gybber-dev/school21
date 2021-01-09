@@ -8,7 +8,7 @@ int				ft_printf(const char *str, ...)
 	int			res_num;
 	const char	*begin;
 
-	printf("PRINT STRING: '%s'\n", str);
+	DEBUG printf("PRINT STRING: '%s'\n", str);
 	va_start(p, str);
 	res_num = 0;
 	begin = str;
