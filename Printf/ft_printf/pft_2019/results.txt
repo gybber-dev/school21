@@ -1,0 +1,809 @@
+WARNING: The return values reported here may be bugged on some systems.
+          See https://github.com/gavinfielder/pft/issues/11
+          Run in non-fork mode (-X) to ensure accurate return value
+          reporting, set IGNORE_RETURN_VALUE=1 in options-config.ini,
+          or run test_pipes.sh to see if your system has this bug.
+          This bug does not affect the pass/fail result of a test, nor
+          the function output--only the reported return value.
+
+
+Test 139 (d_basic_pos) : FAILED.
+    First line of code: {return test("this %d number", 17);}
+      expected return value : 15
+      your return value     : 15
+      expected output : "this 17 number"
+      your output     : "this 17 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this 17 number"
+      actual   (nonprintable as hex) : "this 17 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 140 (d_basic_neg) : FAILED.
+    First line of code: {return test("this %d number", -267);}
+      expected return value : 17
+      your return value     : 17
+      expected output : "this -267 number"
+      your output     : "this -267 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this -267 number"
+      actual   (nonprintable as hex) : "this -267 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 141 (d_basic_zero) : FAILED.
+    First line of code: {return test("this %d number", 0);}
+      expected return value : 14
+      your return value     : 14
+      expected output : "this 0 number"
+      your output     : "this 0 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this 0 number"
+      actual   (nonprintable as hex) : "this 0 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 214 (d_basic_i_pos) : FAILED.
+    First line of code: {return test("this %d number", 17);}
+      expected return value : 15
+      your return value     : 15
+      expected output : "this 17 number"
+      your output     : "this 17 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this 17 number"
+      actual   (nonprintable as hex) : "this 17 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 215 (d_basic_i_neg) : FAILED.
+    First line of code: {return test("this %d number", -267);}
+      expected return value : 17
+      your return value     : 17
+      expected output : "this -267 number"
+      your output     : "this -267 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this -267 number"
+      actual   (nonprintable as hex) : "this -267 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 216 (d_basic_i_zero) : FAILED.
+    First line of code: {return test("this %d number", 0);}
+      expected return value : 14
+      your return value     : 14
+      expected output : "this 0 number"
+      your output     : "this 0 numberPRINT STRING: 'this %d number'
+"
+      expected (nonprintable as hex) : "this 0 number"
+      actual   (nonprintable as hex) : "this 0 numberPRINT STRING: 'this %d number'\x0a"
+
+Test 217 (d_basic_i_onlypos) : FAILED.
+    First line of code: {return test("%d", 3);}
+      expected return value : 1
+      your return value     : 1
+      expected output : "3"
+      your output     : "3PRINT STRING: '%d'
+"
+      expected (nonprintable as hex) : "3"
+      actual   (nonprintable as hex) : "3PRINT STRING: '%d'\x0a"
+
+Test 218 (d_basic_i_onlyneg) : FAILED.
+    First line of code: {return test("%d", -1);}
+      expected return value : 2
+      your return value     : 2
+      expected output : "-1"
+      your output     : "-1PRINT STRING: '%d'
+"
+      expected (nonprintable as hex) : "-1"
+      actual   (nonprintable as hex) : "-1PRINT STRING: '%d'\x0a"
+
+Test 219 (d_basic_i_onlyzero) : FAILED.
+    First line of code: {return test("%d", 0);}
+      expected return value : 1
+      your return value     : 1
+      expected output : "0"
+      your output     : "0PRINT STRING: '%d'
+"
+      expected (nonprintable as hex) : "0"
+      actual   (nonprintable as hex) : "0PRINT STRING: '%d'\x0a"
+
+Test 220 (d_intmax) : FAILED.
+    First line of code: {return test("%d",  2147483647);}
+      expected return value : 11
+      your return value     : 11
+      expected output : "2147483647"
+      your output     : "2147483647PRINT STRING: '%d'
+"
+      expected (nonprintable as hex) : "2147483647"
+      actual   (nonprintable as hex) : "2147483647PRINT STRING: '%d'\x0a"
+
+Test 221 (d_intmin) : FAILED.
+    First line of code: {return test("%d", (int)(-2147483678));}
+      expected return value : 11
+      your return value     : 11
+      expected output : "2147483618"
+      your output     : "2147483618PRINT STRING: '%d'
+"
+      expected (nonprintable as hex) : "2147483618"
+      actual   (nonprintable as hex) : "2147483618PRINT STRING: '%d'\x0a"
+
+Test 222 (d_width_pos_fits) : FAILED.
+    First line of code: {return test("%7d", 33);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "     33"
+      your output     : "     33PRINT STRING: '%7d'
+"
+      expected (nonprintable as hex) : "     33"
+      actual   (nonprintable as hex) : "     33PRINT STRING: '%7d'\x0a"
+
+Test 223 (d_width_neg_fits) : FAILED.
+    First line of code: {return test("%7d", -14);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "    -14"
+      your output     : "    -14PRINT STRING: '%7d'
+"
+      expected (nonprintable as hex) : "    -14"
+      actual   (nonprintable as hex) : "    -14PRINT STRING: '%7d'\x0a"
+
+Test 224 (d_width_zero_fits) : FAILED.
+    First line of code: {return test("%3d", 0);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "  0"
+      your output     : "  0PRINT STRING: '%3d'
+"
+      expected (nonprintable as hex) : "  0"
+      actual   (nonprintable as hex) : "  0PRINT STRING: '%3d'\x0a"
+
+Test 225 (d_width_pos_exactfit) : FAILED.
+    First line of code: {return test("%5d", 52625);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "52625"
+      your output     : "52625PRINT STRING: '%5d'
+"
+      expected (nonprintable as hex) : "52625"
+      actual   (nonprintable as hex) : "52625PRINT STRING: '%5d'\x0a"
+
+Test 226 (d_width_neg_exactfit) : FAILED.
+    First line of code: {return test("%5d", -2562);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-2562"
+      your output     : "-2562PRINT STRING: '%5d'
+"
+      expected (nonprintable as hex) : "-2562"
+      actual   (nonprintable as hex) : "-2562PRINT STRING: '%5d'\x0a"
+
+Test 227 (d_width_pos_nofit) : FAILED.
+    First line of code: {return test("%4d", 94827);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "94827"
+      your output     : "94827PRINT STRING: '%4d'
+"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "94827PRINT STRING: '%4d'\x0a"
+
+Test 228 (d_width_neg_nofit) : FAILED.
+    First line of code: {return test("%4d", -2464);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-2464"
+      your output     : "-2464PRINT STRING: '%4d'
+"
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "-2464PRINT STRING: '%4d'\x0a"
+
+Test 229 (d_width_pos_fits_lj) : FAILED.
+    First line of code: {return test("%-7d", 33);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "33     "
+      your output     : "33     PRINT STRING: '%-7d'
+"
+      expected (nonprintable as hex) : "33     "
+      actual   (nonprintable as hex) : "33     PRINT STRING: '%-7d'\x0a"
+
+Test 230 (d_width_neg_fits_lj) : FAILED.
+    First line of code: {return test("%-7d", -14);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-14    "
+      your output     : "-14    PRINT STRING: '%-7d'
+"
+      expected (nonprintable as hex) : "-14    "
+      actual   (nonprintable as hex) : "-14    PRINT STRING: '%-7d'\x0a"
+
+Test 231 (d_width_zero_fits_lj) : FAILED.
+    First line of code: {return test("%-3d", 0);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "0  "
+      your output     : "0  PRINT STRING: '%-3d'
+"
+      expected (nonprintable as hex) : "0  "
+      actual   (nonprintable as hex) : "0  PRINT STRING: '%-3d'\x0a"
+
+Test 232 (d_width_pos_exactfit_lj) : FAILED.
+    First line of code: {return test("%-5d", 52625);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "52625"
+      your output     : "52625PRINT STRING: '%-5d'
+"
+      expected (nonprintable as hex) : "52625"
+      actual   (nonprintable as hex) : "52625PRINT STRING: '%-5d'\x0a"
+
+Test 233 (d_width_neg_exactfit_lj) : FAILED.
+    First line of code: {return test("%-5d", -2562);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-2562"
+      your output     : "-2562PRINT STRING: '%-5d'
+"
+      expected (nonprintable as hex) : "-2562"
+      actual   (nonprintable as hex) : "-2562PRINT STRING: '%-5d'\x0a"
+
+Test 234 (d_width_pos_nofit_lj) : FAILED.
+    First line of code: {return test("%-4d", 94827);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "94827"
+      your output     : "94827PRINT STRING: '%-4d'
+"
+      expected (nonprintable as hex) : "94827"
+      actual   (nonprintable as hex) : "94827PRINT STRING: '%-4d'\x0a"
+
+Test 235 (d_width_neg_nofit_lj) : FAILED.
+    First line of code: {return test("%-4d", -2464);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-2464"
+      your output     : "-2464PRINT STRING: '%-4d'
+"
+      expected (nonprintable as hex) : "-2464"
+      actual   (nonprintable as hex) : "-2464PRINT STRING: '%-4d'\x0a"
+
+Test 236 (d_prec_fits_pos) : FAILED.
+    First line of code: {return test("%.5d", 2);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "00002"
+      your output     : "00002PRINT STRING: '%.5d'
+"
+      expected (nonprintable as hex) : "00002"
+      actual   (nonprintable as hex) : "00002PRINT STRING: '%.5d'\x0a"
+
+Test 237 (d_prec_fits_neg) : FAILED.
+    First line of code: {return test("%.6d", -3);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-000003"
+      your output     : "-000003PRINT STRING: '%.6d'
+"
+      expected (nonprintable as hex) : "-000003"
+      actual   (nonprintable as hex) : "-000003PRINT STRING: '%.6d'\x0a"
+
+Test 238 (d_prec_fits_zero) : FAILED.
+    First line of code: {return test("%.3d", 0);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "000"
+      your output     : "000PRINT STRING: '%.3d'
+"
+      expected (nonprintable as hex) : "000"
+      actual   (nonprintable as hex) : "000PRINT STRING: '%.3d'\x0a"
+
+Test 239 (d_prec_exactfit_pos) : FAILED.
+    First line of code: {return test("%.4d", 5263);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "5263"
+      your output     : "5263PRINT STRING: '%.4d'
+"
+      expected (nonprintable as hex) : "5263"
+      actual   (nonprintable as hex) : "5263PRINT STRING: '%.4d'\x0a"
+
+Test 240 (d_prec_exactfit_neg) : FAILED.
+    First line of code: {return test("%.4d", -2372);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-2372"
+      your output     : "-2372PRINT STRING: '%.4d'
+"
+      expected (nonprintable as hex) : "-2372"
+      actual   (nonprintable as hex) : "-2372PRINT STRING: '%.4d'\x0a"
+
+Test 241 (d_prec_nofit_pos) : FAILED.
+    First line of code: {return test("%.3d", 13862);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "13862"
+      your output     : "13862PRINT STRING: '%.3d'
+"
+      expected (nonprintable as hex) : "13862"
+      actual   (nonprintable as hex) : "13862PRINT STRING: '%.3d'\x0a"
+
+Test 242 (d_prec_nofit_neg) : FAILED.
+    First line of code: {return test("%.3d",-23646);}
+      expected return value : 6
+      your return value     : 6
+      expected output : "-23646"
+      your output     : "-23646PRINT STRING: '%.3d'
+"
+      expected (nonprintable as hex) : "-23646"
+      actual   (nonprintable as hex) : "-23646PRINT STRING: '%.3d'\x0a"
+
+Test 243 (d_zp_pos_fits) : FAILED.
+    First line of code: {return test("%05d", 43);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "00043"
+      your output     : "00043PRINT STRING: '%05d'
+"
+      expected (nonprintable as hex) : "00043"
+      actual   (nonprintable as hex) : "00043PRINT STRING: '%05d'\x0a"
+
+Test 244 (d_zp_neg_fits) : FAILED.
+    First line of code: {return test("%07d", -54);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "-000054"
+      your output     : "0000-54PRINT STRING: '%07d'
+"
+      expected (nonprintable as hex) : "-000054"
+      actual   (nonprintable as hex) : "0000-54PRINT STRING: '%07d'\x0a"
+
+Test 245 (d_zp_zero_fits) : FAILED.
+    First line of code: {return test("%03d", 0);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "000"
+      your output     : "000PRINT STRING: '%03d'
+"
+      expected (nonprintable as hex) : "000"
+      actual   (nonprintable as hex) : "000PRINT STRING: '%03d'\x0a"
+
+Test 246 (d_zp_pos_exactfit) : FAILED.
+    First line of code: {return test("%03d", 634);}
+      expected return value : 3
+      your return value     : 3
+      expected output : "634"
+      your output     : "634PRINT STRING: '%03d'
+"
+      expected (nonprintable as hex) : "634"
+      actual   (nonprintable as hex) : "634PRINT STRING: '%03d'\x0a"
+
+Test 247 (d_zp_neg_exactfit) : FAILED.
+    First line of code: {return test("%04d", -532);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "-532"
+      your output     : "-532PRINT STRING: '%04d'
+"
+      expected (nonprintable as hex) : "-532"
+      actual   (nonprintable as hex) : "-532PRINT STRING: '%04d'\x0a"
+
+Test 248 (d_zp_neg_minus1fit) : FAILED.
+    First line of code: {return test("%04d", -4825);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-4825"
+      your output     : "-4825PRINT STRING: '%04d'
+"
+      expected (nonprintable as hex) : "-4825"
+      actual   (nonprintable as hex) : "-4825PRINT STRING: '%04d'\x0a"
+
+Test 249 (d_prec_width_fit_fit_pos) : FAILED.
+    First line of code: {return test("%8.5d", 34);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00034"
+      your output     : "   00034PRINT STRING: '%8.5d'
+"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : "   00034PRINT STRING: '%8.5d'\x0a"
+
+Test 250 (d_prec_width_fit_fit_neg) : FAILED.
+    First line of code: {return test("%10.5d", -216);}
+      expected return value : 11
+      your return value     : 11
+      expected output : "    -00216"
+      your output     : "    -00216PRINT STRING: '%10.5d'
+"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : "    -00216PRINT STRING: '%10.5d'\x0a"
+
+Test 251 (d_prec_width_fit_fit_zero) : FAILED.
+    First line of code: {return test("%8.5d", 0);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00000"
+      your output     : "   00000PRINT STRING: '%8.5d'
+"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : "   00000PRINT STRING: '%8.5d'\x0a"
+
+Test 252 (d_prec_width_nofit_fit_pos) : FAILED.
+    First line of code: {return test("%8.3d", 8375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "    8375"
+      your output     : "    8375PRINT STRING: '%8.3d'
+"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : "    8375PRINT STRING: '%8.3d'\x0a"
+
+Test 253 (d_prec_width_nofit_fit_neg) : FAILED.
+    First line of code: {return test("%8.3d", -8473);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   -8473"
+      your output     : "   -8473PRINT STRING: '%8.3d'
+"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : "   -8473PRINT STRING: '%8.3d'\x0a"
+
+Test 254 (d_prec_width_fit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.7d", 3267);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "0003267"
+      your output     : "0003267PRINT STRING: '%3.7d'
+"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "0003267PRINT STRING: '%3.7d'\x0a"
+
+Test 255 (d_prec_width_fit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.7d", -2375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-0002375"
+      your output     : "-0002375PRINT STRING: '%3.7d'
+"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-0002375PRINT STRING: '%3.7d'\x0a"
+
+Test 256 (d_prec_width_nofit_nofit_pos) : FAILED.
+    First line of code: {return test("%3.3d", 6983);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "6983"
+      your output     : "6983PRINT STRING: '%3.3d'
+"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "6983PRINT STRING: '%3.3d'\x0a"
+
+Test 257 (d_prec_width_nofit_nofit_neg) : FAILED.
+    First line of code: {return test("%3.3d", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-8462PRINT STRING: '%3.3d'
+"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-8462PRINT STRING: '%3.3d'\x0a"
+
+Test 258 (d_prec_width_fit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.5d", 34);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "00034   "
+      your output     : "00034   PRINT STRING: '%-8.5d'
+"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : "00034   PRINT STRING: '%-8.5d'\x0a"
+
+Test 259 (d_prec_width_fit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-10.5d", -216);}
+      expected return value : 11
+      your return value     : 11
+      expected output : "-00216    "
+      your output     : "-00216    PRINT STRING: '%-10.5d'
+"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : "-00216    PRINT STRING: '%-10.5d'\x0a"
+
+Test 260 (d_prec_width_fit_fit_zero_lj) : FAILED.
+    First line of code: {return test("%-8.5d", 0);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "00000   "
+      your output     : "00000   PRINT STRING: '%-8.5d'
+"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "00000   PRINT STRING: '%-8.5d'\x0a"
+
+Test 261 (d_prec_width_nofit_fit_pos_lj) : FAILED.
+    First line of code: {return test("%-8.3d", 8375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "8375    "
+      your output     : "8375    PRINT STRING: '%-8.3d'
+"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : "8375    PRINT STRING: '%-8.3d'\x0a"
+
+Test 262 (d_prec_width_nofit_fit_neg_lj) : FAILED.
+    First line of code: {return test("%-8.3d", -8473);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-8473   "
+      your output     : "-8473   PRINT STRING: '%-8.3d'
+"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : "-8473   PRINT STRING: '%-8.3d'\x0a"
+
+Test 263 (d_prec_width_fit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.7d", 3267);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "0003267"
+      your output     : "0003267PRINT STRING: '%-3.7d'
+"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "0003267PRINT STRING: '%-3.7d'\x0a"
+
+Test 264 (d_prec_width_fit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.7d", -2375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-0002375"
+      your output     : "-0002375PRINT STRING: '%-3.7d'
+"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-0002375PRINT STRING: '%-3.7d'\x0a"
+
+Test 265 (d_prec_width_nofit_nofit_pos_lj) : FAILED.
+    First line of code: {return test("%-3.3d", 6983);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "6983"
+      your output     : "6983PRINT STRING: '%-3.3d'
+"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "6983PRINT STRING: '%-3.3d'\x0a"
+
+Test 266 (d_prec_width_nofit_nofit_neg_lj) : FAILED.
+    First line of code: {return test("%-3.3d", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-8462PRINT STRING: '%-3.3d'
+"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-8462PRINT STRING: '%-3.3d'\x0a"
+
+Test 267 (d_prec_width_ff_pos_zp) : FAILED.
+    First line of code: {return test("%08.5d", 34);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00034"
+      your output     : "00000034PRINT STRING: '%08.5d'
+"
+      expected (nonprintable as hex) : "   00034"
+      actual   (nonprintable as hex) : "00000034PRINT STRING: '%08.5d'\x0a"
+
+Test 268 (d_prec_width_ff_neg_zp) : FAILED.
+    First line of code: {return test("%010.5d", -216);}
+      expected return value : 11
+      your return value     : 11
+      expected output : "    -00216"
+      your output     : "0000-00216PRINT STRING: '%010.5d'
+"
+      expected (nonprintable as hex) : "    -00216"
+      actual   (nonprintable as hex) : "0000-00216PRINT STRING: '%010.5d'\x0a"
+
+Test 269 (d_prec_width_ff_zero_zp) : FAILED.
+    First line of code: {return test("%08.5d", 0);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   00000"
+      your output     : "00000000PRINT STRING: '%08.5d'
+"
+      expected (nonprintable as hex) : "   00000"
+      actual   (nonprintable as hex) : "00000000PRINT STRING: '%08.5d'\x0a"
+
+Test 270 (d_prec_width_nf_pos_zp) : FAILED.
+    First line of code: {return test("%08.3d", 8375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "    8375"
+      your output     : "00008375PRINT STRING: '%08.3d'
+"
+      expected (nonprintable as hex) : "    8375"
+      actual   (nonprintable as hex) : "00008375PRINT STRING: '%08.3d'\x0a"
+
+Test 271 (d_prec_width_nf_neg_zp) : FAILED.
+    First line of code: {return test("%08.3d", -8473);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "   -8473"
+      your output     : "000-8473PRINT STRING: '%08.3d'
+"
+      expected (nonprintable as hex) : "   -8473"
+      actual   (nonprintable as hex) : "000-8473PRINT STRING: '%08.3d'\x0a"
+
+Test 272 (d_prec_width_fn_pos_zp) : FAILED.
+    First line of code: {return test("%03.7d", 3267);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "0003267"
+      your output     : "0003267PRINT STRING: '%03.7d'
+"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "0003267PRINT STRING: '%03.7d'\x0a"
+
+Test 273 (d_prec_width_fn_neg_zp) : FAILED.
+    First line of code: {return test("%03.7d", -2375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-0002375"
+      your output     : "-0002375PRINT STRING: '%03.7d'
+"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-0002375PRINT STRING: '%03.7d'\x0a"
+
+Test 274 (d_prec_width_nn_pos_zp) : FAILED.
+    First line of code: {return test("%03.3d", 6983);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "6983"
+      your output     : "6983PRINT STRING: '%03.3d'
+"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "6983PRINT STRING: '%03.3d'\x0a"
+
+Test 275 (d_prec_width_nn_neg_zp) : FAILED.
+    First line of code: {return test("%03.3d", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-8462PRINT STRING: '%03.3d'
+"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-8462PRINT STRING: '%03.3d'\x0a"
+
+Test 276 (d_prec_width_ff_pos_lj_zp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5d", 34);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "00034   "
+      your output     : "00034   PRINT STRING: '%0-8.5d'
+"
+      expected (nonprintable as hex) : "00034   "
+      actual   (nonprintable as hex) : "00034   PRINT STRING: '%0-8.5d'\x0a"
+
+Test 277 (d_prec_width_ff_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-10.5d", -216);}
+      expected return value : 11
+      your return value     : 11
+      expected output : "-00216    "
+      your output     : "-00216    PRINT STRING: '%0-10.5d'
+"
+      expected (nonprintable as hex) : "-00216    "
+      actual   (nonprintable as hex) : "-00216    PRINT STRING: '%0-10.5d'\x0a"
+
+Test 278 (d_prec_width_ff_zero_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.5d", 0);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "00000   "
+      your output     : "00000   PRINT STRING: '%0-8.5d'
+"
+      expected (nonprintable as hex) : "00000   "
+      actual   (nonprintable as hex) : "00000   PRINT STRING: '%0-8.5d'\x0a"
+
+Test 279 (d_prec_width_nf_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3d", 8375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "8375    "
+      your output     : "8375    PRINT STRING: '%0-8.3d'
+"
+      expected (nonprintable as hex) : "8375    "
+      actual   (nonprintable as hex) : "8375    PRINT STRING: '%0-8.3d'\x0a"
+
+Test 280 (d_prec_width_nf_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-8.3d", -8473);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-8473   "
+      your output     : "-8473   PRINT STRING: '%0-8.3d'
+"
+      expected (nonprintable as hex) : "-8473   "
+      actual   (nonprintable as hex) : "-8473   PRINT STRING: '%0-8.3d'\x0a"
+
+Test 281 (d_prec_width_fn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7d", 3267);}
+      expected return value : 7
+      your return value     : 7
+      expected output : "0003267"
+      your output     : "0003267PRINT STRING: '%0-3.7d'
+"
+      expected (nonprintable as hex) : "0003267"
+      actual   (nonprintable as hex) : "0003267PRINT STRING: '%0-3.7d'\x0a"
+
+Test 282 (d_prec_width_fn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.7d", -2375);}
+      expected return value : 8
+      your return value     : 8
+      expected output : "-0002375"
+      your output     : "-0002375PRINT STRING: '%0-3.7d'
+"
+      expected (nonprintable as hex) : "-0002375"
+      actual   (nonprintable as hex) : "-0002375PRINT STRING: '%0-3.7d'\x0a"
+
+Test 283 (d_prec_width_nn_pos_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3d", 6983);}
+      expected return value : 4
+      your return value     : 4
+      expected output : "6983"
+      your output     : "6983PRINT STRING: '%0-3.3d'
+"
+      expected (nonprintable as hex) : "6983"
+      actual   (nonprintable as hex) : "6983PRINT STRING: '%0-3.3d'\x0a"
+
+Test 284 (d_prec_width_nn_neg_ljzp_ignoreflag) : FAILED.
+    First line of code: {return test("%0-3.3d", -8462);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "-8462"
+      your output     : "-8462PRINT STRING: '%0-3.3d'
+"
+      expected (nonprintable as hex) : "-8462"
+      actual   (nonprintable as hex) : "-8462PRINT STRING: '%0-3.3d'\x0a"
+
+Test 285 (d_prec0val0_basic) : FAILED.
+    First line of code: {return test("%.0d", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0PRINT STRING: '%.0d'
+"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0PRINT STRING: '%.0d'\x0a"
+
+Test 286 (d_prec0val0_implicit) : FAILED.
+    First line of code: {return test("%.d", 0);}
+      expected return value : 0
+      your return value     : 1
+      expected output : ""
+      your output     : "0PRINT STRING: '%.d'
+"
+      expected (nonprintable as hex) : ""
+      actual   (nonprintable as hex) : "0PRINT STRING: '%.d'\x0a"
+
+Test 287 (d_prec0val0_w) : FAILED.
+    First line of code: {return test("%5.0d", 0);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "     "
+      your output     : "    0PRINT STRING: '%5.0d'
+"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "    0PRINT STRING: '%5.0d'\x0a"
+
+Test 288 (d_prec0val0_w_impl) : FAILED.
+    First line of code: {return test("%5.d", 0);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "     "
+      your output     : "    0PRINT STRING: '%5.d'
+"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "    0PRINT STRING: '%5.d'\x0a"
+
+Test 289 (d_prec0val0_wlj) : FAILED.
+    First line of code: {return test("%-5.0d", 0);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "     "
+      your output     : "0    PRINT STRING: '%-5.0d'
+"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "0    PRINT STRING: '%-5.0d'\x0a"
+
+Test 290 (d_prec0val0_wlj_impl) : FAILED.
+    First line of code: {return test("%-5.d", 0);}
+      expected return value : 5
+      your return value     : 5
+      expected output : "     "
+      your output     : "0    PRINT STRING: '%-5.d'
+"
+      expected (nonprintable as hex) : "     "
+      actual   (nonprintable as hex) : "0    PRINT STRING: '%-5.d'\x0a"
+
