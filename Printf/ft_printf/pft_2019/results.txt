@@ -7,85 +7,6 @@ WARNING: The return values reported here may be bugged on some systems.
           the function output--only the reported return value.
 
 
-Test   7 (pct_5w) : FAILED.
-    First line of code: {return test("%5%");}
-      expected return value : 5
-      your return value     : 2
-      expected output : "    %"
-      your output     : "5%"
-      expected (nonprintable as hex) : "    %"
-      actual   (nonprintable as hex) : "5%"
-
-Test   8 (pct_5wlj) : FAILED.
-    First line of code: {return test("%-5%");}
-      expected return value : 5
-      your return value     : 3
-      expected output : "%    "
-      your output     : "-5%"
-      expected (nonprintable as hex) : "%    "
-      actual   (nonprintable as hex) : "-5%"
-
-Test   9 (pct_5wzp) : FAILED.
-    First line of code: {return test("%05%");}
-      expected return value : 5
-      your return value     : 3
-      expected output : "0000%"
-      your output     : "05%"
-      expected (nonprintable as hex) : "0000%"
-      actual   (nonprintable as hex) : "05%"
-
-Test  10 (pct_5wljzp) : FAILED.
-    First line of code: {return test("%-05%");}
-      expected return value : 5
-      your return value     : 4
-      expected output : "%    "
-      your output     : "-05%"
-      expected (nonprintable as hex) : "%    "
-      actual   (nonprintable as hex) : "-05%"
-
-Test  11 (nocrash_nullspec_basic) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%");}
-    SEGFAULT
-
-Test  12 (nocrash_nullspec_5w) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%5");}
-    SEGFAULT
-
-Test  13 (nocrash_nullspec_5wzp) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%05");}
-    SEGFAULT
-
-Test  14 (nocrash_nullspec_5wzplj) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%-05");}
-    SEGFAULT
-
-Test  15 (nocrash_nullspec_5wlj) : FAILED.
-    (nocrash test: automatically passes provided no unexpected failure)
-    First line of code: {return test("%-5");}
-    SEGFAULT
-
-Test  37 (s_two_strings_prec_0trunc) : FAILED.
-    First line of code: {return test("%.5s%7s", "yo", "boi");}
-      expected return value : 9
-      your return value     : 9
-      expected output : "yo    boi"
-      your output     : "yo       "
-      expected (nonprintable as hex) : "yo    boi"
-      actual   (nonprintable as hex) : "yo       "
-
-Test 132 (s_undefbehav_lj_0_width_9) : FAILED.
-    First line of code: {return test("%-09s", s_hidden);}
-      expected return value : 9
-      your return value     : 9
-      expected output : "hi low   "
-      your output     : "000hi low"
-      expected (nonprintable as hex) : "hi low   "
-      actual   (nonprintable as hex) : "000hi low"
-
 Test 166 (i_zp_neg_fits) : FAILED.
     First line of code: {return test("%07i", -54);}
       expected return value : 7
@@ -602,40 +523,29 @@ Test 435 (p_ftfc_zero_prec0_undefbehav) : FAILED.
       expected (nonprintable as hex) : "0x"
       actual   (nonprintable as hex) : "0x0"
 
-Test 443 (p_width_fit_lj) : FAILED.
-    First line of code: {return test("%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10      expected return value : 1012
-      your return value     : 1012
-      expected output : "0x1005ac1b8                                                           0x1005ac1b9                                                           0x1005ac1b"
-      your output     : "0x1005ac1b8                                                           0x1005ac1b9ùAş                                                      0x1005ac1b"
-      expected (nonprintable as hex) : "0x1005ac1b8                                                           0x1005ac1b9                                                           0x1005ac1b"
-      actual   (nonprintable as hex) : "0x1005ac1b8                                                           0x1005ac1b9\x02\xf9A\xfe\x07                                                      0x1005ac1b"
-
 Test 450 (c_128_255_combined) : FAILED.
     First line of code: {return test("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%      expected return value : 151
       your return value     : 1661
       expected output : "€‚ƒ„…†‡ˆ‰Š‹Œ‘’“”•–—˜™š›œŸ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞßàáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ"
-      your output     : "€ÿÿÿ€Ñhïşÿÿÿ€Ñhïş‚ÿÿÿ€Ñhïşƒÿÿÿ€Ñhïş„ÿÿÿ€Ñhïş…ÿÿÿ€Ñhïş†ÿÿÿ€Ñhïş‡ÿÿÿ€Ñhïşˆÿÿÿ€Ñhïş‰ÿÿÿ€ÑhïşŠÿÿÿ€Ñhïş‹ÿÿÿ€ÑhïşŒÿÿÿ€Ñhïşÿÿÿ€Ñhïşÿÿÿ€Ñhïş"
+      your output     : "€ÿÿÿ0Á'èşÿÿÿ0Á'èş‚ÿÿÿ0Á'èşƒÿÿÿ0Á'èş„ÿÿÿ0Á'èş…ÿÿÿ0Á'èş†ÿÿÿ0Á'èş‡ÿÿÿ0Á'èşˆÿÿÿ0Á'èş‰ÿÿÿ0Á'èşŠÿÿÿ0Á'èş‹ÿÿÿ0Á'èşŒÿÿÿ0Á'èşÿÿÿ0Á'èşÿÿÿ0Á'èş"
       expected (nonprintable as hex) : "\x80\x81\x82\x83\x84\x85\x86\x87\x88\x89\x8a\x8b\x8c\x8d\x8e\x8f\x90\x91\x92\x93\x94\x95\x96\x97\x98\x99\x9a\x9b\x9c\x9d\x9e\x9f\xa0\xa1\xa2\xa3\xa4\xa5\xa6\xa7\xa8\xa9\xaa\xab\xac\xad\xae\xaf\xb0\xb1\xb2\xb3\xb4\xb5\xb6\xb7\xb8\xb9\xba\xbb\xbc\xbd\xbe\xbf\xc0\xc1\xc2\xc3\xc4\xc5\xc6\xc7\xc8\xc9\xca\xcb\xcc\xcd\xce\xcf\xd0\xd1\xd2\xd3\xd4\xd5\xd6\xd7\xd8\xd9\xda\xdb\xdc\xdd\xde\xdf\xe0\xe1\xe2\xe3\xe4\xe5\xe6\xe7\xe8\xe9\xea\xeb\xec\xed\xee\xef\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff"
-      actual   (nonprintable as hex) : "\x80\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x81\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x82\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x83\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x84\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x85\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x86\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x87\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x88\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x89\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8a\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8b\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8c\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8d\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8e\xff\xff\xff\x80\xd1h\xef\xfe\x7f"
-
-Test 451 (c_allprintable_width) : FAILED.
-    First line of code: {return test("%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c    SIGABRT
+      actual   (nonprintable as hex) : "\x80\xff\xff\xff0\xc1'\xe8\xfe\x7f\x81\xff\xff\xff0\xc1'\xe8\xfe\x7f\x82\xff\xff\xff0\xc1'\xe8\xfe\x7f\x83\xff\xff\xff0\xc1'\xe8\xfe\x7f\x84\xff\xff\xff0\xc1'\xe8\xfe\x7f\x85\xff\xff\xff0\xc1'\xe8\xfe\x7f\x86\xff\xff\xff0\xc1'\xe8\xfe\x7f\x87\xff\xff\xff0\xc1'\xe8\xfe\x7f\x88\xff\xff\xff0\xc1'\xe8\xfe\x7f\x89\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8a\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8b\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8c\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8d\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8e\xff\xff\xff0\xc1'\xe8\xfe\x7f"
 
 Test 453 (c_128_255_width) : FAILED.
     First line of code: {return test("%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c      expected return value : 385
       your return value     : 1661
       expected output : "€   ‚   ƒ„ …  †   ‡ˆ ‰  Š   ‹Œ       ‘  ’   “” •  –   —˜ ™  š   ›œ      Ÿ  ¡  ¢   £¤ ¥  ¦   §¨ ©  ª   «¬ ­  ®   ¯° ±  ²   ³´ µ  ¶   ·¸ ¹  º   »"
-      your output     : "€ÿÿÿ€Ñhïşÿÿÿ€Ñhïş‚ÿÿÿ€Ñhïşƒÿÿÿ€Ñhïş„ÿÿÿ€Ñhïş…ÿÿÿ€Ñhïş†ÿÿÿ€Ñhïş‡ÿÿÿ€Ñhïşˆÿÿÿ€Ñhïş‰ÿÿÿ€ÑhïşŠÿÿÿ€Ñhïş‹ÿÿÿ€ÑhïşŒÿÿÿ€Ñhïşÿÿÿ€Ñhïşÿÿÿ€Ñhïş"
+      your output     : "€ÿÿÿ0Á'èşÿÿÿ0Á'èş‚ÿÿÿ0Á'èşƒÿÿÿ0Á'èş„ÿÿÿ0Á'èş…ÿÿÿ0Á'èş†ÿÿÿ0Á'èş‡ÿÿÿ0Á'èşˆÿÿÿ0Á'èş‰ÿÿÿ0Á'èşŠÿÿÿ0Á'èş‹ÿÿÿ0Á'èşŒÿÿÿ0Á'èşÿÿÿ0Á'èşÿÿÿ0Á'èş"
       expected (nonprintable as hex) : "\x80 \x81  \x82   \x83\x84 \x85  \x86   \x87\x88 \x89  \x8a   \x8b\x8c \x8d  \x8e   \x8f\x90 \x91  \x92   \x93\x94 \x95  \x96   \x97\x98 \x99  \x9a   \x9b\x9c \x9d  \x9e   \x9f\xa0 \xa1  \xa2   \xa3\xa4 \xa5  \xa6   \xa7\xa8 \xa9  \xaa   \xab\xac \xad  \xae   \xaf\xb0 \xb1  \xb2   \xb3\xb4 \xb5  \xb6   \xb7\xb8 \xb9  \xba   \xbb"
-      actual   (nonprintable as hex) : "\x80\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x81\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x82\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x83\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x84\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x85\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x86\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x87\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x88\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x89\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8a\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8b\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8c\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8d\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8e\xff\xff\xff\x80\xd1h\xef\xfe\x7f"
+      actual   (nonprintable as hex) : "\x80\xff\xff\xff0\xc1'\xe8\xfe\x7f\x81\xff\xff\xff0\xc1'\xe8\xfe\x7f\x82\xff\xff\xff0\xc1'\xe8\xfe\x7f\x83\xff\xff\xff0\xc1'\xe8\xfe\x7f\x84\xff\xff\xff0\xc1'\xe8\xfe\x7f\x85\xff\xff\xff0\xc1'\xe8\xfe\x7f\x86\xff\xff\xff0\xc1'\xe8\xfe\x7f\x87\xff\xff\xff0\xc1'\xe8\xfe\x7f\x88\xff\xff\xff0\xc1'\xe8\xfe\x7f\x89\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8a\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8b\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8c\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8d\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8e\xff\xff\xff0\xc1'\xe8\xfe\x7f"
 
 Test 456 (c_128_255_width_lj) : FAILED.
     First line of code: {return test("%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4c%-1c%-2c%-3c%-4      expected return value : 385
       your return value     : 1661
       expected output : "€ ‚  ƒ   „… †  ‡   ˆ‰ Š  ‹   Œ      ‘ ’  “   ”• –  —   ˜™ š  ›   œ   Ÿ    ¡ ¢  £   ¤¥ ¦  §   ¨© ª  «   ¬­ ®  ¯   °± ²  ³   ´µ ¶  ·   ¸¹ º  »   "
-      your output     : "€ÿÿÿ€Ñhïşÿÿÿ€Ñhïş‚ÿÿÿ€Ñhïşƒÿÿÿ€Ñhïş„ÿÿÿ€Ñhïş…ÿÿÿ€Ñhïş†ÿÿÿ€Ñhïş‡ÿÿÿ€Ñhïşˆÿÿÿ€Ñhïş‰ÿÿÿ€ÑhïşŠÿÿÿ€Ñhïş‹ÿÿÿ€ÑhïşŒÿÿÿ€Ñhïşÿÿÿ€Ñhïşÿÿÿ€Ñhïş"
+      your output     : "€ÿÿÿ0Á'èşÿÿÿ0Á'èş‚ÿÿÿ0Á'èşƒÿÿÿ0Á'èş„ÿÿÿ0Á'èş…ÿÿÿ0Á'èş†ÿÿÿ0Á'èş‡ÿÿÿ0Á'èşˆÿÿÿ0Á'èş‰ÿÿÿ0Á'èşŠÿÿÿ0Á'èş‹ÿÿÿ0Á'èşŒÿÿÿ0Á'èşÿÿÿ0Á'èşÿÿÿ0Á'èş"
       expected (nonprintable as hex) : "\x80\x81 \x82  \x83   \x84\x85 \x86  \x87   \x88\x89 \x8a  \x8b   \x8c\x8d \x8e  \x8f   \x90\x91 \x92  \x93   \x94\x95 \x96  \x97   \x98\x99 \x9a  \x9b   \x9c\x9d \x9e  \x9f   \xa0\xa1 \xa2  \xa3   \xa4\xa5 \xa6  \xa7   \xa8\xa9 \xaa  \xab   \xac\xad \xae  \xaf   \xb0\xb1 \xb2  \xb3   \xb4\xb5 \xb6  \xb7   \xb8\xb9 \xba  \xbb   "
-      actual   (nonprintable as hex) : "\x80\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x81\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x82\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x83\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x84\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x85\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x86\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x87\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x88\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x89\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8a\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8b\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8c\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8d\xff\xff\xff\x80\xd1h\xef\xfe\x7f\x8e\xff\xff\xff\x80\xd1h\xef\xfe\x7f"
+      actual   (nonprintable as hex) : "\x80\xff\xff\xff0\xc1'\xe8\xfe\x7f\x81\xff\xff\xff0\xc1'\xe8\xfe\x7f\x82\xff\xff\xff0\xc1'\xe8\xfe\x7f\x83\xff\xff\xff0\xc1'\xe8\xfe\x7f\x84\xff\xff\xff0\xc1'\xe8\xfe\x7f\x85\xff\xff\xff0\xc1'\xe8\xfe\x7f\x86\xff\xff\xff0\xc1'\xe8\xfe\x7f\x87\xff\xff\xff0\xc1'\xe8\xfe\x7f\x88\xff\xff\xff0\xc1'\xe8\xfe\x7f\x89\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8a\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8b\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8c\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8d\xff\xff\xff0\xc1'\xe8\xfe\x7f\x8e\xff\xff\xff0\xc1'\xe8\xfe\x7f"
 
 Test 457 (c_nullterm_basic) : FAILED.
     First line of code: {return test("%c", '
@@ -698,10 +608,10 @@ Test 644 (moul_c_3) : FAILED.
       your return value     : 30
       expected output : "Il fait au moins À
 "
-      your output     : "Il fait au moins Ààÿÿ`Õhïş
+      your output     : "Il fait au moins ÀàÿÿÅ'èş
 "
       expected (nonprintable as hex) : "Il fait au moins \xc0\x0a"
-      actual   (nonprintable as hex) : "Il fait au moins \xc0\xe0\xff\xff`\xd5h\xef\xfe\x7f\x0a"
+      actual   (nonprintable as hex) : "Il fait au moins \xc0\xe0\xff\xff\x10\xc5'\xe8\xfe\x7f\x0a"
 
 Test 645 (moul_c_4) : FAILED.
     First line of code: {return test("%c", -0);}
@@ -728,10 +638,10 @@ Test 647 (moul_c_5b) : FAILED.
       your return value     : 12
       expected output : "ÿ
 "
-      your output     : "ÿÿÿ`Õhïş
+      your output     : "ÿÿÿÅ'èş
 "
       expected (nonprintable as hex) : "\xff\x0a"
-      actual   (nonprintable as hex) : "\xff\xff\xff\x7f`\xd5h\xef\xfe\x7f\x0a"
+      actual   (nonprintable as hex) : "\xff\xff\xff\x7f\x10\xc5'\xe8\xfe\x7f\x0a"
 
 Test 677 (moul_i_7) : FAILED.
     First line of code: {return test("%i", INT_MIN);}

@@ -10,6 +10,11 @@ static void		check_flag(const char **str, t_obj *obj)
 	while (**str == '-' || **str == '0')
 	{
 		DEBUG printf("\tflag is detected\n");
+		if (**str == '0' && obj->s_flag.on == 1)
+		{
+			(*str)++;
+			continue ;
+		}
 		obj->s_flag.on = 1;
 		obj->s_flag.numb = **str;
 		obj->s_flag.size++;
@@ -95,6 +100,7 @@ static void		check_type(const char **str, t_obj *obj)
 	{
 		DEBUG printf("\ttype [%c] is detected\n", **str);
 		obj->s_type.numb = **str;
+		obj->s_type.on = 1;
 	}
 	DEBUG printf("\ttype: '%d'\n", obj->s_type.numb);
 	return ;
@@ -106,12 +112,16 @@ t_obj			ft_parse(const char **str, va_list p)
 	const char	*p_f;
 
 	DEBUG printf("PARSER: ('%s')\n\n", *str);
-//	ft_init_obj(&obj);
+	ft_init_obj(&obj);
 	p_f = *str;
-	check_flag(str, &obj);
-	check_width(str, &obj, p);
-	check_precision(str, &obj, p);
-	check_type(str, &obj);
+	if (**str)
+		check_flag(str, &obj);
+	if (**str)
+		check_width(str, &obj, p);
+	if (**str)
+		check_precision(str, &obj, p);
+	if (**str)
+		check_type(str, &obj);
 	DEBUG printf("str: '%s'\nflag: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
 	p_f, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
 	return (obj);

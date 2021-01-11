@@ -27,7 +27,8 @@ int main(void)
 
 	//	test the string displaying for different values of precision:
 	char *s = "sample";
-	printf("PRECISION for strings:\n\t'%.9s'\n", s);		// sam - cut the string
+	printf("PRECISION for strings:\n\t'%.3s'\n", s);		// sam - cut the string
+	printf("PRECISION for strings:\n\t'%-9.3s'\n", s);		// sam - cut the string
 	printf("PRECISION for NULL:\n\t'%.3s'\n", NULL);		// '(nu' if precision < strlen("(null)")
 	printf("PRECISION for digits :\n\t'%.3d'\n", (int_v * 100));	//1200 - not cut
 	printf("PRECISION for digits :\n\t'%8.6d'\n", (int_v * -100));	//001200 - not cut
@@ -41,4 +42,15 @@ int main(void)
 	//	test printf's behaviour with type 'p':
 	printf("With type 'p': '%13p'\n", s);
 	printf("%d\n", printf("1\n"));
+
+	//	test printf's behaviour without types:
+	printf("With %% : '%0*.*%'\n", 5, 4);
+	printf("With str: '%0*.*s'\n", 8, 6, "%%%%%%%%%%");
+	printf("Without types: '%0*%'\n", 5);
+
+	printf("Percent: '%------%'\n");   // %
+	printf("Percent: '%------s'\n", "%");   // %
+	printf("Percent: '%-05%'\n");   // %
+	printf("Percent: '%0-5%'\n");   // %
+	printf("Percent: '%5'\n");   // %
 }

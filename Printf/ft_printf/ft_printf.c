@@ -14,13 +14,14 @@ int				ft_printf(const char *str, ...)
 	begin = str;
 	while (*str)
 	{
-		if (*str == '%' && *(++str) != '%' )
+		if (*str == '%' && *(str++) != '\0')
 		{
 			obj = ft_parse(&str, p);
-			res = ft_processor(&obj, p);
+			DEBUG printf("Is parser correct (type is on)? [%d]\n", obj.s_type.on);
+			res = obj.s_type.on ? ft_processor(&obj, p) : NULL;
 			if (res == NULL)
 			{
-				//	grustno....
+				//	grustno.... ( ! )
 				break ;
 			}
 			ft_putstr_fd(res, 1);

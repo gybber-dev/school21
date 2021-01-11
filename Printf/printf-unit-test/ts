@@ -1,0 +1,10 @@
+testing %c ...
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+catched signal: Segmentation fault: 11 when testing format: "(null)" with arg: (char)0
+[ERROR] diff on output for format "!%56c!" and arg: (char)0
+expected: [!                                                       \x00!]
+     got: [!                                                        !]

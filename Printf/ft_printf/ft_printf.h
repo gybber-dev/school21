@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/11 16:57:28 by yeschall          #+#    #+#             */
-/*   Updated: 2020/11/11 17:57:15 by yeschall         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define SUBJ_TYPES "cspdiuxX"
+# define SUBJ_TYPES "cspdiuxX%"
 
 # include <stdarg.h>
 # include <stdlib.h>
@@ -23,7 +11,7 @@
 # include <stdio.h>
 # define DEBUG_ON 1 == 0 ? printf("%s", "") : // TRUE condition to OFF debug mode
 # define DEBUG_OFF 1 == 1 ? printf("%s", "") :
-# define DEBUG DEBUG_OFF
+# define DEBUG DEBUG_ON
 
 
 /*
