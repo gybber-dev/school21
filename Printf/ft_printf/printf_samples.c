@@ -4,7 +4,7 @@
 int main(void)
 {
 	int		int_v = 12;
-	printf("repl: '%22.3d'\n", int_v);
+	printf("repl: '%06d'\n", -int_v);
 	//- then 0: is last 0 a width?		-last 0 included to flag
 	printf("Sample: '%000000002d'\n", 2);
 
@@ -52,5 +52,8 @@ int main(void)
 	printf("Percent: '%------s'\n", "%");   // %
 	printf("Percent: '%-05%'\n");   // %
 	printf("Percent: '%0-5%'\n");   // %
-	printf("Percent: '%5'\n");   // %
+	printf("'%2.9p'\n", 1234);   // %
+	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c");   // %
+	if (printf("") || printf("1\n") || printf("2\n"))
+		printf("DONE %d\n", printf(""));
 }

@@ -3,7 +3,7 @@
 /*
 ** All check functions MUST put the pointer to the next character!
 */
-static void		check_flag(const char **str, t_obj *obj)
+static void		parse_flag(const char **str, t_obj *obj)
 {
 	DEBUG printf("\nCHECK FLAG: ('%s')\n", *str);
 
@@ -23,7 +23,7 @@ static void		check_flag(const char **str, t_obj *obj)
 	return ;
 }
 
-static void		check_width(const char **str, t_obj *obj, va_list p)
+static void		parse_width(const char **str, t_obj *obj, va_list p)
 {
 	DEBUG printf("\nCHECK WIDTH: ('%s')\n", *str);
 	obj->s_width.type = 0;
@@ -52,7 +52,7 @@ static void		check_width(const char **str, t_obj *obj, va_list p)
 	return ;
 }
 
-static void		check_precision(const char **str, t_obj *obj, va_list p)
+static void		parse_precision(const char **str, t_obj *obj, va_list p)
 {
 	DEBUG printf("CHECK PRECISION: ('%s')\n", *str);
 	obj->s_precision.type = 0;
@@ -67,11 +67,6 @@ static void		check_precision(const char **str, t_obj *obj, va_list p)
 		obj->s_precision.on = 1;
 		obj->s_precision.type = 0;
 		obj->s_precision.numb = 0;
-		if (ft_strchr("diouxX", **str))
-		{
-			obj->s_flag.on = 0;
-			obj->s_flag.numb = 0;
-		}
 		DEBUG printf("\tprecision [%c] is detected\n", **str);
 		while (*(++(*str)) == '*' || ft_isdigit(**str))
 		{
@@ -93,7 +88,7 @@ static void		check_precision(const char **str, t_obj *obj, va_list p)
 	return ;
 }
 
-static void		check_type(const char **str, t_obj *obj)
+static void		parse_type(const char **str, t_obj *obj)
 {
 	DEBUG printf("CHECK TYPE: ('%s')\n", *str);
 	if (ft_strchr(SUBJ_TYPES, **str))
@@ -115,14 +110,25 @@ t_obj			ft_parse(const char **str, va_list p)
 	ft_init_obj(&obj);
 	p_f = *str;
 	if (**str)
-		check_flag(str, &obj);
+		parse_flag(str, &obj);
 	if (**str)
-		check_width(str, &obj, p);
+		parse_width(str, &obj, p);
 	if (**str)
-		check_precision(str, &obj, p);
+		parse_precision(str, &obj, p);
 	if (**str)
-		check_type(str, &obj);
-	DEBUG printf("str: '%s'\nflag: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
-	p_f, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
+		parse_type(str, &obj);
+
+	// Additional rules:
+
+	// 1. Для типов d, i, o, u, x, X, если точность указана, флаг '0' игнорируется
+	if (obj.s_flag.on && obj.s_flag.numb == '0' && obj.s_precision.on && obj.s_type.on &&
+			ft_strchr("diouxX", obj.s_type.numb))
+	{
+		DEBUG printf("null the flag!!!!\n");
+		obj.s_flag.on = 0;
+		obj.s_flag.numb = 0;
+	}
+	DEBUG printf("str: '%s'\nflag[%d]: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
+	p_f, obj.s_flag.on, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
 	return (obj);
 }

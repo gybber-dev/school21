@@ -7,7 +7,7 @@ char					*ft_p(t_obj *obj, char **val)
 	char				*tmp;
 
 	numb = 0;
-	DEBUG printf("PRINTING POINTER:\t%lu\n", numb);
+	DEBUG printf("PRINTING POINTER:\t%lu\n", (long unsigned int)*val);
 	str_val = NULL;
 	if (*val)
 	{
@@ -24,8 +24,11 @@ char					*ft_p(t_obj *obj, char **val)
 	}
 	else
 	{
-		if (!(str_val = ft_strdup("0x0")))
-			return (NULL);
+		if (obj->s_precision.on && obj->s_precision.numb == 0)
+			str_val = ft_strdup("0x");
+		else
+			if (!(str_val = ft_strdup("0x0")))
+				return (NULL);
 	}
 	DEBUG printf("STR (itoa_x): '%s'\n", str_val);
 	if (obj->s_width.on)
