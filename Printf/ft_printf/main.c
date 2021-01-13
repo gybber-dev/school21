@@ -3,7 +3,7 @@
 #define STR_1 "repl: '%-12.*d'\n", 5, int_v
 #define STR_2 "repl: '%-12.*u'\n", 5, int_v
 #define STR_3 "repl: '%-12.*x'\n", 5, int_v
-#define STR_5STR_4 "repl: '%012.*X'\n", 5, -int_v // flag 0 is ignored for d, i, o, u, x, X
+#define STR_4 "repl: '%012.*X'\n", 5, -int_v // flag 0 is ignored for d, i, o, u, x, X
 #define STR_5 "With type 'c': '%4c'\n", int_v * 10
 #define STR_6 "With type 'c': '%-*c'\n", 4, int_v * 10
 #define STR_7 "Twice sample 'c': '%-4c' next: '%5d'\n", int_v * 10, 11
@@ -16,14 +16,18 @@
 #define STR_13 "repl: '%06.4d'\n", -12
 #define STR_14 "'%2.9p'\n", 1234
 #define STR_15 "'%c'\n", 0
-#define STR_16 "'%5c'\n", 0
+#define STR_16 "ASCII [128]: '%c'\n", 128
+#define STR_17 "min int: '%d'\n", INT_MIN
+#define STR_18 "max '%c'\n", INT_MAX
+#define STR_19 "'%0*.*d'\n", 5, -5, '8'
+#define STR_20 "'%05c'\n", '8'
 
 int		main(void)
 {
 	int		int_v = 5;
 	char	*s_v = "hello";
 	int		repl;
-	int		orig;
+	int		orig = 0;
 //	char	*str_v = "hello";
 //	char	ch_v = 'c';
 
@@ -31,8 +35,8 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_16);
-	printf("===================%d==%s=\n", int_v, s_v);
-	orig = printf(STR_16);
-	printf("res_o: %d\nres_r: %d\n", orig, repl);
+	repl = ft_printf(STR_20);
+	printf("===============%d====%s==%d=\n", int_v, s_v, orig);
+//	orig = printf(STR_20);
+//	printf("res_o: %d\nres_r: %d\n", orig, repl);
 }

@@ -35,10 +35,6 @@ static void		parse_width(const char **str, t_obj *obj, va_list p)
 		{
 			obj->s_width.type = 2;
 			obj->s_width.numb = va_arg(p, int);
-			//	Add:
-			//	Если этим способом указан отрицательный модификатор ширины,
-			//	считается что выставлен флаг -, а значение модификатора ширины
-			//	установлено абсолютным.
 		}
 		else if (obj->s_width.type != 2)			// first and following digits
 		{
@@ -120,6 +116,14 @@ t_obj			ft_parse(const char **str, va_list p)
 
 	// Additional rules:
 
+	// 0. Если указан отрицательный модификатор точности, то считается, что
+	// модификатор точности отсутствует.
+	if (obj.s_precision.on && obj.s_precision.numb < 0)
+	{
+		DEBUG printf("Incorrect precision!!! Kill it\n");
+		obj.s_precision.on = 0;
+		obj.s_precision.numb = 0;
+	}
 	// 1. Для типов d, i, o, u, x, X, если точность указана, флаг '0' игнорируется
 	if (obj.s_flag.on && obj.s_flag.numb == '0' && obj.s_precision.on && obj.s_type.on &&
 			ft_strchr("diouxX", obj.s_type.numb))
@@ -128,7 +132,16 @@ t_obj			ft_parse(const char **str, va_list p)
 		obj.s_flag.on = 0;
 		obj.s_flag.numb = 0;
 	}
-	DEBUG printf("str: '%s'\nflag[%d]: %c;\nwidth: %d\nprecis: %d\ntype: %c\n", \
-	p_f, obj.s_flag.on, obj.s_flag.numb, obj.s_width.numb, obj.s_precision.numb, obj.s_type.numb);
+	// 1.1. Используется для типов d, i, o, u, x, X, a, A, e, E, f, F, g, G
+
+	// 2. Если указан отрицательный модификатор ширины, считается что выставлен
+	// флаг -, а значение модификатора ширины установлено абсолютным
+	DEBUG printf("width < 0!!!!\n");
+	if (obj.s_width.on && obj.s_width.numb < 0)
+	{
+		obj.s_flag.on = 1;
+		obj.s_flag.numb = '-';
+		obj.s_width.numb *= -1;
+	}
 	return (obj);
 }

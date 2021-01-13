@@ -5,8 +5,9 @@ char			*ft_char(t_obj *obj, int val)
 	char		*str_val;
 
 	DEBUG printf("PRINTING CHAR:\t%d[%c]\n", val, obj->s_type.numb);
-	if (!(str_val = ft_strdup((char *)&val)))
+	if (!(str_val = ft_calloc(1, 2)))
 		return (NULL);
+	*str_val = val;
 	DEBUG printf("STR (dupes): '%s'\n", str_val);
 	if (obj->s_width.on)
 	{

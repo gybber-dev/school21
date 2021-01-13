@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+# define INT_MAX 2147483647
+# define INT_MIN (-INT_MAX-1)
 
 int main(void)
 {
@@ -53,7 +55,10 @@ int main(void)
 	printf("Percent: '%-05%'\n");   // %
 	printf("Percent: '%0-5%'\n");   // %
 	printf("'%2.9p'\n", 1234);   // %
-	printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c");   // %
+	printf("ASCII [128]: '%c'\n", 128);   // %
+	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);   // %
+	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);   // %
+	printf("Flag is set and flag will set by width: '%-2147483648d'\n", INT_MIN);   // %
 	if (printf("") || printf("1\n") || printf("2\n"))
 		printf("DONE %d\n", printf(""));
 }

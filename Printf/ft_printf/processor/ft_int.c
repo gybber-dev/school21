@@ -67,13 +67,23 @@ char			*ft_int(t_obj *obj, int val)
 {
 	char		*str_val;
 	int			minus;
+	char		*tmp;
 
 	DEBUG printf("PRINTING DIGIT:\t%d[%c]\n", val, obj->s_type.numb);
 	minus = val < 0 ? 1 : 0;
 	if (val == 0 && obj->s_precision.on && obj->s_precision.numb == 0)
 		str_val = ft_strdup("");
 	else
-		str_val = minus? ft_itoa(-1 * val) : ft_itoa(val);
+	{
+		str_val = ft_itoa(val);
+		if (minus)
+		{
+			tmp = str_val;
+			str_val = ft_strtrim(str_val, "-");
+			free(tmp);
+		}
+
+	}
 	DEBUG printf("STR: '%s'\n", str_val);
 
 	if (obj->s_precision.on)
@@ -83,7 +93,7 @@ char			*ft_int(t_obj *obj, int val)
 
 	// всегда ставим минус, за исключением случая, когда задана ширина и флаг '0'
 	if (minus && !(obj->s_flag.on && obj->s_flag.numb == '0' &&
-	obj->s_width.on && (obj->s_width.numb > (int)ft_strlen(str_val))))
+				   obj->s_width.on && (obj->s_width.numb > (int)ft_strlen(str_val))))
 	{
 		if (!(str_val = ft_strjoin("-", str_val)))
 			return (NULL);

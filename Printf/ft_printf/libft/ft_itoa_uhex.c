@@ -32,9 +32,10 @@ char			*ft_itoa_uhex(unsigned long int n)
 
 	len = count_len(n);
 	str = (char *)malloc(len + 1);
+//	str = ft_calloc(len + 1, 1);
 	if (str == NULL)
 		return (NULL);
-	str[len - 1] = '\0';
+	str[len] = '\0';
 	str[0] = (n == 0) ? '0' : str[0];
 	while (len-- && n != 0)
 	{
