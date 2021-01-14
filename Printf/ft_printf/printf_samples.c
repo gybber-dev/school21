@@ -56,9 +56,13 @@ int main(void)
 	printf("Percent: '%0-5%'\n");   // %
 	printf("'%2.9p'\n", 1234);   // %
 	printf("ASCII [128]: '%c'\n", 128);   // %
-	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);   // %
-	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);   // %
-	printf("Flag is set and flag will set by width: '%-2147483648d'\n", INT_MIN);   // %
+	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);
+	printf("Flag is set and flag will set by width: '%0*d'\n", INT_MIN, 1);
+	printf("Flag is set and flag will set by width: '%-2147483648d'\n", INT_MIN);
+	printf("res: %d\n", printf("%s\n", "a\0a"));
+	printf("0 char returns: %d\n", printf("%c", '\0')); // 1
+	printf("Char with width = 0: '%*c'\n", 0, 'a');
+
 	if (printf("") || printf("1\n") || printf("2\n"))
 		printf("DONE %d\n", printf(""));
 }

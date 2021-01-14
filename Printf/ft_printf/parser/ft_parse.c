@@ -132,16 +132,26 @@ t_obj			ft_parse(const char **str, va_list p)
 		obj.s_flag.on = 0;
 		obj.s_flag.numb = 0;
 	}
-	// 1.1. Используется для типов d, i, o, u, x, X, a, A, e, E, f, F, g, G
-
+//	// 1.1. Флаг '0' используется только для типов
+//	// d, i, o, u, x, X, a, A, e, E, f, F, g, G
+//	if (obj.s_flag.on && obj.s_flag.numb == '0'
+//		&& !ft_strchr("diouxXaAeEfFgG", obj.s_type.numb))
+//	{
+//		DEBUG printf("flag 0 for wrong type!!!!\n");
+//		obj.s_flag.on = 0;
+//		obj.s_flag.numb = 0;
+//	}
 	// 2. Если указан отрицательный модификатор ширины, считается что выставлен
 	// флаг -, а значение модификатора ширины установлено абсолютным
-	DEBUG printf("width < 0!!!!\n");
 	if (obj.s_width.on && obj.s_width.numb < 0)
 	{
+		DEBUG printf("width < 0!!!!\n");
 		obj.s_flag.on = 1;
 		obj.s_flag.numb = '-';
 		obj.s_width.numb *= -1;
 	}
+	DEBUG printf("PARSER:\n\tflag[%d]: %d\n\twidth[%d]: %d\n\tprec[%d]: %d\n\ttype[%d]: %c\n",
+			  obj.s_flag.on, obj.s_flag.numb, obj.s_width.on, obj.s_width.numb,
+			  obj.s_precision.on, obj.s_precision.numb, obj.s_type.on, obj.s_type.numb);
 	return (obj);
 }

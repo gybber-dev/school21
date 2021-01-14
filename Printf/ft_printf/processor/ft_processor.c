@@ -34,5 +34,7 @@ char			*ft_processor(t_obj *obj, va_list p)
 		DEBUG printf("for type 's': '%s'\n", tmp);
 		res = ft_p(obj, &tmp);
 	}
+	if (obj->s_type.numb != 'c')
+		obj->len = ft_strlen(res);
 	return (res);
 }

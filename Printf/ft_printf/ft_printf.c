@@ -6,12 +6,12 @@ int				ft_printf(const char *str, ...)
 	t_obj		obj;
 	char		*res;
 	int			res_num;
-	const char	*begin;
+	int			len;
 
 	DEBUG printf("PRINT STRING: '%s'\n", str);
 	va_start(p, str);
 	res_num = 0;
-	begin = str;
+	len = 0;
 	while (*str)
 	{
 		if (*str == '%' && *(str++) != '\0')
@@ -24,8 +24,9 @@ int				ft_printf(const char *str, ...)
 				//	grustno.... ( ! )
 				break ;
 			}
-			ft_putstr_fd(res, 1);
-			res_num += ft_strlen(res);
+			write(1, res, obj.len);
+//			ft_putstr_fd(res, 1);
+			res_num += obj.len;
 		}
 		else
 		{
