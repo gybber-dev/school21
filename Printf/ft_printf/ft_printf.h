@@ -8,12 +8,10 @@
 # include <unistd.h>
 # include "./libft/libft.h"
 
-# include <stdio.h>
-# define DEBUG_ON 1 == 0 ? printf("%s", "") : // TRUE condition to OFF debug mode
-# define DEBUG_OFF 1 == 1 ? printf("%s", "") :
-# define DEBUG DEBUG_OFF
-# define INT_MAX 2147483647
-# define INT_MIN (-INT_MAX-1)
+
+
+# include "my_config.h"
+
 
 /*
 ** on	-	flag is in a line

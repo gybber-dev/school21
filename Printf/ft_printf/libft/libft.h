@@ -71,4 +71,5 @@ char				*ft_itoa_u(unsigned int n);
 char				*ft_itoa_hex(int n);
 char				*ft_itoa_uhex(unsigned long int n);
 char				*ft_strmultiply(char *c, size_t times);
+int					ft_free(char **mem);
 #endif

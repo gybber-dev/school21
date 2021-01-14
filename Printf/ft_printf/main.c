@@ -41,4 +41,5 @@ int		main(void)
 	printf("===============%d====%s==%d=\n", int_v, s_v, orig);
 	orig = printf(STR);
 	printf("res_o: %d\nres_r: %d\n", orig, repl);
+//	while(1);
 }

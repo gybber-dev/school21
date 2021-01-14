@@ -6,12 +6,10 @@ int				ft_printf(const char *str, ...)
 	t_obj		obj;
 	char		*res;
 	int			res_num;
-	int			len;
 
 	DEBUG printf("PRINT STRING: '%s'\n", str);
 	va_start(p, str);
 	res_num = 0;
-	len = 0;
 	while (*str)
 	{
 		if (*str == '%' && *(str++) != '\0')
@@ -22,10 +20,11 @@ int				ft_printf(const char *str, ...)
 			if (res == NULL)
 			{
 				//	grustno.... ( ! )
+				printf("ERROR DETECTED\n");
+				res_num = -1;
 				break ;
 			}
 			write(1, res, obj.len);
-//			ft_putstr_fd(res, 1);
 			res_num += obj.len;
 		}
 		else
@@ -37,5 +36,6 @@ int				ft_printf(const char *str, ...)
 	}
 	DEBUG printf("\tobj.flags: %d\n", obj.s_precision.numb);
 	va_end(p);
+	ft_free(&res);
 	return (res_num);
 }

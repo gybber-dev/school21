@@ -27,15 +27,13 @@ char		*ft_check_width(t_obj *obj, char *str)
 {
 	char	*tmp;
 	char	*addition;
+	char	add_symb;
 	DEBUG printf("%d\n", obj->s_width.numb);
-	if (obj->s_width.numb > (int)ft_strlen(str))
+	add_symb = (obj->s_flag.numb == '0') ? '0' : '-';
+	if (str && obj->s_width.numb > (int)ft_strlen(str))
 	{
 		if (obj->s_flag.on)
 		{
-			// !!!!
-			// 1. free variables on error
-			// 2. reduce conditions below:
-			// !!!!
 			if (obj->s_flag.numb == '0')
 			{
 				addition = ft_strmultiply("0", (obj->s_width.numb - ft_strlen(str)));
@@ -68,9 +66,11 @@ char			*ft_int(t_obj *obj, int val)
 	char		*str_val;
 	int			minus;
 	char		*tmp;
+	int			add_len;
 
 	DEBUG printf("PRINTING DIGIT:\t%d[%c]\n", val, obj->s_type.numb);
 	minus = val < 0 ? 1 : 0;
+	add_len = 0;
 	if (val == 0 && obj->s_precision.on && obj->s_precision.numb == 0)
 		str_val = ft_strdup("");
 	else
@@ -80,14 +80,17 @@ char			*ft_int(t_obj *obj, int val)
 		{
 			tmp = str_val;
 			str_val = ft_strtrim(str_val, "-");
-			free(tmp);
+			ft_free(&tmp);
 		}
 
 	}
 	DEBUG printf("STR: '%s'\n", str_val);
 
-	if (obj->s_precision.on)
+	if (obj->s_precision.on && str_val && (obj->s_precision.numb > (int)ft_strlen(str_val)))
+	{
+		add_len = obj->s_precision.numb - ft_strlen(str_val);
 		str_val = ft_check_precision(obj, str_val);
+	}
 
 	DEBUG printf("STR (precis): '%s'\n", str_val);
 
