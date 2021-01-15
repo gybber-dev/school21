@@ -26,20 +26,20 @@ static void		parse_flag(const char **str, t_obj *obj)
 static void		parse_width(const char **str, t_obj *obj, va_list p)
 {
 	DEBUG printf("\nCHECK WIDTH: ('%s')\n", *str);
-	obj->s_width.type = 0;
-	obj->s_width.numb = 0;
+	int			flag;
+
+	flag = 0;
 	while (**str == '*' || ft_isdigit(**str))
 	{
 		obj->s_width.on = 1;
-		if (**str == '*' && obj->s_width.type == 0)	// only first *
+		if (**str == '*' && !flag)	// only first *
 		{
-			obj->s_width.type = 2;
+			flag = 1;
 			obj->s_width.numb = va_arg(p, int);
 		}
-		else if (obj->s_width.type != 2)			// first and following digits
+		else if (!flag)			// first and following digits
 		{
 			obj->s_width.numb = obj->s_width.numb * 10 + (**str) - '0';
-			obj->s_width.type = 1;
 		}
 		(*str)++;
 	}
@@ -100,11 +100,9 @@ static void		parse_type(const char **str, t_obj *obj)
 t_obj			ft_parse(const char **str, va_list p)
 {
 	t_obj		obj;
-	const char	*p_f;
 
 	DEBUG printf("PARSER: ('%s')\n\n", *str);
 	ft_init_obj(&obj);
-	p_f = *str;
 	if (**str)
 		parse_flag(str, &obj);
 	if (**str)

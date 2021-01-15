@@ -20,7 +20,7 @@ char		*ft_itoa_u(unsigned int n)
 	str[0] = (n == 0) ? '0' : str[0];
 	while (len-- && n != 0)
 	{
-		str[len] = (n < 0) ? -(n % 10) + '0' : (n % 10) + '0';
+		str[len] = (n % 10) + '0';
 		n = n / 10;
 	}
 	return (str);

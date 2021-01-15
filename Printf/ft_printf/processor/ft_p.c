@@ -3,15 +3,12 @@
 char					*ft_p(t_obj *obj, char **val)
 {
 	char				*str_val;
-	long unsigned int	numb;
 	char				*tmp;
 
-	numb = 0;
 	DEBUG printf("PRINTING POINTER:\t%lu\n", (long unsigned int)*val);
 	str_val = NULL;
 	if (*val)
 	{
-		numb = (long unsigned int)&(**val);
 		if (!(str_val = ft_itoa_uhex((long unsigned int)*val)))
 			return (NULL);
 		tmp = str_val;
