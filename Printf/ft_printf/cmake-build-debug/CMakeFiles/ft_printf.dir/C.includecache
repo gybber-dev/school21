@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/ft_printf.h
+stdarg.h
+-
+stdlib.h
+-
+unistd.h
+-
+./libft/libft.h
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/libft/libft.h
+my_config.h
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/my_config.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/libft/libft.h
+stdlib.h
+-
+unistd.h
+-
+
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/main.c
+ft_printf.h
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/ft_printf.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Printf/ft_printf/my_config.h
+stdio.h
+-
+

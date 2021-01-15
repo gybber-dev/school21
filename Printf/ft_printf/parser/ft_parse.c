@@ -17,7 +17,6 @@ static void		parse_flag(const char **str, t_obj *obj)
 		}
 		obj->s_flag.on = 1;
 		obj->s_flag.numb = **str;
-		obj->s_flag.size++;
 		(*str)++;
 	}
 	return ;
@@ -51,8 +50,6 @@ static void		parse_width(const char **str, t_obj *obj, va_list p)
 static void		parse_precision(const char **str, t_obj *obj, va_list p)
 {
 	DEBUG printf("CHECK PRECISION: ('%s')\n", *str);
-	obj->s_precision.type = 0;
-	obj->s_precision.numb = 0;
 	//
 
 //	!!!!add for multiple dots!!!!!

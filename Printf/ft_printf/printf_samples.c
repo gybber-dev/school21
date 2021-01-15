@@ -20,7 +20,7 @@ int main(void)
 	printf("Sample: '%.00000005d'\n", 2);
 
 	// test if printf is working with multiple dots
-	printf("Sample (dots): '%...5d'\n", 2);
+	printf("Multiple dots (dots): '%...5d'\n", 2);
 	char *str = "";
 	printf("ATOI: '%s' is '%d'\n", str, atoi(str));
 

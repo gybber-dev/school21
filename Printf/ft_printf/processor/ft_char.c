@@ -35,5 +35,7 @@ char			*ft_char(t_obj *obj, int val)
 	}
 	obj->len = addition_len + 1;
 	DEBUG printf("STR (fin) len=%zu: '%s'\n", obj->len, str_val);
+//	ft_free(&str_val);
+//	while(1);
 	return (str_val);
 }

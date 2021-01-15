@@ -22,7 +22,7 @@
 #define STR_19 "'%0*.*d'\n", 5, -5, '8'
 #define STR_20 "'%-5c'\n", '0'
 #define STR_21 "%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0
-#define STR "\\!/%30c\\!/", 0
+#define STR "Multiple dots (dots): '%...5d'\n", 2
 
 int		main(void)
 {
@@ -37,9 +37,9 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR);
-	printf("===============%d====%s==%d=\n", int_v, s_v, orig);
-	orig = printf(STR);
+	repl = ft_printf(STR_12);
+	printf("===============%d====%s==%d=%d\n", int_v, s_v, orig, repl);
+	orig = printf(STR_12);
 	printf("res_o: %d\nres_r: %d\n", orig, repl);
-//	while(1);
+	while(1);
 }

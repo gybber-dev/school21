@@ -22,10 +22,12 @@ int				ft_printf(const char *str, ...)
 				//	grustno.... ( ! )
 				printf("ERROR DETECTED\n");
 				res_num = -1;
+				ft_free(&res);
 				break ;
 			}
 			write(1, res, obj.len);
 			res_num += obj.len;
+			ft_free(&res);
 		}
 		else
 		{
@@ -36,6 +38,5 @@ int				ft_printf(const char *str, ...)
 	}
 	DEBUG printf("\tobj.flags: %d\n", obj.s_precision.numb);
 	va_end(p);
-	ft_free(&res);
 	return (res_num);
 }

@@ -78,9 +78,9 @@ char			*ft_int(t_obj *obj, int val)
 		str_val = ft_itoa(val);
 		if (minus)
 		{
-			tmp = str_val;
-			str_val = ft_strtrim(str_val, "-");
-			ft_free(&tmp);
+			tmp = ft_strtrim(str_val, "-");
+			ft_free(&str_val);
+			str_val = tmp;
 		}
 
 	}
