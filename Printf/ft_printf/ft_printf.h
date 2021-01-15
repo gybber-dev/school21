@@ -24,11 +24,7 @@
 */
 typedef struct	s_part
 {
-	size_t		size;
 	int			on;
-	int			type;
-	const char	*began;
-	char		val;
 	int			numb;
 }				t_part;
 

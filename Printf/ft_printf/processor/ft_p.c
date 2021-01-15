@@ -14,7 +14,7 @@ char					*ft_p(t_obj *obj, char **val)
 		tmp = str_val;
 		if (!(str_val = ft_strjoin("0x", str_val)))
 		{
-			free(tmp);
+			ft_free(&tmp);
 			return (NULL);
 		}
 		free(tmp);

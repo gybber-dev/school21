@@ -9,6 +9,9 @@ void			myfun(char *s, ...)
 	printf("vars: %d\n", va_arg(p, int));
 	printf("vars: %s\n", va_arg(p, char*));
 	printf("vars: %d\n", va_arg(p, int));
+	printf("vars: %d\n", va_arg(p, int));
+	printf("vars: %d\n", va_arg(p, int));
+	printf("vars: %d\n", va_arg(p, int));
 	va_end(p);
 }
 

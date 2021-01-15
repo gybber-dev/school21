@@ -36,7 +36,7 @@ static void		parse_width(const char **str, t_obj *obj, va_list p)
 			flag = 1;
 			obj->s_width.numb = va_arg(p, int);
 		}
-		else if (!flag)			// first and following digits
+		else if (flag != 1)			// first and following digits
 		{
 			obj->s_width.numb = obj->s_width.numb * 10 + (**str) - '0';
 		}
@@ -49,6 +49,9 @@ static void		parse_width(const char **str, t_obj *obj, va_list p)
 
 static void		parse_precision(const char **str, t_obj *obj, va_list p)
 {
+	int			flag;
+
+	flag = 0;
 	DEBUG printf("CHECK PRECISION: ('%s')\n", *str);
 	//
 
@@ -58,23 +61,21 @@ static void		parse_precision(const char **str, t_obj *obj, va_list p)
 	if (**str == '.')
 	{
 		obj->s_precision.on = 1;
-		obj->s_precision.type = 0;
 		obj->s_precision.numb = 0;
 		DEBUG printf("\tprecision [%c] is detected\n", **str);
 		while (*(++(*str)) == '*' || ft_isdigit(**str))
 		{
 			obj->s_precision.on = 1;
-			if (**str == '*' && obj->s_precision.type == 0)	// only first *
+			if (**str == '*' && flag != 2)	// only first *
 			{
-				obj->s_precision.type = 2;
+				flag = 2;
 				obj->s_precision.numb = va_arg(p, int);
 			}
-			else if (obj->s_precision.type != 2)			// first and following digits
+			else if (flag != 2)			// first and following digits
 			{
 				obj->s_precision.numb = obj->s_precision.numb * 10 + (**str) - '0';
-				obj->s_precision.type = 1;
+				flag = 1;
 			}
-			obj->s_precision.size++;
 		}
 	}
 	DEBUG printf("\tprecision: '%d'\n", obj->s_precision.numb);

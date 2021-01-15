@@ -8,7 +8,7 @@
 #define STR_6 "With type 'c': '%-*c'\n", 4, int_v * 10
 #define STR_7 "Twice sample 'c': '%-4c' next: '%5d'\n", int_v * 10, 11
 #define STR_8 "With type 's': '%20.8s'\n", s_v
-#define STR_9 "With type 'p': '%20p'\n", s_v
+#define STR_9 "With type 'p': '%2.20p'\n", s_v
 #define STR_10 "With type 'p': '%p'\n", NULL // '0x0'
 #define STR_11 "'%c'\n", 0
 //#define STR_12 "With percent: '%-0*.*%'\n", 5, 8
@@ -22,7 +22,7 @@
 #define STR_19 "'%0*.*d'\n", 5, -5, '8'
 #define STR_20 "'%-5c'\n", '0'
 #define STR_21 "%c, %-c, %12c, %-3c, %-1c, %1c, %-2c, %-4c, %5c, %3c, %-*c, %-*c, %*c, %*c\n", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0
-#define STR "Multiple dots (dots): '%...5d'\n", 2
+#define STR "%2.9p\n", 4, 1234
 
 int		main(void)
 {
@@ -37,9 +37,9 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_12);
+	repl = ft_printf(STR_20);
 	printf("===============%d====%s==%d=%d\n", int_v, s_v, orig, repl);
-	orig = printf(STR_12);
+	orig = printf(STR_20);
 	printf("res_o: %d\nres_r: %d\n", orig, repl);
 	while(1);
 }
