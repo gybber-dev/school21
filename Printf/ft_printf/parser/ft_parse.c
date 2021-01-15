@@ -56,7 +56,7 @@ static void		parse_precision(const char **str, t_obj *obj, va_list p)
 	//
 
 //	!!!!add for multiple dots!!!!!
-
+// valid is the last precision
 	//
 	if (**str == '.')
 	{

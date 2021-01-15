@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#define STR_0 "repl: '%2.*d'\n", 5, int_v
+#define STR_0 "repl: '%2.3*s'\n", 5,  "123456789", int_v
 #define STR_1 "repl: '%-12.*d'\n", 5, int_v
 #define STR_2 "repl: '%-12.*u'\n", 5, int_v
 #define STR_3 "repl: '%-12.*x'\n", 5, int_v
@@ -37,9 +37,9 @@ int		main(void)
 //	repl = ft_printf("repl: '%---2*2d'\n", int_v);
 //	repl = ft_printf("repl: '%---*22d'\n", int_v);
 //	repl = ft_printf("repl: '%---22.3d'\n", int_v);
-	repl = ft_printf(STR_20);
+	repl = ft_printf(STR_0);
 	printf("===============%d====%s==%d=%d\n", int_v, s_v, orig, repl);
-	orig = printf(STR_20);
-	printf("res_o: %d\nres_r: %d\n", orig, repl);
-	while(1);
+//	orig = printf(STR_0);
+//	printf("res_o: %d\nres_r: %d\n", orig, repl);
+//	while(1);
 }

@@ -31,6 +31,9 @@ int main(void)
 	char *s = "sample";
 	printf("PRECISION for strings:\n\t'%.3s'\n", s);		// sam - cut the string
 	printf("PRECISION for strings:\n\t'%-9.3s'\n", s);		// sam - cut the string
+	printf("PRECISION for strings:\n\t'%-9.3s'\n", s);		// sam - cut the string
+	printf("PRECISION for strings with multy dots :\n\t'%8.3.*s'\n", 5, "123456789");	//12345 last precision
+	printf("PRECISION for strings with multy vals :\n\t'%8.*3s'\n", 5, "123456789");	//12345 last precision
 	printf("PRECISION for NULL:\n\t'%.3s'\n", NULL);		// '(nu' if precision < strlen("(null)")
 	printf("PRECISION for digits :\n\t'%.3d'\n", (int_v * 100));	//1200 - not cut
 	printf("PRECISION for digits :\n\t'%8.6d'\n", (int_v * -100));	//001200 - not cut
@@ -62,6 +65,7 @@ int main(void)
 	printf("res: %d\n", printf("%s\n", "a\0a"));
 	printf("0 char returns: %d\n", printf("%c", '\0')); // 1
 	printf("Char with width = 0: '%*c'\n", 0, 'a');
+//	printf()
 
 	if (printf("") || printf("1\n") || printf("2\n"))
 		printf("DONE %d\n", printf(""));
