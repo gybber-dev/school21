@@ -29,7 +29,8 @@ int				ft_printf(const char *str, ...)
 			res = obj.s_type.on ? ft_processor(&obj, p) : NULL;
 			if (res == NULL && (res_num = -1 * ft_free(&res)) == -1)
 				break ;
-			write(1, res, obj.len) || ft_free(&res);
+			write(1, res, obj.len);
+			ft_free(&res);
 			res_num += obj.len;
 		}
 		else if (++res_num)

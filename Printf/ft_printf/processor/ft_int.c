@@ -23,6 +23,43 @@ char			*ft_check_precision(t_obj *obj, char *str)
 ** returns joined string or NULL on error
 */
 
+
+/*
+char		*ft_check_width(t_obj *obj, char *str)
+{
+	char		*tmp;
+	char		*res;
+	int			addition_len;
+
+	addition_len = obj->s_width.val - (int)ft_strlen(str);
+	if (!(res = ft_calloc((int)ft_strlen(str) + addition_len + 1, 1)))
+		return (NULL);
+	if (str && obj->s_width.val > (int)ft_strlen(str))
+	{
+		if (obj->s_flag.on && (obj->s_flag.val == '0'))
+		{
+			ft_memset(res, '0', addition_len);
+			ft_memcpy(res + addition_len, str, (int)ft_strlen(str));
+		}
+		if (obj->s_flag.on && (obj->s_flag.val == '-'))
+		{
+			ft_memcpy(res, str, (int)ft_strlen(str));
+			ft_memset(res + (int)ft_strlen(str), ' ', addition_len);
+		}
+		else if (!obj->s_flag.on)
+		{
+			ft_memset(res, ' ', addition_len);
+			ft_memcpy(res + addition_len, str, (int)ft_strlen(str));
+		}
+		tmp = str;
+		str = res;
+		ft_free(&str);
+	}
+	return (res);
+}
+*/
+
+
 char		*ft_check_width(t_obj *obj, char *str)
 {
 	char	*tmp;
