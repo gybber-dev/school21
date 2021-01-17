@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-#define STR_0 "repl: '%2.3*s'\n", 5,  "123456789", int_v
+#define STR_0 "repl: '%2.3.*s'\n", 5,  "123456789", int_v
 #define STR_1 "repl: '%-12.*d'\n", 5, int_v
 #define STR_2 "repl: '%-12.*u'\n", 5, int_v
 #define STR_3 "repl: '%-12.*x'\n", 5, int_v

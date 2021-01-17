@@ -51,19 +51,15 @@ static void		parse_precision(const char **str, t_obj *obj, va_list p)
 {
 	int			flag;
 
-	flag = 0;
 	DEBUG printf("CHECK PRECISION: ('%s')\n", *str);
-	//
-
-//	!!!!add for multiple dots!!!!!
-// valid is the last precision
-	//
-	if (**str == '.')
+	while (**str == '.')
 	{
+		(*str)++;
+		flag = 0;
 		obj->s_precision.on = 1;
 		obj->s_precision.numb = 0;
 		DEBUG printf("\tprecision [%c] is detected\n", **str);
-		while (*(++(*str)) == '*' || ft_isdigit(**str))
+		while (**str == '*' || ft_isdigit(**str))
 		{
 			obj->s_precision.on = 1;
 			if (**str == '*' && flag != 2)	// only first *
@@ -76,6 +72,7 @@ static void		parse_precision(const char **str, t_obj *obj, va_list p)
 				obj->s_precision.numb = obj->s_precision.numb * 10 + (**str) - '0';
 				flag = 1;
 			}
+			(*str)++;
 		}
 	}
 	DEBUG printf("\tprecision: '%d'\n", obj->s_precision.numb);
