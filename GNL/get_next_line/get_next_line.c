@@ -5,112 +5,97 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/08 06:33:22 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/09 16:32:52 by yeschall         ###   ########.fr       */
+/*   Created: 2020/12/08 14:56:10 by desausag          #+#    #+#             */
+/*   Updated: 2021/01/13 18:30:19 by yeschall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
-void			free_mem(char **mem)
+int ft_free(char **str)
 {
-	if (*mem != NULL)
+	if (*str != NULL)
 	{
-		free(*mem);
-		*mem = NULL;
+		printf("free reminder....\n");
+		free(*str);
+		*str = NULL;
 	}
-}
-
-/*
-** returns: move string before \n to *line. After \n - to mem
-*/
-
-int				split_mem(char **mem, char **line, char *p)
-{
-	char		*tmp;
-
-	*p = '\0';
-	if ((tmp = ft_strjoin(p + 1, NULL)) == NULL)
-		return (-1);
-	if ((*line = ft_strjoin(*mem, NULL)) == NULL)
-		return (-1);
-	free_mem(mem);
-	*mem = tmp;
 	return (1);
 }
 
-/*
-** returns:
-** 	2	: end of line or file have not reached yet
-**	-1	: on error
-**	0	: end of file
-**	1	: end of line
-*/
 
-int				read_line(char **line, char **mem, char *buf, int fd)
+char	*rd_reminder(char **line, char *reminder)
 {
-	char		*tmp;
-	ssize_t		bytes;
+	char	*p_t;
 
-	if ((tmp = ft_strchr(*mem, '\n')))
-		return (split_mem(mem, line, tmp));
-	else
-	{
-		if ((bytes = read(fd, buf, BUFFER_SIZE)) > 0)
+	p_t = NULL;
+	if (reminder)
+		if ((p_t = ft_strchr(reminder, '\n')))
 		{
-			buf[bytes] = '\0';
-			if (!(tmp = ft_strjoin(*mem, buf)))
-				return (-1);
-			free_mem(mem);
-			*mem = tmp;
+			*p_t = '\0';
+			*line = ft_strdup(reminder);
+			p_t++;
+			ft_memcpy(reminder, p_t, ft_strlen(p_t) + 1);
 		}
 		else
 		{
-			*line = ft_strjoin(*mem, NULL);
-			if (!(*line) || bytes == -1)
-				return (-1);
-			return (0);
+			*line = ft_strdup(reminder);
+			while (*reminder)
+				*reminder++ = '\0';
+			reminder = NULL;
 		}
+	else
+	{
+		*line = (char *)malloc(sizeof(char));
+		*line[0] = '\0';
 	}
-	return (2);
+	return (p_t);
 }
 
-int				init_mem(char **mem, char **buf)
+int		get_next_line(int fd, char **line)
 {
-	if (!(*mem))
-	{
-		if ((*mem = (char *)malloc(1)) == NULL)
-			return (-1);
-		*mem[0] = '\0';
-	}
-	if ((*buf = (char *)malloc(BUFFER_SIZE + 1)) == NULL)
-	{
-		free_mem(mem);
+	char		buf[BUFFER_SIZE + 1];
+	int			rc;
+	char		*p_b;
+	char		*tmp;
+	static char	*reminder;
+
+
+	if ((read(fd, NULL, 0) == -1) || BUFFER_SIZE < 1 || !line)
 		return (-1);
+	p_b = rd_reminder(line, reminder);
+	while ((!p_b && (rc = read(fd, buf, BUFFER_SIZE))))
+	{
+		buf[rc] = '\0';
+		if ((p_b = ft_strchr(buf, '\n')))
+		{
+			*p_b = '\0';
+			p_b++;
+			tmp = reminder;
+			reminder = ft_strdup(p_b);
+			free(tmp);
+		}
+		tmp = *line;
+		*line = ft_strjoin(*line, buf);
+		free(tmp);
 	}
-	return (1);
+	return ((rc || ft_strlen(reminder) || p_b) ? 1 : 0);
 }
+// #include "get_next_line.h"
+// #include <stdio.h>
+// int main()
+// {
+// 	int fd = open("/Users/desausag/Documents/gnl/final/text.txt", O_RDONLY);
+// 	char *line;
+// 	int i;
 
-/*
-**	returns:
-**	1	: A line has been read
-**	0	: EOF has been reached
-**	-1	: An error happened
-*/
-
-int				get_next_line(int fd, char **line)
-{
-	static char	*mem;
-	int			result;
-	char		*buf;
-
-	result = -1;
-	if (BUFFER_SIZE <= 0 || init_mem(&mem, &buf) == -1 || fd < 0 || !line)
-		return (result);
-	while ((result = read_line(line, &mem, buf, fd)) == 2)
-		;
-	if (result < 1)
-		free_mem(&mem);
-	free_mem(&buf);
-	return (result);
-}
+// 	while ((i = get_next_line(fd, &line)))
+// 	{
+// 		printf("%s\n", line);
+// 		free(line);
+// 	}
+// 	printf("%s\n", line);
+// 	free(line);
+// 	while (1);
+// }

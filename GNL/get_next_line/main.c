@@ -3,7 +3,7 @@
 #include <fcntl.h> //open
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 10
+# define BUFFER_SIZE 1
 #endif
 //  #define	FILE "../short.txt"
 // #define	FILE "str.txt"
@@ -41,5 +41,5 @@ int			main(void)
 	}
 	if (res == -1)
 		printf("===ERROR\n");
-//	 while (1);
+	 while (1);
 }

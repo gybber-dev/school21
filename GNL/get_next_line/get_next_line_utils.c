@@ -3,88 +3,80 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: desausag <desausag@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/07 20:46:44 by yeschall          #+#    #+#             */
-/*   Updated: 2020/12/09 16:04:58 by yeschall         ###   ########.fr       */
+/*   Created: 2020/12/04 13:46:59 by desausag          #+#    #+#             */
+/*   Updated: 2020/12/09 13:23:51 by desausag         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t			ft_strlen(const char *str)
+size_t	ft_strlen(const char *src)
 {
-	size_t	i;
+	int i;
 
 	i = 0;
-	while (*str++ != 0)
+	if (!src)
+		return (0);
+	while (src[i] != '\0')
 		i++;
 	return (i);
 }
 
-char			*ft_strchr(const char *s, int c)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (s == NULL)
+	char	*ret;
+	size_t	i;
+
+	if (!s1 || !s2)
 		return (NULL);
-	while (*s)
-	{
-		if (*s == (char)c)
-			return (char *)s;
-		s++;
-	}
-	if (c == 0)
-		return (char *)s;
-	return (char *)NULL;
+	i = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(ret = (char *)malloc(sizeof(char) * i)))
+		return (NULL);
+	ft_memcpy(ret, s1, ft_strlen(s1));
+	ft_memcpy(ret + ft_strlen(s1), s2, ft_strlen(s2));
+	ret[--i] = '\0';
+	return (ret);
 }
 
-void			*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(const char *str)
 {
-	const char	*src_p;
-	const char	*src_end;
-	char		*dst_p;
-	char		*dst_end;
+	int		i;
+	char	*p;
 
-	if (dst == NULL && src == NULL)
+	i = (int)ft_strlen(str) + 1;
+	if (!(p = (char*)malloc(sizeof(char) * (i))))
 		return (NULL);
-	dst_p = (char *)dst;
-	src_p = (char *)src;
-	if (dst_p < src_p)
-		while (len--)
-			*dst_p++ = *src_p++;
-	else
-	{
-		src_end = src_p + (len - 1);
-		dst_end = dst_p + (len - 1);
-		while (len--)
-			*dst_end-- = *src_end--;
-	}
-	return (dst);
+	ft_memcpy(p, str, i);
+	return (p);
 }
 
-/*
-** Just join s1 and s2. If s2 == NULL malloc the memory for s1
-** return:
-** malloced char* on success
-** NULL on error
-*/
-
-char			*ft_strjoin(char *s1, char *s2)
+char	*ft_strchr(const char *s, int c)
 {
-	char		*res;
-	size_t		len1;
-	size_t		len2;
+	int	i;
 
-	res = NULL;
-	if (s1 != NULL)
+	i = 0;
+	while (s[i] != '\0' && s[i] != (char)c)
+		i++;
+	if (s[i] == (char)c)
+		return ((char *)(s + i));
+	return (NULL);
+}
+
+void	*ft_memcpy(void *destination, const void *source, size_t n)
+{
+	unsigned char	*dest;
+	unsigned char	*sour;
+	size_t			i;
+
+	i = 0;
+	dest = (unsigned char*)destination;
+	sour = (unsigned char*)source;
+	while (i != n)
 	{
-		len1 = ft_strlen(s1);
-		len2 = (s2 == NULL) ? 0 : ft_strlen(s2);
-		if ((res = (char *)malloc(len1 + len2 + 1)) == NULL)
-			return (res);
-		ft_memmove(res, s1, len1 * sizeof(char));
-		if (len2)
-			ft_memmove(&(res[len1]), s2, len2 * sizeof(char));
-		res[len1 + len2] = 0;
+		dest[i] = sour[i];
+		i++;
 	}
-	return (res);
+	return (destination);
 }
