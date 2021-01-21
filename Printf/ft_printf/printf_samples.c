@@ -64,7 +64,8 @@ int main(void)
 	printf("Flag is set and flag will set by width: '%-2147483648d'\n", INT_MIN);
 	printf("res: %d\n", printf("%s\n", "a\0a"));
 	printf("0 char returns: %d\n", printf("%c", '\0')); // 1
-	printf("Char with width = 0: '%*c'\n", 0, 'a');
+	printf("Char with width = 0: '%-8d'\n", -123);
+	printf("Char with width = 0: '%.5d'\n", -123);
 //	printf()
 
 	if (printf("") || printf("1\n") || printf("2\n"))
