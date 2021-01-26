@@ -8,8 +8,6 @@ include_directories(gnl)
 include_directories(libft)
 
 add_executable(Cub3D
-		gnl/get_next_line.c
-		gnl/get_next_line.h
 		libft/ft_atoi.c
 		libft/ft_bzero.c
 		libft/ft_calloc.c
@@ -59,6 +57,8 @@ add_executable(Cub3D
 		libft/ft_tolower.c
 		libft/ft_toupper.c
 		libft/libft.h
+		errors/ft_error.c
+		errors/ft_errors.h
 		parser/ft_parser.c
 		_config.h
 		ft_cub.h

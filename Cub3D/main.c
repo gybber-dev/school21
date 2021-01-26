@@ -13,9 +13,9 @@ int			main(int argc, char **argv)
 			set = ft_parser(argv[1], &map);
 	}
 	else
-		printf("No file name\n");
+		ft_error(22);
 	return (0);
 }
 
 
-!!!!!! Необходимо ввести perror, strerror и exit
+//!!!!!! Необходимо ввести perror, strerror и exit

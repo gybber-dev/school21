@@ -1,5 +1,4 @@
 SRCS	= \
-            gnl/get_next_line.c \
             libft/ft_atoi.c \
             libft/ft_bzero.c \
             libft/ft_calloc.c \
@@ -48,7 +47,9 @@ SRCS	= \
             libft/ft_substr.c \
             libft/ft_tolower.c \
             libft/ft_toupper.c \
+            errors/ft_error.c \
             parser/ft_parser.c \
+            parser/parse_file.c \
             main.c \
 
 
