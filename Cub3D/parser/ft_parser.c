@@ -48,7 +48,7 @@ static int			ft_parse_head(char *line, char *keys, t_set *set)
 	if (*keys == 'R' && *(keys + 1) == ' ')
 	{
 		set->win.res1 = ft_atoi((tmp = ft_strchr(line, ' ')));
-		set->win.res2 = ft_atoi(pass_number((char*)line));
+		set->win.res2 = ft_atoi(reg_pass_string(" \\d", line));
 	}
 	if (*keys == 'N' && *(keys + 1) == 'O')
 		if ((set->skin.no_ski = parse_path(line + 2)) == NULL)

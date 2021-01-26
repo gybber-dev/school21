@@ -6,6 +6,7 @@
 # include "libft/libft.h"
 # include "minilibx_mms_20200219/mlx.h"
 # include "errors/ft_errors.h"
+# include "regexp/ft_regexp.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 500

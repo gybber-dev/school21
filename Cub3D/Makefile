@@ -48,6 +48,7 @@ SRCS	= \
             libft/ft_tolower.c \
             libft/ft_toupper.c \
             errors/ft_error.c \
+            regexp/ft_regexp.c \
             parser/ft_parser.c \
             parser/parse_file.c \
             main.c \
