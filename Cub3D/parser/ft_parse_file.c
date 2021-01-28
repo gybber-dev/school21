@@ -1,4 +1,5 @@
 #include "../ft_cub.h"
+#include "ft_parser.h"
 
 int				read_file(int fd, char **file)
 {

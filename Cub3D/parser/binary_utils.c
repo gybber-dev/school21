@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <string.h>
-#include "libft/libft.h"
-
 int		create_trgb(int t, int r, int g, int b)
 {
+	printf("TRGB: %d\t%d\t%d\n", r, g, b);
 	return(t << 24 | r << 16 | g << 8 | b);
 }
 
@@ -27,8 +25,10 @@ int		get_b(int trgb)
 	return (trgb & 0xFF);
 }
 
-int main()
-{
-	printf("%s\n\n", ft_strnstr("R DJDJDJDJJD", "R ", 2));
-	printf("%.8X\n", create_trgb(50, 220, 100, 10));
-}
+//F 220,100,0		14443520
+//C 225,30,0		14753280
+//int main(void)
+//{
+//	printf("num: '%d'\n", create_trgb(0,220,100,0));
+//	printf("num: '%d'\n", create_trgb(0,225,30,0));
+//}

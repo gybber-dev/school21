@@ -38,6 +38,7 @@ char			*reg_find_symbol(char *rule, char *str)
 ** Get pointer to string (str) and pass all symbols defined in 'rules'.
 ** Returns pointer to the next symbol after the rule passed string.
 */
+
 char			*reg_pass_string(char *rule, char *str)
 {
 	char		*rule0;
