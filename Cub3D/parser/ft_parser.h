@@ -4,7 +4,7 @@
 # include "../libft/libft.h"
 # include "../ft_cub.h"
 
-# define MAP_SYMBOLS "10 2N"
+# define MAP_SYMBOLS "10 2NSWE"
 
 int		read_file(int fd, char **file);
 int		get_b(int trgb);

@@ -3,7 +3,8 @@
 
 void				init_set(t_set *set)
 {
-	*(set->map) = NULL;
+	set->map.c_map = NULL;
+	set->map.ismalloced = 0;
 }
 
 
@@ -87,8 +88,8 @@ void 			parse_file(char *file, t_set *set)
 			}
 			else
 			{
-				DEBUG printf("Check map: '%s'\n", *(set->map));
-				if (!set->map)
+				DEBUG printf("Check map: '%d'\n", set->map.ismalloced);
+				if (!set->map.ismalloced)
 					set_mem_for_map(file, set);
 				*p = '\0';
 				ft_parse_map(file, set);
@@ -122,7 +123,13 @@ t_set			ft_parser(char *file_name, char **map)
 	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set.win.res1, set.win.res2);
 	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n",
 			  set.skin.no_ski, set.skin.so_ski, set.skin.we_ski, set.skin.ea_ski, set.skin.fl_col, set.skin.ce_col);
-
+	DEBUG printf("\nMAP:\n");
+	char **p = set.map.c_map;
+	while(*p != NULL)
+	{
+		DEBUG printf("[%s]\n", *p);
+		p++;
+	}
 
 	DEBUG printf("I want to free: '%s'\n", file);
 	ft_free(&file);

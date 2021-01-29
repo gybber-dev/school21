@@ -22,5 +22,5 @@ add_executable(Cub3D
 		main.c)
 
 target_link_libraries(
-		Cub3D ~/Desktop/Projects/GitHub/Cub3D/libft/libft.a
+		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
 )

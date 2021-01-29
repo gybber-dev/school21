@@ -3,7 +3,7 @@
 
 int				is_map(char *str)
 {
-	if (!*str)
+	if (!*str || *str == '\n')
 		return (0);
 	while (*str != 0 && *str != '\n')
 	{
@@ -14,30 +14,40 @@ int				is_map(char *str)
 	return (1);
 }
 
+/*
+** Counts the number of '\n' (lines) and mallocs (lines + 2)
+** for the last line and NULL-terminator
+*/
+
 void			set_mem_for_map(char *str, t_set *set)
 {
 	int			lines;
+	char		*p;
 
 	lines = 0;
 	while(*str)
 	{
-		if(!(ft_strchr(str, '\n')))
+		if(!(p = ft_strchr(str, '\n')))
 			break ;
 		lines++;
-		str++;
+		str = p + 1;
 	}
-	DEBUG printf("Reserve for map [%d] lines\nin [%s]", lines, str);
-	set->map = (char**)malloc(sizeof(char *) * lines);
-//	ft_error(errno);
-	*(set->map) = NULL;
-	DEBUG printf("Check if malloced: '%s'\n", *(set->map));
+	DEBUG printf("Reserve for map [%d] lines\nin [%s]", lines + 2, str);
+	set->map.c_map = (char**)malloc(sizeof(char *) * (lines + 2));
+	ft_error(errno);
+	set->map.ismalloced = 1;
+	*(set->map.c_map) = NULL;
+	DEBUG printf("Check if malloced: '%s'\n", *(set->map.c_map));
 }
 
 
 void			ft_parse_map(char *line, t_set *set)
 {
-	char		**res;
-	int			len;
-
-	len = 0;
+	char		**p;
+	p = set->map.c_map;
+	while(*p != NULL)
+		p++;
+	*p = ft_strdup(line);
+	ft_error(errno);
+	*(p + 1) = NULL;
 }

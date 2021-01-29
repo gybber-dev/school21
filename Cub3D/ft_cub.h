@@ -40,13 +40,17 @@ typedef struct		s_skin
 	char			*sprite_ski;
 }					t_skin;
 
-
+typedef struct		s_map
+{
+	char			**c_map;
+	int				ismalloced;
+}					t_map;
 
 typedef struct		s_set
 {
 	t_win			win;
 	t_skin			skin;
-	char			**map;
+	t_map			map;
 }					t_set;
 
 
