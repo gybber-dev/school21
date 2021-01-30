@@ -32,10 +32,11 @@ void			set_mem_for_map(char *str, t_set *set)
 		lines++;
 		str = p + 1;
 	}
-	DEBUG printf("Reserve for map [%d] lines\nin [%s]", lines + 2, str);
-	set->map.c_map = (char**)malloc(sizeof(char *) * (lines + 2));
+	lines += 2;
+	DEBUG printf("Reserve for map [%d] lines\nin [%s]", lines, str);
+	set->map.c_map = (char**)malloc(sizeof(char *) * (lines));
 	ft_error(errno);
-	set->map.ismalloced = 1;
+	set->map.ismalloced = lines;
 	*(set->map.c_map) = NULL;
 	DEBUG printf("Check if malloced: '%s'\n", *(set->map.c_map));
 }

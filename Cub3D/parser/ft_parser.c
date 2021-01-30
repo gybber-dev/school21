@@ -73,32 +73,29 @@ static int			ft_parse_head(char *line, t_set *set)
 void 			parse_file(char *file, t_set *set)
 {
 	char		*p;
-	int			lines;
+	int			is_reading;
 
 	p = NULL;
-	lines = 0;
-	while(*file)
+	is_reading = 0;
+	while(file && *file)
 	{
-		if ((p = ft_strchr(file, '\n')))
+		p = ft_strchr(file, '\n');
+		if (is_map(file) && !set->map.ismalloced)
+			set_mem_for_map(file, set);
+		if (p)
+			*p = '\0';
+		if(is_map(file) && set->map.ismalloced > 0)
 		{
-			if(!is_map(file))
-			{
-				*p = '\0';
-				ft_parse_head(file, set);
-			}
-			else
-			{
-				DEBUG printf("Check map: '%d'\n", set->map.ismalloced);
-				if (!set->map.ismalloced)
-					set_mem_for_map(file, set);
-				*p = '\0';
-				ft_parse_map(file, set);
-			}
-			file = p + 1;
-			continue ;
+			set->map.ismalloced = (is_reading < 0)? -1 : set->map.ismalloced; // trying to parse splitted map
+			is_reading = 1;
+			ft_parse_map(file, set);
 		}
-		ft_parse_head(file, set);
-		DEBUG printf("last line: %s\n", file);
+		else
+		{
+			is_reading = (is_reading) ? -1 : 0; // end of map
+			ft_parse_head(file, set);
+		}
+		file = (p)? p + 1 : NULL;
 	}
 }
 
@@ -118,6 +115,7 @@ t_set			ft_parser(char *file_name, char **map)
 		ft_error(ERR_READ_FILE);
 	init_set(&set);
 	parse_file(file, &set);
+	ft_error(ft_validate_data(&set));
 
 
 	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set.win.res1, set.win.res2);
@@ -133,5 +131,6 @@ t_set			ft_parser(char *file_name, char **map)
 
 	DEBUG printf("I want to free: '%s'\n", file);
 	ft_free(&file);
+	//	auto_clear(&set);
 	return (set);
 }

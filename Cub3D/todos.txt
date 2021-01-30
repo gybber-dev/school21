@@ -1,0 +1,13 @@
+todo:
+
+1. auto_cleaner in ft_errors;
+2. put errors into struct
+
+
+My check list:
+1. Replace lines in map.cub
+2. Put head lines after the map
+3. Split map by empty line
+4. Delete the last '\n' and make the last line like follow:
+    '111111111\0'
+5.

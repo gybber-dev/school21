@@ -29,6 +29,7 @@ typedef struct		s_win
 
 typedef struct		s_skin
 {
+	int				contents;
 	int				fl_col;
 	int				ce_col;
 	char			*no_ski;
@@ -58,5 +59,5 @@ typedef struct		s_set
 t_set				ft_parser(char *file, char **map);
 void				ft_parse_map(char *line, t_set *set);
 void				set_mem_for_map(char *str, t_set *set);
-
+int					ft_validate_data(t_set *set);
 #endif
