@@ -18,17 +18,18 @@ HEADER		= ft_cub.h
 
 RM			= rm -f
 
-%.o : %.c
-			${CC} $(FLAGS) -c $< -o $@
+all:		init ${NAME}
+init:
+			@ echo "......init......"
+			make -C libft
+# 			make -C libmlx
 
 $(NAME):	$(OBJS) $(HEADER)
 			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 # 			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft
 
-all:		init ${NAME}
-init:
-			make -C libft
-# 			make -C libmlx
+%.o : %.c
+			${CC} $(FLAGS) -c $< -o $@
 
 do_prev:	all
 			$(CC) $(FLAGS) $(HEADER) $(OBJS) -Llibft -lft
