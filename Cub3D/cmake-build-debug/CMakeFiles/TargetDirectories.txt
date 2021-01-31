@@ -1,3 +1,6 @@
-/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/libft/CMakeFiles/rebuild_cache.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/libft/CMakeFiles/edit_cache.dir
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/libft/CMakeFiles/libft.dir

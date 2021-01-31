@@ -1,4 +1,5 @@
-/snap/clion/139/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/azat/school21/GitHub/Cub3D
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/yeschall/Desktop/Projects/GitHub/Cub3D
+HELLO/Users/yeschall/Desktop/Projects/GitHub/Cub3D
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/azat/school21/GitHub/Cub3D/cmake-build-debug
+-- Build files have been written to: /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug

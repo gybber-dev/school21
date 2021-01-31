@@ -2,18 +2,25 @@
 # define FT_CUB_H
 # include <fcntl.h>
 # include <unistd.h>
-# include <stdlib.h>
 # include "libft/libft.h"
-# include "minilibx_mms_20200219/mlx.h"
-# include "errors/ft_errors.h"
 # include "regexp/ft_regexp.h"
-# include "parser/ft_parser.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 500
-# endif
+# include <stdio.h> // for perror
+# include <string.h> // for strerror
+# include <errno.h> // for errno
+# include <stdlib.h> // for exit
+# include "minilibx_mms/mlx.h"
 
-#define SAVE_FLAG "--save"
+/*
+** ERROR MESSAGES:
+*/
+
+# define ERR_READ_FILE 1001
+# define NOT_VALID_HEAD_0 1011
+
+# define MAP_SYMBOLS "10 2NSWE"
+
+# define SAVE_FLAG "--save"
 
 // delete below:
 
@@ -54,10 +61,16 @@ typedef struct		s_set
 	t_map			map;
 }					t_set;
 
-
-
 t_set				ft_parser(char *file, char **map);
 void				ft_parse_map(char *line, t_set *set);
 void				set_mem_for_map(char *str, t_set *set);
 int					ft_validate_data(t_set *set);
+void				ft_error(int code);
+int					read_file(int fd, char **file);
+int					get_b(int trgb);
+int					get_g(int trgb);
+int					get_r(int trgb);
+int					get_t(int trgb);
+int					create_trgb(int t, int r, int g, int b);
+int					is_map(char *str);
 #endif

@@ -1,17 +1,16 @@
 #include "../ft_cub.h"
-#include "ft_parser.h"
 
 int				read_file(int fd, char **file)
 {
 	int			bytes;
-	char		buf[BUFFER_SIZE + 1];
+	char		buf[501];
 	char		*tmp;
 	int			res;
 
 	res = 0;
 	if (!(*file = ft_strdup("")))
 		ft_error(errno);
-	while ((bytes = read(fd, buf, BUFFER_SIZE)) > 0)
+	while ((bytes = read(fd, buf, 500)) > 0)
 	{
 		buf[bytes] = '\0';
 		tmp = *file;

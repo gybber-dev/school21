@@ -1,6 +1,14 @@
-#include <mlx.h>
+#include "minilibx_mms/mlx.h"
 
-int     main(void)
+
+/*
+** Compilation:
+** MacOS:
+** 		gcc mlx_sample.c -Lminilibx_mms -lmlx -framework OpenGL -framework AppKit
+** Linux:
+**
+*/
+int			main(void)
 {
 	void    *mlx;
 	void    *mlx_win;

@@ -1,4 +1,4 @@
-#include "ft_errors.h"
+#include "../ft_cub.h"
 
 void		ft_error(int code)
 {

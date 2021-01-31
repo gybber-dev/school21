@@ -1,4 +1,4 @@
-#include "ft_parser.h"
+#include "../ft_cub.h"
 
 
 int				is_map(char *str)

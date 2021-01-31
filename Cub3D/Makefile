@@ -18,35 +18,36 @@ HEADER		= ft_cub.h
 
 RM			= rm -f
 
-OPTFLAGS    = -O2 # оптимизация при комплиляции
+%.o : %.c
+			${CC} $(FLAGS) -c $< -o $@
 
-%.c : %.o:
-			${CC} $(FLAGS) -c $< -o ${<:.c=.o}
+$(NAME):	$(OBJS) $(HEADER)
+			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft
+# 			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft
 
-$(NAME):	$(OBJS) $(HEADER) init
-
-all:		${NAME}
-
+all:		init ${NAME}
 init:
 			make -C libft
-			make -C libmlx
+# 			make -C libmlx
 
 do_prev:	all
-			$(CC) $(FLAGS) $(OBJS) $(HEADER) -o $(NAME)
+			$(CC) $(FLAGS) $(HEADER) $(OBJS) -Llibft -lft
 
-do:			do_prev clean
 
-inc:		all
-			$(CC) $(FLAGS) main.c -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
+do:			do_prev
+
+# inc:		all
+# 			$(CC) $(OBJS) $(HEADER) -Llibft -lft -L.minilibx_mms -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+# LINUX:
+	# $(CC) $(FLAGS) main.c -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
 
 clean:
 			${RM} ${OBJS} ${BOBJS} *.out
-			(cd ./libft/.;$(MAKE) clean)
-			(cd ..)
+			make -C libft clean
 		
 fclean:		clean
-			(cd ./libft/.;$(MAKE) fclean)
-			(cd ..)
+			$(RM) -rf $(NAME)
+			make -C libft fclean
 
 re:			fclean all
 
