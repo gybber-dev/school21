@@ -23,11 +23,21 @@ HEADER	= -I libft.h
 
 FLAGS	= -Wall -Wextra -Werror
 
-.c.o:	${HEADER}
-		${CC} $(FLAGS) -c $< -o ${<:.c=.o}
+%.o : %.c
+		${CC} $(FLAGS) -c $< -o $@
+
+# $< - the variable that inserts the first dependence in current rule
+#       (in rule "%.o : %.c" it will: "$< = %.c")
+# $@ - the variable that inserts the name of the current rule
+#       (in rule "%.o : %.c" it will: "$@ = %.o")
+
+# .c.o:	${HEADER}
+# 		${CC} $(FLAGS) -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
-		ar rcs $(NAME) $(OBJS)
+		ar rcs $(NAME) $?
+
+# $? the variable that allows to compile only the files newer then $(NAME) (libft.a)
 
 all:	${NAME}
 

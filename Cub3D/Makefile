@@ -10,20 +10,17 @@ SRCS	= \
 			parser/ft_validator.c \
 			main.c \
 
-
-OBJS		= ${SRCS:.c=.o}
-
-BOBJS		= ${BONUS:.c=.o}
+OBJS		= $(patsubst %.c, %.o, $(SRCS))
 
 CC			= gcc
+FLAGS		= #-Wall -Wextra -Werror
+HEADER		= ft_cub.h
 
 RM			= rm -f
 
-HEADER		= ft_cub.h
+OPTFLAGS    = -O2 # оптимизация при комплиляции
 
-FLAGS		= #-Wall -Wextra -Werror
-
-.c.o:
+%.c : %.o:
 			${CC} $(FLAGS) -c $< -o ${<:.c=.o}
 
 $(NAME):	$(OBJS) $(HEADER) init
@@ -54,3 +51,6 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
+# commands
+# http://rus-linux.net/nlib.php?name=/MyLDP/algol/gnu_make/gnu_make_3-79_russian_manual.html#SEC77
