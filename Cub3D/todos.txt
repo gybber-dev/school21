@@ -10,4 +10,4 @@ My check list:
 3. Split map by empty line
 4. Delete the last '\n' and make the last line like follow:
     '111111111\0'
-5.
+5. Correct Makefile: not to build project when 'make' command is repeated.
