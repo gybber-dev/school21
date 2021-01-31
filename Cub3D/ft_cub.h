@@ -9,7 +9,7 @@
 # include <string.h> // for strerror
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
-# include "minilibx_mms/mlx.h"
+# include "minilibx_opengl_20191021/mlx.h"
 
 /*
 ** ERROR MESSAGES:
@@ -19,7 +19,7 @@
 # define NOT_VALID_HEAD_0 1011
 
 # define MAP_SYMBOLS "10 2NSWE"
-
+# define SCALE 10
 # define SAVE_FLAG "--save"
 
 // delete below:
@@ -32,6 +32,8 @@ typedef struct		s_win
 {
 	int				res1;
 	int				res2;
+	void			*mlx;
+	void			*win;
 }					t_win;
 
 typedef struct		s_skin
@@ -54,6 +56,14 @@ typedef struct		s_map
 	int				ismalloced;
 }					t_map;
 
+typedef struct		s_pix
+{
+	int				x;
+	int				y;
+}					t_pix;
+
+
+
 typedef struct		s_set
 {
 	t_win			win;
@@ -61,7 +71,7 @@ typedef struct		s_set
 	t_map			map;
 }					t_set;
 
-t_set				ft_parser(char *file, char **map);
+void 				ft_parser(char *file_name, t_set *set);
 void				ft_parse_map(char *line, t_set *set);
 void				set_mem_for_map(char *str, t_set *set);
 int					ft_validate_data(t_set *set);

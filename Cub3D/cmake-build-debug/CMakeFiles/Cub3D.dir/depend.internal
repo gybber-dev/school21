@@ -6,14 +6,14 @@ CMakeFiles/Cub3D.dir/errors/ft_error.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/errors/ft_error.c
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/main.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/binary_utils.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/binary_utils.c
@@ -21,28 +21,28 @@ CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_file.c
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_map.c
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser.c
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
- /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_mms/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_validator.c
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o

@@ -1,13 +1,6 @@
 #include "../ft_cub.h"
 #include "../libft/libft.h"
 
-void				init_set(t_set *set)
-{
-	set->map.c_map = NULL;
-	set->map.ismalloced = 0;
-}
-
-
 static char			*parse_path(char *str)
 {
 	char			*res;
@@ -100,37 +93,35 @@ void 			parse_file(char *file, t_set *set)
 }
 
 
-t_set			ft_parser(char *file_name, char **map)
+void			ft_parser(char *file_name, t_set *set)
 {
-	t_set		set;
 	int			fd;
 	char		*file;
 	int			res;
 
+//	fd = open("map0.cub", O_RDONLY);
 //	file_name = ft_strjoin("../", file_name);
 //	ft_error(errno);
 	fd = open(file_name, O_RDONLY);
+	printf("sam: %s, %d, err: %d\n", file_name, fd, errno);
 	ft_error(errno);
 	if ((res = read_file(fd, &file)) < 1)
 		ft_error(ERR_READ_FILE);
-	init_set(&set);
-	parse_file(file, &set);
-	ft_error(ft_validate_data(&set));
+	parse_file(file, set);
+	ft_error(ft_validate_data(set));
 
-
-	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set.win.res1, set.win.res2);
+	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set->win.res1, set->win.res2);
 	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n",
-			  set.skin.no_ski, set.skin.so_ski, set.skin.we_ski, set.skin.ea_ski, set.skin.fl_col, set.skin.ce_col);
+			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col);
 	DEBUG printf("\nMAP:\n");
-	char **p = set.map.c_map;
-	while(*p != NULL)
-	{
-		DEBUG printf("[%s]\n", *p);
-		p++;
-	}
+//	char **p = set->map.c_map;
+//	while(*p != NULL)
+//	{
+//		DEBUG printf("[%s]\n", *p);
+//		p++;
+//	}
 
 	DEBUG printf("I want to free: '%s'\n", file);
+	close(fd);
 	ft_free(&file);
-	//	auto_clear(&set);
-	return (set);
 }

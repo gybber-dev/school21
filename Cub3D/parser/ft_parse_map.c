@@ -45,6 +45,7 @@ void			set_mem_for_map(char *str, t_set *set)
 void			ft_parse_map(char *line, t_set *set)
 {
 	char		**p;
+
 	p = set->map.c_map;
 	while(*p != NULL)
 		p++;

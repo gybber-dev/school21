@@ -22,7 +22,7 @@ RM			= rm -f
 			${CC} $(FLAGS) -c $< -o $@
 
 $(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft
+			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 # 			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft
 
 all:		init ${NAME}
