@@ -14,7 +14,7 @@ OBJS		= $(patsubst %.c, %.o, $(SRCS))
 
 CC			= gcc
 FLAGS		= #-Wall -Wextra -Werror
-HEADER		= ft_cub.h
+HEADER		= cub.h
 
 RM			= rm -f
 
