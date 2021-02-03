@@ -31,28 +31,32 @@ static void	find_player(t_set *set)
 	p = set->map.c_map;
 	i = 0;
 	set->player.coord.y = 0;
-	while(*p != NULL || i >= 0)
+	while(*p != NULL && i >= 0)
 	{
 		i = 0;
-		while (*p[i] || *p[i] == 'W' || *p[i] == 'N' || *p[i] == 'S' || *p[i] == 'E')
+		printf("checkY [%d], last #: %d\n", i, (*p)[8]);
+		while ((*p)[i] != 0)
 		{
-			if (*p[i] == 'W' || *p[i] == 'N' || *p[i] == 'S' || *p[i] == 'E')
+			printf("check '%c'[%d]\n", (*p)[i], i);
+			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
-				break ;
-				i++;
+				set->player.coord.x = i;
+				return ;
 			}
+			i++;
 		}
 		p++;
 		set->player.coord.y++;
 	}
-	set->player.coord.x = i;
 }
 
 void					set_player(t_set *set)
 {
 	if (set->player.coord.x == -1)
 		find_player(set);
-	mlx_pixel_put(set->win.mlx, set->win.win, set->player.coord.x, set->player.coord.y, 0xFFFFFF);
+	set->player.coord.x *= SCALE;
+	set->player.coord.y *= SCALE;
+	mlx_pixel_put(set->win.mlx, set->win.win, set->player.coord.x, set->player.coord.y, 0xFF0000);
 }
 
 void		scale_pix(t_set *set, t_pix *pix)
@@ -86,6 +90,7 @@ void		draw_map(t_set *set)
 	ft_bzero(&pix, sizeof(t_pix));
 	set->win.mlx = mlx_init();
 	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
+	printf("tick\n");
 	while (set->map.c_map[pix.y])
 	{
 		pix.x = 0;
@@ -99,6 +104,7 @@ void		draw_map(t_set *set)
 		pix.y++;
 	}
 	set_player(set);
+	printf("tock\n");
 	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.coord.x, set->player.coord.y);
 	mlx_loop(set->win.mlx);
 }

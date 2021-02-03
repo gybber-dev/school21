@@ -8,13 +8,14 @@ SRCS	= \
 			parser/binary_utils.c \
 			parser/ft_parse_map.c \
 			parser/ft_validator.c \
+			window/window.c \
 			main.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 
 CC			= gcc
 FLAGS		= #-Wall -Wextra -Werror
-HEADER		= cub.h
+HEADER		= ft_cub.h
 
 RM			= rm -f
 
@@ -33,11 +34,6 @@ $(NAME):	$(OBJS) $(HEADER)
 
 %.o : %.c
 			${CC} $(FLAGS) -c $< -o $@
-
-# inc:		all
-# 			$(CC) $(OBJS) $(HEADER) -Llibft -lft -L.minilibx_mms -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-# LINUX:
-	# $(CC) $(FLAGS) main.c -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
 
 clean:
 			${RM} ${OBJS} ${BOBJS} *.out
