@@ -68,7 +68,8 @@ typedef struct		s_pix
 
 typedef struct		s_player
 {
-	t_pix			coord;
+	t_pix			from;
+	t_pix			to;
 }					t_player;
 
 typedef struct		s_set

@@ -3,6 +3,14 @@
 #define SCALE 30
 //#include "minilibx_opengl_20191021/mlx.h"
 
+void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
+{
+	char		*dst;
+
+	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
+	*(unsigned int*)dst = color;
+
+}
 
 static void				init_set(t_set *set)
 {
@@ -19,18 +27,21 @@ static void				init_set(t_set *set)
 	set->skin.we_ski = NULL;
 	set->skin.ea_ski = NULL;
 	set->skin.sprite_ski = NULL;
-	set->player.coord.x = -1;
-	set->player.coord.y = -1;
+	set->player.from.x = -1;
+	set->player.from.y = -1;
+	set->player.to.x = -1;
+	set->player.to.y = -1;
 }
 
-static void	find_player(t_set *set)
+static void	init_player_pos(t_set *set)
 {
 	char	**p;
 	int		i;
 
+	DEBUG printf("Find player\n");
 	p = set->map.c_map;
 	i = 0;
-	set->player.coord.y = 0;
+	set->player.to.y = 0;
 	while(*p != NULL && i >= 0)
 	{
 		i = 0;
@@ -38,23 +49,32 @@ static void	find_player(t_set *set)
 		{
 			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
-				set->player.coord.x = i;
+				set->player.to.x = i * SCALE;
+				set->player.to.y *= SCALE;
 				return ;
 			}
 			i++;
 		}
 		p++;
-		set->player.coord.y++;
+		set->player.to.y++;
 	}
 }
 
 void					set_player(t_set *set)
 {
-	if (set->player.coord.x == -1)
-		find_player(set);
-	set->player.coord.x *= SCALE;
-	set->player.coord.y *= SCALE;
-	mlx_pixel_put(set->win.mlx, set->win.win, set->player.coord.x, set->player.coord.y, 0xFF0000);
+	DEBUG printf("Player SET from [%d; %d] to [%d; %d]\n",
+				 set->player.from.x, set->player.from.y, set->player.to.x, set->player.to.y);
+	// final position is defined and it is not a start position
+	if (set->player.to.x != -1 &&
+		set->player.from.x != set->player.to.x &&
+		set->player.from.y != set->player.to.y)
+	{
+		my_mlx_pixel_put(set, set->player.to.x, set->player.to.y, 0xFF0000);
+		set->player.from.x = set->player.to.x;
+		set->player.from.y = set->player.to.y;
+	}
+	printf("check\n");
+	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.to.x, set->player.to.y);
 }
 
 void		scale_pix(t_set *set, t_pix *pix)
@@ -96,30 +116,45 @@ void		draw_map(t_set *set)
 		}
 		pix.y++;
 	}
-//	set_player(set);
-	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.coord.x, set->player.coord.y);
-
 }
 
 
-void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
+int				key_hook_up(int keycode, t_set *set)
 {
-	char		*dst;
+	printf("[%d] key up\n", keycode);
+}
 
-	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
-	*(unsigned int*)dst = color;
+int				key_hook_press(int keycode, t_set *set)
+{
+	DEBUG printf("[%d] key press\n", keycode);
+	if (keycode == 119 || keycode == 65362)
+		set->player.to.x++;
+	if (keycode == 115 || keycode == 65364)
+		set->player.to.x--;
+	if (keycode == 97 || keycode == 65361)
+		set->player.to.y--;
+	if (keycode == 100 || keycode == 65363)
+		set->player.to.y++;
 
 }
 
 void		run_game(t_set *set)
 {
+	void	*default_map;
 	set->win.mlx = mlx_init();
 	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
 	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
 	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
 									  &set->win.endian);
+	printf("win:params:\n\taddr: '%s'\n\tbpp: [%d]\n\tlen: [%d]\n\tendian: [%d]\n",
+		set->win.addr, set->win.bpp, set->win.line_len, set->win.endian);
 	draw_map(set);
-	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
+	if (set->player.to.x == -1)
+		init_player_pos(set);
+	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
+	printf("tick\n");
+	set_player(set);
+//	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	mlx_loop(set->win.mlx);
 }
