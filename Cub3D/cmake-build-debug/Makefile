@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/azat/school21/GitHub/Cub3D
+CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/Cub3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/azat/school21/GitHub/Cub3D/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /home/azat/school21/GitHub/Cub3D/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles /home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -372,6 +372,87 @@ regexp/ft_regexp.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.s
 .PHONY : regexp/ft_regexp.c.s
 
+window/map.o: window/map.c.o
+
+.PHONY : window/map.o
+
+# target to build an object file
+window/map.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.o
+.PHONY : window/map.c.o
+
+window/map.i: window/map.c.i
+
+.PHONY : window/map.i
+
+# target to preprocess a source file
+window/map.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.i
+.PHONY : window/map.c.i
+
+window/map.s: window/map.c.s
+
+.PHONY : window/map.s
+
+# target to generate assembly for a file
+window/map.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.s
+.PHONY : window/map.c.s
+
+window/player.o: window/player.c.o
+
+.PHONY : window/player.o
+
+# target to build an object file
+window/player.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.o
+.PHONY : window/player.c.o
+
+window/player.i: window/player.c.i
+
+.PHONY : window/player.i
+
+# target to preprocess a source file
+window/player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.i
+.PHONY : window/player.c.i
+
+window/player.s: window/player.c.s
+
+.PHONY : window/player.s
+
+# target to generate assembly for a file
+window/player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.s
+.PHONY : window/player.c.s
+
+window/window.o: window/window.c.o
+
+.PHONY : window/window.o
+
+# target to build an object file
+window/window.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.o
+.PHONY : window/window.c.o
+
+window/window.i: window/window.c.i
+
+.PHONY : window/window.i
+
+# target to preprocess a source file
+window/window.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.i
+.PHONY : window/window.c.i
+
+window/window.s: window/window.c.s
+
+.PHONY : window/window.s
+
+# target to generate assembly for a file
+window/window.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.s
+.PHONY : window/window.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -406,6 +487,15 @@ help:
 	@echo "... regexp/ft_regexp.o"
 	@echo "... regexp/ft_regexp.i"
 	@echo "... regexp/ft_regexp.s"
+	@echo "... window/map.o"
+	@echo "... window/map.i"
+	@echo "... window/map.s"
+	@echo "... window/player.o"
+	@echo "... window/player.i"
+	@echo "... window/player.s"
+	@echo "... window/window.o"
+	@echo "... window/window.i"
+	@echo "... window/window.s"
 .PHONY : help
 
 

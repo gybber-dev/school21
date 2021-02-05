@@ -49,3 +49,24 @@ CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../libft/libft.h
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.c
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.h
 
+CMakeFiles/Cub3D.dir/window/map.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/window/map.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/window/map.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/window/map.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/window/map.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/window/map.c.o: ../window/map.c
+
+CMakeFiles/Cub3D.dir/window/player.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/window/player.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/window/player.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/window/player.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/window/player.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/window/player.c.o: ../window/player.c
+
+CMakeFiles/Cub3D.dir/window/window.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/window/window.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/window/window.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/window/window.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/window/window.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/window/window.c.o: ../window/window.c
+

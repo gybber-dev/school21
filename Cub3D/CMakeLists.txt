@@ -16,6 +16,9 @@ add_executable(Cub3D
 		parser/ft_validator.c
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
+		window/window.c
+		window/player.c
+		window/map.c
 		_config.h
 		ft_cub.h
 		main.c)

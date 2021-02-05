@@ -16,6 +16,10 @@ static int			is_floor(t_set *set)
 
 void				set_player(t_set *set)
 {
+	t_pix			ray;
+
+	ray.x = (set->player.from.x != -1) ? set->player.from.x : set->player.to.x;
+	ray.y = (set->player.from.y != -1) ? set->player.from.y : set->player.to.y;
 	DEBUG printf("Player SET from [%d; %d] to [%d; %d]\n",
 				 set->player.from.x, set->player.from.y, set->player.to.x, set->player.to.y);
 	// final position is defined and it is not a start position
@@ -31,8 +35,12 @@ void				set_player(t_set *set)
 		set->player.to.x = set->player.from.x;
 		set->player.to.y = set->player.from.y;
 	}
-
-	my_mlx_pixel_put(set, set->player.to.x, set->player.to.y, 0xFFFFFF);
-
+	printf("check\n");
+	while (set->map.c_map[ray.y / SCALE][ray.x / SCALE] != '1')
+	{
+		ray.x += cos(set->player.angle);
+		ray.y += sin(set->player.angle);
+		my_mlx_pixel_put(set, ray.x, ray.y, 0xFFFFFF);
+	}
 	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.to.x, set->player.to.y);
 }
