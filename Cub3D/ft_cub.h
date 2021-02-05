@@ -12,6 +12,42 @@
 # include "minilibx_opengl_20191021/mlx.h"
 
 /*
+** MAC KEYCODES:
+*/
+
+# define ESC 53
+# define W 13
+# define A 0
+# define S 1
+# define D 2
+# define UP 126
+# define LEFT 123
+# define RIGHT 124
+# define DOWN 125
+# define SPACE 49
+# define LMOUSE none
+# define RMOUSE none \
+
+/*
+** LINUX KEYCODES:
+
+# define ESC 53
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define UP 65362
+# define LEFT 65361
+# define DOWN 65364
+# define RIGHT 65363
+# define SPACE 32
+# define LMOUSE none
+# define RMOUSE none
+
+*/
+
+
+/*
 ** ERROR MESSAGES:
 */
 

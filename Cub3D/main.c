@@ -60,20 +60,38 @@ static void	init_player_pos(t_set *set)
 	}
 }
 
+int						is_floor(t_set *set)
+{
+	int				x;
+	int				y;
+
+	x = set->player.to.x / SCALE;
+	y = set->player.to.y / SCALE;
+	DEBUG printf("I want to jump to cell [%d, %d] = %d\n", x, y, set->map.c_map[y][x]);
+	if (set->map.c_map[y][x] == '1' || set->map.c_map[y][x] == '2')
+		return (0);
+	DEBUG printf("\tdone\n");
+	return (1);
+}
+
 void					set_player(t_set *set)
 {
 	DEBUG printf("Player SET from [%d; %d] to [%d; %d]\n",
 				 set->player.from.x, set->player.from.y, set->player.to.x, set->player.to.y);
 	// final position is defined and it is not a start position
 	if (set->player.to.x != -1 &&
-		set->player.from.x != set->player.to.x &&
-		set->player.from.y != set->player.to.y)
+			(set->player.from.x != set->player.to.x ||
+		set->player.from.y != set->player.to.y) && is_floor(set))
 	{
-		my_mlx_pixel_put(set, set->player.to.x, set->player.to.y, 0xFF0000);
 		set->player.from.x = set->player.to.x;
 		set->player.from.y = set->player.to.y;
 	}
-	printf("check\n");
+	else
+	{
+		set->player.to.x = set->player.from.x;
+		set->player.to.y = set->player.from.y;
+	}
+	my_mlx_pixel_put(set, set->player.to.x, set->player.to.y, 0xFFFFFF);
 	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.to.x, set->player.to.y);
 }
 
@@ -122,20 +140,29 @@ void		draw_map(t_set *set)
 int				key_hook_up(int keycode, t_set *set)
 {
 	printf("[%d] key up\n", keycode);
+	return (1);
 }
 
 int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
-	if (keycode == 119 || keycode == 65362)
-		set->player.to.x++;
-	if (keycode == 115 || keycode == 65364)
-		set->player.to.x--;
-	if (keycode == 97 || keycode == 65361)
-		set->player.to.y--;
-	if (keycode == 100 || keycode == 65363)
-		set->player.to.y++;
 
+	if (keycode == W || keycode == UP)
+		set->player.to.y -= 5;
+	if (keycode == S || keycode == DOWN)
+		set->player.to.y += 5;
+	if (keycode == A || keycode == LEFT)
+		set->player.to.x -= 5;
+	if (keycode == D || keycode == RIGHT)
+		set->player.to.x += 5;
+//	mlx_destroy_image(set->win.mlx, set->win.img);
+	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
+									  &set->win.endian);
+	draw_map(set);
+	set_player(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
+	return (1);
 }
 
 void		run_game(t_set *set)
@@ -151,6 +178,7 @@ void		run_game(t_set *set)
 	draw_map(set);
 	if (set->player.to.x == -1)
 		init_player_pos(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
 	printf("tick\n");
 	set_player(set);
