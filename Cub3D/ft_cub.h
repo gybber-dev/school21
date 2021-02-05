@@ -33,6 +33,11 @@ typedef struct		s_win
 	int				res2;
 	void			*mlx;
 	void			*win;
+	void			*img;
+	char			*addr;
+	int				bpp;
+	int				line_len;
+	int				endian;
 }					t_win;
 
 typedef struct		s_skin

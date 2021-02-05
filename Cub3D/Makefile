@@ -8,8 +8,8 @@ SRCS	= \
 			parser/binary_utils.c \
 			parser/ft_parse_map.c \
 			parser/ft_validator.c \
-			window/window.c \
 			main.c \
+# 			window/window.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 

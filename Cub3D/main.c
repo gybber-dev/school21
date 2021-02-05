@@ -34,10 +34,8 @@ static void	find_player(t_set *set)
 	while(*p != NULL && i >= 0)
 	{
 		i = 0;
-		printf("checkY [%d], last #: %d\n", i, (*p)[8]);
 		while ((*p)[i] != 0)
 		{
-			printf("check '%c'[%d]\n", (*p)[i], i);
 			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
 				set->player.coord.x = i;
@@ -73,7 +71,7 @@ void		scale_pix(t_set *set, t_pix *pix)
 		p.x = SCALE * pix->x;
 		while (p.x <= end.x)
 		{
-			mlx_pixel_put(set->win.mlx, set->win.win, p.x, p.y, 0xFFFFFF);
+			my_mlx_pixel_put(set, p.x, p.y, 0xFFFFFF);
 			p.x++;
 		}
 		p.y++;
@@ -83,29 +81,46 @@ void		scale_pix(t_set *set, t_pix *pix)
 void		draw_map(t_set *set)
 {
 	t_pix	pix;
-	char		**row;
 
-	row = set->map.c_map;
 	DEBUG printf("DRAW THE MAP: %s\n", *(set->map.c_map));
 	ft_bzero(&pix, sizeof(t_pix));
-	set->win.mlx = mlx_init();
-	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
-	printf("tick\n");
 	while (set->map.c_map[pix.y])
 	{
 		pix.x = 0;
 		while (set->map.c_map[pix.y][pix.x])
 		{
 			if (set->map.c_map[pix.y][pix.x] == '1')
+//				my_mlx_pixel_put(set, pix.x, pix.y, 0xFFFFFF);
 				scale_pix(set, &pix);
-//				mlx_pixel_put(set->win.mlx, set->win.win, pix.x, pix.y, 0xFFFFFF);
-		pix.x++;
+			pix.x++;
 		}
 		pix.y++;
 	}
-	set_player(set);
-	printf("tock\n");
+//	set_player(set);
 	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.coord.x, set->player.coord.y);
+
+}
+
+
+void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
+{
+	char		*dst;
+
+	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
+	*(unsigned int*)dst = color;
+
+}
+
+void		run_game(t_set *set)
+{
+	set->win.mlx = mlx_init();
+	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
+	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
+									  &set->win.endian);
+	draw_map(set);
+	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	mlx_loop(set->win.mlx);
 }
 
@@ -123,7 +138,7 @@ int			main(int argc, char **argv)
 		{
 			init_set(&set);
 			ft_parser(argv[1], &set);
-			draw_map(&set);
+			run_game(&set);
 		}
 
 	}
