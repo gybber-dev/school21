@@ -9,7 +9,9 @@ SRCS	= \
 			parser/ft_parse_map.c \
 			parser/ft_validator.c \
 			main.c \
-# 			window/window.c \
+			window/window.c \
+			window/player.c \
+			window/map.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 
@@ -25,7 +27,7 @@ init:
 			@ echo "......init......"
 			make -C libft
 			#Linux
-			make -C libmlx
+# 			make -C libmlx
 			#MAC
 			make -C minilibx_opengl_20191021
 
@@ -45,6 +47,10 @@ clean:
 fclean:		clean
 			$(RM) -rf $(NAME)
 			make -C libft fclean
+
+
+# 		!!!!!!!!	ADD FCLEAN FOR MLX          !!!!!!!!
+
 
 re:			fclean all
 

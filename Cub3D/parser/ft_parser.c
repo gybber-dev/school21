@@ -22,7 +22,7 @@ static int 			parse_rgb(char *str)
 	int				b;
 	char			*err_flag;
 
-	DEBUG printf("RGB_PARSCING: '%s'\n", str);
+	DEBUG printf("RGB_PARSING: '%s'\n", str);
 	r = ft_atoi(str);
 	if (!(err_flag = reg_pass_string("\\d,", str)))
 		return (-1);
@@ -103,7 +103,6 @@ void			ft_parser(char *file_name, t_set *set)
 //	file_name = ft_strjoin("../", file_name);
 //	ft_error(errno);
 	fd = open(file_name, O_RDONLY);
-	printf("sam: %s, %d, err: %d\n", file_name, fd, errno);
 	ft_error(errno);
 	if ((res = read_file(fd, &file)) < 1)
 		ft_error(ERR_READ_FILE);

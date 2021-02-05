@@ -9,6 +9,7 @@
 # include <string.h> // for strerror
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
+# include <math.h>
 # include "minilibx_opengl_20191021/mlx.h"
 
 /*
@@ -51,6 +52,7 @@
 ** ERROR MESSAGES:
 */
 
+# define SCALE 30
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 
@@ -104,6 +106,7 @@ typedef struct		s_pix
 
 typedef struct		s_player
 {
+	int				angle;
 	t_pix			from;
 	t_pix			to;
 }					t_player;
@@ -128,4 +131,9 @@ int					get_r(int trgb);
 int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
 int					is_map(char *str);
+void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
+void				set_player(t_set *set);
+void				draw_map(t_set *set);
+void				run_game(t_set *set);
+
 #endif

@@ -14,7 +14,7 @@ void		ft_error(int code)
 			ft_putstr_fd("Not a valid head. Check path", 1);
 		else
 			ft_putstr_fd(strerror(code), 1);
-	//	auto_clear();
+//		auto_clear(all);
 		exit(EXIT_FAILURE);
 	}
 }

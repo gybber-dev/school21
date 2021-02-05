@@ -1,76 +1,93 @@
 #include "../ft_cub.h"
 
-//TEST IT!!!!!
-/*
- * gcc window/window.c -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
- */
-
-typedef struct	s_data {
-	void		*img;
-	char		*addr;
-	int			bits_per_pixel;
-	int			line_length;
-	int			endian;
-}				t_data;
-
-typedef struct  s_vars {
-	void        *mlx;
-	void        *win;
-}               t_vars;
-
-int             key_hook(int keycode, t_vars *vars)
-{
-	printf("[%d] key up\n", keycode);
-}
-int             key_hook_press(int keycode, t_vars *vars)
-{
-	printf("[%d] key press\n", keycode);
-}
-int             pointer_hook_move(int keycode, t_vars *vars)
-{
-	printf("Pointer moving... %d\n", keycode);
-}
-
-
-
-
-void			my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 {
 	char		*dst;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
 	*(unsigned int*)dst = color;
+
 }
-int				main(void)
+
+static void	init_player_pos(t_set *set)
 {
-	void		*mlx;
-	void		*mlx_win;
-	t_data		img;
-	t_vars		vars;
-	void 		*p;
+	char	**p;
+	int		i;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 640, 480, "Hello world!");
-	img.img = mlx_new_image(mlx, 640, 480);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								 &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	my_mlx_pixel_put(&img, 5, 6, 0x00FF0000);
-	my_mlx_pixel_put(&img, 5, 7, 0x00FF0000);
-	my_mlx_pixel_put(&img, 5, 8, 0x00FF0000);
-	my_mlx_pixel_put(&img, 5, 9, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
+	DEBUG printf("Find player\n");
+	p = set->map.c_map;
+	set->player.to.y = 0;
+	while(*p != NULL && i >= 0)
+	{
+		i = 0;
+		while ((*p)[i] != 0)
+		{
+			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
+			{
+				if ((*p)[i] == 'W')
+					set->player.angle = 0;
+				if ((*p)[i] == 'N')
+					set->player.angle = 0;
+				if ((*p)[i] == 'S')
+					set->player.angle = 0;
+				if ((*p)[i] == 'E')
+					set->player.angle = 0;
+				set->player.to.x = i * SCALE;
+				set->player.to.y *= SCALE;
+				return ;
+			}
+			i++;
+		}
+		p++;
+		set->player.to.y++;
+	}
+}
 
-//	hooks catcher:
-	// on key up:
-//	mlx_key_hook(mlx_win, key_hook, p);
+static int				key_hook_up(int keycode, t_set *set)
+{
+	printf("[%d] key up\n", keycode);
+	return (1);
+}
 
-	// key press
-//	mlx_hook(mlx_win, 2, 1L<<0, key_hook_press, &vars);
-	// Pointer motion
-//	mlx_hook(mlx_win, 6, 1L<<6, pointer_hook_move, &vars);
-	// Mouse press press what's a ...
-//	mlx_hook(mlx_win, 4, 1L<<2, pointer_hook_move, &vars);
+static int				key_hook_press(int keycode, t_set *set)
+{
+	DEBUG printf("[%d] key press\n", keycode);
 
-	mlx_loop(mlx);
+	if (keycode == W || keycode == UP)
+		set->player.to.y -= 5;
+	if (keycode == S || keycode == DOWN)
+		set->player.to.y += 5;
+	if (keycode == A || keycode == LEFT)
+		set->player.to.x -= 5;
+	if (keycode == D || keycode == RIGHT)
+		set->player.to.x += 5;
+//	mlx_destroy_image(set->win.mlx, set->win.img);
+	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
+									  &set->win.endian);
+	draw_map(set);
+	set_player(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
+	return (1);
+}
+
+void		run_game(t_set *set)
+{
+	set->win.mlx = mlx_init();
+	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
+	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
+									  &set->win.endian);
+	printf("win:params:\n\taddr: '%s'\n\tbpp: [%d]\n\tlen: [%d]\n\tendian: [%d]\n",
+		   set->win.addr, set->win.bpp, set->win.line_len, set->win.endian);
+	draw_map(set);
+	if (set->player.to.x == -1)
+		init_player_pos(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
+	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
+	printf("tick\n");
+	set_player(set);
+//	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
+	mlx_loop(set->win.mlx);
 }
