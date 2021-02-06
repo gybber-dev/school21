@@ -14,7 +14,6 @@
 
 /*
 ** MAC KEYCODES:
-*/
 
 # define ESC 53
 # define W 13
@@ -28,9 +27,11 @@
 # define SPACE 49
 # define LMOUSE none
 # define RMOUSE none \
+*/
 
 /*
 ** LINUX KEYCODES:
+*/
 
 # define ESC 53
 # define W 119
@@ -45,7 +46,6 @@
 # define LMOUSE none
 # define RMOUSE none
 
-*/
 
 
 /*
@@ -106,7 +106,7 @@ typedef struct		s_pix
 
 typedef struct		s_player
 {
-	int				angle;
+	float			angle;
 	t_pix			from;
 	t_pix			to;
 }					t_player;

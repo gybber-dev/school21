@@ -14,6 +14,11 @@ static int			is_floor(t_set *set)
 	return (1);
 }
 
+ф
+//Не отрисовывается каждый поворот луча
+//Оставить только текущую позинию вместо to/from
+
+
 void				set_player(t_set *set)
 {
 	t_pix			ray;
@@ -35,12 +40,14 @@ void				set_player(t_set *set)
 		set->player.to.x = set->player.from.x;
 		set->player.to.y = set->player.from.y;
 	}
-	printf("check\n");
+	my_mlx_pixel_put(set, ray.x, ray.y, 0xFF0000);
+	int flag = 0;
 	while (set->map.c_map[ray.y / SCALE][ray.x / SCALE] != '1')
 	{
-		ray.x += cos(set->player.angle);
-		ray.y += sin(set->player.angle);
+		flag = 1;
+		ray.x += cos(set->player.angle) * SCALE / 10;
+		ray.y += sin(set->player.angle) * SCALE / 10;
 		my_mlx_pixel_put(set, ray.x, ray.y, 0xFFFFFF);
 	}
-	DEBUG printf("Player is on\n\t[%d, %d]\n", set->player.to.x, set->player.to.y);
+	DEBUG printf("(%d)Player is on\n\t[%d, %d] a=(%f)\n", flag, set->player.to.x, set->player.to.y, set->player.angle);
 }
