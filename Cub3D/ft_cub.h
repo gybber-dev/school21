@@ -103,6 +103,12 @@ typedef struct		s_pix
 	int				x;
 	int				y;
 }					t_pix;
+typedef struct		s_fpix
+{
+	float			x;
+	float			y;
+}					t_fpix;
+
 
 typedef struct		s_player
 {

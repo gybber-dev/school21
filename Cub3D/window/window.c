@@ -65,7 +65,7 @@ static int				key_hook_press(int keycode, t_set *set)
 		set->player.angle -= 0.1;
 	if (keycode == RIGHT)
 		set->player.angle += 0.1;
-//	mlx_destroy_image(set->win.mlx, set->win.img);
+	mlx_destroy_image(set->win.mlx, set->win.img);
 	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
 	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
 									  &set->win.endian);
