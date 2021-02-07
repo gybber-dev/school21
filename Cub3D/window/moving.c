@@ -12,6 +12,7 @@ void		move_to(t_set *set)
 			  set->player.w, set->player.a, set->player.s, set->player.d, set->player.left,
 			  set->player.right);
 	t_fpix		to;
+
 	ft_bzero(&to, sizeof(t_fpix));
 	to.y = set->player.pos.y;
 	to.x = set->player.pos.x;

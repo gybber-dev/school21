@@ -399,6 +399,33 @@ window/map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.s
 .PHONY : window/map.c.s
 
+window/moving.o: window/moving.c.o
+
+.PHONY : window/moving.o
+
+# target to build an object file
+window/moving.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.o
+.PHONY : window/moving.c.o
+
+window/moving.i: window/moving.c.i
+
+.PHONY : window/moving.i
+
+# target to preprocess a source file
+window/moving.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.i
+.PHONY : window/moving.c.i
+
+window/moving.s: window/moving.c.s
+
+.PHONY : window/moving.s
+
+# target to generate assembly for a file
+window/moving.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.s
+.PHONY : window/moving.c.s
+
 window/player.o: window/player.c.o
 
 .PHONY : window/player.o
@@ -490,6 +517,9 @@ help:
 	@echo "... window/map.o"
 	@echo "... window/map.i"
 	@echo "... window/map.s"
+	@echo "... window/moving.o"
+	@echo "... window/moving.i"
+	@echo "... window/moving.s"
 	@echo "... window/player.o"
 	@echo "... window/player.i"
 	@echo "... window/player.s"

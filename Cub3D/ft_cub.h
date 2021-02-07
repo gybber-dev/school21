@@ -54,6 +54,7 @@
 # define STEP 0.3
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
+# define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 

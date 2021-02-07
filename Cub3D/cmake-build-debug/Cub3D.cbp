@@ -305,6 +305,9 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/map.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/moving.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/player.c">
 			<Option target="Cub3D"/>
 		</Unit>
