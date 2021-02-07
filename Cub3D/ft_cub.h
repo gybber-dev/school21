@@ -52,6 +52,7 @@
 
 # define SCALE 30
 # define STEP 0.3
+# define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
@@ -118,6 +119,8 @@ typedef struct		s_player
 	int				a;
 	int				d;
 	int				s;
+	int				left;
+	int				right;
 }					t_player;
 
 typedef struct		s_set
@@ -144,5 +147,5 @@ void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
-
+void				move_to(t_set *set);
 #endif
