@@ -28,6 +28,7 @@ int			main(int argc, char **argv)
 	t_set 	set;
 
 	printf("sam: %d\n", errno);
+	DEBUG printf("OS detected: '%s'\n", OS);
 	errno = 0;
 	if (argc == 2)
 	{

@@ -14,6 +14,8 @@ SRCS	= \
 			window/map.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
+OS			:= $(shell uname)
+
 
 CC			= gcc
 FLAGS		= #-Wall -Wextra -Werror
@@ -23,19 +25,25 @@ RM			= rm -f
 
 all:		init ${NAME}
 
-init:
-			@ echo "......init......"
-			make -C libft
-			#Linux
-# 			make -C libmlx
-			#MAC
-			make -C minilibx_opengl_20191021
 
+ifeq ($(OS), Darwin)
+init:
+			@ echo "......init...MAC..."
+			make -C libft
+			make -C minilibx_opengl_20191021
+else
+init:
+			@ echo "......init...LINUX..."
+			make -C libft
+			make -C libmlx
+endif
+
+ifeq ($(OS), Darwin)
 $(NAME):	$(OBJS) $(HEADER)
-# MAC:
 			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
-# Lnx:
-#			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
+else
+			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
+endif
 
 %.o : %.c
 			${CC} $(FLAGS) -c $< -o $@

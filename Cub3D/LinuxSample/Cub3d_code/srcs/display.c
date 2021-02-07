@@ -19,17 +19,17 @@ static void	draw_ceiling_and_floor(t_cub3d cub3d, int x)
 
 void		display_wall(int x, float projected_wall, t_cub3d cub3d)
 {
-    int y;
-    int color;
+	int y;
+	int color;
 	int y_max;
 
 	color = (projected_wall > 255) ? rgb_int(0, 255, 0, 0) :
 			rgb_int(0,(int)projected_wall,0,0);
 	//color = rgb_int(0,255,0,0);
-    y = (cub3d.win.y / 2) - (projected_wall / 2);
+	y = (cub3d.win.y / 2) - (projected_wall / 2);
 	y_max = ((cub3d.win.y / 2) + (projected_wall / 2));
-    while (y < y_max)
-        mlx_pixel_put(cub3d.win.mlx_ptr, cub3d.win.win_ptr, x, y++, color);
+	while (y < y_max)
+		mlx_pixel_put(cub3d.win.mlx_ptr, cub3d.win.win_ptr, x, y++, color);
 }
 
 int			display_game(t_cub3d *cub3d)
