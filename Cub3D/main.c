@@ -17,10 +17,9 @@ static void				init_set(t_set *set)
 	set->skin.we_ski = NULL;
 	set->skin.ea_ski = NULL;
 	set->skin.sprite_ski = NULL;
-	set->player.from.x = -1;
-	set->player.from.y = -1;
-	set->player.to.x = -1;
-	set->player.to.y = -1;
+	set->player.pos.x = -1;
+	set->player.pos.y = -1;
+	set->player.angle = -1;
 }
 
 int			main(int argc, char **argv)

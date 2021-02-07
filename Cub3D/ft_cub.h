@@ -51,6 +51,8 @@
 */
 
 # define SCALE 30
+# define STEP 0.3
+# define RAY_STEP 3
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 
@@ -111,8 +113,11 @@ typedef struct		s_fpix
 typedef struct		s_player
 {
 	float			angle;
-	t_pix			from;
-	t_pix			to;
+	t_fpix			pos;
+	int				w;
+	int				a;
+	int				d;
+	int				s;
 }					t_player;
 
 typedef struct		s_set
