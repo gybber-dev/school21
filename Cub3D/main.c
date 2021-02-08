@@ -20,12 +20,6 @@ static void				init_set(t_set *set)
 	set->player.pos.x = -1;
 	set->player.pos.y = -1;
 	set->player.angle = -1;
-	set->player.a = 0;
-	set->player.w = 0;
-	set->player.s = 0;
-	set->player.d = 0;
-	set->player.left = 0;
-	set->player.right = 0;
 	set->player.move = 0;
 }
 

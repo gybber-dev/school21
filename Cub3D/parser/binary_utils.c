@@ -1,4 +1,18 @@
 #include <stdio.h>
+
+/*
+**	Setting a bit:
+**		number |= 1UL << n;
+**	Clearing a bit:
+**		number &= ~(1UL << n);
+**	Toggling a bit:
+**		number ^= 1UL << n;
+**	Checking a bit:
+**		bit = (number >> n) & 1U;
+**	Changing the nth bit to x:
+**		number ^= (-x ^ number) & (1UL << n);
+*/
+
 int		create_trgb(int t, int r, int g, int b)
 {
 	printf("TRGB: %d\t%d\t%d\n", r, g, b);
@@ -43,22 +57,21 @@ void printBits(size_t const size, void const * const ptr)
 
 //F 220,100,0		14443520
 //C 225,30,0		14753280
-//int main(void)
-//{
-////	printf("num: '%d'\n", create_trgb(0,220,100,0));
-////	printf("num: '%d'\n", create_trgb(0,225,30,0));
-//
-//	int move = 0;
-//	int W_BIT = 1;
-//	int A_BIT = 2;
-//
-//
-//	printBits(sizeof(move), &move);
-//	move |= 1 << W_BIT;
-//	printBits(sizeof(move), &move);
-//	move |= 1 << A_BIT;
-//	printBits(sizeof(move), &move);
-//	move &= ~(1 << A_BIT);
-//	printf("total: ");
-//	printBits(sizeof(move), &move);
-//}
+int main(void)
+{
+//	printf("num: '%d'\n", create_trgb(0,220,100,0));
+//	printf("num: '%d'\n", create_trgb(0,225,30,0));
+
+	int move = 0;
+	int W_BIT = 1;
+	int A_BIT = 2;
+
+	printBits(sizeof(move), &move);
+	move |= 1 << W_BIT;
+	printBits(sizeof(move), &move);
+	move |= 1 << A_BIT;
+	printBits(sizeof(move), &move);
+	move &= ~(1 << A_BIT);
+	printf("total: ");
+	printBits(sizeof(move), &move);
+}
