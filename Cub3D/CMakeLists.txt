@@ -19,6 +19,7 @@ add_executable(Cub3D
 		window/window.c
 		window/player.c
 		window/map.c
+		window/moving.c
 		_config.h
 		ft_cub.h
 		main.c)

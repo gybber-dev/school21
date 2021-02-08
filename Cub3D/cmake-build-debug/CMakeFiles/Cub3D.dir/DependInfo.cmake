@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/azat/school21/GitHub/Cub3D/parser/ft_validator.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"
   "/home/azat/school21/GitHub/Cub3D/regexp/ft_regexp.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o"
   "/home/azat/school21/GitHub/Cub3D/window/map.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/window/map.c.o"
+  "/home/azat/school21/GitHub/Cub3D/window/moving.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/window/moving.c.o"
   "/home/azat/school21/GitHub/Cub3D/window/player.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/window/player.c.o"
   "/home/azat/school21/GitHub/Cub3D/window/window.c" "/home/azat/school21/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/window/window.c.o"
   )

@@ -14,6 +14,7 @@ int main()
 
 
 	sample = malloc(1000000000000000000);
+
 	if (!sample)
 		perror("My error msg");
 	printf("errno: %d\nsample val: '%s'\n", errno, sample);

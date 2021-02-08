@@ -3,7 +3,9 @@ todo:
 1. auto_cleaner in ft_errors;
 2. put error messages into struct
 3. Segafault on corner 	1
-						01
+						01 (make by lodev!)
+4. In pressing two keys Player stops after release any second key.
+5. Map is bigger than resolution
 
 
 My check list:
@@ -13,3 +15,4 @@ My check list:
 4. Delete the last '\n' and make the last line like follow:
     '111111111\0'
 5. Correct Makefile: not to build project when 'make' command is repeated.
+6. Check for segafault. Go to the corner

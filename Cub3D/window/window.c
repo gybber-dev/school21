@@ -16,7 +16,7 @@ static void	init_player_pos(t_set *set)
 
 	DEBUG printf("Find player\n");
 	p = set->map.c_map;
-	set->player.to.y = 0;
+	set->player.pos.y = 0;
 	while(*p != NULL && i >= 0)
 	{
 		i = 0;
@@ -32,39 +32,61 @@ static void	init_player_pos(t_set *set)
 					set->player.angle = 0;
 				if ((*p)[i] == 'E')
 					set->player.angle = 0;
-				set->player.to.x = i * SCALE;
-				set->player.to.y *= SCALE;
+				set->player.pos.x = i;
+//				set->player.pos.y *= SCALE;
+				(*p)[i] = '0';
 				return ;
 			}
 			i++;
 		}
 		p++;
-		set->player.to.y++;
+		set->player.pos.y += 1;
 	}
 }
 
 static int				key_hook_up(int keycode, t_set *set)
 {
-	printf("[%d] key up\n", keycode);
+	DEBUG printf("[%d] key up\n", keycode);
+	if (keycode == W || keycode == UP)
+		set->player.w = 0;
+	if (keycode == S || keycode == DOWN)
+		set->player.s = 0;
+	if (keycode == A )
+		set->player.a = 0;
+	if (keycode == D)
+		set->player.d = 0;
+	if (keycode == LEFT)
+		set->player.left = 0;
+	if (keycode == RIGHT)
+		set->player.right = 0;
+	move_to(set);
+
+	mlx_destroy_image(set->win.mlx, set->win.img);
+	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
+									  &set->win.endian);
+	draw_map(set);
+	set_player(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	return (1);
 }
 
 static int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
-
 	if (keycode == W || keycode == UP)
-		set->player.to.y -= 5;
+		set->player.w = 1;
 	if (keycode == S || keycode == DOWN)
-		set->player.to.y += 5;
-	if (keycode == A)
-		set->player.to.x -= 5;
+		set->player.s = 1;
+	if (keycode == A )
+		set->player.a = 1;
 	if (keycode == D)
-		set->player.to.x += 5;
+		set->player.d = 1;
 	if (keycode == LEFT)
-		set->player.angle -= 0.1;
+		set->player.left = 1;
 	if (keycode == RIGHT)
-		set->player.angle += 0.1;
+		set->player.right = 1;
+	move_to(set);
 	mlx_destroy_image(set->win.mlx, set->win.img);
 	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
 	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
@@ -82,16 +104,15 @@ void		run_game(t_set *set)
 	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
 	set->win.addr = mlx_get_data_addr(set->win.img, &set->win.bpp, &set->win.line_len,
 									  &set->win.endian);
-	printf("win:params:\n\taddr: '%s'\n\tbpp: [%d]\n\tlen: [%d]\n\tendian: [%d]\n",
-		   set->win.addr, set->win.bpp, set->win.line_len, set->win.endian);
 	draw_map(set);
-	if (set->player.to.x == -1)
+	if (set->player.pos.x == -1)
 		init_player_pos(set);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
-	printf("tick\n");
+	mlx_hook(set->win.win, 3, 1L<<1, key_hook_up, set);
 	set_player(set);
 //	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
+	printf("tick\n");
 	mlx_loop(set->win.mlx);
 }

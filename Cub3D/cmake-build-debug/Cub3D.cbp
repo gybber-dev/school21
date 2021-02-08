@@ -301,6 +301,9 @@
 		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/map.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/moving.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/player.c">
 			<Option target="Cub3D"/>
 		</Unit>

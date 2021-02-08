@@ -13,46 +13,48 @@
 # include "minilibx_opengl_20191021/mlx.h"
 
 /*
-** MAC KEYCODES:
-
-# define ESC 53
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define UP 126
-# define LEFT 123
-# define RIGHT 124
-# define DOWN 125
-# define SPACE 49
-# define LMOUSE none
-# define RMOUSE none \
+** KEYCODES:
 */
 
-/*
-** LINUX KEYCODES:
-*/
-
-# define ESC 53
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define UP 65362
-# define LEFT 65361
-# define DOWN 65364
-# define RIGHT 65363
-# define SPACE 32
-# define LMOUSE none
-# define RMOUSE none
-
-
+# ifdef __linux__
+#  define OS "LINUX"
+#  define ESC 53
+#  define W 119
+#  define A 97
+#  define S 115
+#  define D 100
+#  define UP 65362
+#  define LEFT 65361
+#  define DOWN 65364
+#  define RIGHT 65363
+#  define SPACE 32
+#  define LMOUSE none
+#  define RMOUSE none
+# else
+#  define OS "MAC"
+#  define ESC 53
+#  define W 13
+#  define A 0
+#  define S 1
+#  define D 2
+#  define UP 126
+#  define LEFT 123
+#  define RIGHT 124
+#  define DOWN 125
+#  define SPACE 49
+#  define LMOUSE 0
+#  define RMOUSE 0
+# endif
 
 /*
 ** ERROR MESSAGES:
 */
 
 # define SCALE 30
+# define STEP 0.3
+# define ANGLE_STEP 0.1
+# define RAY_STEP 3
+# define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 
@@ -113,8 +115,13 @@ typedef struct		s_fpix
 typedef struct		s_player
 {
 	float			angle;
-	t_pix			from;
-	t_pix			to;
+	t_fpix			pos;
+	int				w;
+	int				a;
+	int				d;
+	int				s;
+	int				left;
+	int				right;
 }					t_player;
 
 typedef struct		s_set
@@ -141,5 +148,5 @@ void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
-
+void				move_to(t_set *set);
 #endif
