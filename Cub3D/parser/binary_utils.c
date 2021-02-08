@@ -25,10 +25,40 @@ int		get_b(int trgb)
 	return (trgb & 0xFF);
 }
 
+void printBits(size_t const size, void const * const ptr)
+{
+	unsigned char *b = (unsigned char*) ptr;
+	unsigned char byte;
+	int i, j;
+
+	for (i = size-1; i >= 0; i--) {
+		for (j = 7; j >= 0; j--) {
+			byte = (b[i] >> j) & 1;
+			printf("%u", byte);
+		}
+	}
+	puts("");
+}
+
+
 //F 220,100,0		14443520
 //C 225,30,0		14753280
 //int main(void)
 //{
-//	printf("num: '%d'\n", create_trgb(0,220,100,0));
-//	printf("num: '%d'\n", create_trgb(0,225,30,0));
+////	printf("num: '%d'\n", create_trgb(0,220,100,0));
+////	printf("num: '%d'\n", create_trgb(0,225,30,0));
+//
+//	int move = 0;
+//	int W_BIT = 1;
+//	int A_BIT = 2;
+//
+//
+//	printBits(sizeof(move), &move);
+//	move |= 1 << W_BIT;
+//	printBits(sizeof(move), &move);
+//	move |= 1 << A_BIT;
+//	printBits(sizeof(move), &move);
+//	move &= ~(1 << A_BIT);
+//	printf("total: ");
+//	printBits(sizeof(move), &move);
 //}

@@ -26,6 +26,7 @@ static void				init_set(t_set *set)
 	set->player.d = 0;
 	set->player.left = 0;
 	set->player.right = 0;
+	set->player.move = 0;
 }
 
 int			main(int argc, char **argv)

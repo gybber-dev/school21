@@ -9,24 +9,25 @@ static void		update_pos(t_fpix *to, float angle)
 void		move_to(t_set *set)
 {
 	DEBUG printf("KEY MONITOR:\nW\tA\tS\tD\tL\tR\n%d\t%d\t%d\t%d\t%d\t%d\n",
-			  set->player.w, set->player.a, set->player.s, set->player.d, set->player.left,
-			  set->player.right);
-	t_fpix		to;
+				 (set->player.move >> W_BIT) & 1, (set->player.move >> A_BIT) & 1,
+				 (set->player.move >> S_BIT) & 1, (set->player.move >> D_BIT) & 1,
+				 (set->player.move >> LEFT_BIT) & 1, (set->player.move >> RIGHT_BIT) & 1);
 
+	t_fpix		to;
 	ft_bzero(&to, sizeof(t_fpix));
 	to.y = set->player.pos.y;
 	to.x = set->player.pos.x;
-	if (set->player.left)
+	if ((set->player.move >> LEFT_BIT) & 1)
 		set->player.angle -= ANGLE_STEP;
-	if (set->player.right)
+	if ((set->player.move >> RIGHT_BIT) & 1)
 		set->player.angle += ANGLE_STEP;
-	if (set->player.w)
+	if ((set->player.move >> W_BIT) & 1)
 		update_pos(&to, set->player.angle);
-	if (set->player.s)
+	if ((set->player.move >> S_BIT) & 1)
 		update_pos(&to, set->player.angle + M_PI);
-	if (set->player.a)
+	if ((set->player.move >> A_BIT) & 1)
 		update_pos(&to, set->player.angle - M_PI_2);
-	if (set->player.d)
+	if ((set->player.move >> D_BIT) & 1)
 		update_pos(&to, set->player.angle + M_PI_2);
 	if (set->map.c_map[(int)to.y][(int)to.x] != '1')
 	{

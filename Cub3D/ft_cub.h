@@ -46,6 +46,19 @@
 #  define RMOUSE 0
 # endif
 
+#  define ESC_BIT 0
+#  define W_BIT 1
+#  define A_BIT 2
+#  define S_BIT 3
+#  define D_BIT 4
+#  define UP_BIT 5
+#  define LEFT_BIT 6
+#  define DOWN_BIT 7
+#  define RIGHT_BIT 8
+#  define SPACE_BIT 9
+#  define LMOUSE_BIT 10
+#  define RMOUSE_BIT 11
+
 /*
 ** ERROR MESSAGES:
 */
@@ -122,6 +135,7 @@ typedef struct		s_player
 	int				s;
 	int				left;
 	int				right;
+	int				move;
 }					t_player;
 
 typedef struct		s_set
