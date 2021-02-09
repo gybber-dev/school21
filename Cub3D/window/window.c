@@ -27,7 +27,11 @@ static void	init_player_pos(t_set *set)
 				if ((*p)[i] == 'W')
 					set->player.angle = 0;
 				if ((*p)[i] == 'N')
+				{
+					set->player.direction.x	= -1;
+					set->player.direction.y	= 0;
 					set->player.angle = 0;
+				}
 				if ((*p)[i] == 'S')
 					set->player.angle = 0;
 				if ((*p)[i] == 'E')
@@ -44,21 +48,25 @@ static void	init_player_pos(t_set *set)
 	}
 }
 
+/*
+** move |= 1 << N // sets N-th bit in move to 1.
+*/
+
 static int				key_hook_up(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key up\n", keycode);
 	if (keycode == W || keycode == UP)
-		set->player.w = 0;
+		set->player.move &= ~(1 << W_BIT);
 	if (keycode == S || keycode == DOWN)
-		set->player.s = 0;
+		set->player.move &= ~(1 << S_BIT);
 	if (keycode == A )
-		set->player.a = 0;
+		set->player.move &= ~(1 << A_BIT);
 	if (keycode == D)
-		set->player.d = 0;
+		set->player.move &= ~(1 << D_BIT);
 	if (keycode == LEFT)
-		set->player.left = 0;
+		set->player.move &= ~(1 << LEFT_BIT);
 	if (keycode == RIGHT)
-		set->player.right = 0;
+		set->player.move &= ~(1 << RIGHT_BIT);
 	move_to(set);
 
 	mlx_destroy_image(set->win.mlx, set->win.img);
@@ -71,21 +79,25 @@ static int				key_hook_up(int keycode, t_set *set)
 	return (1);
 }
 
+/*
+** move &= ~(1 << N) // sets N-th bit in move to 0.
+*/
+
 static int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
 	if (keycode == W || keycode == UP)
-		set->player.w = 1;
+		set->player.move |= 1 << W_BIT;
 	if (keycode == S || keycode == DOWN)
-		set->player.s = 1;
+		set->player.move |= 1 << S_BIT;
 	if (keycode == A )
-		set->player.a = 1;
+		set->player.move |= 1 << A_BIT;
 	if (keycode == D)
-		set->player.d = 1;
+		set->player.move |= 1 << D_BIT;
 	if (keycode == LEFT)
-		set->player.left = 1;
+		set->player.move |= 1 << LEFT_BIT;
 	if (keycode == RIGHT)
-		set->player.right = 1;
+		set->player.move |= 1 << RIGHT_BIT;
 	move_to(set);
 	mlx_destroy_image(set->win.mlx, set->win.img);
 	set->win.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);

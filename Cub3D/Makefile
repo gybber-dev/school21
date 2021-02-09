@@ -41,9 +41,10 @@ endif
 
 ifeq ($(OS), Darwin)
 $(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 else
-			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
+$(NAME):	$(OBJS) $(HEADER)
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
 endif
 
 %.o : %.c

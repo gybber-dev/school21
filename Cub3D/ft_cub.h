@@ -46,12 +46,25 @@
 #  define RMOUSE 0
 # endif
 
+#  define ESC_BIT 0
+#  define W_BIT 1
+#  define A_BIT 2
+#  define S_BIT 3
+#  define D_BIT 4
+#  define UP_BIT 5
+#  define LEFT_BIT 6
+#  define DOWN_BIT 7
+#  define RIGHT_BIT 8
+#  define SPACE_BIT 9
+#  define LMOUSE_BIT 10
+#  define RMOUSE_BIT 11
+
 /*
 ** ERROR MESSAGES:
 */
 
 # define SCALE 30
-# define STEP 0.3
+# define STEP 0.6
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define RAYS_NUM 40
@@ -105,6 +118,7 @@ typedef struct		s_pix
 	int				x;
 	int				y;
 }					t_pix;
+
 typedef struct		s_fpix
 {
 	float			x;
@@ -116,12 +130,8 @@ typedef struct		s_player
 {
 	float			angle;
 	t_fpix			pos;
-	int				w;
-	int				a;
-	int				d;
-	int				s;
-	int				left;
-	int				right;
+	int				move;
+	t_fpix			direction;
 }					t_player;
 
 typedef struct		s_set

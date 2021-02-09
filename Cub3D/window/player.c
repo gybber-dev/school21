@@ -31,18 +31,18 @@ void				set_player(t_set *set)
 	DEBUG printf("Player SET pos [%f; %f]\n",
 				 set->player.pos.x, set->player.pos.y);
 	my_mlx_pixel_put(set, ray.x * SCALE , ray.y * SCALE , 0xFF0000);
-	while(sector.x <= sector.y)
+//	while(sector.x <= sector.y)
+//	{
+////		printf("tick [%.2f > %.2f]\n", sector.x, sector.y);
+//		ray.x = set->player.pos.x;
+//		ray.y = set->player.pos.y;
+	while (set->map.c_map[(int)ray.y][(int)ray.x] != '1')
 	{
-//		printf("tick [%.2f > %.2f]\n", sector.x, sector.y);
-		ray.x = set->player.pos.x;
-		ray.y = set->player.pos.y;
-		while (set->map.c_map[(int)ray.y][(int)ray.x] != '1')
-		{
-			ray.x += cos(set->player.angle + sector.x) * STEP;
-			ray.y += sin(set->player.angle + sector.x) * STEP;
-			my_mlx_pixel_put(set, ray.x * SCALE, ray.y * SCALE, 0xFFFFFF);
-		}
-		sector.x += M_PI / 3 / (RAYS_NUM - 1);
+		ray.x += cos(set->player.angle + sector.x) * STEP;
+		ray.y += sin(set->player.angle + sector.x) * STEP;
+		my_mlx_pixel_put(set, ray.x * SCALE, ray.y * SCALE, 0xFFFFFF);
 	}
+	sector.x += M_PI / 3 / (RAYS_NUM - 1);
+//	}
 	DEBUG printf("Player is on\n\t[%f, %f] a=(%f)\n", set->player.pos.y, set->player.pos.x, set->player.angle);
 }

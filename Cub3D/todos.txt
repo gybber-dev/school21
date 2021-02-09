@@ -6,7 +6,7 @@ todo:
 						01 (make by lodev!)
 4. In pressing two keys Player stops after release any second key.
 5. Map is bigger than resolution
-
+6. Correct the call of 'ft_error' function. Put into the body of a condition.
 
 My check list:
 1. Replace lines in map.cub
