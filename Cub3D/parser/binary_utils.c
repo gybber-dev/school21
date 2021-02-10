@@ -57,21 +57,21 @@ void printBits(size_t const size, void const * const ptr)
 
 //F 220,100,0		14443520
 //C 225,30,0		14753280
-int main(void)
-{
-//	printf("num: '%d'\n", create_trgb(0,220,100,0));
-//	printf("num: '%d'\n", create_trgb(0,225,30,0));
-
-	int move = 0;
-	int W_BIT = 1;
-	int A_BIT = 2;
-
-	printBits(sizeof(move), &move);
-	move |= 1 << W_BIT;
-	printBits(sizeof(move), &move);
-	move |= 1 << A_BIT;
-	printBits(sizeof(move), &move);
-	move &= ~(1 << A_BIT);
-	printf("total: ");
-	printBits(sizeof(move), &move);
-}
+//int main(void)
+//{
+////	printf("num: '%d'\n", create_trgb(0,220,100,0));
+////	printf("num: '%d'\n", create_trgb(0,225,30,0));
+//
+//	int move = 0;
+//	int W_BIT = 1;
+//	int A_BIT = 2;
+//
+//	printBits(sizeof(move), &move);
+//	move |= 1 << W_BIT;
+//	printBits(sizeof(move), &move);
+//	move |= 1 << A_BIT;
+//	printBits(sizeof(move), &move);
+//	move &= ~(1 << A_BIT);
+//	printf("total: ");
+//	printBits(sizeof(move), &move);
+//}

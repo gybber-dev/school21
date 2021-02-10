@@ -64,7 +64,7 @@
 */
 
 # define SCALE 30
-# define STEP 0.3
+# define STEP 0.6
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define RAYS_NUM 40
@@ -118,6 +118,7 @@ typedef struct		s_pix
 	int				x;
 	int				y;
 }					t_pix;
+
 typedef struct		s_fpix
 {
 	float			x;
@@ -129,13 +130,9 @@ typedef struct		s_player
 {
 	float			angle;
 	t_fpix			pos;
-	int				w;
-	int				a;
-	int				d;
-	int				s;
-	int				left;
-	int				right;
 	int				move;
+	t_fpix			direction;
+	t_pix			step;
 }					t_player;
 
 typedef struct		s_set

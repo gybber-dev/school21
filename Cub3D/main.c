@@ -21,13 +21,14 @@ static void				init_set(t_set *set)
 	set->player.pos.y = -1;
 	set->player.angle = -1;
 	set->player.move = 0;
+	ft_bzero(&set->player.direction, sizeof(t_fpix));
 }
 
 int			main(int argc, char **argv)
 {
 	t_set 	set;
 
-	printf("sam: %d\n", errno);
+	printf("errno: %d\n", errno);
 	DEBUG printf("OS detected: '%s'\n", OS);
 	errno = 0;
 	if (argc == 2)

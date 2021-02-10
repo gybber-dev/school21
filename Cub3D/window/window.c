@@ -27,7 +27,11 @@ static void	init_player_pos(t_set *set)
 				if ((*p)[i] == 'W')
 					set->player.angle = 0;
 				if ((*p)[i] == 'N')
-					set->player.angle = 0;
+				{
+					set->player.direction.x	= -1;
+					set->player.direction.y	= 0;
+					set->player.angle = 1;
+				}
 				if ((*p)[i] == 'S')
 					set->player.angle = 0;
 				if ((*p)[i] == 'E')
