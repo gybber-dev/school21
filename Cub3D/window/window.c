@@ -4,9 +4,12 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 {
 	char		*dst;
 
+//	printf("x: %d, y: %d\n", x, y);
+//	if (x >= 0 && x <= set->win.res1 && y >= 0 && y <= set->win.res2)
+//	{
 	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
-	*(unsigned int*)dst = color;
-
+	*(unsigned int *) dst = color;
+//	}
 }
 
 static void	init_player_pos(t_set *set)
@@ -28,16 +31,17 @@ static void	init_player_pos(t_set *set)
 					set->player.angle = 0;
 				if ((*p)[i] == 'N')
 				{
-					set->player.direction.x	= -1;
-					set->player.direction.y	= 0;
-					set->player.angle = 1;
+					set->player.direction.x	= 1;
+					set->player.direction.y	= -1;
+					set->player.angle = -1 * M_PI_4;
 				}
 				if ((*p)[i] == 'S')
 					set->player.angle = 0;
 				if ((*p)[i] == 'E')
 					set->player.angle = 0;
 				set->player.pos.x = i;
-//				set->player.pos.y *= SCALE;
+				set->player.pos.y += 0.3;
+				set->player.pos.x += 0.5;
 				(*p)[i] = '0';
 				return ;
 			}

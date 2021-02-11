@@ -121,18 +121,19 @@ typedef struct		s_pix
 
 typedef struct		s_fpix
 {
-	float			x;
-	float			y;
+	double 			x;
+	double 			y;
 }					t_fpix;
 
 
 typedef struct		s_player
 {
-	float			angle;
+	double			angle;
 	t_fpix			pos;
 	int				move;
 	t_fpix			direction;
 	t_pix			step;
+	t_fpix			plane;
 }					t_player;
 
 typedef struct		s_set

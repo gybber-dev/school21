@@ -21,6 +21,8 @@ static void				init_set(t_set *set)
 	set->player.pos.y = -1;
 	set->player.angle = -1;
 	set->player.move = 0;
+	set->player.plane.x = 0;
+	set->player.plane.y = 0.66;
 	ft_bzero(&set->player.direction, sizeof(t_fpix));
 }
 

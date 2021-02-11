@@ -3,17 +3,16 @@ NO ./path_to_the_north_texture
 SO ./path_to_the_south_texture
 WE ./path_to_the_west_texture
 EA ./path_to_the_east_texture
-
 S ./path_to_the_sprite_texture
 F 220,100,0
 C 225,30,0
-
+012345678
 11111111
+100000001
+10N010001
+100000001
 100000001
 100110001
 100110001
-100110001
-100110001
-1N0110001
 100000001
 11111111

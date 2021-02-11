@@ -38,6 +38,7 @@ void		move_to(t_set *set)
 		update_pos(&to, set->player.angle - M_PI_2);
 	if ((set->player.move >> D_BIT) & 1)
 		update_pos(&to, set->player.angle + M_PI_2);
+	printf("to map[%d][%d]\n", (int)to.y, (int)to.x);
 	if (set->map.c_map[(int)to.y][(int)to.x] != '1')
 	{
 		set->player.pos.y = to.y;
