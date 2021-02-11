@@ -113,9 +113,9 @@ static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_di
 	ray.y = (ray_dir->y < 0) ?
 			map->y + set->player.step.y + 1 : map->y + set->player.step.y;
 	dist->x = (ray_dir->x == 0) ?
-			1 : fabs((ray.x - set->player.pos.x) / ray_dir->x * vector_len(ray_dir));
+			1 : fabs((ray.x - set->player.pos.x) / (ray_dir->x / vector_len(ray_dir)));
 	dist->y = (ray_dir->y == 0) ?
-			1: fabs((ray.y - set->player.pos.y) / ray_dir->y * vector_len(ray_dir));
+			1 : fabs((ray.y - set->player.pos.y) / (ray_dir->y / vector_len(ray_dir)));
 	if (dist->x < dist->y)
 	{
 		ray.y = set->player.pos.y + dist->x * ray_dir->y / vector_len(ray_dir);
