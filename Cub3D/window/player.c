@@ -93,87 +93,72 @@ void				set_player2(t_set *set)
 // /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\ /\
 // ===============================================
 
-static void			find_next_ray0(t_set *set, t_fpix *ray0, t_fpix *ray1, t_pix *map)
+/*
+** counts the ray length and (optionally) put pixel in a
+** cross of the ray and grid
+*/
+
+double				vector_len(t_fpix *v)
 {
-	t_fpix			delta;
-	t_fpix			dist;
+	return (sqrt(pow(v->x, 2) + pow(v->y, 2)));
+}
 
-	DEBUG printf("Player is on\n\t[%f, %f]\nsin(%f) = %f\ncos(%f) = %f\n", set->player.pos.y, set->player.pos.x, set->player.angle, sin(set->player.angle), set->player.angle, cos(set->player.angle));
-	ft_bzero(&dist, sizeof(t_fpix));
-	if (set->player.direction.x < 0)
-		ray1->x = map->x + set->player.step.x + 1;
-	else
-		ray1->x = map->x + set->player.step.x;
-	if (set->player.direction.y < 0)
-		ray1->y = map->y + set->player.step.y + 1;
-	else
-		ray1->y = map->y + set->player.step.y;
+static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_dir)
+{
+	t_fpix			ray;
 
-//	printf("tick0\n");
-	if (cos(set->player.angle) == 0)
-		delta.x = 1;
-	else
-		delta.x = fabs((ray1->x - ray0->x) / cos(set->player.angle)); // 1/direction.x
-	if (sin(set->player.angle) == 0)
-		delta.y = 1;
-	else
-		delta.y = fabs((ray1->y - ray0->y) / sin(set->player.angle)); // 1/direction.y
-	printf("deltaX: %f\tdeltaY: %f\n", delta.x, delta.y);
-	if (delta.x < delta.y)
+//	DEBUG printf("Player is on\n\t[%f, %f]\nsin(%f) = %f\ncos(%f) = %f\n", set->player.pos.y, set->player.pos.x, set->player.angle, sin(set->player.angle), set->player.angle, cos(set->player.angle));
+	ray.x = (ray_dir->x < 0) ?
+			map->x + set->player.step.x + 1 : map->x + set->player.step.x;
+	ray.y = (ray_dir->y < 0) ?
+			map->y + set->player.step.y + 1 : map->y + set->player.step.y;
+	dist->x = (ray_dir->x == 0) ?
+			1 : fabs((ray.x - set->player.pos.x) / ray_dir->x * vector_len(ray_dir));
+	dist->y = (ray_dir->y == 0) ?
+			1: fabs((ray.y - set->player.pos.y) / ray_dir->y * vector_len(ray_dir));
+	if (dist->x < dist->y)
 	{
-		dist.x += delta.x;
-		ray1->y = ray0->y + delta.x * sin(set->player.angle);
+		ray.y = set->player.pos.y + dist->x * ray_dir->y / vector_len(ray_dir);
 		map->x += set->player.step.x;
-		printf("hit to cell [%d, %d]\t(%c)\n", map->y, map->x, set->map.c_map[map->y][map->x]);
 	}
 	else
 	{
-		dist.y += delta.y;
-		ray1->x = ray0->x + delta.y * cos(set->player.angle);
+		ray.x = set->player.pos.x + dist->y * ray_dir->x / vector_len(ray_dir);
 		map->y += set->player.step.y;
-		printf("hit to cell [%d, %d]\t(%c)\n", map->y, map->x, set->map.c_map[map->y][map->x]);
 	}
-
+	my_mlx_pixel_put(set, ray.x * SCALE, ray.y * SCALE, 0xFF0000);
 }
 
 
 void				set_player(t_set *set)
 {
-	t_fpix			ray0;
-	t_fpix			ray1;
+	t_fpix			dist;
 	t_pix			map;
+	int				x;
+	double			cameraX;
+	t_fpix			ray_dir;
 
-	ft_bzero(&ray0, sizeof(t_fpix));
-	ft_bzero(&ray1, sizeof(t_fpix));
-	ray0.x = set->player.pos.x;
-	ray0.y = set->player.pos.y;
-	map.x = (int)set->player.pos.x;
-	map.y = (int)set->player.pos.y;
-
-	if (set->player.direction.x < 0)
-	{
-		set->player.step.x = -1;
-	}
-	else
-	{
-		set->player.step.x = 1;
-	}
-	if (set->player.direction.y < 0)
-	{
-		set->player.step.y = -1;
-	}
-	else
-	{
-		set->player.step.y = 1;
-	}
+	ray_dir.x = - M_PI / 6;
+	ray_dir.y = M_PI / 6;
 	my_mlx_pixel_put(set, (int)(set->player.pos.x * SCALE), (int)(set->player.pos.y * SCALE), 0x00FF00);
-	while (set->map.c_map[map.y][map.x] != '1')
+	x = 0;
+	while (x < set->win.res1)
 	{
-		find_next_ray0(set, &ray0, &ray1, &map);
-		my_mlx_pixel_put(set, ray1.x * SCALE, ray1.y * SCALE, 0xFF0000);
-//		find_map_cell(set, &map);
+		map.x = (int)set->player.pos.x;
+		map.y = (int)set->player.pos.y;
+		cameraX = 2 * x / (double)set->win.res1 - 1;
+		ray_dir.x = set->player.direction.x + cameraX * set->player.plane.x;
+		ray_dir.y = set->player.direction.y + cameraX * set->player.plane.y;
+		ft_bzero(&dist, sizeof(t_fpix));
+		set->player.step.x = (ray_dir.x < 0) ? -1 : 1;
+		set->player.step.y = (ray_dir.y < 0) ? -1 : 1;
+		while (set->map.c_map[map.y][map.x] != '1') {
+			count_ray_len(set, &dist, &map, &ray_dir);
+		}
+//		DEBUG printf("hit to cell [%d, %d]\n", map.y, map.x);
+		x++;
+//		break ;
 	}
-	DEBUG printf("hit to cell [%d, %d]\n", map.y, map.x);
 }
 
 

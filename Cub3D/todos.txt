@@ -3,10 +3,14 @@ todo:
 1. auto_cleaner in ft_errors;
 2. put error messages into struct
 3. Segafault on corner 	1
-						01 (make by lodev!)
+						01 (make by DDA!)
 4. In pressing two keys Player stops after release any second key.
 5. Map is bigger than resolution
 6. Correct the call of 'ft_error' function. Put into the body of a condition.
+7. Create vector_utils functions:
+	void set_vector(void *v, void x, void y)
+	void scale_vector(void *v, void k)
+	void *sum_vectors(void *v1, void *v2)
 
 My check list:
 1. Replace lines in map.cub
