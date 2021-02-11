@@ -28,6 +28,7 @@ static void			find_next_ray(t_set *set, t_fpix *ray0, t_fpix *ray1, t_pix *map)
 	t_fpix			delta;
 	t_fpix			dist;
 
+	DEBUG printf("Player is on\n\t[%f, %f] a=(%f)\n", set->player.pos.y, set->player.pos.x, set->player.angle);
 	ft_bzero(&dist, sizeof(t_fpix));
 	ray1->x = (set->player.direction.x < 0) ? ray0->x - 1 : ray0->x + 1;
 	ray1->y = (set->player.direction.y < 0) ? ray0->y - 1 : ray0->y + 1;

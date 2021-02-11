@@ -24,11 +24,23 @@ add_executable(Cub3D
 		ft_cub.h
 		main.c)
 
-
-target_link_libraries(Cub3D
-#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
-		libft
-		${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
-		"-framework OpenGL"
-		"-framework AppKit"
-)
+if (APPLE)
+	target_link_libraries(Cub3D
+	#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
+			libft
+			${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
+			"-framework OpenGL"
+			"-framework AppKit"
+	)
+endif(APPLE)
+if (UNIX)
+	target_link_libraries(Cub3D
+			#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
+			libft
+			${CMAKE_SOURCE_DIR}/libmlx/libmlx.a
+			"-lX11"
+			"-lbsd"
+			"-lm"
+			"-lXext"
+	)
+endif(UNIX)
