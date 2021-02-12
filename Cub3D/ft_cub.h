@@ -131,7 +131,7 @@ typedef struct		s_player
 	double			angle;
 	t_fpix			pos;
 	int				move;
-	t_fpix			direction;
+	t_fpix			dir;
 	t_pix			step;
 	t_fpix			plane;
 }					t_player;
@@ -161,4 +161,9 @@ void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
 void				move_to(t_set *set);
+double				v_len(t_fpix v);
+void				v_set(t_fpix *v, double val);
+void				v_scale(t_fpix *v, double k);
+void				v_sum(t_fpix *src, t_fpix dst);
+void				v_mult(t_fpix *src, t_fpix dst);
 #endif

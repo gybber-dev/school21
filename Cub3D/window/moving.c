@@ -13,22 +13,25 @@ void		move_to(t_set *set)
 				 (set->player.move >> S_BIT) & 1, (set->player.move >> D_BIT) & 1,
 				 (set->player.move >> LEFT_BIT) & 1, (set->player.move >> RIGHT_BIT) & 1);
 	t_fpix		to;
-	ft_bzero(&to, sizeof(t_fpix));
-	float r = sqrt(pow(set->player.direction.x, 2) + pow(set->player.direction.y, 2));
-	DEBUG printf("start: {%f; %f}, r = %f\n", set->player.direction.x, set->player.direction.y, r);
-	to.y = set->player.pos.y;
+	float		old_plane_x;
+	int			rot;
+
+	DEBUG printf("start: {%f; %f}\n", set->player.dir.x, set->player.dir.y);
 	to.x = set->player.pos.x;
-	if ((set->player.move >> LEFT_BIT) & 1)
+	to.y = set->player.pos.y;
+	old_plane_x = set->player.plane.x;
+	if ((set->player.move >> LEFT_BIT) & 1 || (set->player.move >> RIGHT_BIT) & 1)
 	{
-		set->player.angle -= ANGLE_STEP;
-		set->player.direction.x = r * cos(set->player.angle); // +-
-		set->player.direction.y = r * sin(set->player.angle); // +-
-	}
-	if ((set->player.move >> RIGHT_BIT) & 1)
-	{
-		set->player.angle += ANGLE_STEP;
-		set->player.direction.x = r * cos(set->player.angle); // +-
-		set->player.direction.y = r * sin(set->player.angle); // +-
+		rot = ((set->player.move >> RIGHT_BIT) & 1 )? 1 : -1;
+		set->player.angle += rot * ANGLE_STEP;
+		set->player.dir.x = v_len(set->player.dir) * cos(set->player.angle);
+		set->player.dir.y = v_len(set->player.dir) * sin(set->player.angle);
+		set->player.plane.x = set->player.plane.x * cos(rot * ANGLE_STEP) -
+							  set->player.plane.y * sin(rot * ANGLE_STEP);
+		set->player.plane.y = old_plane_x * sin(rot * ANGLE_STEP) +
+							  set->player.plane.y * cos(rot * ANGLE_STEP);
+//		set->player.plane.x = vector_len(set->player.plane) * cos(set->player.angle);
+//		set->player.plane.y = vector_len(set->player.plane) * sin(set->player.angle);
 	}
 	if ((set->player.move >> W_BIT) & 1)
 		update_pos(&to, set->player.angle);
@@ -38,12 +41,15 @@ void		move_to(t_set *set)
 		update_pos(&to, set->player.angle - M_PI_2);
 	if ((set->player.move >> D_BIT) & 1)
 		update_pos(&to, set->player.angle + M_PI_2);
+
+
+
 	printf("to map[%d][%d]\n", (int)to.y, (int)to.x);
 	if (set->map.c_map[(int)to.y][(int)to.x] != '1')
 	{
 		set->player.pos.y = to.y;
 		set->player.pos.x = to.x;
 	}
-	DEBUG printf("end: {%f; %f}, r = %f\n", set->player.direction.x, set->player.direction.y, r);
+	DEBUG printf("end: {%f; %f}\n", set->player.dir.x, set->player.dir.y);
 	DEBUG printf("Player is to '%c'\n\t[%f, %f] a=(%f)\n", set->map.c_map[(int)to.y][(int)to.x], set->player.pos.y, set->player.pos.x, set->player.angle);
 }

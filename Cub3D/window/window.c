@@ -31,9 +31,9 @@ static void	init_player_pos(t_set *set)
 					set->player.angle = 0;
 				if ((*p)[i] == 'N')
 				{
-					set->player.direction.x	= 1;
-					set->player.direction.y	= -1;
-					set->player.angle = -1 * M_PI_4;
+					set->player.angle = - M_PI_4;
+					set->player.dir.x	= 1;
+					set->player.dir.y	= -1;
 				}
 				if ((*p)[i] == 'S')
 					set->player.angle = 0;

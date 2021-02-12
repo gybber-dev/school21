@@ -13,6 +13,7 @@ SRCS	= \
 			window/player.c \
 			window/map.c \
 			window/moving.c \
+			window/vector_utils.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)

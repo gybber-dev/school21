@@ -82,8 +82,8 @@ void				set_player2(t_set *set)
 	while (x < set->win.res1)
 	{
 		cameraX = 2 * x / (double)set->win.res1 - 1;
-		ray_dir.x = set->player.direction.x + cameraX * set->player.plane.x;
-		ray_dir.y = set->player.direction.y + cameraX * set->player.plane.y;
+		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
+		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
 		find_next_ray(set, &ray_dir);
 		x++;
 		break ;
@@ -98,11 +98,6 @@ void				set_player2(t_set *set)
 ** cross of the ray and grid
 */
 
-double				vector_len(t_fpix *v)
-{
-	return (sqrt(pow(v->x, 2) + pow(v->y, 2)));
-}
-
 static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_dir)
 {
 	t_fpix			ray;
@@ -113,17 +108,17 @@ static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_di
 	ray.y = (ray_dir->y < 0) ?
 			map->y + set->player.step.y + 1 : map->y + set->player.step.y;
 	dist->x = (ray_dir->x == 0) ?
-			1 : fabs((ray.x - set->player.pos.x) / (ray_dir->x / vector_len(ray_dir)));
+			1 : fabs((ray.x - set->player.pos.x) / (ray_dir->x / v_len(*ray_dir)));
 	dist->y = (ray_dir->y == 0) ?
-			1 : fabs((ray.y - set->player.pos.y) / (ray_dir->y / vector_len(ray_dir)));
+			1 : fabs((ray.y - set->player.pos.y) / (ray_dir->y / v_len(*ray_dir)));
 	if (dist->x < dist->y)
 	{
-		ray.y = set->player.pos.y + dist->x * ray_dir->y / vector_len(ray_dir);
+		ray.y = set->player.pos.y + dist->x * ray_dir->y / v_len(*ray_dir);
 		map->x += set->player.step.x;
 	}
 	else
 	{
-		ray.x = set->player.pos.x + dist->y * ray_dir->x / vector_len(ray_dir);
+		ray.x = set->player.pos.x + dist->y * ray_dir->x / v_len(*ray_dir);
 		map->y += set->player.step.y;
 	}
 	my_mlx_pixel_put(set, ray.x * SCALE, ray.y * SCALE, 0xFF0000);
@@ -147,8 +142,8 @@ void				set_player(t_set *set)
 		map.x = (int)set->player.pos.x;
 		map.y = (int)set->player.pos.y;
 		cameraX = 2 * x / (double)set->win.res1 - 1;
-		ray_dir.x = set->player.direction.x + cameraX * set->player.plane.x;
-		ray_dir.y = set->player.direction.y + cameraX * set->player.plane.y;
+		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
+		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
 		ft_bzero(&dist, sizeof(t_fpix));
 		set->player.step.x = (ray_dir.x < 0) ? -1 : 1;
 		set->player.step.y = (ray_dir.y < 0) ? -1 : 1;

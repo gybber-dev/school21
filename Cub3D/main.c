@@ -23,7 +23,7 @@ static void				init_set(t_set *set)
 	set->player.move = 0;
 	set->player.plane.x = 0;
 	set->player.plane.y = 0.66;
-	ft_bzero(&set->player.direction, sizeof(t_fpix));
+	ft_bzero(&set->player.dir, sizeof(t_fpix));
 }
 
 int			main(int argc, char **argv)
