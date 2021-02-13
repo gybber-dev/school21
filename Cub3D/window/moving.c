@@ -52,7 +52,7 @@ void		move_to(t_set *set)
 		update_pos(&to, set, 0,  1);
 
 	printf("to map[%d][%d]\n", (int)to.y, (int)to.x);
-	if (set->map.c_map[(int)to.y][(int)to.x] != '1')
+	if (set->map.c_map[(int)to.y][(int)to.x] == '0')
 	{
 		set->player.pos.y = to.y;
 		set->player.pos.x = to.x;
