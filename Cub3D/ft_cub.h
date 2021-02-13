@@ -64,7 +64,7 @@
 */
 
 # define SCALE 30
-# define STEP 0.6
+# define STEP 0.1
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define RAYS_NUM 40

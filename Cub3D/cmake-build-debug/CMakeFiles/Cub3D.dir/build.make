@@ -281,8 +281,6 @@ Cub3D: CMakeFiles/Cub3D.dir/main.c.o
 Cub3D: CMakeFiles/Cub3D.dir/build.make
 Cub3D: libft/liblibft.a
 Cub3D: ../minilibx_opengl_20191021/libmlx.a
-Cub3D: libft/liblibft.a
-Cub3D: ../libmlx/libmlx.a
 Cub3D: CMakeFiles/Cub3D.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C executable Cub3D"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Cub3D.dir/link.txt --verbose=$(VERBOSE)

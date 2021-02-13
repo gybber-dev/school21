@@ -2,11 +2,6 @@
 
 
 
-int			check_ray(char **map, t_fpix ray, double len)
-{
-
-}
-
 /*
 ** counts the ray length and (optionally) put pixel in a
 ** cross of the ray and grid
@@ -36,14 +31,29 @@ static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_di
 		map->y += set->player.step.y;
 	}
 	my_mlx_pixel_put(set, cross.x * SCALE, cross.y * SCALE, 0xFF0000);
+
+}
+
+void				draw_line(t_set *set, t_fpix dist, int x)
+{
+	int				len;
+	int				y = 0;
+
+	len = (int)((double)30 / v_len(dist));
+	DEBUG printf("len: %d\n", len);
+	while(y < len)
+	{
+		my_mlx_pixel_put(set, x, 50 + len, 0xFF0000);
+		len--;
+	}
 }
 
 
-void				set_player(t_set *set)
+void				drop_rays(t_set *set)
 {
+	int				x;
 	t_fpix			dist;
 	t_pix			map;
-	int				x;
 	double			cameraX;
 	t_fpix			ray_dir;
 
@@ -51,7 +61,6 @@ void				set_player(t_set *set)
 	x = 0;
 	while (x < set->win.res1)
 	{
-		// draw_ray();
 		map.x = (int)set->player.pos.x;
 		map.y = (int)set->player.pos.y;
 		cameraX = 2 * x / (double)set->win.res1 - 1;
@@ -60,11 +69,16 @@ void				set_player(t_set *set)
 		ft_bzero(&dist, sizeof(t_fpix));
 		set->player.step.x = (ray_dir.x < 0) ? -1 : 1;
 		set->player.step.y = (ray_dir.y < 0) ? -1 : 1;
-		while (set->map.c_map[map.y][map.x] != '1') {
+		while (set->map.c_map[map.y][map.x] != '1')
+		{
 			count_ray_len(set, &dist, &map, &ray_dir);
+			draw_line(set, dist, x);
 		}
-//		DEBUG printf("hit to cell [%d, %d]\n", map.y, map.x);
 		x++;
-//		break ;
 	}
+}
+
+void				set_player(t_set *set)
+{
+	drop_rays(set);
 }
