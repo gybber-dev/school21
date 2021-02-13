@@ -4,9 +4,12 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 {
 	char		*dst;
 
+//	printf("x: %d, y: %d\n", x, y);
+//	if (x >= 0 && x <= set->win.res1 && y >= 0 && y <= set->win.res2)
+//	{
 	dst = set->win.addr + (y * set->win.line_len + x * (set->win.bpp / 8));
-	*(unsigned int*)dst = color;
-
+	*(unsigned int *) dst = color;
+//	}
 }
 
 static void	init_player_pos(t_set *set)
@@ -25,19 +28,19 @@ static void	init_player_pos(t_set *set)
 			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
 				if ((*p)[i] == 'W')
-					set->player.angle = 0;
+					if ((set->player.plane.y = 0.66))
+						set->player.dir.x = -1;
 				if ((*p)[i] == 'N')
-				{
-					set->player.direction.x	= -1;
-					set->player.direction.y	= 0;
-					set->player.angle = 0;
-				}
+					if ((set->player.plane.x = 0.66))
+						set->player.dir.y	= -1;
 				if ((*p)[i] == 'S')
-					set->player.angle = 0;
+					if ((set->player.plane.x = 0.66))
+						set->player.dir.y	= 1;
 				if ((*p)[i] == 'E')
-					set->player.angle = 0;
-				set->player.pos.x = i;
-//				set->player.pos.y *= SCALE;
+					if ((set->player.plane.y = 0.66))
+						set->player.dir.x = 1;
+				set->player.pos.x = i + 0.3;
+				set->player.pos.y += 0.3;
 				(*p)[i] = '0';
 				return ;
 			}
@@ -122,8 +125,9 @@ void		run_game(t_set *set)
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
 	mlx_hook(set->win.win, 3, 1L<<1, key_hook_up, set);
+
+
 	set_player(set);
-//	my_mlx_pixel_put(set, 15, 15, 0x00FF0000);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img, 0, 0);
 	printf("tick\n");
 	mlx_loop(set->win.mlx);

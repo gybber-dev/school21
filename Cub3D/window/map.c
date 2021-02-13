@@ -8,6 +8,7 @@ static void		scale_pix(t_set *set, t_pix *pix)
 
 	p.x = SCALE * pix->x;
 	p.y = SCALE * pix->y;
+
 	end.x = p.x + SCALE - 1;
 	end.y = p.y + SCALE - 1;
 	while (p.y <= end.y)
@@ -34,7 +35,6 @@ void		draw_map(t_set *set)
 		while (set->map.c_map[pix.y][pix.x])
 		{
 			if (set->map.c_map[pix.y][pix.x] == '1')
-//				my_mlx_pixel_put(set, pix.x, pix.y, 0xFFFFFF);
 				scale_pix(set, &pix);
 			pix.x++;
 		}
