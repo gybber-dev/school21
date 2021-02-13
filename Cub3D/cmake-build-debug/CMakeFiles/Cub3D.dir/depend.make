@@ -70,6 +70,13 @@ CMakeFiles/Cub3D.dir/window/player.c.o: ../minilibx_opengl_20191021/mlx.h
 CMakeFiles/Cub3D.dir/window/player.c.o: ../regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/window/player.c.o: ../window/player.c
 
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../window/vector_utils.c
+
 CMakeFiles/Cub3D.dir/window/window.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/window/window.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/window/window.c.o: ../libft/libft.h

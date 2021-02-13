@@ -20,3 +20,4 @@ My check list:
     '111111111\0'
 5. Correct Makefile: not to build project when 'make' command is repeated.
 6. Check for segafault. Go to the corner
+7. Check if res1 = 0; or 0.000000000001

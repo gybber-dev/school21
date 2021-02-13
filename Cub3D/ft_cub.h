@@ -128,8 +128,15 @@ typedef struct		s_fpix
 
 typedef struct		s_player
 {
-	double			angle;
+//	double			angle;
 	t_fpix			pos;
+
+
+
+
+
+
+
 	int				move;
 	t_fpix			dir;
 	t_pix			step;

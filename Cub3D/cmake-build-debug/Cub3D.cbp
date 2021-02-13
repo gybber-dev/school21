@@ -307,6 +307,9 @@
 		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/player.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/vector_utils.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/home/azat/school21/GitHub/Cub3D/window/window.c">
 			<Option target="Cub3D"/>
 		</Unit>

@@ -453,6 +453,33 @@ window/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.s
 .PHONY : window/player.c.s
 
+window/vector_utils.o: window/vector_utils.c.o
+
+.PHONY : window/vector_utils.o
+
+# target to build an object file
+window/vector_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.o
+.PHONY : window/vector_utils.c.o
+
+window/vector_utils.i: window/vector_utils.c.i
+
+.PHONY : window/vector_utils.i
+
+# target to preprocess a source file
+window/vector_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.i
+.PHONY : window/vector_utils.c.i
+
+window/vector_utils.s: window/vector_utils.c.s
+
+.PHONY : window/vector_utils.s
+
+# target to generate assembly for a file
+window/vector_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.s
+.PHONY : window/vector_utils.c.s
+
 window/window.o: window/window.c.o
 
 .PHONY : window/window.o
@@ -523,6 +550,9 @@ help:
 	@echo "... window/player.o"
 	@echo "... window/player.i"
 	@echo "... window/player.s"
+	@echo "... window/vector_utils.o"
+	@echo "... window/vector_utils.i"
+	@echo "... window/vector_utils.s"
 	@echo "... window/window.o"
 	@echo "... window/window.i"
 	@echo "... window/window.s"
