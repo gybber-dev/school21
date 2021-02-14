@@ -1,49 +1,63 @@
 #include "../ft_cub.h"
 
-static void			find_map_cell(t_set *set, t_pix *map)
-{
 
-}
 
 /*
 ** counts the ray length and (optionally) put pixel in a
 ** cross of the ray and grid
 */
 
-static void			count_ray_len(t_set *set, t_fpix *dist, t_pix *map, t_fpix *ray_dir)
+static double		count_ray_len(t_set *set, t_pix *map, t_fpix *ray_dir)
 {
-	t_fpix			ray;
+	t_fpix			cross;
+	t_fpix			dist;
 
 //	DEBUG printf("Player is on\n\t[%f, %f]\nsin(%f) = %f\ncos(%f) = %f\n", set->player.pos.y, set->player.pos.x, set->player.angle, sin(set->player.angle), set->player.angle, cos(set->player.angle));
-	ray.x = (ray_dir->x < 0) ?
+	cross.x = (ray_dir->x < 0) ?
 			map->x + set->player.step.x + 1 : map->x + set->player.step.x;
-	ray.y = (ray_dir->y < 0) ?
+	cross.y = (ray_dir->y < 0) ?
 			map->y + set->player.step.y + 1 : map->y + set->player.step.y;
-	dist->x = (ray_dir->x == 0) ? dist->x + 1 :
-			fabs((ray.x - set->player.pos.x) / (ray_dir->x / v_len(*ray_dir)));
-	dist->y = (ray_dir->y == 0) ? dist->y + 1 :
-			fabs((ray.y - set->player.pos.y) / (ray_dir->y / v_len(*ray_dir)));
-	if (dist->x < dist->y)
+	dist.x = (ray_dir->x == 0) ? dist.x + 1 :
+			fabs((cross.x - set->player.pos.x) / (ray_dir->x / v_len(*ray_dir)));
+	dist.y = (ray_dir->y == 0) ? dist.y + 1 :
+			fabs((cross.y - set->player.pos.y) / (ray_dir->y / v_len(*ray_dir)));
+	if (dist.x < dist.y)
 	{
-		ray.y = set->player.pos.y + dist->x * ray_dir->y / v_len(*ray_dir);
+		cross.y = set->player.pos.y + dist.x * ray_dir->y / v_len(*ray_dir);
 		map->x += set->player.step.x;
 	}
 	else
 	{
-		ray.x = set->player.pos.x + dist->y * ray_dir->x / v_len(*ray_dir);
+		cross.x = set->player.pos.x + dist.y * ray_dir->x / v_len(*ray_dir);
 		map->y += set->player.step.y;
 	}
-	my_mlx_pixel_put(set, ray.x * SCALE, ray.y * SCALE, 0xFF0000);
+	my_mlx_pixel_put(set, cross.x * SCALE, cross.y * SCALE, 0xFF0000);
+	return (dist.x < dist.y ? dist.x : dist.y);
+}
+
+void				draw_line(t_set *set, double dist, int x)
+{
+	int				len;
+	int				y = 0;
+
+	len = (int)((double)30 / dist);
+//	DEBUG printf("len: %d\n", len);
+	while(y < len)
+	{
+		my_mlx_pixel_put(set, x, set->win.res2 * 0.8 - y, 0xFF0000);
+		y++;
+	}
 }
 
 
-void				set_player(t_set *set)
+void				drop_rays(t_set *set)
 {
-	t_fpix			dist;
-	t_pix			map;
 	int				x;
+	double			dist;
+	t_pix			map;
 	double			cameraX;
 	t_fpix			ray_dir;
+	double perpDist;
 
 	my_mlx_pixel_put(set, (int)(set->player.pos.x * SCALE), (int)(set->player.pos.y * SCALE), 0x00FF00);
 	x = 0;
@@ -54,14 +68,18 @@ void				set_player(t_set *set)
 		cameraX = 2 * x / (double)set->win.res1 - 1;
 		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
 		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
-		ft_bzero(&dist, sizeof(t_fpix));
 		set->player.step.x = (ray_dir.x < 0) ? -1 : 1;
 		set->player.step.y = (ray_dir.y < 0) ? -1 : 1;
-		while (set->map.c_map[map.y][map.x] != '1') {
-			count_ray_len(set, &dist, &map, &ray_dir);
-		}
-//		DEBUG printf("hit to cell [%d, %d]\n", map.y, map.x);
+		while (set->map.c_map[map.y][map.x] != '1')
+			dist = count_ray_len(set, &map, &ray_dir);
+		perpDist = dist * v_mult(ray_dir, set->player.dir)/v_len(set->player.dir) / v_len(ray_dir);
+		DEBUG printf("dist: [%f]\n", perpDist);
+		draw_line(set, perpDist, x);
 		x++;
-//		break ;
 	}
+}
+
+void				set_player(t_set *set)
+{
+	drop_rays(set);
 }

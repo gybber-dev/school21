@@ -2,15 +2,15 @@
 # define FT_CUB_H
 # include <fcntl.h>
 # include <unistd.h>
-# include "libft/libft.h"
-# include "regexp/ft_regexp.h"
+# include "../libft/libft.h"
+# include "../regexp/ft_regexp.h"
 
 # include <stdio.h> // for perror
 # include <string.h> // for strerror
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
 # include <math.h>
-# include "minilibx_opengl_20191021/mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
 
 /*
 ** KEYCODES:
@@ -76,20 +76,9 @@
 
 // delete below:
 
-# include "_config.h"
+# include "../_config.h"
 
 // delete ^^^^^^
-
-typedef struct		s_img
-{
-	int				res1;
-	int				res2;
-	void			*img;
-	char			*addr;
-	int				bpp;
-	int				len;
-	int				endian;
-}					t_img;
 
 typedef struct		s_win
 {
@@ -97,8 +86,11 @@ typedef struct		s_win
 	int				res2;
 	void			*mlx;
 	void			*win;
-	t_img			img1;
-	t_img			img2;
+	void			*img;
+	char			*addr;
+	int				bpp;
+	int				line_len;
+	int				endian;
 }					t_win;
 
 typedef struct		s_skin
@@ -171,7 +163,7 @@ int					get_r(int trgb);
 int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
 int					is_map(char *str);
-void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
+//void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
@@ -180,5 +172,5 @@ double				v_len(t_fpix v);
 void				v_set(t_fpix *v, double val);
 void				v_scale(t_fpix *v, double k);
 void				v_sum(t_fpix *src, t_fpix dst);
-double				v_mult(t_fpix v1, t_fpix v2);
+void				v_mult(t_fpix *src, t_fpix dst);
 #endif
