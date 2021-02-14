@@ -70,6 +70,8 @@ static int				key_hook_up(int keycode, t_set *set)
 		set->player.move &= ~(1 << LEFT_BIT);
 	if (keycode == RIGHT)
 		set->player.move &= ~(1 << RIGHT_BIT);
+	if (keycode == C)
+		set->player.move &= ~(1 << C_BIT);
 	move_to(set);
 
 	mlx_destroy_image(set->win.mlx, set->win.img1.img);
@@ -101,6 +103,8 @@ static int				key_hook_press(int keycode, t_set *set)
 		set->player.move |= 1 << LEFT_BIT;
 	if (keycode == RIGHT)
 		set->player.move |= 1 << RIGHT_BIT;
+	if (keycode == C)
+		set->player.move |= 1 << C_BIT;
 	move_to(set);
 	mlx_destroy_image(set->win.mlx, set->win.img1.img);
 	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res1, set->win.img1.res2);
@@ -129,6 +133,5 @@ void		run_game(t_set *set)
 
 	set_player(set);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
-	printf("tick\n");
 	mlx_loop(set->win.mlx);
 }

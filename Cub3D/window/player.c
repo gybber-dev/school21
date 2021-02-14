@@ -42,17 +42,26 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir)
 	return (dist.x < dist.y ? dist.x : dist.y);
 }
 
+/*
+** It seems the height of objects should be larger when
+** player sits, and smaller when player jumps
+** k is a variable that contains the range of scale when
+** player sits/jumps
+*/
+
 void				draw_line(t_set *set, double dist, int x)
 {
 	int				h;
 	int				y0;
 	int				y1;
+	double			k;
 
-
-	h = (int)((double)set->win.img1.res2 / dist);
-	y0 = (set->win.img1.res2 - h) / 2 <= 0 ? 1 : (set->win.img1.res2 - h) / 2;
-	y1 = (set->win.img1.res2 + h) / 2 >= set->win.img1.res2 ?
-		 set->win.img1.res2 - 1 : (set->win.img1.res2 + h) / 2;
+	k = set->player.hor / HOR;
+	h = (int)((double)set->win.img1.res2 / dist * k);
+	y0 = set->win.img1.res2 / set->player.hor - h / 2;
+	y0 = y0 <= 0 ? 1 : y0;
+	y1 = set->win.img1.res2 / set->player.hor + h / 2;
+	y1 = y1 >= set->win.img1.res2 ? set->win.img1.res2 - 1 : y1;
 	while(y0 < y1)
 	{
 		my_mlx_pixel_put(set, x, y0, 0x00757575);

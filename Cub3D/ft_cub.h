@@ -23,6 +23,7 @@
 #  define A 97
 #  define S 115
 #  define D 100
+#  define C 99
 #  define UP 65362
 #  define LEFT 65361
 #  define DOWN 65364
@@ -37,6 +38,7 @@
 #  define A 0
 #  define S 1
 #  define D 2
+#  define C 8
 #  define UP 126
 #  define LEFT 123
 #  define RIGHT 124
@@ -51,6 +53,7 @@
 #  define A_BIT 2
 #  define S_BIT 3
 #  define D_BIT 4
+#  define C_BIT 12
 #  define UP_BIT 5
 #  define LEFT_BIT 6
 #  define DOWN_BIT 7
@@ -65,6 +68,9 @@
 
 # define SCALE 30
 # define STEP 0.1
+# define HOR_SIT 2.2
+# define HOR 2
+# define HOR_JUMP 1.5
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define RAYS_NUM 40
@@ -140,6 +146,7 @@ typedef struct		s_player
 	t_fpix			dir;
 	t_pix			step;
 	t_fpix			plane;
+	double			hor;
 }					t_player;
 
 typedef struct		s_set

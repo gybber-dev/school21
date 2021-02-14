@@ -17,10 +17,11 @@ static void		update_pos(t_fpix *to, t_set *set, int ver, int hor)
 
 void		move_to(t_set *set)
 {
-	DEBUG printf("KEY MONITOR:\nW\tA\tS\tD\tL\tR\n%d\t%d\t%d\t%d\t%d\t%d\n",
+	DEBUG printf("KEY MONITOR:\nW\tA\tS\tD\tL\tR\tC\tSP\n%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
 				 (set->player.move >> W_BIT) & 1, (set->player.move >> A_BIT) & 1,
 				 (set->player.move >> S_BIT) & 1, (set->player.move >> D_BIT) & 1,
-				 (set->player.move >> LEFT_BIT) & 1, (set->player.move >> RIGHT_BIT) & 1);
+				 (set->player.move >> LEFT_BIT) & 1, (set->player.move >> RIGHT_BIT) & 1,
+				 (set->player.move >> C_BIT) & 1, (set->player.move >> SPACE_BIT) & 1);
 	t_fpix		to;
 	float		old_x;
 	int			rot;
@@ -50,7 +51,9 @@ void		move_to(t_set *set)
 		update_pos(&to, set, 0, -1);
 	if ((set->player.move >> D_BIT) & 1)
 		update_pos(&to, set, 0,  1);
-
+	set->player.hor = ((set->player.move >> C_BIT) & 1) ? HOR_SIT : HOR;
+//	set->player.hor = (((set->player.move >> SPACE_BIT) & 1) &&
+//			!((set->player.move >> C_BIT))) ? HOR_JUMP : HOR;
 	printf("to map[%d][%d]\n", (int)to.y, (int)to.x);
 
 	if (set->map.c_map[(int)to.y][(int)to.x] == '0')

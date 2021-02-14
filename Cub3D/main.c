@@ -19,7 +19,7 @@ static void				init_set(t_set *set)
 	set->skin.sprite_ski = NULL;
 	set->player.pos.x = -1;
 	set->player.pos.y = -1;
-//	set->player.angle = -1;
+	set->player.hor = 2;
 	set->player.move = 0;
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
