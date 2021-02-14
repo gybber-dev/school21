@@ -44,15 +44,19 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir)
 
 void				draw_line(t_set *set, double dist, int x)
 {
-	int				len;
-	int				y = 0;
+	int				h;
+	int				y0;
+	int				y1;
 
-	len = (int)((double)30 / dist);
-//	DEBUG printf("len: %d\n", len);
-	while(y < len)
+
+	h = (int)((double)set->win.img1.res2 / dist);
+	y0 = (set->win.img1.res2 - h) / 2 <= 0 ? 1 : (set->win.img1.res2 - h) / 2;
+	y1 = (set->win.img1.res2 + h) / 2 >= set->win.img1.res2 ?
+		 set->win.img1.res2 - 1 : (set->win.img1.res2 + h) / 2;
+	while(y0 < y1)
 	{
-		my_mlx_pixel_put(set, x, set->win.res2 * 0.8 - y, 0xFF0000);
-		y++;
+		my_mlx_pixel_put(set, x, y0, 0x00757575);
+		y0++;
 	}
 }
 
@@ -68,14 +72,13 @@ void				drop_rays(t_set *set)
 
 	my_mlx_pixel_put(set, (int)(set->player.pos.x * SCALE), (int)(set->player.pos.y * SCALE), 0x00FF00);
 	x = 0;
-	while (x < set->win.res1)
+	while (x < set->win.img1.res1)
 	{
-		cameraX = 2 * x / (double)set->win.res1 - 1;
+		cameraX = 2 * x / (double)set->win.img1.res1 - 1;
 		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
 		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
 		dist = count_ray_len(set, &ray_dir);
 		perpDist = dist * v_mult(ray_dir, set->player.dir)/v_len(set->player.dir) / v_len(ray_dir);
-		DEBUG printf("dist: [%f]\n", perpDist);
 		draw_line(set, perpDist, x);
 		x++;
 	}

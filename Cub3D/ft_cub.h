@@ -93,12 +93,10 @@ typedef struct		s_img
 
 typedef struct		s_win
 {
-	int				res1;
-	int				res2;
 	void			*mlx;
 	void			*win;
 	t_img			img1;
-	t_img			img2;
+	t_img			img;
 }					t_win;
 
 typedef struct		s_skin
@@ -138,13 +136,6 @@ typedef struct		s_player
 {
 //	double			angle;
 	t_fpix			pos;
-
-
-
-
-
-
-
 	int				move;
 	t_fpix			dir;
 	t_pix			step;

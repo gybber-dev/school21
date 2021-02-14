@@ -5,7 +5,7 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 	char		*dst;
 
 //	printf("x: %d, y: %d\n", x, y);
-//	if (x >= 0 && x <= set->win.res1 && y >= 0 && y <= set->win.res2)
+//	if (x >= 0 && x <= set->win.img1.res1 && y >= 0 && y <= set->win.img1.res2)
 //	{
 	dst = set->win.img1.addr + (y * set->win.img1.len + x * (set->win.img1.bpp / 8));
 	*(unsigned int *) dst = color;
@@ -73,7 +73,7 @@ static int				key_hook_up(int keycode, t_set *set)
 	move_to(set);
 
 	mlx_destroy_image(set->win.mlx, set->win.img1.img);
-	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res1, set->win.img1.res2);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
 							&set->win.img1.len, &set->win.img1.endian);
 	draw_map(set);
@@ -103,7 +103,7 @@ static int				key_hook_press(int keycode, t_set *set)
 		set->player.move |= 1 << RIGHT_BIT;
 	move_to(set);
 	mlx_destroy_image(set->win.mlx, set->win.img1.img);
-	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res1, set->win.img1.res2);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
 							&set->win.img1.len, &set->win.img1.endian);
 	draw_map(set);
@@ -115,8 +115,8 @@ static int				key_hook_press(int keycode, t_set *set)
 void		run_game(t_set *set)
 {
 	set->win.mlx = mlx_init();
-	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
-	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.res1, set->win.res2);
+	set->win.win = mlx_new_window(set->win.mlx, set->win.img1.res1, set->win.img1.res2, "test");
+	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res1, set->win.img1.res2);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
 							&set->win.img1.len, &set->win.img1.endian);
 	draw_map(set);

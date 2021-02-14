@@ -8,8 +8,8 @@ static void				init_set(t_set *set)
 	set->map.ismalloced = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
-	set->win.res1 = 0;
-	set->win.res2 = 0;
+	set->win.img1.res1 = 0;
+	set->win.img1.res2 = 0;
 	set->skin.fl_col = 0;
 	set->skin.ce_col = 0;
 	set->skin.no_ski = NULL;

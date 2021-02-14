@@ -39,8 +39,8 @@ static int			ft_parse_head(char *line, t_set *set)
 	{
 		if (!ft_strchr(line, ' ') || !reg_pass_string(" \\d", line))
 			ft_error(NOT_VALID_HEAD_0);
-		set->win.res1 = ft_atoi(ft_strchr(line, ' '));
-		set->win.res2 = ft_atoi(reg_pass_string(" \\d", line));
+		set->win.img1.res1 = ft_atoi(ft_strchr(line, ' '));
+		set->win.img1.res2 = ft_atoi(reg_pass_string(" \\d", line));
 	}
 	if (*line == 'N' && *(line + 1) == 'O')
 		if ((set->skin.no_ski = parse_path(line + 2)) == NULL)
@@ -109,7 +109,7 @@ void			ft_parser(char *file_name, t_set *set)
 	parse_file(file, set);
 	ft_error(ft_validate_data(set));
 
-	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set->win.res1, set->win.res2);
+	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set->win.img1.res1, set->win.img1.res2);
 	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n",
 			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col);
 	DEBUG printf("\nMAP:\n");
