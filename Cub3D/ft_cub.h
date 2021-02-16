@@ -76,6 +76,7 @@
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
+# define NOT_VALID_TEXTURE 1021
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE_FLAG "--save"
@@ -86,10 +87,15 @@
 
 // delete ^^^^^^
 
+typedef struct		s_pix
+{
+	int				x;
+	int				y;
+}					t_pix;
+
 typedef struct		s_img
 {
-	int				res1;
-	int				res2;
+	t_pix			res;
 	void			*img;
 	char			*addr;
 	int				bpp;
@@ -103,6 +109,10 @@ typedef struct		s_win
 	void			*win;
 	t_img			img1;
 	t_img			img;
+	t_img 			no;
+	t_img			so;
+	t_img			ea;
+	t_img			we;
 }					t_win;
 
 typedef struct		s_skin
@@ -125,12 +135,6 @@ typedef struct		s_map
 	int				ismalloced;
 }					t_map;
 
-typedef struct		s_pix
-{
-	int				x;
-	int				y;
-}					t_pix;
-
 typedef struct		s_fpix
 {
 	double 			x;
@@ -140,7 +144,6 @@ typedef struct		s_fpix
 
 typedef struct		s_player
 {
-//	double			angle;
 	t_fpix			pos;
 	int				move;
 	t_fpix			dir;
@@ -174,6 +177,8 @@ void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
 void				move_to(t_set *set);
+int					key_hook_up(int keycode, t_set *set);
+int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
 void				v_set(t_fpix *v, double val);
 void				v_scale(t_fpix *v, double k);

@@ -7,7 +7,6 @@
 
 static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross)
 {
-//	t_fpix			cross;
 	t_fpix			dist;
 	t_pix			map;
 
@@ -40,40 +39,10 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross)
 	return (dist.x < dist.y ? dist.x : dist.y);
 }
 
-//void    ft_init_images(t_data *img)
-//{
-//	if (!(img->images[0].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.north, &img->images[0].texturewidth, &img->images[0].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.north);
-//	if (!(img->images[1].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.south, &img->images[1].texturewidth, &img->images[1].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.south);
-//	if (!(img->images[2].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.west, &img->images[2].texturewidth, &img->images[2].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.west);
-//	if (!(img->images[3].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.east, &img->images[3].texturewidth, &img->images[3].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.east);
-//	if (!(img->sprite.img = mlx_xpm_file_to_image(img->mlx,
-//												  img->textures.sprite, &img->sprite.texturewidth, extures.south&img->sprite.textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	ft_init_images_continue(img);
-//}
-
-
 void 				open_image(t_set *set)
 {
-	void			*pct;
-	t_pix			size;
-
-	ft_bzero(&size, sizeof(t_pix));
-	pct = mlx_xpm_file_to_image(set->win.mlx, set->skin.no_ski, &size.x, &size.y);
-//	mlx_png_file_to_image()
-	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.no_ski, size.x, size.y);
+	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.no_ski,
+			  set->win.no.res.x, set->win.no.res.y);
 }
 
 unsigned int	get_color(t_img *img, int x, int y)
@@ -98,29 +67,21 @@ void				draw_line(t_set *set, double dist, int x, t_fpix *cross)
 	int				y1;
 	double			k;
 
-	t_img			pct;
-	t_pix			size;
-
-	ft_bzero(&size, sizeof(t_pix));
-	pct.img = mlx_xpm_file_to_image(set->win.mlx, set->skin.no_ski, &size.x, &size.y);
-	pct.addr = mlx_get_data_addr(pct.img, &pct.bpp, &pct.len,
-									  &pct.endian);
-
 	k = set->player.hor / HOR;
-	h = (int)((double)set->win.img1.res2 / dist * k);
+	h = (int)((double)set->win.img1.res.y / dist * k);
 
-	int scale = h / size.y;
+	int scale = h / set->win.no.res.y;
 
-	y0 = set->win.img1.res2 / set->player.hor - h / 2;
+	y0 = set->win.img1.res.y / set->player.hor - h / 2;
 	y0 = y0 <= 0 ? 1 : y0;
-	y1 = set->win.img1.res2 / set->player.hor + h / 2;
-	y1 = y1 >= set->win.img1.res2 ? set->win.img1.res2 - 1 : y1;
-//	open_image(set);
+	y1 = set->win.img1.res.y / set->player.hor + h / 2;
+	y1 = y1 >= set->win.img1.res.y ? set->win.img1.res.y - 1 : y1;
+	open_image(set);
 	int x_i = (int)(64 * (cross->x - (int)(cross->x)));
 	int y_i = y0 / scale;
 	while(y0 < y1)
 	{
-		my_mlx_pixel_put(set, x, y0, get_color(&pct, x_i, y_i));
+		my_mlx_pixel_put(set, x, y0, get_color(set->win.no.img, x_i, y_i));
 		y0++;
 	}
 }
@@ -139,9 +100,9 @@ void				drop_rays(t_set *set)
 	my_mlx_pixel_put(set, (int)(set->player.pos.x * SCALE), (int)(set->player.pos.y * SCALE), 0x00FF00);
 	x = 0;
 //	open_image(set);
-	while (x < set->win.img1.res1)
+	while (x < set->win.img1.res.x)
 	{
-		cameraX = 2 * x / (double)set->win.img1.res1 - 1;
+		cameraX = 2 * x / (double)set->win.img1.res.x - 1;
 		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
 		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
 		dist = count_ray_len(set, &ray_dir, &cross);
