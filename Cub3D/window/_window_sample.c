@@ -81,9 +81,29 @@ int				main(void)
 	i = 0;
 	while (i < 10)
 		my_mlx_pixel_put(&win.img2, 5, i++, 0x0000FF00);
+
+
+	void			*pct;
+	t_pix			size;
+
+//	ft_bzero(&size, sizeof(t_pix));
+	pct = mlx_xpm_file_to_image(mlx, "./textures/bricks.xpm", &size.x, &size.y);
+	DEBUG printf("pct '%s' was read [%dx%d]\n", "./textures/bricks.xpm", size.x, size.y);
+
+//	int i = 0;
+//	int j = 0;
+//	while (j < size.y)
+//	{
+//		while(i < size.x)
+//		{
+//			my_mlx_pixel_put(pct, i + 100, j + 100, 0x0000FF00);
+//			i++;
+//		}
+//		j++;
+//	}
 	mlx_put_image_to_window(mlx, mlx_win, win.img1.img, 0, 0);
 	mlx_put_image_to_window(mlx, mlx_win, win.img2.img, 400, 0);
-
+	mlx_put_image_to_window(mlx, mlx_win, pct, 0, 0);
 //	hooks catcher:
 	// on key up:
 //	mlx_key_hook(mlx_win, key_hook, p);

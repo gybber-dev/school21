@@ -33,17 +33,14 @@ init:
 			@ echo "......init...MAC..."
 			make -C libft
 			make -C minilibx_opengl_20191021
+
+$(NAME):	$(OBJS) $(HEADER)
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
 else
 init:
 			@ echo "......init...LINUX..."
 			make -C libft
 			make -C libmlx
-endif
-
-ifeq ($(OS), Darwin)
-$(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
-else
 $(NAME):	$(OBJS) $(HEADER)
 			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
 endif
