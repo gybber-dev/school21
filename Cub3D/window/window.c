@@ -36,31 +36,23 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 
 static void		init_textures(t_set *set)
 {
-	if (!(set->win.no.img = mlx_xpm_file_to_image(set->win.mlx,
-		set->skin.no_ski, &set->win.no.res.x, &set->win.no.res.y)))
+	if (!(set->win.skins[1].img = mlx_xpm_file_to_image(set->win.mlx,
+		set->skin.no_ski, &set->win.skins[1].res.x, &set->win.skins[1].res.y)))
 		ft_error(1021);
-	if (!(set->win.so.img = mlx_xpm_file_to_image(set->win.mlx,
-		set->skin.so_ski, &set->win.so.res.x, &set->win.so.res.y)))
+	if (!(set->win.skins[3].img = mlx_xpm_file_to_image(set->win.mlx,
+		set->skin.so_ski, &set->win.skins[3].res.x, &set->win.skins[3].res.y)))
 		ft_error(1021);
-	if (!(set->win.ea.img = mlx_xpm_file_to_image(set->win.mlx,
-		set->skin.ea_ski, &set->win.ea.res.x, &set->win.ea.res.y)))
+	if (!(set->win.skins[0].img = mlx_xpm_file_to_image(set->win.mlx,
+		set->skin.ea_ski, &set->win.skins[0].res.x, &set->win.skins[0].res.y)))
 		ft_error(1021);
-	if (!(set->win.we.img = mlx_xpm_file_to_image(set->win.mlx,
-		set->skin.we_ski, &set->win.we.res.x, &set->win.we.res.y)))
+	if (!(set->win.skins[2].img = mlx_xpm_file_to_image(set->win.mlx,
+		set->skin.we_ski, &set->win.skins[2].res.x, &set->win.skins[2].res.y)))
 		ft_error(1021);
 	ft_free(&(set->skin.no_ski));
 	ft_free(&(set->skin.so_ski));
 	ft_free(&(set->skin.we_ski));
 	ft_free(&(set->skin.ea_ski));
-	set->win.we.addr = mlx_get_data_addr(set->win.we.img,
-		&set->win.we.bpp, &set->win.we.len, &set->win.we.endian);
-	set->win.no.addr = mlx_get_data_addr(set->win.no.img,
-		&set->win.no.bpp, &set->win.no.len, &set->win.no.endian);
-	set->win.so.addr = mlx_get_data_addr(set->win.so.img,
-		&set->win.so.bpp, &set->win.so.len, &set->win.so.endian);
-	set->win.ea.addr = mlx_get_data_addr(set->win.ea.img,
-		&set->win.ea.bpp, &set->win.ea.len, &set->win.ea.endian);
-	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.no_ski, set->win.no.res.x, set->win.no.res.y);
+	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.no_ski, set->win.skins[0].res.x, set->win.skins[0].res.y);
 }
 
 static void		init_player_pos(t_set *set)

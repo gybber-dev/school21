@@ -18,7 +18,7 @@
 
 # ifdef __linux__
 #  define OS "LINUX"
-#  define ESC 53
+#  define ESC 65307
 #  define W 119
 #  define A 97
 #  define S 115
@@ -109,10 +109,7 @@ typedef struct		s_win
 	void			*win;
 	t_img			img1;
 	t_img			img;
-	t_img 			no;
-	t_img			so;
-	t_img			ea;
-	t_img			we;
+	t_img 			skins[4];
 }					t_win;
 
 typedef struct		s_skin
