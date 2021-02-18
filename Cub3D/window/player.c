@@ -18,16 +18,18 @@ unsigned int	get_color(t_img *img, int x, int y)
 
 void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 {
-	int				h;
+	double			h;
 	int				y0;
 	int				y1;
 	double			k;
+	double scale;
+
 	int wallX;
 	int wallY;
 	k = set->player.hor / HOR;
-	h = (int)((double)set->win.img1.res.y / dist * k);
+	h = (double)set->win.img1.res.y / dist * k;
 
-	int scale = h / set->win.skins[side].res.y;
+	scale = (double)h / (double)set->win.skins[side].res.y;
 	if (scale == 0)
 	{
 		printf("YAAAAA\n");
@@ -40,12 +42,12 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 	y1 = y1 >= set->win.img1.res.y ? set->win.img1.res.y - 1 : y1;
 
 	if (side % 2) // == 0
-		wallX = (int)(64 * (cross->y - (int)(cross->y)));
+		wallX = (int)((set->win.skins[side].res.y - 1) * fmod(cross->x, 1.0));
 	else
-		wallX = (int)(64 * (cross->x - (int)(cross->x)));
+		wallX = (int)((set->win.skins[side].res.y - 1) * fmod(cross->y, 1.0));
 	while(y0 < y1)
 	{
-		wallY = y0 / scale;
+		wallY = (int)((double)y0 / scale);
 		my_mlx_pixel_put(set, x, y0, get_color(set->win.skins[side].img, wallX, wallY));
 		y0++;
 	}
