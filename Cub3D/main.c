@@ -8,8 +8,6 @@ static void				init_set(t_set *set)
 	set->map.ismalloced = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
-	set->win.res1 = 0;
-	set->win.res2 = 0;
 	set->skin.fl_col = 0;
 	set->skin.ce_col = 0;
 	set->skin.no_ski = NULL;
@@ -19,8 +17,9 @@ static void				init_set(t_set *set)
 	set->skin.sprite_ski = NULL;
 	set->player.pos.x = -1;
 	set->player.pos.y = -1;
-//	set->player.angle = -1;
+	set->player.hor = 2;
 	set->player.move = 0;
+	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
 }

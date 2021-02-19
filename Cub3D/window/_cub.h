@@ -2,15 +2,15 @@
 # define FT_CUB_H
 # include <fcntl.h>
 # include <unistd.h>
-# include "libft/libft.h"
-# include "regexp/ft_regexp.h"
+# include "../libft/libft.h"
+# include "../regexp/ft_regexp.h"
 
 # include <stdio.h> // for perror
 # include <string.h> // for strerror
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
 # include <math.h>
-# include "minilibx_opengl_20191021/mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
 
 /*
 ** KEYCODES:
@@ -18,12 +18,11 @@
 
 # ifdef __linux__
 #  define OS "LINUX"
-#  define ESC 65307
+#  define ESC 53
 #  define W 119
 #  define A 97
 #  define S 115
 #  define D 100
-#  define C 99
 #  define UP 65362
 #  define LEFT 65361
 #  define DOWN 65364
@@ -38,7 +37,6 @@
 #  define A 0
 #  define S 1
 #  define D 2
-#  define C 8
 #  define UP 126
 #  define LEFT 123
 #  define RIGHT 124
@@ -53,7 +51,6 @@
 #  define A_BIT 2
 #  define S_BIT 3
 #  define D_BIT 4
-#  define C_BIT 12
 #  define UP_BIT 5
 #  define LEFT_BIT 6
 #  define DOWN_BIT 7
@@ -68,48 +65,32 @@
 
 # define SCALE 30
 # define STEP 0.1
-# define HOR_SIT 2.2
-# define HOR 2
-# define HOR_JUMP 1.5
 # define ANGLE_STEP 0.1
 # define RAY_STEP 3
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
-# define NOT_VALID_TEXTURE 1021
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE_FLAG "--save"
 
 // delete below:
 
-# include "_config.h"
+# include "../_config.h"
 
 // delete ^^^^^^
 
-typedef struct		s_pix
+typedef struct		s_win
 {
-	int				x;
-	int				y;
-}					t_pix;
-
-typedef struct		s_img
-{
-	t_pix			res;
+	int				res1;
+	int				res2;
+	void			*mlx;
+	void			*win;
 	void			*img;
 	char			*addr;
 	int				bpp;
-	int				len;
+	int				line_len;
 	int				endian;
-}					t_img;
-
-typedef struct		s_win
-{
-	void			*mlx;
-	void			*win;
-	t_img			img1;
-	t_img			img;
-	t_img 			skins[4];
 }					t_win;
 
 typedef struct		s_skin
@@ -132,6 +113,12 @@ typedef struct		s_map
 	int				ismalloced;
 }					t_map;
 
+typedef struct		s_pix
+{
+	int				x;
+	int				y;
+}					t_pix;
+
 typedef struct		s_fpix
 {
 	double 			x;
@@ -141,12 +128,19 @@ typedef struct		s_fpix
 
 typedef struct		s_player
 {
+//	double			angle;
 	t_fpix			pos;
+
+
+
+
+
+
+
 	int				move;
 	t_fpix			dir;
 	t_pix			step;
 	t_fpix			plane;
-	double			hor;
 }					t_player;
 
 typedef struct		s_set
@@ -169,16 +163,14 @@ int					get_r(int trgb);
 int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
 int					is_map(char *str);
-void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
+//void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 void				set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
 void				move_to(t_set *set);
-int					key_hook_up(int keycode, t_set *set);
-int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
 void				v_set(t_fpix *v, double val);
 void				v_scale(t_fpix *v, double k);
 void				v_sum(t_fpix *src, t_fpix dst);
-double				v_mult(t_fpix v1, t_fpix v2);
+void				v_mult(t_fpix *src, t_fpix dst);
 #endif

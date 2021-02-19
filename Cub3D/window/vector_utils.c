@@ -23,8 +23,7 @@ void		v_sum(t_fpix *src, t_fpix dst)
 	src->y += dst.y;
 }
 
-void		v_mult(t_fpix *src, t_fpix dst)
+double		v_mult(t_fpix v1, t_fpix v2)
 {
-	src->x *= dst.x;
-	src->y *= dst.y;
+	return (v1.x * v2.x + v1.y * v2.y);
 }
