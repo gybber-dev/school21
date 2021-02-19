@@ -84,7 +84,7 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross, int *si
 		{
 			cross->x = set->player.pos.x + dist.y * ray_dir->x / v_len(*ray_dir);
 			map.y += set->player.step.y;
-			*side = (ray_dir->y < 0) ? 3 : 1;
+			*side = (ray_dir->y < 0) ? 1 : 3;
 		}
 		my_mlx_pixel_put(set, cross->x * SCALE, cross->y * SCALE, 0xFF0000);
 	}
