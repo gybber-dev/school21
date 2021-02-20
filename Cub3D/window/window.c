@@ -97,19 +97,18 @@ static void		init_player_pos(t_set *set)
 void			run_game(t_set *set)
 {
 	set->win.mlx = mlx_init();
-	set->win.win = mlx_new_window(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y, "test");
+	set->win.win = mlx_new_window(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y, "cub3D");
 	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
 							&set->win.img1.len, &set->win.img1.endian);
-//	draw_map(set);
 	if (set->player.pos.x == -1)
 	{
 		init_textures(set);
 		init_player_pos(set);
 	}
-	set_player(set);
+	display_img(set);
 	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
-	mlx_loop_hook(set->win.mlx, set_player, set);
+	mlx_loop_hook(set->win.mlx, display_img, set);
 	mlx_hook(set->win.win, 3, 1L<<1, key_hook_up, set);
 	mlx_loop(set->win.mlx);
 }
