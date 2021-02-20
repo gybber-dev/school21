@@ -28,9 +28,7 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 	h = (double)set->win.img1.res.y / dist * k;
 
 	strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
-	strip.x = strip.x <= 0 ? 1 : strip.x;
 	strip.y = set->win.img1.res.y / set->player.hor + h / 2;
-	strip.y = strip.y >= set->win.img1.res.y ? set->win.img1.res.y - 1 : strip.y;
 	y = strip.x;
 	if (side % 2) // != 0
 		wall.x = (int)((set->win.skins[side].res.y - 1) * fmod(cross->x, 1.0));
@@ -38,8 +36,11 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 		wall.x = (int)((set->win.skins[side].res.y - 1) * (1 - fmod(cross->y, 1.0)));
 	while(y < strip.y)
 	{
-		wall.y = (int)((y - (double)strip.x) * (double)set->win.skins[side].res.y / (double)h);
-		my_mlx_pixel_put(set, x, (int)y, get_color(set->win.skins[side].img, wall.x, wall.y));
+		if (y > 0 && y < set->win.img1.res.y)
+		{
+			wall.y = (int)((y - (double)strip.x) * (double)set->win.skins[side].res.y / (double)h);
+			my_mlx_pixel_put(set, x, (int)y, get_color(set->win.skins[side].img, wall.x, wall.y));
+		}
 		y++;
 	}
 }
