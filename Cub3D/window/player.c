@@ -7,6 +7,12 @@ void			reset_sprite(t_sprite *sprite)
 
 }
 
+void			draw_sprite(t_set *set, t_sprite *sprite)
+{
+	
+}
+
+
 
 int			get_color(t_img *img, int x, int y)
 {
@@ -53,6 +59,8 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side, t_sp
 		}
 		else if (y > strip.y)
 			my_mlx_pixel_put(set, x, (int)y, set->skin.fl_col);
+		else if (sprite->num)
+			draw_sprite(set, sprite);
 		y++;
 	}
 }
@@ -94,7 +102,7 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross, int *si
 			map.y += set->player.step.y;
 			*side = (ray_dir->y < 0) ? 1 : 3;
 		}
-		if (set->map.c_map[map.y][map.x] != '2')
+		if (set->map.c_map[map.y][map.x] == '2')
 		{
 			sprite->num++;
 		}
@@ -125,7 +133,8 @@ void				drop_rays(t_set *set)
 		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
 		dist = count_ray_len(set, &ray_dir, &cross, &side, &sprite);
 		perp_dist = dist * v_mult(ray_dir, set->player.dir)/v_len(set->player.dir) / v_len(ray_dir);
-//		if (sprite.num)
+		if (sprite.num)
+			printf("");
 		draw_strip(set, perp_dist, x, &cross, side, &sprite);
 		reset_sprite(&sprite);
 		x++;
