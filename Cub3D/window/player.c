@@ -1,32 +1,20 @@
 #include "../ft_cub.h"
 
-void			draw_background(t_set *set)
+void			reset_sprite(t_sprite *sprite)
 {
-	t_pix		win;
+	sprite->num = 0;
 
-	ft_bzero(&win, sizeof(t_pix));
-	while(win.y < set->win.img1.res.y)
-	{
-		while(win.x < set->win.img1.res.x)
-		{
-			if (win.y < (int)((double)set->win.img1.res.y / set->player.hor))
-				my_mlx_pixel_put(set, win.x, win.y, 0xFFFFFF);
-			else
-				my_mlx_pixel_put(set, win.x, win.y, set->skin.ce_col);
-			win.x++;
-		}
-		win.y++;
-	}
+
 }
 
 
-unsigned int	get_color(t_img *img, int x, int y)
+int			get_color(t_img *img, int x, int y)
 {
 //	return (0x00858585);
 	char		*dst;
 	img->addr = mlx_get_data_addr(img, &img->bpp, &img->len, &img->endian);
 	dst = img->addr + (y * img->len + x * (img->bpp / 8));
-	return (*(unsigned int*)dst);
+	return (*(int*)dst);
 }
 
 /*
@@ -36,7 +24,7 @@ unsigned int	get_color(t_img *img, int x, int y)
 ** player sits/jumps
 */
 
-void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
+void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side, t_sprite *sprite)
 {
 	double			h;
 	t_pix			strip;
@@ -53,7 +41,6 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 		wall.x = (int)((set->win.skins[side].res.y - 1) * fmod(cross->x, 1.0));
 	else
 		wall.x = (int)((set->win.skins[side].res.y - 1) * (1 - fmod(cross->y, 1.0)));
-//	y = strip.x < 0 ? 0 : strip.x;
 	y = 0;
 	while(y < set->win.img1.res.y)
 	{
@@ -76,7 +63,7 @@ void				draw_strip(t_set *set, double dist, int x, t_fpix *cross, int side)
 ** 0 - EA, 1 - NO, 2, - WE, 3 - SO
 */
 
-static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross, int *side)
+static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross, int *side, t_sprite *sprite)
 {
 	t_fpix			dist;
 	t_pix			map;
@@ -107,6 +94,10 @@ static double		count_ray_len(t_set *set, t_fpix *ray_dir, t_fpix *cross, int *si
 			map.y += set->player.step.y;
 			*side = (ray_dir->y < 0) ? 1 : 3;
 		}
+		if (set->map.c_map[map.y][map.x] != '2')
+		{
+			sprite->num++;
+		}
 		my_mlx_pixel_put(set, cross->x * SCALE, cross->y * SCALE, 0xFF0000);
 	}
 	return (dist.x < dist.y ? dist.x : dist.y);
@@ -117,24 +108,26 @@ void				drop_rays(t_set *set)
 {
 	int				x;
 	double			dist;
+	t_sprite		sprite;
 
 	double			cameraX;
 	t_fpix			ray_dir;
-	double			perpDist;
+	double			perp_dist;
 	t_fpix			cross;
 	int				side;
 
-	my_mlx_pixel_put(set, (int)(set->player.pos.x * SCALE), (int)(set->player.pos.y * SCALE), 0x00FF00);
 	x = 0;
-//	open_image(set);
+	reset_sprite(&sprite);
 	while (x < set->win.img1.res.x)
 	{
 		cameraX = 2 * x / (double)set->win.img1.res.x - 1;
 		ray_dir.x = set->player.dir.x + cameraX * set->player.plane.x;
 		ray_dir.y = set->player.dir.y + cameraX * set->player.plane.y;
-		dist = count_ray_len(set, &ray_dir, &cross, &side);
-		perpDist = dist * v_mult(ray_dir, set->player.dir)/v_len(set->player.dir) / v_len(ray_dir) ;
-		draw_strip(set, perpDist, x, &cross, side);
+		dist = count_ray_len(set, &ray_dir, &cross, &side, &sprite);
+		perp_dist = dist * v_mult(ray_dir, set->player.dir)/v_len(set->player.dir) / v_len(ray_dir);
+//		if (sprite.num)
+		draw_strip(set, perp_dist, x, &cross, side, &sprite);
+		reset_sprite(&sprite);
 		x++;
 	}
 
@@ -147,9 +140,6 @@ int				display_img(t_set *set)
 	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
 										   &set->win.img1.len, &set->win.img1.endian);
-	draw_background(set);
-//	int color = get_color(set->win.img1.img, 20, 20);
-//	printf("set: %d,\tget: %d\n", set->skin.fl_col, color);
 	draw_map(set);
 	drop_rays(set);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);

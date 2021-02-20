@@ -109,7 +109,7 @@ typedef struct		s_win
 	void			*win;
 	t_img			img1;
 	t_img			img;
-	t_img 			skins[4];
+	t_img 			skins[5];
 }					t_win;
 
 typedef struct		s_skin
@@ -148,6 +148,13 @@ typedef struct		s_player
 	t_fpix			plane;
 	double			hor;
 }					t_player;
+
+
+typedef struct		s_sprite
+{
+	int				num;
+}					t_sprite;
+
 
 typedef struct		s_set
 {

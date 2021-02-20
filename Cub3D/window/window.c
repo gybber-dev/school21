@@ -48,11 +48,15 @@ static void		init_textures(t_set *set)
 	if (!(set->win.skins[2].img = mlx_xpm_file_to_image(set->win.mlx,
 		set->skin.we_ski, &set->win.skins[2].res.x, &set->win.skins[2].res.y)))
 		ft_error(1021);
+	if (!(set->win.skins[4].img = mlx_xpm_file_to_image(set->win.mlx,
+		set->skin.sprite_ski, &set->win.skins[4].res.x, &set->win.skins[4].res.y)))
+		ft_error(1021);
 	ft_free(&(set->skin.no_ski));
 	ft_free(&(set->skin.so_ski));
 	ft_free(&(set->skin.we_ski));
 	ft_free(&(set->skin.ea_ski));
-	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.no_ski, set->win.skins[0].res.x, set->win.skins[0].res.y);
+	ft_free(&(set->skin.sprite_ski));
+	DEBUG printf("pct '%s' was read [%dx%d]\n", set->skin.sprite_ski, set->win.skins[4].res.x, set->win.skins[4].res.y);
 }
 
 static void		init_player_pos(t_set *set)

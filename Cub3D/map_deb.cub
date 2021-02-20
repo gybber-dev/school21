@@ -4,15 +4,15 @@ NO ../textures/bricks.xpm
 SO ../textures/planks.xpm
 WE ../textures/sand.xpm
 EA ../textures/woolsnow.xpm
-S ../path_to_the_sprite_texture
+S ../textures/sprite.xpm
 F 220,100,0
 C 225,30,0
 012345678
 11111111
+120000001
+100010001
 100000001
-10E010001
-100000001
-100000001
+10N000001
 100110001
 100110001
 100000001
