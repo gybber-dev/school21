@@ -21,15 +21,15 @@ int				key_hook_up(int keycode, t_set *set)
 		set->player.move &= ~(1 << RIGHT_BIT);
 	if (keycode == C)
 		set->player.move &= ~(1 << C_BIT);
-	move_to(set);
-
-	mlx_destroy_image(set->win.mlx, set->win.img1.img);
-	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
-	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
-										   &set->win.img1.len, &set->win.img1.endian);
-	draw_map(set);
-	set_player(set);
-	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
+//	update_pos(set);
+//
+//	mlx_destroy_image(set->win.mlx, set->win.img1.img);
+//	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
+//	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
+//										   &set->win.img1.len, &set->win.img1.endian);
+//	draw_map(set);
+//	set_player(set);
+//	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
 	return (1);
 }
 
@@ -54,18 +54,10 @@ int				key_hook_press(int keycode, t_set *set)
 		set->player.move |= 1 << RIGHT_BIT;
 	if (keycode == C)
 		set->player.move |= 1 << C_BIT;
-	move_to(set);
-	mlx_destroy_image(set->win.mlx, set->win.img1.img);
-	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
-	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
-										   &set->win.img1.len, &set->win.img1.endian);
-	draw_map(set);
-	set_player(set);
-	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
 	return (1);
 }
 
-static void		update_pos(t_fpix *to, t_set *set, int ver, int hor)
+static void		move_to(t_fpix *to, t_set *set, int ver, int hor)
 {
 
 	if (ver)
@@ -80,7 +72,7 @@ static void		update_pos(t_fpix *to, t_set *set, int ver, int hor)
 	}
 }
 
-void		move_to(t_set *set)
+void		update_pos(t_set *set)
 {
 	DEBUG printf("KEY MONITOR:\nW\tA\tS\tD\tL\tR\tC\tSP\n%d\t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",
 				 (set->player.move >> W_BIT) & 1, (set->player.move >> A_BIT) & 1,
@@ -109,13 +101,13 @@ void		move_to(t_set *set)
 							  set->player.plane.y * cos(rot * ANGLE_STEP);
 	}
 	if ((set->player.move >> W_BIT) & 1)
-		update_pos(&to, set, 1, 0);
+		move_to(&to, set, 1, 0);
 	if ((set->player.move >> S_BIT) & 1)
-		update_pos(&to, set, -1, 0);
+		move_to(&to, set, -1, 0);
 	if ((set->player.move >> A_BIT) & 1)
-		update_pos(&to, set, 0, -1);
+		move_to(&to, set, 0, -1);
 	if ((set->player.move >> D_BIT) & 1)
-		update_pos(&to, set, 0,  1);
+		move_to(&to, set, 0,  1);
 	set->player.hor = ((set->player.move >> C_BIT) & 1) ? HOR_SIT : HOR;
 //	set->player.hor = (((set->player.move >> SPACE_BIT) & 1) &&
 //			!((set->player.move >> C_BIT))) ? HOR_JUMP : HOR;

@@ -67,7 +67,7 @@
 */
 
 # define SCALE 30
-# define STEP 0.1
+# define STEP 0.2
 # define HOR_SIT 2.2
 # define HOR 2
 # define HOR_JUMP 1.5
@@ -170,10 +170,10 @@ int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
 int					is_map(char *str);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
-void				set_player(t_set *set);
+int					set_player(t_set *set);
 void				draw_map(t_set *set);
 void				run_game(t_set *set);
-void				move_to(t_set *set);
+void				update_pos(t_set *set);
 int					key_hook_up(int keycode, t_set *set);
 int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
