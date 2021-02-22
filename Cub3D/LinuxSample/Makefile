@@ -19,7 +19,7 @@ INCS		=	$(addprefix $(PATH_INC)/, cub3d.h)
 
 # Commands of compilation
 COMP		=	clang
-COMP_FLAG	=	-Wall -Werror #-Wextra
+COMP_FLAG	=	#-Wall -Werror #-Wextra
 COMP_ADD	=	-I$(PATH_INC)
 
 # Others Command

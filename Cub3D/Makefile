@@ -9,8 +9,15 @@ SRCS	= \
 			parser/ft_parse_map.c \
 			parser/ft_validator.c \
 			main.c \
+			window/window.c \
+			window/player.c \
+			window/map.c \
+			window/moving.c \
+			window/vector_utils.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
+OS			:= $(shell uname)
+
 
 CC			= gcc
 FLAGS		= #-Wall -Wextra -Werror
@@ -19,28 +26,27 @@ HEADER		= ft_cub.h
 RM			= rm -f
 
 all:		init ${NAME}
+
+
+ifeq ($(OS), Darwin)
 init:
-			@ echo "......init......"
+			@ echo "......init...MAC..."
 			make -C libft
-# 			make -C libmlx
+			make -C minilibx_opengl_20191021
 
 $(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) $? $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
-# 			$(CC) $(FLAGS) $(OBJS) $(HEADER) -Llibft -lft
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
+else
+init:
+			@ echo "......init...LINUX..."
+			make -C libft
+			make -C libmlx
+$(NAME):	$(OBJS) $(HEADER)
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
+endif
 
 %.o : %.c
 			${CC} $(FLAGS) -c $< -o $@
-
-do_prev:	all
-			$(CC) $(FLAGS) $(HEADER) $(OBJS) -Llibft -lft
-
-
-do:			do_prev
-
-# inc:		all
-# 			$(CC) $(OBJS) $(HEADER) -Llibft -lft -L.minilibx_mms -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-# LINUX:
-	# $(CC) $(FLAGS) main.c -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext
 
 clean:
 			${RM} ${OBJS} ${BOBJS} *.out
@@ -49,6 +55,10 @@ clean:
 fclean:		clean
 			$(RM) -rf $(NAME)
 			make -C libft fclean
+
+
+# 		!!!!!!!!	ADD FCLEAN FOR MLX          !!!!!!!!
+
 
 re:			fclean all
 

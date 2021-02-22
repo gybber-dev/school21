@@ -16,15 +16,32 @@ add_executable(Cub3D
 		parser/ft_validator.c
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
+		window/window.c
+		window/player.c
+		window/map.c
+		window/moving.c
+		window/vector_utils.c
 		_config.h
 		ft_cub.h
 		main.c)
 
-
-target_link_libraries(Cub3D
-#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
-		libft
-		${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
-		"-framework OpenGL"
-		"-framework AppKit"
-)
+if (APPLE)
+	target_link_libraries(Cub3D
+	#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
+			libft
+			"-framework OpenGL"
+			"-framework AppKit"
+			${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
+			)
+endif(APPLE)
+if (UNIX AND NOT APPLE)
+	target_link_libraries(Cub3D
+			#		Cub3D ${CMAKE_SOURCE_DIR}/libft/libft.a
+			libft
+			${CMAKE_SOURCE_DIR}/libmlx/libmlx.a
+			"-lX11"
+			"-lbsd"
+			"-lm"
+			"-lXext"
+	)
+endif(UNIX)

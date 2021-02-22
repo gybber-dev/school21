@@ -10,7 +10,7 @@ int		chr_player(char **map_ok, int y, int x)
 			return (1);
 		}
 	}
-	while (map_ok[++y] != '\0')
+	while (*map_ok[++y] != '\0')
 	{
 		if (ft_strchrstr(map_ok[y], "NSEW"))
 		{

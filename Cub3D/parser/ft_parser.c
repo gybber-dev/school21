@@ -22,7 +22,7 @@ static int 			parse_rgb(char *str)
 	int				b;
 	char			*err_flag;
 
-	DEBUG printf("RGB_PARSCING: '%s'\n", str);
+	DEBUG printf("RGB_PARSING: '%s'\n", str);
 	r = ft_atoi(str);
 	if (!(err_flag = reg_pass_string("\\d,", str)))
 		return (-1);
@@ -39,8 +39,8 @@ static int			ft_parse_head(char *line, t_set *set)
 	{
 		if (!ft_strchr(line, ' ') || !reg_pass_string(" \\d", line))
 			ft_error(NOT_VALID_HEAD_0);
-		set->win.res1 = ft_atoi(ft_strchr(line, ' '));
-		set->win.res2 = ft_atoi(reg_pass_string(" \\d", line));
+		set->win.img1.res.x = ft_atoi(ft_strchr(line, ' '));
+		set->win.img1.res.y = ft_atoi(reg_pass_string(" \\d", line));
 	}
 	if (*line == 'N' && *(line + 1) == 'O')
 		if ((set->skin.no_ski = parse_path(line + 2)) == NULL)
@@ -48,11 +48,18 @@ static int			ft_parse_head(char *line, t_set *set)
 	if (*line == 'S' && *(line + 1) == 'O')
 		if ((set->skin.so_ski = parse_path(line + 2)) == NULL)
 			ft_error(errno);
-	if (*line == 'W' && *(line + 1) == 'E')
-		if ((set->skin.we_ski = parse_path(line + 2)) == NULL)
+	if (*line == 'W' && *(line + 1) == 'E') {
+		if ((set->skin.we_ski = parse_path(line + 2)) == NULL) {
 			ft_error(errno);
-	if (*line == 'E' && *(line + 1) == 'A')
-		if ((set->skin.ea_ski = parse_path(line + 2)) == NULL)
+		}
+	}
+	if (*line == 'E' && *(line + 1) == 'A') {
+		if ((set->skin.ea_ski = parse_path(line + 2)) == NULL) {
+			ft_error(errno);
+		}
+	}
+	if (*line == 'S' && *(line + 1) == ' ')
+		if ((set->skin.sprite_ski = parse_path(line + 2)) == NULL)
 			ft_error(errno);
 	if (*line == 'F' && *(line + 1) == ' ')
 		if ((set->skin.fl_col = parse_rgb(line + 1)) == -1)
@@ -103,16 +110,16 @@ void			ft_parser(char *file_name, t_set *set)
 //	file_name = ft_strjoin("../", file_name);
 //	ft_error(errno);
 	fd = open(file_name, O_RDONLY);
-	printf("sam: %s, %d, err: %d\n", file_name, fd, errno);
 	ft_error(errno);
 	if ((res = read_file(fd, &file)) < 1)
 		ft_error(ERR_READ_FILE);
 	parse_file(file, set);
 	ft_error(ft_validate_data(set));
 
-	DEBUG printf("win:\n\tres1: %d\n\tres2: %d\n", set->win.res1, set->win.res2);
-	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n",
-			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col);
+	DEBUG printf("win:\n\tres.x: %d\n\tres.y: %d\n", set->win.img1.res.x, set->win.img1.res.y);
+	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n\tsp: '%s'\n",
+			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col,
+			  set->skin.sprite_ski);
 	DEBUG printf("\nMAP:\n");
 //	char **p = set->map.c_map;
 //	while(*p != NULL)

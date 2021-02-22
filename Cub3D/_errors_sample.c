@@ -14,11 +14,12 @@ int main()
 
 
 	sample = malloc(1000000000000000000);
+
 	if (!sample)
-		perror("My error msg:");
+		perror("My error msg");
 	printf("errno: %d\nsample val: '%s'\n", errno, sample);
-	while(j++ < i)
-		printf("[%d] %s\n", j, strerror(j));
+//	while(j++ < i)
+//		printf("[%d] %s\n", j, strerror(j));
 	int fd = open("file", O_RDONLY);
 	printf("errno: %d\nfd: %d\n", errno, fd);
 //

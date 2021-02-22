@@ -2,77 +2,34 @@
 #include <string.h>
 //#include "minilibx_opengl_20191021/mlx.h"
 
-
 static void				init_set(t_set *set)
 {
 	set->map.c_map = NULL;
 	set->map.ismalloced = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
+	set->skin.fl_col = 0;
+	set->skin.ce_col = 0;
+	set->skin.no_ski = NULL;
+	set->skin.so_ski = NULL;
+	set->skin.we_ski = NULL;
+	set->skin.ea_ski = NULL;
+	set->skin.sprite_ski = NULL;
+	set->player.pos.x = -1;
+	set->player.pos.y = -1;
+	set->player.hor = 2;
+	set->player.move = 0;
+	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
+	ft_bzero(&set->player.dir, sizeof(t_fpix));
+	ft_bzero(&set->player.plane, sizeof(t_fpix));
 }
-
-void		scale_pix(t_set *set, t_pix *pix)
-{
-	DEBUG printf("SCALE: x: %d, y: %d\n", pix->x, pix->y);
-
-	t_pix	p;
-
-	p.x = SCALE * (pix->x + 1);
-	p.y = SCALE * (pix->y + 1);
-	while (pix->y < p.y)
-	{
-//		printf("%d: [", p.y);
-		while (pix->x < p.x)
-		{
-			mlx_pixel_put(set->win.mlx, set->win.win, pix->x++, pix->y, 0xFFFFFF);
-//			printf("%d", p.x);
-//			p.x++;
-		}
-		pix->x -= SCALE;
-//		printf("]\n");
-		p.y++;
-	}
-
-}
-
-void		draw_map(t_set *set)
-{
-	t_pix	pix;
-	char		**row;
-//	char		*i;
-
-
-	row = set->map.c_map;
-
-
-
-	printf("check\n");
-	DEBUG printf("DRAW THE MAP: %s\n", *(set->map.c_map));
-	ft_bzero(&pix, sizeof(t_pix));
-	set->win.mlx = mlx_init();
-	set->win.win = mlx_new_window(set->win.mlx, set->win.res1, set->win.res2, "test");
-	while (set->map.c_map[pix.y])
-	{
-		pix.x = 0;
-		while (set->map.c_map[pix.y][pix.x])
-		{
-			if (set->map.c_map[pix.y][pix.x] == '1')
-//				scale_pix(set, &pix);
-				mlx_pixel_put(set->win.mlx, set->win.win, pix.x, pix.y, 0xFFFFFF);
-		pix.x++;
-		}
-		pix.y++;
-	}
-	mlx_loop(set->win.mlx);
-}
-
 
 int			main(int argc, char **argv)
 {
 	t_set 	set;
 
-	printf("sam: %d\n", errno);
-//	printf("sam");
+	printf("errno: %d\n", errno);
+	DEBUG printf("OS detected: '%s'\n", OS);
 	errno = 0;
 	if (argc == 2)
 	{
@@ -82,7 +39,7 @@ int			main(int argc, char **argv)
 		{
 			init_set(&set);
 			ft_parser(argv[1], &set);
-			draw_map(&set);
+			run_game(&set);
 		}
 
 	}
@@ -91,6 +48,3 @@ int			main(int argc, char **argv)
 //	auto_clear();
 	return (0);
 }
-
-
-//!!!!!! Необходимо ввести perror, strerror и exit

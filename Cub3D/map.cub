@@ -1,15 +1,19 @@
-R 640 480
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture
+R 1920 1080
 
-S ./path_to_the_sprite_texture
+NO ./textures/bricks.xpm
+SO ./textures/planks.xpm
+WE ./textures/sand.xpm
+EA ./textures/woolsnow.xpm
+S ./textures/sprite.xpm
 F 220,100,0
 C 225,30,0
-
-11111
-10001
-10001
-10N01
-11111
+012345678
+11111111
+102000001
+100010001
+100000001
+10N000001
+100110001
+100110001
+100000001
+11111111
