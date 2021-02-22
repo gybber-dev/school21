@@ -1,4 +1,5 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/yeschall/Desktop/Projects/GitHub/Cub3D
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug
+/snap/clion/139/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yeschall/Desktop/GitHub/Cub3D
+CMake Error: CMake was unable to find a build program corresponding to "Unix Makefiles".  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.
+CMake Error: CMAKE_C_COMPILER not set, after EnableLanguage
+-- Configuring incomplete, errors occurred!
+See also "/home/yeschall/Desktop/GitHub/Cub3D/cmake-build-debug/CMakeFiles/CMakeOutput.log".
