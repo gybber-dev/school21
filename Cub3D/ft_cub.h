@@ -67,7 +67,7 @@
 */
 
 # define SCALE 30
-# define STEP 0.2
+# define STEP 0.05
 # define HOR_SIT 2.1
 # define HOR 2
 # define HOR_JUMP 1.5

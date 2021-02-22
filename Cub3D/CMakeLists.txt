@@ -40,8 +40,8 @@ if (UNIX AND NOT APPLE)
 			libft
 			${CMAKE_SOURCE_DIR}/libmlx/libmlx.a
 			"-lX11"
-			"-lbsd"
+			"-lz"
 			"-lm"
 			"-lXext"
 	)
-endif(UNIX)
+endif(UNIX AND NOT APPLE)

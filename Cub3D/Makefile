@@ -20,7 +20,7 @@ OS			:= $(shell uname)
 
 
 CC			= gcc
-FLAGS		= #-Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 HEADER		= ft_cub.h
 
 RM			= rm -f
@@ -42,7 +42,7 @@ init:
 			make -C libft
 			make -C libmlx
 $(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lbsd -lm -lXext -o $(NAME)
+			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lm -lXext -lbsd -o $(NAME)
 endif
 
 %.o : %.c

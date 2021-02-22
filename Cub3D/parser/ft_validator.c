@@ -10,5 +10,5 @@
 
 int			ft_validate_data(t_set *set)
 {
-	return (0);
+	return (set->skin.ce_col);
 }
