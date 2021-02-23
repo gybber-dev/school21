@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_atoi.c
-
 /home/yeschall/Desktop/GitHub/Cub3D/libft/ft_bzero.c
 libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/libft.h
@@ -21,16 +19,6 @@ libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/libft.h
 stdio.h
 -
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_isalnum.c
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_isalpha.c
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_isascii.c
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_isdigit.c
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_isprint.c
 
 /home/yeschall/Desktop/GitHub/Cub3D/libft/ft_itoa.c
 libft.h
@@ -91,10 +79,6 @@ libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/ft_memchr.c
 libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/libft.h
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_memcmp.c
-string.h
--
 
 /home/yeschall/Desktop/GitHub/Cub3D/libft/ft_memcpy.c
 libft.h
@@ -183,10 +167,6 @@ libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/ft_substr.c
 libft.h
 /home/yeschall/Desktop/GitHub/Cub3D/libft/libft.h
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_tolower.c
-
-/home/yeschall/Desktop/GitHub/Cub3D/libft/ft_toupper.c
 
 /home/yeschall/Desktop/GitHub/Cub3D/libft/libft.h
 stdlib.h

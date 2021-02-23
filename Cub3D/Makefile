@@ -20,7 +20,7 @@ OS			:= $(shell uname)
 
 
 CC			= gcc
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= #-Wall -Wextra -Werror
 HEADER		= ft_cub.h
 
 RM			= rm -f

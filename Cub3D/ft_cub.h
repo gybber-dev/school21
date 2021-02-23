@@ -93,6 +93,22 @@ typedef struct		s_pix
 	int				y;
 }					t_pix;
 
+typedef struct		s_fpix
+{
+	double 			x;
+	double 			y;
+}					t_fpix;
+
+
+typedef struct		s_sprite
+{
+	int				num;
+	t_fpix			pos;
+	struct s_sprite	*next;
+	double			h;
+	double			dist;
+}					t_sprite;
+
 typedef struct		s_img
 {
 	t_pix			res;
@@ -102,6 +118,18 @@ typedef struct		s_img
 	int				len;
 	int				endian;
 }					t_img;
+
+typedef struct		s_ray
+{
+	int				x;
+	int				side;
+	t_fpix			dir;
+	double			dist;
+	double			perp;
+	t_fpix			cross;
+	t_sprite		*slist;
+	t_sprite		sprite;
+}					t_ray;
 
 typedef struct		s_win
 {
@@ -132,12 +160,6 @@ typedef struct		s_map
 	int				ismalloced;
 }					t_map;
 
-typedef struct		s_fpix
-{
-	double 			x;
-	double 			y;
-}					t_fpix;
-
 
 typedef struct		s_player
 {
@@ -148,13 +170,6 @@ typedef struct		s_player
 	t_fpix			plane;
 	double			hor;
 }					t_player;
-
-
-typedef struct		s_sprite
-{
-	int				num;
-}					t_sprite;
-
 
 typedef struct		s_set
 {
