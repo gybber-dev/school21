@@ -67,7 +67,7 @@
 */
 
 # define SCALE 30
-# define STEP 0.2
+# define STEP 0.05
 # define HOR_SIT 2.1
 # define HOR 2
 # define HOR_JUMP 1.5
@@ -77,6 +77,7 @@
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 # define NOT_VALID_TEXTURE 1021
+# define PARALLEL_VECTORS_NOT_CROSS 1022
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE_FLAG "--save"
@@ -93,6 +94,27 @@ typedef struct		s_pix
 	int				y;
 }					t_pix;
 
+typedef struct		s_fpix
+{
+	double 			x;
+	double 			y;
+}					t_fpix;
+
+
+typedef struct		s_sprite
+{
+	int				num;
+	t_fpix			pos;
+	t_fpix			plane;
+	t_fpix			wall;
+	t_fpix			strip;
+	struct s_sprite	*next;
+	double			h;
+	double			dist;
+	int				side;
+
+}					t_sprite;
+
 typedef struct		s_img
 {
 	t_pix			res;
@@ -102,6 +124,18 @@ typedef struct		s_img
 	int				len;
 	int				endian;
 }					t_img;
+
+typedef struct		s_ray
+{
+	int				x;
+	int				side;
+	t_fpix			dir;
+	double			dist;
+	double			perp;
+	t_fpix			cross;
+	t_sprite		*slist;
+	t_sprite		sprite;
+}					t_ray;
 
 typedef struct		s_win
 {
@@ -132,12 +166,6 @@ typedef struct		s_map
 	int				ismalloced;
 }					t_map;
 
-typedef struct		s_fpix
-{
-	double 			x;
-	double 			y;
-}					t_fpix;
-
 
 typedef struct		s_player
 {
@@ -148,13 +176,6 @@ typedef struct		s_player
 	t_fpix			plane;
 	double			hor;
 }					t_player;
-
-
-typedef struct		s_sprite
-{
-	int				num;
-}					t_sprite;
-
 
 typedef struct		s_set
 {
@@ -187,5 +208,7 @@ double				v_len(t_fpix v);
 void				v_set(t_fpix *v, double val);
 void				v_scale(t_fpix *v, double k);
 void				v_sum(t_fpix *src, t_fpix dst);
+t_fpix				v_sum_num(t_fpix src, double x, double y);
+t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 #endif

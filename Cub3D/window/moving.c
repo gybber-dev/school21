@@ -80,7 +80,7 @@ void		update_pos(t_set *set)
 				 (set->player.move >> LEFT_BIT) & 1, (set->player.move >> RIGHT_BIT) & 1,
 				 (set->player.move >> C_BIT) & 1, (set->player.move >> SPACE_BIT) & 1);
 	t_fpix		to;
-	float		old_x;
+	double		old_x;
 	int			rot;
 
 	DEBUG printf("start: {%f; %f}\n", set->player.dir.x, set->player.dir.y);

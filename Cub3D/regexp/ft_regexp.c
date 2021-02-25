@@ -22,8 +22,6 @@ int				reg_test(char *rule, char c)
 
 char			*reg_find_symbol(char *rule, char *str)
 {
-	char		*res;
-
 	while (*str)
 	{
 		if (!reg_test(rule, *str))

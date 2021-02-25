@@ -22,6 +22,7 @@ static void				init_set(t_set *set)
 	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
+
 }
 
 int			main(int argc, char **argv)

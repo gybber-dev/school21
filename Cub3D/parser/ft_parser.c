@@ -1,5 +1,4 @@
 #include "../ft_cub.h"
-#include "../libft/libft.h"
 
 static char			*parse_path(char *str)
 {
@@ -104,17 +103,16 @@ void			ft_parser(char *file_name, t_set *set)
 {
 	int			fd;
 	char		*file;
-	int			res;
 
 //	fd = open("map0.cub", O_RDONLY);
 //	file_name = ft_strjoin("../", file_name);
 //	ft_error(errno);
-	fd = open(file_name, O_RDONLY);
-	ft_error(errno);
-	if ((res = read_file(fd, &file)) < 1)
+	if ((fd = open(file_name, O_RDONLY)) == -1)
+		ft_error(errno);
+	if ((read_file(fd, &file)) < 1)
 		ft_error(ERR_READ_FILE);
 	parse_file(file, set);
-	ft_error(ft_validate_data(set));
+	ft_validate_data(set);
 
 	DEBUG printf("win:\n\tres.x: %d\n\tres.y: %d\n", set->win.img1.res.x, set->win.img1.res.y);
 	DEBUG printf("skins:\n\tno: '%s'\n\tso: '%s'\n\twe: '%s'\n\tea: '%s'\n\tfl: '%d'\n\tce: '%d'\n\tsp: '%s'\n",

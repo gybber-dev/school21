@@ -12,6 +12,9 @@ todo:
 	void scale_vector(void *v, void k)
 	void *sum_vectors(void *v1, void *v2)
 
+8. Free sprites' list;
+
+
 My check list:
 1. Replace lines in map.cub
 2. Put head lines after the map
