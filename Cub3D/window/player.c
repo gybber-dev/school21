@@ -1,10 +1,5 @@
 #include "../ft_cub.h"
 
-void			reset_sprite(t_sprite *sprite)
-{
-	sprite->num = 0;
-
-}
 
 int			get_color(t_img *img, int x, int y)
 {
@@ -51,29 +46,16 @@ t_fpix			count_rays_cross(t_fpix a, t_fpix b, t_fpix dot_a, t_fpix dot_b)
 
 int				put_sprite_pix(t_sprite *sprite, t_set *set, t_ray *ray, int y)
 {
-	t_pix		wall;
-	double		h;
-	t_fpix		spr_plane;
-	t_fpix		cross;
-	t_fpix		strip;
+	int 		color;
 
-	spr_plane.x = -set->player.dir.y;
-	spr_plane.y = set->player.dir.x;
-	cross = count_rays_cross(ray->dir, spr_plane, set->player.pos, sprite->pos);
-	if ((int)cross.x == (int)sprite->pos.x && (int)cross.y == (int)sprite->pos.y)
+	if (y > sprite->strip.x && y < sprite->strip.y)
 	{
-		sprite->dist = sqrt(pow(set->player.pos.x - cross.x, 2) + pow(set->player.pos.y - cross.y,2));
-
-		h = (double)set->win.img1.res.y / sprite->dist;
-		strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
-		strip.y = (int)((double)set->win.img1.res.y / set->player.hor + h / 2);
-		wall.x = (sprite->side % 2) ?
-				 (int)((set->win.skins[4].res.y - 1) * fmod(cross.x, 1.0)) :
-				 (int)((set->win.skins[4].res.y - 1) * (1 - fmod(cross.y, 1.0)));
-		if (y > strip.x && y < strip.y)
+		sprite->wall.y = (int)(((double)y - (double)sprite->strip.x) * (double)set->win.skins[4].res.y / (double)sprite->h);
+		color = get_color(&set->win.skins[4], sprite->wall.x, sprite->wall.y);
+		if (color)
 		{
-			wall.y = (int)((y - (double)strip.x) * (double)set->win.skins[ray->side].res.y / (double)h);
-			my_mlx_pixel_put(set, ray->x, (int)y, get_color(&set->win.skins[ray->side], wall.x, wall.y));
+			my_mlx_pixel_put(set, ray->x, y, color);
+			return (1);
 		}
 	}
 
@@ -85,9 +67,7 @@ int				put_sprite_pix(t_sprite *sprite, t_set *set, t_ray *ray, int y)
 
 //	h = (double)set->win.img1.res.y / ray->perp;
 //	my_mlx_pixel_put(set, ray->x, (int)y, get_color(&set->win.skins[ray->side], wall.x, wall.y));
-
-	printf("%f\n", sprite->pos.x);
-
+	return (0);
 
 }
 
@@ -101,18 +81,20 @@ int				draw_sprite(t_set *set, t_ray *ray, int y)
 	t_sprite	*p;
 	int			res;
 
+	res = 0;
 	if (!ray->slist)
-		return (0);
-	while (ray->slist)
+		return (res);
+	p = ray->slist;
+	while(p)
 	{
-		res = put_sprite_pix(ray->slist, set, ray, y);
-		if (res || y == set->win.img1.res.x)
-		{
-			p = ray->slist;
-			free(p);
-			ray->slist = ray->slist->next;
-		}
-
+		res = put_sprite_pix(p, set, ray, y);
+		p = p->next;
+	}
+	while (y == set->win.img1.res.y && ray->slist)
+	{
+		p = ray->slist;
+		ray->slist = ray->slist->next;
+		free(p);
 	}
 	return (res);
 }
@@ -140,23 +122,17 @@ void			add_sprite(t_set *set, t_ray *ray, t_pix map)
 		ns->pos.y = pos.y;
 		ns->side = ray->side;
 		// distention between player position and a center of the sprite
-		ns->dist = sqrt(pow(ns->pos.x - set->player.pos.x, 2) +
-				pow(ns->pos.y - set->player.pos.y, 2));
-
-		t_pix		wall;
-		double		h;
-
-
-
-
 		ns->dist = sqrt(pow(set->player.pos.x - cross.x, 2) + pow(set->player.pos.y - cross.y, 2));
 
-		h = (double) set->win.img1.res.y / ns->dist;
-//		strip.x = (int) ((double) set->win.img1.res.y / set->player.hor - h / 2);
-//		strip.y = (int) ((double) set->win.img1.res.y / set->player.hor + h / 2);
-		wall.x = (ns->side % 2) ?
+		ns->h = (double) set->win.img1.res.y / ns->dist;
+		ns->strip.x = (int) ((double) set->win.img1.res.y / set->player.hor - ns->h / 2);
+		ns->strip.y = (int) ((double) set->win.img1.res.y / set->player.hor + ns->h / 2);
+		ns->wall.x = (ns->side % 2) ?
 				 (int) ((set->win.skins[4].res.y - 1) * fmod(cross.x, 1.0)) :
 				 (int) ((set->win.skins[4].res.y - 1) * (1 - fmod(cross.y, 1.0)));
+		// add to the front:
+//		if (ray->slist != NULL)
+//			printf("not empty\n");
 		p = ray->slist;
 		ns->next = p;
 		ray->slist = ns;
@@ -176,7 +152,7 @@ void				draw_strip(t_set *set, t_ray *ray)
 	t_pix			strip;
 	t_pix			wall;
 	double			k;
-	double			y;
+	int				y;
 
 	h = (double)set->win.img1.res.y / ray->perp;
 	strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
@@ -187,7 +163,8 @@ void				draw_strip(t_set *set, t_ray *ray)
 	y = -1;
 	while(++y < set->win.img1.res.y)
 	{
-		if (!draw_sprite(set, ray, y))
+//		printf("%f\n", y);
+		if (!draw_sprite(set, ray, (int)y))
 		{
 			if (y < strip.x)
 				my_mlx_pixel_put(set, ray->x, (int)y, set->skin.ce_col);
@@ -241,10 +218,9 @@ static void			count_ray_len(t_set *set, t_ray *ray)
 		}
 		if (set->map.c_map[map.y][map.x] == '2')
 		{
-			ray->sprite.num++;
+//			if (ray->slist != NULL)
+//				printf("not empty\n");
 			add_sprite(set, ray, map);
-//			t_sprite *test = ray->slist->content;
-//			printf("%d\n", test->num);
 		}
 		my_mlx_pixel_put(set, (int)(ray->cross.x * SCALE), (int)(ray->cross.y) * SCALE, 0xFF0000);
 	}
@@ -258,10 +234,9 @@ void				 drop_rays(t_set *set)
 	double			cam;
 
 	ray.x = 0;
-	ray.slist = NULL;
-	reset_sprite(&ray.sprite);
 	while (ray.x < set->win.img1.res.x)
 	{
+		ray.slist = NULL;
 		cam = 2 * ray.x / (double)set->win.img1.res.x - 1;
 		ray.dir.x = set->player.dir.x + cam * set->player.plane.x;
 		ray.dir.y = set->player.dir.y + cam * set->player.plane.y;
@@ -270,7 +245,6 @@ void				 drop_rays(t_set *set)
 //		if (sprite.num)
 //			printf("hello\n");
 		draw_strip(set, &ray);
-		reset_sprite(&ray.sprite);
 		ray.x++;
 	}
 

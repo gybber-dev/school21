@@ -106,8 +106,8 @@ typedef struct		s_sprite
 	int				num;
 	t_fpix			pos;
 	t_fpix			plane;
-	t_fpix			wall;
-	t_fpix			strip;
+	t_pix			wall;
+	t_pix			strip;
 	struct s_sprite	*next;
 	double			h;
 	double			dist;
@@ -134,7 +134,6 @@ typedef struct		s_ray
 	double			perp;
 	t_fpix			cross;
 	t_sprite		*slist;
-	t_sprite		sprite;
 }					t_ray;
 
 typedef struct		s_win
