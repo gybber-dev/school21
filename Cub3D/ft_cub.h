@@ -77,6 +77,7 @@
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
 # define NOT_VALID_TEXTURE 1021
+# define PARALLEL_VECTORS_NOT_CROSS 1022
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE_FLAG "--save"
@@ -104,9 +105,14 @@ typedef struct		s_sprite
 {
 	int				num;
 	t_fpix			pos;
+	t_fpix			plane;
+	t_fpix			wall;
+	t_fpix			strip;
 	struct s_sprite	*next;
 	double			h;
 	double			dist;
+	int				side;
+
 }					t_sprite;
 
 typedef struct		s_img
@@ -202,5 +208,7 @@ double				v_len(t_fpix v);
 void				v_set(t_fpix *v, double val);
 void				v_scale(t_fpix *v, double k);
 void				v_sum(t_fpix *src, t_fpix dst);
+t_fpix				v_sum_num(t_fpix src, double x, double y);
+t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 #endif
