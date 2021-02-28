@@ -3,3 +3,4 @@
 !/.gitignore
 *no_read*
 /pft_2019*
+*cmake-build-debug/*
