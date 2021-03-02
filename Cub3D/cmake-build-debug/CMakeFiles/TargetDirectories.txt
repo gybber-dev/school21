@@ -1,0 +1,6 @@
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/Cub3D.dir
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/CMakeFiles/rebuild_cache.dir
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/CMakeFiles/edit_cache.dir
+/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/CMakeFiles/libft.dir

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Cub3D"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libft\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Cub3D">
+				<Option output="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yeschall/CLionProjects/untitled1/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Cub3D/fast">
+				<Option output="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yeschall/CLionProjects/untitled1/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft">
+				<Option output="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yeschall/CLionProjects/untitled1/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="libft/fast">
+				<Option output="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/yeschall/CLionProjects/untitled1/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/yeschall/CLionProjects/untitled1/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/_config.h">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/errors/ft_error.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/ft_cub.h">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_atoi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_bzero.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_calloc.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_free.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_isalnum.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_isalpha.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_isascii.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_isdigit.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_isprint.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_itoa.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_itoa_hex.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_itoa_u.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_itoa_uhex.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstadd_back.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstadd_front.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstclear.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstdelone.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstiter.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstlast.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstmap.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstnew.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_lstsize.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memccpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memcmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memmove.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_memset.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_putchar_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_putendl_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_putnbr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_putstr_fd.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_split.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strdup.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strjoin.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strlcat.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strlcpy.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strlen.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strmapi.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strmultiply.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strncmp.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strnstr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strrchr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_strtrim.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_substr.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_tolower.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/ft_toupper.c">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/libft.h">
+			<Option target="libft"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/main.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/parser/binary_utils.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/parser/ft_parse_file.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/parser/ft_parse_map.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/parser/ft_parser.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/parser/ft_validator.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/regexp/ft_regexp.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/regexp/ft_regexp.h">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/window/map.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/window/moving.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/window/player.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/window/vector_utils.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/window/window.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/yeschall/CLionProjects/untitled1/libft/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\libft\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
