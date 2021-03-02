@@ -30,8 +30,11 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 {
 	char		*dst;
 
-	dst = set->win.img1.addr + (y * set->win.img1.len + x * (set->win.img1.bpp / 8));
-	*(unsigned int *) dst = color;
+	if (y < set->win.img1.res.y && x < set->win.img1.res.x && x >= 0 && y >= 0)
+	{
+		dst = set->win.img1.addr + (y * set->win.img1.len + x * (set->win.img1.bpp / 8));
+		*(unsigned int *) dst = color;
+	}
 }
 
 static void		init_textures(t_set *set)

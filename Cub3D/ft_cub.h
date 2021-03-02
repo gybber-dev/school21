@@ -100,20 +100,40 @@ typedef struct		s_fpix
 	double 			y;
 }					t_fpix;
 
-
 typedef struct		s_sprite
 {
 	int				num;
 	t_fpix			pos;
 	t_fpix			plane;
-	t_fpix			wall;
-	t_fpix			strip;
+	t_pix			wall;
+	t_pix			strip;
 	struct s_sprite	*next;
 	double			h;
 	double			dist;
 	int				side;
 
 }					t_sprite;
+
+
+
+typedef struct		s_spr
+{
+	t_fpix			pos;
+	t_fpix			xlim;
+	t_fpix			start;
+	t_fpix			end;
+	t_fpix			proj_c;
+	double			dist;
+	double			perp;
+	double			height;
+}					t_spr;
+
+
+typedef struct		s_sl
+{
+	t_spr			sprite;
+	struct s_sl 	*next;
+}					t_sl;
 
 typedef struct		s_img
 {
@@ -134,7 +154,6 @@ typedef struct		s_ray
 	double			perp;
 	t_fpix			cross;
 	t_sprite		*slist;
-	t_sprite		sprite;
 }					t_ray;
 
 typedef struct		s_win
@@ -183,6 +202,7 @@ typedef struct		s_set
 	t_skin			skin;
 	t_map			map;
 	t_player		player;
+	t_sl			*sl;
 }					t_set;
 
 void 				ft_parser(char *file_name, t_set *set);
@@ -205,9 +225,10 @@ void				update_pos(t_set *set);
 int					key_hook_up(int keycode, t_set *set);
 int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
-void				v_set(t_fpix *v, double val);
+double				v_dist(t_fpix d1, t_fpix d2);
+t_fpix				v_set(double val_x, double val_y);
 void				v_scale(t_fpix *v, double k);
-void				v_sum(t_fpix *src, t_fpix dst);
+t_fpix				v_sub(t_fpix v1, t_fpix v2);
 t_fpix				v_sum_num(t_fpix src, double x, double y);
 t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
