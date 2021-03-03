@@ -1,6 +1,6 @@
 R 640 480
 
-NO ../textures/ls.xpm
+NO ../textures/bricks.xpm
 SO ../textures/planks.xpm
 WE ../textures/sand.xpm
 EA ../textures/woolsnow.xpm

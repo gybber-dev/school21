@@ -145,6 +145,14 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
+typedef struct		s_msgs
+{
+	int 			code;
+	char 			*text;
+}					t_msgs;
+
+
+
 typedef struct		s_ray
 {
 	int				x;

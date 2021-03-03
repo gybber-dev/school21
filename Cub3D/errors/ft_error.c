@@ -5,6 +5,17 @@ void		ft_error(int code)
 	printf("code is %d\nerrno is %d\n", code, errno);
 
 
+	const t_msgs text[] =
+	{
+		{1021, "ssss"},
+		{1021, "ssss"},
+		{0, NULL}
+	};
+	while(text->text != NULL && text->code != 0)
+	{
+		break ;
+		// do something
+	}
 	if (code != 0)
 	{
 		ft_putstr_fd("Error\n\tmessage: ", 1);

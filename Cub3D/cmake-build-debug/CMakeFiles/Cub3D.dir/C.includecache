@@ -10,6 +10,10 @@
 stdio.h
 -
 
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/errors/ft_error.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 fcntl.h
 -
@@ -40,13 +44,51 @@ stdlib.h
 unistd.h
 -
 
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c
+ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+string.h
+-
+
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/minilibx_opengl_20191021/mlx.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_file.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_map.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_validator.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/regexp/ft_regexp.h
 ../libft/libft.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
 
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/map.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/moving.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/player.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/vector_utils.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/window/window.c
 ../ft_cub.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 
