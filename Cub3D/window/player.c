@@ -101,7 +101,7 @@ void				draw_sprite(t_set *set, t_spr *sprite)
 	sprite->start.x--;
 	while (++sprite->start.x <= sprite->end.x)
 	{
-		if (sprite->start.x < sprite->xlim.x || sprite->start.x > sprite->xlim.y)
+		if (sprite->start.x < sprite->xlim.x || sprite->start.x > sprite->xlim.y + 1)
 			continue ;
 		wall.x = (h - (sprite->end.x - sprite->start.x)) /
 				h * (double)set->win.skins[4].res.x;

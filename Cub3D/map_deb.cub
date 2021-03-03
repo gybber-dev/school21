@@ -1,6 +1,6 @@
 R 640 480
 
-NO ../textures/bricks.xpm
+NO ../textures/ls.xpm
 SO ../textures/planks.xpm
 WE ../textures/sand.xpm
 EA ../textures/woolsnow.xpm
@@ -12,8 +12,8 @@ C 225,30,0
 122000001
 100010001
 120002221
-10N000001
+10N0000011112
 100112221
 100110001
-100000001
+10000001
 11111111
