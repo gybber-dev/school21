@@ -186,7 +186,7 @@ void			insert_by_in_order(t_sl **list, t_sl *ns)
 	p_next = p->next;
 	while(p_next)
 	{
-		if (p->sprite.perp < ns->sprite.perp && ns->sprite.perp <= p_next->sprite.perp)
+		if (p->sprite.perp > ns->sprite.perp && ns->sprite.perp >= p_next->sprite.perp)
 		{
 			p->next = ns;
 			ns->next = p_next;
