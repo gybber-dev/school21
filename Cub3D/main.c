@@ -23,7 +23,6 @@ static void				init_set(t_set *set)
 	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
-
 }
 
 int			main(int argc, char **argv)
@@ -32,21 +31,16 @@ int			main(int argc, char **argv)
 
 	printf("errno: %d\n", errno);
 	DEBUG printf("OS detected: '%s'\n", OS);
-	errno = 0;
-	if (argc == 2)
+	set.save = 0;
+	if (argc == 2 || (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
 	{
-		if (!ft_strncmp(argv[1], SAVE_FLAG, ft_strlen(SAVE_FLAG)))
-			printf("it's necessary to save in .bmp format\n");
-		else
-		{
-			init_set(&set);
-			ft_parser(argv[1], &set);
-			run_game(&set);
-		}
-
+		if (argc == 3)
+			set.save = 1;
+		init_set(&set);
+		ft_parser(argv[1], &set);
+		run_game(&set);
 	}
 	else
 		ft_error(22);
-//	auto_clear();
 	return (0);
 }

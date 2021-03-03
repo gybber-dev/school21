@@ -80,7 +80,7 @@
 # define PARALLEL_VECTORS_NOT_CROSS 1022
 
 # define MAP_SYMBOLS "10 2NSWE"
-# define SAVE_FLAG "--save"
+# define SAVE "--save"
 
 // delete below:
 
@@ -211,6 +211,7 @@ typedef struct		s_set
 	t_map			map;
 	t_player		player;
 	t_sl			*sl;
+	int				save;
 }					t_set;
 
 void 				ft_parser(char *file_name, t_set *set);

@@ -108,7 +108,10 @@ void			ft_parser(char *file_name, t_set *set)
 //	file_name = ft_strjoin("../", file_name);
 //	ft_error(errno);
 	if ((fd = open(file_name, O_RDONLY)) == -1)
+	{
+		printf("check");
 		ft_error(errno);
+	}
 	if ((read_file(fd, &file)) < 1)
 		ft_error(ERR_READ_FILE);
 	parse_file(file, set);

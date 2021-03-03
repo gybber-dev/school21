@@ -225,18 +225,11 @@ void			add_sprite1(t_set *set, t_ray *ray, t_pix map)
 	ns->sprite.dist = v_dist(set->player.pos, ns->sprite.pos);
 	ns->sprite.perp = fabs(ns->sprite.proj_c.y);
 	ns->sprite.height = (double)set->win.img1.res.y / ns->sprite.perp;
-//	ns->sprite.height = (double)set->win.skins[4].res.y / ns->sprite.perp;
 	ns->sprite.start.x = (double)set->win.img1.res.x / 2 * (1 + ns->sprite.proj_c.x / ns->sprite.proj_c.y)
 			- ns->sprite.height / 2;
 	ns->sprite.end.x = (double)set->win.img1.res.x / 2 * (1 + ns->sprite.proj_c.x / ns->sprite.proj_c.y)
 			+ ns->sprite.height / 2;
 	insert_by_in_order(&set->sl, ns);
-//	p = set->sl;
-//	while(p && (ns->sprite.perp < p->sprite.perp))
-//		p = p->next;
-//	ns->next = p->next;
-//	p->next = ns;
-//	set->sl = ns;
 }
 
 

@@ -15,7 +15,7 @@ int				read_file(int fd, char **file)
 		buf[bytes] = '\0';
 		tmp = *file;
 		*file = ft_strjoin(*file, buf);
-		(*file) ? ft_error(errno) : 0;
+		!(*file) ? ft_error(errno) : 0;
 		ft_free(&tmp);
 		res += bytes;
 	}

@@ -34,8 +34,8 @@ void			set_mem_for_map(char *str, t_set *set)
 	}
 	lines += 2;
 	DEBUG printf("Reserve for map [%d] lines\nin [%s]", lines, str);
-	set->map.c_map = (char**)malloc(sizeof(char *) * (lines));
-	ft_error(errno);
+	if (!(set->map.c_map = (char**)malloc(sizeof(char *) * (lines))))
+		ft_error(errno);
 	set->map.ismalloced = lines;
 	*(set->map.c_map) = NULL;
 	DEBUG printf("Check if malloced: '%s'\n", *(set->map.c_map));
@@ -49,7 +49,7 @@ void			ft_parse_map(char *line, t_set *set)
 	p = set->map.c_map;
 	while(*p != NULL)
 		p++;
-	*p = ft_strdup(line);
-	ft_error(errno);
+	if (!(*p = ft_strdup(line)))
+		ft_error(errno);
 	*(p + 1) = NULL;
 }
