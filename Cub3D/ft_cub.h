@@ -82,7 +82,6 @@
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE "--save"
-# define SCREEN "screen.bmp"
 
 // delete below:
 

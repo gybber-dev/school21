@@ -3,10 +3,13 @@
 void		save_screen(t_set *set)
 {
 	int		fd;
+	char	*file;
+
 	DEBUG printf("save screen\n");
 
 //	i = img->textures.resolution_h - 1;
-	fd = open(SCREEN, O_CREAT | O_RDWR | O_TRUNC, 0666);
+	file = "screen.bmp";
+	fd = open(file, O_CREAT | O_RDWR | O_TRUNC, 0666);
 	if (fd < 0)
 		ft_error(errno);
 //	ft_write_header(fd, img);

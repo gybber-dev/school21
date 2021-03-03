@@ -29,7 +29,6 @@ int			main(int argc, char **argv)
 {
 	t_set 	set;
 
-	printf("errno: %d\n", errno);
 	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;
 	if (argc == 2 || (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
