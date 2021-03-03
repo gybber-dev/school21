@@ -78,13 +78,13 @@ static void		init_player_pos(t_set *set)
 			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
 				if ((*p)[i] == 'W')
-					if ((set->player.plane.y = 0.66))
+					if ((set->player.plane.y = -0.66))
 						set->player.dir.x = -1;
 				if ((*p)[i] == 'N')
 					if ((set->player.plane.x = 0.66))
 						set->player.dir.y = -1;
 				if ((*p)[i] == 'S')
-					if ((set->player.plane.x = 0.66))
+					if ((set->player.plane.x = -0.66))
 						set->player.dir.y = 1;
 				if ((*p)[i] == 'E')
 					if ((set->player.plane.y = 0.66))

@@ -96,25 +96,28 @@ void				draw_sprite(t_set *set, t_spr *sprite)
 	sprite->end.y = (double)set->win.img1.res.y / set->player.hor + h / 2;
 	if (sprite->pos.y == 2.5)
 		sprite->pos.y = 2.5;
+	sprite->start.y = (double)set->win.img1.res.y / set->player.hor - h / 2 - 1;
+	sprite->start.x < 0 ? sprite->start.x = 0 : 0;
+	sprite->start.y < 0 ? sprite->start.y = 0 : 0;
 //	proj_ray = sqrt(pow(sprite->dist, 2) - pow(sprite->perp, 2));
 //	sprite->start.x = (double)set->win.img1.res.x / 2 - h / 2 - proj_ray;
-	sprite->start.x--;
 	while (++sprite->start.x <= sprite->end.x)
 	{
 		if (sprite->start.x < sprite->xlim.x || sprite->start.x > sprite->xlim.y + 1)
 			continue ;
 		wall.x = (h - (sprite->end.x - sprite->start.x)) /
 				h * (double)set->win.skins[4].res.x;
-		sprite->start.y = (double)set->win.img1.res.y / set->player.hor - h / 2;
-		while(sprite->start.y > 0 && sprite->start.y < sprite->end.y &&
-				sprite->end.y < set->win.img1.res.y)
+		sprite->start.y = (double)set->win.img1.res.y / set->player.hor - h / 2 - 1;
+		sprite->start.y < 0 ? sprite->start.y = 0 : 0;
+		while(++sprite->start.y >= 0 && sprite->start.y < sprite->end.y &&
+				sprite->start.y < set->win.img1.res.y)
 		{
 			wall.y = (h - (sprite->end.y - sprite->start.y)) /
 				h * (double)set->win.skins[4].res.y;
 			color = get_color(&set->win.skins[4], (int)wall.x, (int)wall.y);
 			if (color)
 				my_mlx_pixel_put(set, (int)sprite->start.x, (int)sprite->start.y, color);
-			sprite->start.y += 1;
+//			sprite->start.y++;
 		}
 //		sprite->start.x += 1;
 	}
@@ -232,47 +235,6 @@ void			add_sprite1(t_set *set, t_ray *ray, t_pix map)
 	insert_by_in_order(&set->sl, ns);
 }
 
-
-void			add_sprite(t_set *set, t_ray *ray, t_pix map)
-{
-	t_sprite	*p;
-	t_sprite	*ns;
-	t_fpix		spr_plane;
-	t_fpix		cross;
-	t_fpix		pos;
-
-	spr_plane.x = -set->player.dir.y;
-	spr_plane.y = set->player.dir.x;
-	pos.x = map.x + 0.5;
-	pos.y = map.y + 0.5;
-	cross = count_rays_cross(ray->dir, spr_plane, set->player.pos, pos);
-	if ((int)cross.x == (int)pos.x && (int)cross.y == (int)pos.y)
-	{
-		ns = (t_sprite *)malloc(sizeof(t_sprite));
-		if (ns == NULL)
-			ft_error(set, errno);
-		ns->next = NULL;
-		ns->pos.x = pos.x;
-		ns->pos.y = pos.y;
-		ns->side = ray->side;
-		// distention between player position and a center of the sprite
-		ns->dist = sqrt(pow(set->player.pos.x - cross.x, 2) + pow(set->player.pos.y - cross.y, 2));
-
-		ns->h = (double) set->win.img1.res.y / ns->dist;
-		ns->strip.x = (int) ((double) set->win.img1.res.y / set->player.hor - ns->h / 2);
-		ns->strip.y = (int) ((double) set->win.img1.res.y / set->player.hor + ns->h / 2);
-		ns->wall.x = (ns->side % 2) ?
-				 (int) ((set->win.skins[4].res.y - 1) * fmod(cross.x, 1.0)) :
-				 (int) ((set->win.skins[4].res.y - 1) * (1 - fmod(cross.y, 1.0)));
-		// add to the front:
-//		if (ray->slist != NULL)
-//			printf("not empty\n");
-		p = ray->slist;
-		ns->next = p;
-		ray->slist = ns;
-	}
-}
-
 /*
 ** It seems the height of objects should be larger when
 ** player sits, and smaller when player jumps
@@ -288,6 +250,7 @@ void				draw_strip(t_set *set, t_ray *ray)
 	double			k;
 	int				y;
 
+//	(ray->perp <= 0.00001) ? ray->perp = 0.1 : 0;
 	h = (double)set->win.img1.res.y / ray->perp;
 	strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
 	strip.y = (int)((double)set->win.img1.res.y / set->player.hor + h / 2);
@@ -375,8 +338,8 @@ void				 drop_rays(t_set *set)
 		ray.perp = ray.dist * v_mult(ray.dir, set->player.dir)/v_len(set->player.dir) / v_len(ray.dir);
 		draw_strip(set, &ray);
 		ray.x++;
+		printf("check1\n");
 	}
-	printf("hello\n");
 	draw_sprites(set);
 }
 

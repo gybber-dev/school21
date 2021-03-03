@@ -40,15 +40,13 @@ stdlib.h
 unistd.h
 -
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/main.c
-ft_cub.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
-string.h
--
-
 /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
 
 /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
 ../libft/libft.h
 /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+
+/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
 
