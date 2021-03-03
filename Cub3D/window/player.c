@@ -389,6 +389,8 @@ int				display_img(t_set *set)
 				&set->win.img1.len, &set->win.img1.endian);
 	draw_map(set);
 	drop_rays(set);
+	if (set->save == 1)
+		save_screen(set);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
 	return (0);
 }

@@ -21,6 +21,7 @@ add_executable(Cub3D
 		window/map.c
 		window/moving.c
 		window/vector_utils.c
+		save_screen.c
 		_config.h
 		ft_cub.h
 		main.c)

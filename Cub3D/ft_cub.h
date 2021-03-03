@@ -66,6 +66,7 @@
 ** ERROR MESSAGES:
 */
 
+
 # define SCALE 30
 # define STEP 0.05
 # define HOR_SIT 2.1
@@ -81,6 +82,7 @@
 
 # define MAP_SYMBOLS "10 2NSWE"
 # define SAVE "--save"
+# define SCREEN "screen.bmp"
 
 // delete below:
 
@@ -241,4 +243,5 @@ t_fpix				v_sub(t_fpix v1, t_fpix v2);
 t_fpix				v_sum_num(t_fpix src, double x, double y);
 t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
+void				save_screen(t_set *set);
 #endif

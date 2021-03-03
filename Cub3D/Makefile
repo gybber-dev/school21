@@ -14,6 +14,7 @@ SRCS	= \
 			window/map.c \
 			window/moving.c \
 			window/vector_utils.c \
+			window/save_screen.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)
