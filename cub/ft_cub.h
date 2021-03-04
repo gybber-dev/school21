@@ -72,6 +72,7 @@
 # define HOR 2
 # define HOR_JUMP 1.5
 # define ANGLE_STEP 0.1
+# define ZERO_VAL 0.0001
 # define RAY_STEP 3
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
@@ -241,4 +242,5 @@ t_fpix				v_sub(t_fpix v1, t_fpix v2);
 t_fpix				v_sum_num(t_fpix src, double x, double y);
 t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
+void				screen_image(t_set *set);
 #endif

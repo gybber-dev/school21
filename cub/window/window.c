@@ -91,6 +91,8 @@ static void		init_player_pos(t_set *set)
 						set->player.dir.x = 1;
 				set->player.pos.x = i + 0.3;
 				set->player.pos.y += 0.3;
+				set->player.pos.x = 2.25;
+				set->player.pos.x = 3.5;
 				(*p)[i] = '0';
 				return ;
 			}

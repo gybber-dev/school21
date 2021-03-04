@@ -6,19 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+/home/yeschall/Desktop/GitHub/cub/_config.h
 stdio.h
 -
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/errors/ft_error.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
 fcntl.h
 -
 unistd.h
 -
 libft/libft.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+/home/yeschall/Desktop/GitHub/cub/libft/libft.h
 regexp/ft_regexp.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
+/home/yeschall/Desktop/GitHub/cub/regexp/ft_regexp.h
 stdio.h
 -
 string.h
@@ -30,23 +34,65 @@ stdlib.h
 math.h
 -
 minilibx_opengl_20191021/mlx.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+/home/yeschall/Desktop/GitHub/cub/minilibx_opengl_20191021/mlx.h
 _config.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+/home/yeschall/Desktop/GitHub/cub/_config.h
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+/home/yeschall/Desktop/GitHub/cub/libft/libft.h
 stdlib.h
 -
 unistd.h
 -
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+/home/yeschall/Desktop/GitHub/cub/main.c
+ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+string.h
+-
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
-../libft/libft.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+/home/yeschall/Desktop/GitHub/cub/minilibx_opengl_20191021/mlx.h
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c
+/home/yeschall/Desktop/GitHub/cub/parser/ft_parse_file.c
 ../ft_cub.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/parser/ft_parse_map.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/parser/ft_parser.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/parser/ft_validator.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/regexp/ft_regexp.h
+../libft/libft.h
+/home/yeschall/Desktop/GitHub/cub/libft/libft.h
+
+/home/yeschall/Desktop/GitHub/cub/window/map.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/window/moving.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/window/player.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/window/screenshot.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/window/vector_utils.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
+/home/yeschall/Desktop/GitHub/cub/window/window.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
 

@@ -10,6 +10,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Cub3D.dir/window/map.c.o"
   "CMakeFiles/Cub3D.dir/window/moving.c.o"
   "CMakeFiles/Cub3D.dir/window/player.c.o"
+  "CMakeFiles/Cub3D.dir/window/screenshot.c.o"
   "CMakeFiles/Cub3D.dir/window/vector_utils.c.o"
   "CMakeFiles/Cub3D.dir/window/window.c.o"
   "Cub3D"

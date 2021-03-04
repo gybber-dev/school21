@@ -29,6 +29,8 @@ int			main(int argc, char **argv)
 {
 	t_set 	set;
 
+	char *s = malloc(24);
+
 	printf("errno: %d\n", errno);
 	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;

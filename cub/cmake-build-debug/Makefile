@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub
+CMAKE_SOURCE_DIR = /home/yeschall/Desktop/GitHub/cub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yeschall/Desktop/GitHub/cub/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yeschall/Desktop/GitHub/cub/cmake-build-debug/CMakeFiles /home/yeschall/Desktop/GitHub/cub/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yeschall/Desktop/GitHub/cub/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -453,6 +453,33 @@ window/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.s
 .PHONY : window/player.c.s
 
+window/screenshot.o: window/screenshot.c.o
+
+.PHONY : window/screenshot.o
+
+# target to build an object file
+window/screenshot.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.o
+.PHONY : window/screenshot.c.o
+
+window/screenshot.i: window/screenshot.c.i
+
+.PHONY : window/screenshot.i
+
+# target to preprocess a source file
+window/screenshot.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.i
+.PHONY : window/screenshot.c.i
+
+window/screenshot.s: window/screenshot.c.s
+
+.PHONY : window/screenshot.s
+
+# target to generate assembly for a file
+window/screenshot.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.s
+.PHONY : window/screenshot.c.s
+
 window/vector_utils.o: window/vector_utils.c.o
 
 .PHONY : window/vector_utils.o
@@ -550,6 +577,9 @@ help:
 	@echo "... window/player.o"
 	@echo "... window/player.i"
 	@echo "... window/player.s"
+	@echo "... window/screenshot.o"
+	@echo "... window/screenshot.i"
+	@echo "... window/screenshot.s"
 	@echo "... window/vector_utils.o"
 	@echo "... window/vector_utils.i"
 	@echo "... window/vector_utils.s"
