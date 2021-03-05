@@ -27,6 +27,14 @@ CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o
  /home/yeschall/Desktop/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /home/yeschall/Desktop/GitHub/cub/parser/ft_parse_file.c
  /home/yeschall/Desktop/GitHub/cub/regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
+ /home/yeschall/Desktop/GitHub/cub/_config.h
+ /home/yeschall/Desktop/GitHub/cub/ft_cub.h
+ /home/yeschall/Desktop/GitHub/cub/libft/libft.h
+ /home/yeschall/Desktop/GitHub/cub/libmlx/mlx.h
+ /home/yeschall/Desktop/GitHub/cub/minilibx_opengl_20191021/mlx.h
+ /home/yeschall/Desktop/GitHub/cub/parser/ft_parse_head.c
+ /home/yeschall/Desktop/GitHub/cub/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o
  /home/yeschall/Desktop/GitHub/cub/_config.h
  /home/yeschall/Desktop/GitHub/cub/ft_cub.h

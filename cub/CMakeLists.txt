@@ -14,6 +14,7 @@ add_executable(Cub3D
 		parser/ft_parse_file.c
 		parser/ft_parse_map.c
 		parser/ft_validator.c
+		parser/ft_parse_head.c
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
 		window/window.c

@@ -9,8 +9,9 @@ void				auto_clear(t_set *set)
 
 static void				init_set(t_set *set)
 {
+	set->tmp = NULL;
 	set->map.c_map = NULL;
-	set->map.ismalloced = 0;
+	set->map.isparsed = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
 	set->skin.fl_col = 0;

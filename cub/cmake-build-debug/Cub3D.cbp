@@ -283,6 +283,9 @@
 		<Unit filename="/home/yeschall/Desktop/GitHub/cub/parser/ft_parse_file.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/home/yeschall/Desktop/GitHub/cub/parser/ft_parse_head.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/home/yeschall/Desktop/GitHub/cub/parser/ft_parse_map.c">
 			<Option target="Cub3D"/>
 		</Unit>

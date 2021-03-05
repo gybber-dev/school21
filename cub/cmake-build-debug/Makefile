@@ -264,6 +264,33 @@ parser/ft_parse_file.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.s
 .PHONY : parser/ft_parse_file.c.s
 
+parser/ft_parse_head.o: parser/ft_parse_head.c.o
+
+.PHONY : parser/ft_parse_head.o
+
+# target to build an object file
+parser/ft_parse_head.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
+.PHONY : parser/ft_parse_head.c.o
+
+parser/ft_parse_head.i: parser/ft_parse_head.c.i
+
+.PHONY : parser/ft_parse_head.i
+
+# target to preprocess a source file
+parser/ft_parse_head.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.i
+.PHONY : parser/ft_parse_head.c.i
+
+parser/ft_parse_head.s: parser/ft_parse_head.c.s
+
+.PHONY : parser/ft_parse_head.s
+
+# target to generate assembly for a file
+parser/ft_parse_head.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.s
+.PHONY : parser/ft_parse_head.c.s
+
 parser/ft_parse_map.o: parser/ft_parse_map.c.o
 
 .PHONY : parser/ft_parse_map.o
@@ -556,6 +583,9 @@ help:
 	@echo "... parser/ft_parse_file.o"
 	@echo "... parser/ft_parse_file.i"
 	@echo "... parser/ft_parse_file.s"
+	@echo "... parser/ft_parse_head.o"
+	@echo "... parser/ft_parse_head.i"
+	@echo "... parser/ft_parse_head.s"
 	@echo "... parser/ft_parse_map.o"
 	@echo "... parser/ft_parse_map.i"
 	@echo "... parser/ft_parse_map.s"

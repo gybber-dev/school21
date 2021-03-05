@@ -77,7 +77,9 @@
 # define PLANE_W 0.6
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
-# define NOT_VALID_HEAD_0 1011
+# define NOT_VALID_HEAD_0 1010
+# define NOT_VALID_HEAD_1 1011
+# define NOT_VALID_HEAD_2 1012
 # define NOT_VALID_TEXTURE 1021
 # define PARALLEL_VECTORS_NOT_CROSS 1022
 
@@ -193,6 +195,7 @@ typedef struct		s_map
 {
 	char			**c_map;
 	int				ismalloced;
+	int				isparsed;
 }					t_map;
 
 
@@ -208,16 +211,19 @@ typedef struct		s_player
 
 typedef struct		s_set
 {
+	int				contents;
 	t_win			win;
 	t_skin			skin;
 	t_map			map;
 	t_player		player;
 	t_sl			*sl;
 	int				save;
+	char			*tmp;
 }					t_set;
 
 void 				ft_parser(char *file_name, t_set *set);
 void				ft_parse_map(char *line, t_set *set);
+void				parse_resolution(t_set *set, char *line);
 void				set_mem_for_map(char *str, t_set *set);
 int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);

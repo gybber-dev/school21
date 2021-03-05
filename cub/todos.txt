@@ -3,7 +3,8 @@ todo:
 0. exit by click on red "x" on the top right corner.
 0. Разрешение экрана для статической библиотеки
 1. auto_cleaner in ft_errors;
-2. put error messages into struct
+1.1 Clear set.tmp if is not NULL; (*read_file)
+2. Is is necessary '\n'
 4. In pressing two keys Player stops after release any second key.
 5. Map is bigger than resolution
 6. Correct the call of 'ft_error' function. Put into the body of a condition.

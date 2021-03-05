@@ -10,6 +10,10 @@
 stdio.h
 -
 
+/home/yeschall/Desktop/GitHub/cub/errors/ft_error.c
+../ft_cub.h
+/home/yeschall/Desktop/GitHub/cub/ft_cub.h
+
 /home/yeschall/Desktop/GitHub/cub/ft_cub.h
 fcntl.h
 -
@@ -49,8 +53,4 @@ unistd.h
 /home/yeschall/Desktop/GitHub/cub/regexp/ft_regexp.h
 ../libft/libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
-
-/home/yeschall/Desktop/GitHub/cub/window/screenshot.c
-../ft_cub.h
-/home/yeschall/Desktop/GitHub/cub/ft_cub.h
 
