@@ -36,7 +36,6 @@ static void				init_set(t_set *set)
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
 	set->os = (!ft_strncmp(OS, "MAC", 3)) ? 2 : 1;
-
 }
 
 int			main(int argc, char **argv)
