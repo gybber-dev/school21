@@ -104,14 +104,8 @@ void			ft_parser(char *file_name, t_set *set)
 	int			fd;
 	char		*file;
 
-//	fd = open("map0.cub", O_RDONLY);
-//	file_name = ft_strjoin("../", file_name);
-//	ft_error(errno);
 	if ((fd = open(file_name, O_RDONLY)) == -1)
-	{
-		printf("check");
 		ft_error(set, errno);
-	}
 	if ((read_file(set, fd, &file)) < 1)
 		ft_error(set, ERR_READ_FILE);
 	parse_file(file, set);
@@ -122,13 +116,6 @@ void			ft_parser(char *file_name, t_set *set)
 			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col,
 			  set->skin.sprite_ski);
 	DEBUG printf("\nMAP:\n");
-//	char **p = set->map.c_map;
-//	while(*p != NULL)
-//	{
-//		DEBUG printf("[%s]\n", *p);
-//		p++;
-//	}
-
 	DEBUG printf("I want to free: '%s'\n", file);
 	close(fd);
 	ft_free(&file);

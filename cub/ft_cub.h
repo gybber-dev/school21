@@ -10,13 +10,13 @@
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
 # include <math.h>
-# include "minilibx_opengl_20191021/mlx.h"
 
+
+# ifdef __linux__
+#  include "libmlx/mlx.h"
 /*
 ** KEYCODES:
 */
-
-# ifdef __linux__
 #  define OS "LINUX"
 #  define ESC 65307
 #  define W 119
@@ -32,6 +32,7 @@
 #  define LMOUSE none
 #  define RMOUSE none
 # else
+#  include "minilibx_opengl_20191021/mlx.h"
 #  define OS "MAC"
 #  define ESC 53
 #  define W 13
@@ -71,9 +72,9 @@
 # define HOR_SIT 2.1
 # define HOR 2
 # define HOR_JUMP 1.5
-# define ANGLE_STEP 0.1
+# define ANGLE_STEP 0.05
 # define ZERO_VAL 0.0001
-# define RAY_STEP 3
+# define PLANE_W 0.6
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1011
@@ -243,4 +244,5 @@ t_fpix				v_sum_num(t_fpix src, double x, double y);
 t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
+void				auto_clear(t_set *set);
 #endif

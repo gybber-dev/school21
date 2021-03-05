@@ -1,31 +1,5 @@
 #include "../ft_cub.h"
 
-//void    ft_init_images(t_data *img)
-//{
-//	if (!(img->images[0].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.north, &img->images[0].texturewidth, &img->images[0].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.north);
-//	if (!(img->images[1].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.south, &img->images[1].texturewidth, &img->images[1].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.south);
-//	if (!(img->images[2].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.west, &img->images[2].texturewidth, &img->images[2].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.west);
-//	if (!(img->images[3].img = mlx_xpm_file_to_image(img->mlx,
-//													 img->textures.east, &img->images[3].texturewidth, &img->images[3].textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	free(img->textures.east);
-//	if (!(img->sprite.img = mlx_xpm_file_to_image(img->mlx,
-//												  img->textures.sprite, &img->sprite.texturewidth, extures.south&img->sprite.textureheight)))
-//		ft_error(img, "Some troubles with xpm file");
-//	ft_init_images_continue(img);
-//}
-
-
-
 void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 {
 	char		*dst;
@@ -78,21 +52,19 @@ static void		init_player_pos(t_set *set)
 			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
 			{
 				if ((*p)[i] == 'W')
-					if ((set->player.plane.y = -0.66))
+					if ((set->player.plane.y = -PLANE_W))
 						set->player.dir.x = -1;
 				if ((*p)[i] == 'N')
-					if ((set->player.plane.x = 0.66))
+					if ((set->player.plane.x = PLANE_W))
 						set->player.dir.y = -1;
 				if ((*p)[i] == 'S')
-					if ((set->player.plane.x = -0.66))
+					if ((set->player.plane.x = -PLANE_W))
 						set->player.dir.y = 1;
 				if ((*p)[i] == 'E')
-					if ((set->player.plane.y = 0.66))
+					if ((set->player.plane.y = PLANE_W))
 						set->player.dir.x = 1;
 				set->player.pos.x = i + 0.3;
 				set->player.pos.y += 0.3;
-				set->player.pos.x = 2.25;
-				set->player.pos.x = 3.5;
 				(*p)[i] = '0';
 				return ;
 			}

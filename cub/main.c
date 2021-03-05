@@ -2,6 +2,11 @@
 #include <string.h>
 //#include "minilibx_opengl_20191021/mlx.h"
 
+void				auto_clear(t_set *set)
+{
+
+}
+
 static void				init_set(t_set *set)
 {
 	set->map.c_map = NULL;

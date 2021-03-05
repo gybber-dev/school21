@@ -25,7 +25,7 @@ void		ft_error(t_set *set, int code)
 			ft_putstr_fd("Not a valid head. Check path", 1);
 		else
 			ft_putstr_fd(strerror(code), 1);
-//		auto_clear(all);
+		auto_clear(set);
 		exit(EXIT_FAILURE);
 	}
 }
