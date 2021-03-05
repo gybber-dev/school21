@@ -30,9 +30,6 @@ void				screen_image(t_set *set)
 	int				fd;
 	int				i;
 
-	t_pix screen;
-	mlx_get_screen_size(set->win.mlx, &screen.x, &screen.y);
-	DEBUG printf("DISPLAY: %dx%d\n", screen.x, screen.y);
 	file_name = "screen.bmp";
 	fd = open (file_name, O_RDWR | O_CREAT | O_TRUNC, 0666);
 	if (fd < 0) {

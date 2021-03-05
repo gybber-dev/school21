@@ -1,12 +1,12 @@
-R 640 480
+R 6400 4800
 
-NO ../textures/bricks00.xpm
+NO ../textures/bricks.xpm
 SO ../textures/planks.xpm
 WE ../textures/sand.xpm
 EA ../textures/woolsnow.xpm
 S ../textures/barrel.xpm
-F 220,100,0
-C 225,30,0
+F 220,  100,    33
+C    225    ,30   ,0
 012345678
 1111111111111111111111111111111111
 12200000000000000000000000000000001

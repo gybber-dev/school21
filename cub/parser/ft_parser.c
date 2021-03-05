@@ -14,92 +14,81 @@ static char			*parse_path(t_set *set, char *str)
 	return (file);
 }
 
-static int 			parse_rgb(char *str)
+void			parse_resolution(t_set *set, char *line)
+{
+	if (set->win.img1.res.x != 0 || set->win.img1.res.y != 0)
+		ft_error(set, NOT_VALID_HEAD_1);
+	while(*line == ' ')
+		line++;
+	if (ft_isdigit(*line))
+		set->win.img1.res.x = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	while(*line == ' ' || *line == ',')
+		line++;
+	if (ft_isdigit(*line))
+		set->win.img1.res.y = ft_atoi(line);
+	while(ft_isdigit(*line))
+		line++;
+	while(*line == ' ' || *line == ',')
+		line++;
+	if (*line != 0 ||
+		set->win.img1.res.x == 0 || set->win.img1.res.y == 0)
+		ft_error(set, NOT_VALID_HEAD_2);
+}
+
+void				parse_rgb(t_set *set, char *line, int *param)
 {
 	int				r;
 	int				g;
 	int				b;
-	char			*err_flag;
 
-	DEBUG printf("RGB_PARSING: '%s'\n", str);
-	r = ft_atoi(str);
-	if (!(err_flag = reg_pass_string("\\d,", str)))
-		return (-1);
-	g = ft_atoi(err_flag);
-	if (!(err_flag = reg_pass_string("\\d,\\d,", str)))
-		return (-1);
-	b = ft_atoi(err_flag);
-	return (create_trgb(0, r, g, b));
+	if (*param != -1)
+		ft_error(set, NOT_VALID_HEAD_1);
+	while(*line == ' ')
+		line++;
+	if (ft_isdigit(*line))
+		r = ft_atoi(line);
+	while (ft_isdigit(*line))
+		line++;
+	while(*line == ' ' || *line == ',')
+		line++;
+	if (ft_isdigit(*line))
+		g = ft_atoi(line);
+	while(ft_isdigit(*line))
+		line++;
+	while(*line == ' ' || *line == ',')
+		line++;
+	if (ft_isdigit(*line))
+		b = ft_atoi(line);
+	while(ft_isdigit(*line))
+		line++;
+	while(*line == ' ' || *line == ',')
+		line++;
+	if (*line != 0 || r < 0 || g < 0 || b < 0
+			|| r > 255 || b > 255 || g > 255)
+		ft_error(set, NOT_VALID_HEAD_2);
+	*param = create_trgb(0, r, g, b);
 }
-
 
 static int			ft_parse_head(char *line, t_set *set)
 {
 	if (*line == 'R' && *(line + 1) == ' ')
-		parse_resolution(set, line);
+		parse_resolution(set, line + 2);
 	if (*line == 'N' && *(line + 1) == 'O')
-		if ((set->skin.no_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
+		set->skin.no_ski = parse_path(set, line + 2);
 	if (*line == 'S' && *(line + 1) == 'O')
-		if ((set->skin.so_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
+		set->skin.so_ski = parse_path(set, line + 2);
 	if (*line == 'W' && *(line + 1) == 'E')
-		if ((set->skin.we_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
-	if (*line == 'E' && *(line + 1) == 'A') {
-		if ((set->skin.ea_ski = parse_path(set, line + 2)) == NULL) {
-			ft_error(set, errno);
-		}
-	}
+		set->skin.we_ski = parse_path(set, line + 2);
+	if (*line == 'E' && *(line + 1) == 'A')
+		set->skin.ea_ski = parse_path(set, line + 2);
 	if (*line == 'S' && *(line + 1) == ' ')
-		if ((set->skin.sprite_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
+		set->skin.sprite_ski = parse_path(set, line + 2);
 	if (*line == 'F' && *(line + 1) == ' ')
-		if ((set->skin.fl_col = parse_rgb(line + 1)) == -1)
-			ft_error(set, NOT_VALID_HEAD_0);
+		parse_rgb(set, line + 2, &set->skin.fl_col);
 	if (*line == 'C' && *(line + 1) == ' ')
-		if ((set->skin.ce_col = parse_rgb(line + 1)) == -1)
-			ft_error(set, NOT_VALID_HEAD_0);
-	return (1);
-}
-
-
-
-
-static int			ft_parse_head0(char *line, t_set *set)
-{
-	if (*line == 'R' && *(line + 1) == ' ')
-	{
-		if (!ft_strchr(line, ' ') || !reg_pass_string(" \\d", line))
-			ft_error(set, NOT_VALID_HEAD_0);
-		set->win.img1.res.x = ft_atoi(ft_strchr(line, ' '));
-		set->win.img1.res.y = ft_atoi(reg_pass_string(" \\d", line));
-	}
-	if (*line == 'N' && *(line + 1) == 'O')
-		if ((set->skin.no_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
-	if (*line == 'S' && *(line + 1) == 'O')
-		if ((set->skin.so_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
-	if (*line == 'W' && *(line + 1) == 'E') {
-		if ((set->skin.we_ski = parse_path(set, line + 2)) == NULL) {
-			ft_error(set, errno);
-		}
-	}
-	if (*line == 'E' && *(line + 1) == 'A') {
-		if ((set->skin.ea_ski = parse_path(set, line + 2)) == NULL) {
-			ft_error(set, errno);
-		}
-	}
-	if (*line == 'S' && *(line + 1) == ' ')
-		if ((set->skin.sprite_ski = parse_path(set, line + 2)) == NULL)
-			ft_error(set, errno);
-	if (*line == 'F' && *(line + 1) == ' ')
-		if ((set->skin.fl_col = parse_rgb(line + 1)) == -1)
-			ft_error(set, NOT_VALID_HEAD_0);
-	if (*line == 'C' && *(line + 1) == ' ')
-		if ((set->skin.ce_col = parse_rgb(line + 1)) == -1)
-			ft_error(set, NOT_VALID_HEAD_0);
+		parse_rgb(set, line + 2, &set->skin.ce_col);
 	return (1);
 }
 
@@ -125,7 +114,6 @@ void 			parse_file(char *line, t_set *set)
 		line = (p)? p + 1 : NULL;
 	}
 }
-
 
 void			ft_parser(char *file_name, t_set *set)
 {

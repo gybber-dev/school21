@@ -75,9 +75,27 @@ static void		init_player_pos(t_set *set)
 	}
 }
 
+static void		check_display_resolution(t_set *set, t_pix *res)
+{
+	t_pix		display;
+
+	if (!ft_strncmp(OS, "MAC", 3))
+	{
+		display.x = 2560;
+		display.y = 1440;
+	}
+	if (!ft_strncmp(OS, "LINUX", 5))
+		mlx_get_screen_size(set->win.mlx, &display.x, &display.y);
+	if (display.x < res->x)
+		res->x = display.x;
+	if (display.x < res->y)
+		res->y = display.y;
+}
+
 void			run_game(t_set *set)
 {
 	set->win.mlx = mlx_init();
+	check_display_resolution(set, &set->win.img1.res);
 	set->win.win = mlx_new_window(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y, "cub3D");
 	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
 	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
