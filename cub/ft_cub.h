@@ -72,14 +72,15 @@
 # define HOR_SIT 2.1
 # define HOR 2
 # define HOR_JUMP 1.5
-# define ANGLE_STEP 0.05
+# define ANGLE_STEP 0.02
 # define ZERO_VAL 0.0001
-# define PLANE_W 0.6
+# define PLANE_W 0.7
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define NOT_VALID_HEAD_0 1010
 # define NOT_VALID_HEAD_1 1011
 # define NOT_VALID_HEAD_2 1012
+# define NOT_VALID_LINE 1013
 # define NOT_VALID_TEXTURE 1021
 # define PARALLEL_VECTORS_NOT_CROSS 1022
 
@@ -219,6 +220,7 @@ typedef struct		s_set
 	t_sl			*sl;
 	int				save;
 	char			*tmp;
+	int				os;
 }					t_set;
 
 void 				ft_parser(char *file_name, t_set *set);
@@ -251,4 +253,5 @@ t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
+int					finish_programm(t_set *set);
 #endif

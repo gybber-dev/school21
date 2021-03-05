@@ -79,12 +79,12 @@ static void		check_display_resolution(t_set *set, t_pix *res)
 {
 	t_pix		display;
 
-	if (!ft_strncmp(OS, "MAC", 3))
+	if (set->os == 2)
 	{
 		display.x = 2560;
 		display.y = 1440;
 	}
-	if (!ft_strncmp(OS, "LINUX", 5))
+	if (set->os == 1)
 		mlx_get_screen_size(set->win.mlx, &display.x, &display.y);
 	if (display.x < res->x)
 		res->x = display.x;
@@ -107,6 +107,10 @@ void			run_game(t_set *set)
 	}
 	display_img(set);
 	mlx_hook(set->win.win, 2, 1L<<0, key_hook_press, set);
+	if (set->os == 1)
+		mlx_hook(set->win.win, 33, 1L<<0, finish_programm, set);
+	if (set->os == 2)
+		mlx_hook(set->win.win, 17, 1L<<0, finish_programm, set);
 	mlx_loop_hook(set->win.mlx, display_img, set);
 	mlx_hook(set->win.win, 3, 1L<<1, key_hook_up, set);
 	mlx_loop(set->win.mlx);

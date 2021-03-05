@@ -1,6 +1,12 @@
 #include "ft_cub.h"
 #include <string.h>
-//#include "minilibx_opengl_20191021/mlx.h"
+
+int					finish_programm(t_set *set)
+{
+	DEBUG printf("You exit the game. See you...\n");
+	auto_clear(set);
+	exit(EXIT_SUCCESS);
+}
 
 void				auto_clear(t_set *set)
 {
@@ -29,6 +35,8 @@ static void				init_set(t_set *set)
 	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
+	set->os = (!ft_strncmp(OS, "MAC", 3)) ? 2 : 1;
+
 }
 
 int			main(int argc, char **argv)

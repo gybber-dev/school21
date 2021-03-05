@@ -75,20 +75,24 @@ static int			ft_parse_head(char *line, t_set *set)
 {
 	if (*line == 'R' && *(line + 1) == ' ')
 		parse_resolution(set, line + 2);
-	if (*line == 'N' && *(line + 1) == 'O')
+	else if (*line == 'N' && *(line + 1) == 'O')
 		set->skin.no_ski = parse_path(set, line + 2);
-	if (*line == 'S' && *(line + 1) == 'O')
+	else if (*line == 'S' && *(line + 1) == 'O')
 		set->skin.so_ski = parse_path(set, line + 2);
-	if (*line == 'W' && *(line + 1) == 'E')
+	else if (*line == 'W' && *(line + 1) == 'E')
 		set->skin.we_ski = parse_path(set, line + 2);
-	if (*line == 'E' && *(line + 1) == 'A')
+	else if (*line == 'E' && *(line + 1) == 'A')
 		set->skin.ea_ski = parse_path(set, line + 2);
-	if (*line == 'S' && *(line + 1) == ' ')
+	else if (*line == 'S' && *(line + 1) == ' ')
 		set->skin.sprite_ski = parse_path(set, line + 2);
-	if (*line == 'F' && *(line + 1) == ' ')
+	else if (*line == 'F' && *(line + 1) == ' ')
 		parse_rgb(set, line + 2, &set->skin.fl_col);
-	if (*line == 'C' && *(line + 1) == ' ')
+	else if (*line == 'C' && *(line + 1) == ' ')
 		parse_rgb(set, line + 2, &set->skin.ce_col);
+	else if (*line == '\0')
+		;
+	else
+		ft_error(set, NOT_VALID_LINE);
 	return (1);
 }
 

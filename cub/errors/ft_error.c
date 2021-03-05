@@ -11,6 +11,7 @@ void				ft_error(t_set *set, int code)
 		{NOT_VALID_HEAD_0, "Not a valid head. Check path"},
 		{NOT_VALID_HEAD_1, "Not a valid head. Double definition of element"},
 		{NOT_VALID_HEAD_2, "Not a valid head. Incorrect format of data"},
+		{NOT_VALID_LINE, "Not a valid string"},
 		{0, NULL}
 	};
 	i = 0;

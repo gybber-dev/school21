@@ -32,10 +32,7 @@ int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
 	if (keycode == ESC)
-	{
-		auto_clear(set);
-		exit(EXIT_SUCCESS);
-	}
+		finish_programm(set);
 	if (keycode == W || keycode == UP)
 		set->player.move |= 1 << W_BIT;
 	if (keycode == S || keycode == DOWN)
