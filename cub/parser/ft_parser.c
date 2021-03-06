@@ -103,11 +103,11 @@ void 			parse_file(char *line, t_set *set)
 	p = NULL;
 	while(line && *line)
 	{
-		if (is_map(line) && !set->map.c_map)
+		if (ft_isdigit(*line) && !set->map.c_map)
 			set_mem_for_map(line, set);
 		if ((p = ft_strchr(line, '\n')))
 			*p = '\0';
-		if(is_map(line))
+		if(ft_isdigit(*line))
 			ft_parse_map(line, set);
 		else
 		{

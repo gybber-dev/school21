@@ -77,6 +77,8 @@
 # define PLANE_W 0.7
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
+# define ERR_FEW_DATA 1002
+
 # define NOT_VALID_HEAD_0 1010
 # define NOT_VALID_HEAD_1 1011
 # define NOT_VALID_HEAD_2 1012
@@ -187,15 +189,13 @@ typedef struct		s_skin
 	char			*so_ski;
 	char			*we_ski;
 	char			*ea_ski;
-	char			*fl_ski;
-	char			*ce_ski;
 	char			*sprite_ski;
 }					t_skin;
 
 typedef struct		s_map
 {
 	char			**c_map;
-	int				ismalloced;
+	int				lines;
 	int				isparsed;
 }					t_map;
 
@@ -212,7 +212,6 @@ typedef struct		s_player
 
 typedef struct		s_set
 {
-	int				contents;
 	t_win			win;
 	t_skin			skin;
 	t_map			map;
@@ -235,7 +234,6 @@ int					get_g(int trgb);
 int					get_r(int trgb);
 int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
-int					is_map(char *str);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 int					display_img(t_set *set);
 void				draw_map(t_set *set);

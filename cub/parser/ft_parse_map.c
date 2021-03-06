@@ -1,19 +1,5 @@
 #include "../ft_cub.h"
 
-
-int				is_map(char *str)
-{
-	if (!*str || *str == '\n')
-		return (0);
-	while (*str != 0 && *str != '\n')
-	{
-		if (!ft_strchr(MAP_SYMBOLS, *str))
-			return (0);
-		str++;
-	}
-	return (1);
-}
-
 /*
 ** Counts the number of '\n' (lines) and mallocs (lines + 2)
 ** for the last line and NULL-terminator
@@ -36,8 +22,8 @@ void			set_mem_for_map(char *str, t_set *set)
 	if (!(set->map.c_map = (char**)malloc(sizeof(char *) * (lines))))
 		ft_error(set, errno);
 	*(set->map.c_map) = NULL;
+	set->map.lines = lines - 1;
 }
-
 
 void			ft_parse_map(char *line, t_set *set)
 {
