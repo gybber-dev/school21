@@ -10,13 +10,13 @@
 # include <errno.h> // for errno
 # include <stdlib.h> // for exit
 # include <math.h>
-# include "minilibx_opengl_20191021/mlx.h"
 
+
+# ifdef __linux__
+#  include "libmlx/mlx.h"
 /*
 ** KEYCODES:
 */
-
-# ifdef __linux__
 #  define OS "LINUX"
 #  define ESC 65307
 #  define W 119
@@ -32,6 +32,7 @@
 #  define LMOUSE none
 #  define RMOUSE none
 # else
+#  include "minilibx_opengl_20191021/mlx.h"
 #  define OS "MAC"
 #  define ESC 53
 #  define W 13
@@ -67,15 +68,21 @@
 */
 
 # define SCALE 30
-# define STEP 0.05
+# define STEP 0.5
 # define HOR_SIT 2.1
 # define HOR 2
 # define HOR_JUMP 1.5
-# define ANGLE_STEP 0.1
-# define RAY_STEP 3
+# define ANGLE_STEP 0.02
+# define ZERO_VAL 0.0001
+# define PLANE_W 0.7
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
-# define NOT_VALID_HEAD_0 1011
+# define ERR_FEW_DATA 1002
+
+# define NOT_VALID_HEAD_0 1010
+# define NOT_VALID_HEAD_1 1011
+# define NOT_VALID_HEAD_2 1012
+# define NOT_VALID_LINE 1013
 # define NOT_VALID_TEXTURE 1021
 # define PARALLEL_VECTORS_NOT_CROSS 1022
 
@@ -169,7 +176,6 @@ typedef struct		s_win
 	void			*mlx;
 	void			*win;
 	t_img			img1;
-	t_img			img;
 	t_img 			skins[5];
 }					t_win;
 
@@ -182,15 +188,14 @@ typedef struct		s_skin
 	char			*so_ski;
 	char			*we_ski;
 	char			*ea_ski;
-	char			*fl_ski;
-	char			*ce_ski;
 	char			*sprite_ski;
 }					t_skin;
 
 typedef struct		s_map
 {
 	char			**c_map;
-	int				ismalloced;
+	int				lines;
+	int				isparsed;
 }					t_map;
 
 
@@ -212,10 +217,13 @@ typedef struct		s_set
 	t_player		player;
 	t_sl			*sl;
 	int				save;
+	char			*tmp;
+	int				os;
 }					t_set;
 
 void 				ft_parser(char *file_name, t_set *set);
 void				ft_parse_map(char *line, t_set *set);
+void				parse_resolution(t_set *set, char *line);
 void				set_mem_for_map(char *str, t_set *set);
 int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);
@@ -225,7 +233,6 @@ int					get_g(int trgb);
 int					get_r(int trgb);
 int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
-int					is_map(char *str);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 int					display_img(t_set *set);
 void				draw_map(t_set *set);
@@ -241,4 +248,7 @@ t_fpix				v_sub(t_fpix v1, t_fpix v2);
 t_fpix				v_sum_num(t_fpix src, double x, double y);
 t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
+void				screen_image(t_set *set);
+void				auto_clear(t_set *set);
+int					finish_programm(t_set *set);
 #endif

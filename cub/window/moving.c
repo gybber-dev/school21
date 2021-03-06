@@ -21,15 +21,6 @@ int				key_hook_up(int keycode, t_set *set)
 		set->player.move &= ~(1 << RIGHT_BIT);
 	if (keycode == C)
 		set->player.move &= ~(1 << C_BIT);
-//	update_pos(set);
-//
-//	mlx_destroy_image(set->win.mlx, set->win.img1.img);
-//	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
-//	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
-//										   &set->win.img1.len, &set->win.img1.endian);
-//	draw_map(set);
-//	set_player(set);
-//	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
 	return (1);
 }
 
@@ -40,6 +31,8 @@ int				key_hook_up(int keycode, t_set *set)
 int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
+	if (keycode == ESC)
+		finish_programm(set);
 	if (keycode == W || keycode == UP)
 		set->player.move |= 1 << W_BIT;
 	if (keycode == S || keycode == DOWN)

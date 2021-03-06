@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/yeschall/Desktop/Projects/GitHub/cub/main.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/main.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/binary_utils.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/binary_utils.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_file.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o"
+  "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_map.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parser.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parser.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_validator.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"
@@ -15,6 +16,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/yeschall/Desktop/Projects/GitHub/cub/window/map.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/map.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/window/moving.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/moving.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/player.c.o"
+  "/Users/yeschall/Desktop/Projects/GitHub/cub/window/screenshot.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/screenshot.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/window/vector_utils.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/vector_utils.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/window/window.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/window/window.c.o"
   )

@@ -4,7 +4,6 @@ int				read_file(t_set *set, int fd, char **file)
 {
 	int			bytes;
 	char		buf[501];
-	char		*tmp;
 	int			res;
 
 	res = 0;
@@ -13,10 +12,10 @@ int				read_file(t_set *set, int fd, char **file)
 	while ((bytes = read(fd, buf, 500)) > 0)
 	{
 		buf[bytes] = '\0';
-		tmp = *file;
-		*file = ft_strjoin(*file, buf);
-		!(*file) ? ft_error(set, errno) : 0;
-		ft_free(&tmp);
+		set->tmp = *file;
+		if (!(*file = ft_strjoin(*file, buf)))
+			ft_error(set, errno);
+		ft_free(&set->tmp);
 		res += bytes;
 	}
 	return(res);

@@ -7,6 +7,7 @@ SRCS	= \
 			parser/ft_parse_file.c \
 			parser/binary_utils.c \
 			parser/ft_parse_map.c \
+			parser/ft_parse_head.c \
 			parser/ft_validator.c \
 			main.c \
 			window/window.c \
@@ -14,6 +15,7 @@ SRCS	= \
 			window/map.c \
 			window/moving.c \
 			window/vector_utils.c \
+			window/screenshot.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)

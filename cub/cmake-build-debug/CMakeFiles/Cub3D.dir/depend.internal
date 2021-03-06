@@ -6,12 +6,14 @@ CMakeFiles/Cub3D.dir/errors/ft_error.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/errors/ft_error.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/main.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/main.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
@@ -21,13 +23,23 @@ CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_file.c
+ /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
+ /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
 CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_map.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
@@ -35,6 +47,7 @@ CMakeFiles/Cub3D.dir/parser/ft_parser.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parser.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
@@ -42,6 +55,7 @@ CMakeFiles/Cub3D.dir/parser/ft_validator.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_validator.c
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
@@ -53,6 +67,7 @@ CMakeFiles/Cub3D.dir/window/map.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/window/map.c
@@ -60,6 +75,7 @@ CMakeFiles/Cub3D.dir/window/moving.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/window/moving.c
@@ -67,13 +83,23 @@ CMakeFiles/Cub3D.dir/window/player.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c
+CMakeFiles/Cub3D.dir/window/screenshot.c.o
+ /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/window/screenshot.c
 CMakeFiles/Cub3D.dir/window/vector_utils.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/window/vector_utils.c
@@ -81,6 +107,7 @@ CMakeFiles/Cub3D.dir/window/window.c.o
  /Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
  /Users/yeschall/Desktop/Projects/GitHub/cub/window/window.c

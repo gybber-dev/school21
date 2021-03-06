@@ -287,6 +287,9 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_file.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_map.c">
 			<Option target="Cub3D"/>
 		</Unit>
@@ -309,6 +312,9 @@
 			<Option target="Cub3D"/>
 		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c">
+			<Option target="Cub3D"/>
+		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/screenshot.c">
 			<Option target="Cub3D"/>
 		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/vector_utils.c">

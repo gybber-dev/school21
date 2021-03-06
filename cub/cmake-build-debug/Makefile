@@ -264,6 +264,33 @@ parser/ft_parse_file.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.s
 .PHONY : parser/ft_parse_file.c.s
 
+parser/ft_parse_head.o: parser/ft_parse_head.c.o
+
+.PHONY : parser/ft_parse_head.o
+
+# target to build an object file
+parser/ft_parse_head.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
+.PHONY : parser/ft_parse_head.c.o
+
+parser/ft_parse_head.i: parser/ft_parse_head.c.i
+
+.PHONY : parser/ft_parse_head.i
+
+# target to preprocess a source file
+parser/ft_parse_head.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.i
+.PHONY : parser/ft_parse_head.c.i
+
+parser/ft_parse_head.s: parser/ft_parse_head.c.s
+
+.PHONY : parser/ft_parse_head.s
+
+# target to generate assembly for a file
+parser/ft_parse_head.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.s
+.PHONY : parser/ft_parse_head.c.s
+
 parser/ft_parse_map.o: parser/ft_parse_map.c.o
 
 .PHONY : parser/ft_parse_map.o
@@ -453,6 +480,33 @@ window/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.s
 .PHONY : window/player.c.s
 
+window/screenshot.o: window/screenshot.c.o
+
+.PHONY : window/screenshot.o
+
+# target to build an object file
+window/screenshot.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.o
+.PHONY : window/screenshot.c.o
+
+window/screenshot.i: window/screenshot.c.i
+
+.PHONY : window/screenshot.i
+
+# target to preprocess a source file
+window/screenshot.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.i
+.PHONY : window/screenshot.c.i
+
+window/screenshot.s: window/screenshot.c.s
+
+.PHONY : window/screenshot.s
+
+# target to generate assembly for a file
+window/screenshot.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.s
+.PHONY : window/screenshot.c.s
+
 window/vector_utils.o: window/vector_utils.c.o
 
 .PHONY : window/vector_utils.o
@@ -529,6 +583,9 @@ help:
 	@echo "... parser/ft_parse_file.o"
 	@echo "... parser/ft_parse_file.i"
 	@echo "... parser/ft_parse_file.s"
+	@echo "... parser/ft_parse_head.o"
+	@echo "... parser/ft_parse_head.i"
+	@echo "... parser/ft_parse_head.s"
 	@echo "... parser/ft_parse_map.o"
 	@echo "... parser/ft_parse_map.i"
 	@echo "... parser/ft_parse_map.s"
@@ -550,6 +607,9 @@ help:
 	@echo "... window/player.o"
 	@echo "... window/player.i"
 	@echo "... window/player.s"
+	@echo "... window/screenshot.o"
+	@echo "... window/screenshot.i"
+	@echo "... window/screenshot.s"
 	@echo "... window/vector_utils.o"
 	@echo "... window/vector_utils.i"
 	@echo "... window/vector_utils.s"

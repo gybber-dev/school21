@@ -92,6 +92,7 @@ void				draw_sprite(t_set *set, t_spr *sprite)
 	t_fpix			wall;
 	int				color;
 
+	printf("player pos: %.4f; %.4f\n", set->player.pos.x, set->player.pos.y);
 	h = sprite->height;
 	sprite->end.y = (double)set->win.img1.res.y / set->player.hor + h / 2;
 	if (sprite->pos.y == 2.5)
@@ -225,6 +226,8 @@ void			add_sprite1(t_set *set, t_ray *ray, t_pix map)
 	ns->sprite.xlim = v_set(ray->x, ray->x);
 	ns->sprite.proj_c = prj_to_vec(set->player.plane, set->player.dir,
 			set->player.pos, ns->sprite.pos);
+	if (fabs(ns->sprite.proj_c.y) < ZERO_VAL)
+		ns->sprite.proj_c.y = ZERO_VAL;
 	ns->sprite.dist = v_dist(set->player.pos, ns->sprite.pos);
 	ns->sprite.perp = fabs(ns->sprite.proj_c.y);
 	ns->sprite.height = (double)set->win.img1.res.y / ns->sprite.perp;
@@ -250,8 +253,10 @@ void				draw_strip(t_set *set, t_ray *ray)
 	double			k;
 	int				y;
 
-//	(ray->perp <= 0.00001) ? ray->perp = 0.1 : 0;
-	h = (double)set->win.img1.res.y / ray->perp;
+	if (ray->perp <= 0.00001)
+		h = 300 * set->win.img1.res.y;
+	else
+		h = (double)set->win.img1.res.y / ray->perp;
 	strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
 	strip.y = (int)((double)set->win.img1.res.y / set->player.hor + h / 2);
 	wall.x = (ray->side % 2) ?
@@ -338,7 +343,6 @@ void				 drop_rays(t_set *set)
 		ray.perp = ray.dist * v_mult(ray.dir, set->player.dir)/v_len(set->player.dir) / v_len(ray.dir);
 		draw_strip(set, &ray);
 		ray.x++;
-		printf("check1\n");
 	}
 	draw_sprites(set);
 }
@@ -352,6 +356,8 @@ int				display_img(t_set *set)
 				&set->win.img1.len, &set->win.img1.endian);
 	draw_map(set);
 	drop_rays(set);
+	if (set->save == 1)
+		screen_image(set);
 	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
 	return (0);
 }
