@@ -1,0 +1,15 @@
+R 6400 4800
+
+NO      ../textures/1.xpm
+SO ../textures/planks.xpm
+WE ../textures/sand.xpm
+EA ../textures/woolsnow.xpm
+S ../textures/barrel.xpm
+F 220,  100,    33
+C    225    ,30   ,0
+
+11111111
+12200001
+1000001
+120N2221
+11111111

@@ -78,6 +78,7 @@
 # define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
+# define ERR_PLAYERS 1003
 
 # define NOT_VALID_HEAD_0 1010
 # define NOT_VALID_HEAD_1 1011
@@ -195,6 +196,8 @@ typedef struct		s_map
 {
 	char			**c_map;
 	int				lines;
+	int				player_counter;
+	char			player_dir;
 	int				isparsed;
 }					t_map;
 
