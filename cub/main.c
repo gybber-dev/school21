@@ -1,7 +1,7 @@
 #include "ft_cub.h"
 #include <string.h>
 
-int					finish_programm(t_set *set)
+int					finish_program(t_set *set)
 {
 	DEBUG printf("You exit the game. See you...\n");
 	auto_clear(set);

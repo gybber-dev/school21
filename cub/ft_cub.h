@@ -251,5 +251,5 @@ t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
-int					finish_programm(t_set *set);
+int					finish_program(t_set *set);
 #endif
