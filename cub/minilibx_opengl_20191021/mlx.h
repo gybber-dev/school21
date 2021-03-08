@@ -46,7 +46,7 @@
 
 #define	MLX_H
 
-
+void    mlx_get_screen_size(void *mlx, int *width, int *height);
 void	*mlx_init();
 /*
 **  needed before everything else.

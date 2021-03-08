@@ -38,41 +38,28 @@ static void		init_textures(t_set *set)
 
 static void		init_player_pos(t_set *set)
 {
-	char		**p;
-	int			i;
-
-	DEBUG printf("Find player\n");
-	p = set->map.c_map;
-	set->player.pos.y = 0;
-	while(*p != NULL && i >= 0)
+	if (set->map.player_dir == 'W')
 	{
-		i = 0;
-		while ((*p)[i] != 0)
-		{
-			if ((*p)[i] == 'W' || (*p)[i] == 'N' || (*p)[i] == 'S' || (*p)[i] == 'E')
-			{
-				if ((*p)[i] == 'W')
-					if ((set->player.plane.y = -PLANE_W))
-						set->player.dir.x = -1;
-				if ((*p)[i] == 'N')
-					if ((set->player.plane.x = PLANE_W))
-						set->player.dir.y = -1;
-				if ((*p)[i] == 'S')
-					if ((set->player.plane.x = -PLANE_W))
-						set->player.dir.y = 1;
-				if ((*p)[i] == 'E')
-					if ((set->player.plane.y = PLANE_W))
-						set->player.dir.x = 1;
-				set->player.pos.x = i + 0.3;
-				set->player.pos.y += 0.3;
-				(*p)[i] = '0';
-				return ;
-			}
-			i++;
-		}
-		p++;
-		set->player.pos.y += 1;
+		set->player.plane.y = -PLANE_W;
+		set->player.dir.x = -1;
 	}
+	if (set->map.player_dir == 'N')
+	{
+		set->player.plane.x = PLANE_W;
+		set->player.dir.y = -1;
+	}
+	if (set->map.player_dir == 'S')
+	{
+		set->player.plane.x = -PLANE_W;
+		set->player.dir.y = 1;
+	}
+	if (set->map.player_dir == 'E')
+	{
+		set->player.plane.y = PLANE_W;
+		set->player.dir.x = 1;
+	}
+	set->player.pos.x = set->map.pos.x + 0.3;
+	set->player.pos.y = set->map.pos.y + 0.3;
 }
 
 static void		check_display_resolution(t_set *set, t_pix *res)
@@ -80,10 +67,7 @@ static void		check_display_resolution(t_set *set, t_pix *res)
 	t_pix		display;
 
 	if (set->os == 2)
-	{
-		display.x = 2560;
-		display.y = 1440;
-	}
+		mlx_get_screen_size(set->win.mlx, &display.x, &display.y);
 	if (set->os == 1)
 		mlx_get_screen_size(set->win.mlx, &display.x, &display.y);
 	if (display.x < res->x)

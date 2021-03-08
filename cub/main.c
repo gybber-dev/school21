@@ -18,6 +18,8 @@ static void				init_set(t_set *set)
 	set->tmp = NULL;
 	set->map.c_map = NULL;
 	set->map.isparsed = 0;
+	set->map.player_counter = 0;
+	set->map.player_dir = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
 	set->skin.fl_col = -1;

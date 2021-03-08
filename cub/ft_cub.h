@@ -68,22 +68,22 @@
 */
 
 # define SCALE 30
-# define STEP 0.05
+# define STEP 0.2
 # define HOR_SIT 2.1
 # define HOR 2
-# define HOR_JUMP 1.5
 # define ANGLE_STEP 0.02
 # define ZERO_VAL 0.0001
 # define PLANE_W 0.7
-# define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
+# define ERR_PLAYERS 1003
 
-# define NOT_VALID_HEAD_0 1010
-# define NOT_VALID_HEAD_1 1011
-# define NOT_VALID_HEAD_2 1012
-# define NOT_VALID_LINE 1013
-# define NOT_VALID_TEXTURE 1021
+# define ERR_HEAD_0 1010
+# define ERR_HEAD_1 1011
+# define ERR_HEAD_2 1012
+# define ERR_LINE 1013
+# define ERR_TEXTURE 1021
+# define ERR_MAP 1030
 # define PARALLEL_VECTORS_NOT_CROSS 1022
 
 # define MAP_SYMBOLS "10 2NSWE"
@@ -176,7 +176,6 @@ typedef struct		s_win
 	void			*mlx;
 	void			*win;
 	t_img			img1;
-	t_img			img;
 	t_img 			skins[5];
 }					t_win;
 
@@ -196,6 +195,9 @@ typedef struct		s_map
 {
 	char			**c_map;
 	int				lines;
+	int				player_counter;
+	char			player_dir;
+	t_fpix			pos;
 	int				isparsed;
 }					t_map;
 

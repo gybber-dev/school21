@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+/home/yeschall/Desktop/GitHub/cub/libft/ft_atoi.c
+
 /home/yeschall/Desktop/GitHub/cub/libft/ft_bzero.c
 libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
@@ -19,6 +21,16 @@ libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
 stdio.h
 -
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_isalnum.c
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_isalpha.c
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_isascii.c
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_isdigit.c
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_isprint.c
 
 /home/yeschall/Desktop/GitHub/cub/libft/ft_itoa.c
 libft.h
@@ -79,6 +91,10 @@ libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/ft_memchr.c
 libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_memcmp.c
+string.h
+-
 
 /home/yeschall/Desktop/GitHub/cub/libft/ft_memcpy.c
 libft.h
@@ -167,6 +183,10 @@ libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/ft_substr.c
 libft.h
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_tolower.c
+
+/home/yeschall/Desktop/GitHub/cub/libft/ft_toupper.c
 
 /home/yeschall/Desktop/GitHub/cub/libft/libft.h
 stdlib.h

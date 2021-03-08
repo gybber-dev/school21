@@ -17,7 +17,7 @@ static char			*parse_path(t_set *set, char *str)
 void			parse_resolution(t_set *set, char *line)
 {
 	if (set->win.img1.res.x != 0 || set->win.img1.res.y != 0)
-		ft_error(set, NOT_VALID_HEAD_1);
+		ft_error(set, ERR_HEAD_1);
 	while(*line == ' ')
 		line++;
 	if (ft_isdigit(*line))
@@ -34,7 +34,7 @@ void			parse_resolution(t_set *set, char *line)
 		line++;
 	if (*line != 0 ||
 		set->win.img1.res.x == 0 || set->win.img1.res.y == 0)
-		ft_error(set, NOT_VALID_HEAD_2);
+		ft_error(set, ERR_HEAD_2);
 }
 
 void				parse_rgb(t_set *set, char *line, int *param)
@@ -44,7 +44,7 @@ void				parse_rgb(t_set *set, char *line, int *param)
 	int				b;
 
 	if (*param != -1)
-		ft_error(set, NOT_VALID_HEAD_1);
+		ft_error(set, ERR_HEAD_1);
 	while(*line == ' ')
 		line++;
 	if (ft_isdigit(*line))
@@ -67,7 +67,7 @@ void				parse_rgb(t_set *set, char *line, int *param)
 		line++;
 	if (*line != 0 || r < 0 || g < 0 || b < 0
 			|| r > 255 || b > 255 || g > 255)
-		ft_error(set, NOT_VALID_HEAD_2);
+		ft_error(set, ERR_HEAD_2);
 	*param = create_trgb(0, r, g, b);
 }
 
@@ -92,7 +92,7 @@ static int			ft_parse_head(char *line, t_set *set)
 	else if (*line == '\0')
 		;
 	else
-		ft_error(set, NOT_VALID_LINE);
+		ft_error(set, ERR_LINE);
 	return (1);
 }
 
@@ -103,12 +103,18 @@ void 			parse_file(char *line, t_set *set)
 	p = NULL;
 	while(line && *line)
 	{
-		if (ft_isdigit(*line) && !set->map.c_map)
+		if ((*line == ' ' || ft_isdigit(*line)) && !set->map.c_map)
 			set_mem_for_map(line, set);
 		if ((p = ft_strchr(line, '\n')))
 			*p = '\0';
-		if(ft_isdigit(*line))
+		if(ft_isdigit(*line) || *line == ' ')
+		{
+			if (set->skin.ce_col == -1 || set->skin.fl_col == -1 ||
+				!set->win.img1.res.x || !set->win.img1.res.y || !set->skin.ea_ski ||
+				!set->skin.we_ski || !set->skin.so_ski || !set->skin.no_ski)
+				ft_error(set, ERR_FEW_DATA);
 			ft_parse_map(line, set);
+		}
 		else
 		{
 			if (set->map.c_map)

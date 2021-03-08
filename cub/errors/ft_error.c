@@ -8,11 +8,13 @@ void				ft_error(t_set *set, int code)
 	const t_msgs	errors[] =
 	{
 		{ERR_READ_FILE, "File reading error"},
-		{NOT_VALID_HEAD_0, "Not a valid head. Check path"},
-		{NOT_VALID_HEAD_1, "Not a valid head. Double definition of element"},
-		{NOT_VALID_HEAD_2, "Not a valid head. Incorrect format of data"},
-		{NOT_VALID_LINE, "Not a valid string"},
+		{ERR_HEAD_0, "Not a valid head. Check path"},
+		{ERR_HEAD_1, "Not a valid head. Double definition of element"},
+		{ERR_HEAD_2, "Not a valid head. Incorrect format of data"},
+		{ERR_LINE, "Not a valid string"},
 		{ERR_FEW_DATA, "There is too few data in the file"},
+		{ERR_PLAYERS, "There are too much players in the map"},
+		{ERR_MAP, "Map is not valid"},
 		{0, NULL}
 	};
 	i = 0;

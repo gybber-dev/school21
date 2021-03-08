@@ -32,7 +32,7 @@ int				key_hook_press(int keycode, t_set *set)
 {
 	DEBUG printf("[%d] key press\n", keycode);
 	if (keycode == ESC)
-		finish_programm(set);
+		finish_program(set);
 	if (keycode == W || keycode == UP)
 		set->player.move |= 1 << W_BIT;
 	if (keycode == S || keycode == DOWN)
@@ -105,7 +105,7 @@ void		update_pos(t_set *set)
 //	set->player.hor = (((set->player.move >> SPACE_BIT) & 1) &&
 //			!((set->player.move >> C_BIT))) ? HOR_JUMP : HOR;
 	printf("to map[%d][%d]\n", (int)to.y, (int)to.x);
-
+	printf("map[%d] = '%s'\n", (int)to.y, set->map.c_map[(int)to.y]);
 	if (set->map.c_map[(int)to.y][(int)to.x] == '0')
 	{
 		set->player.pos.y = to.y;
