@@ -36,7 +36,7 @@ static void			parse_resolution(t_set *set, char *line)
 	while(*line == ' ' || *line == ',')
 		line++;
 	if (*line != 0 ||
-		set->win.img1.res.x == 0 || set->win.img1.res.y == 0)
+		set->win.img1.res.x <= 0 || set->win.img1.res.y <= 0)
 		ft_error(set, ERR_HEAD_2);
 }
 

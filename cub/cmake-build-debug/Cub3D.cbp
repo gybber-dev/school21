@@ -8,322 +8,319 @@
 		<Option virtualFolders="CMake Files\;CMake Files\libft\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cub3D">
-				<Option output="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug"/>
+				<Option output="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yeschall/Desktop/Projects/GitHub/cub/."/>
+					<Add directory="/home/aizhan/Рабочий стол/azat/cub/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Cub3D/fast">
-				<Option output="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug"/>
+				<Option output="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/Cub3D" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yeschall/Desktop/Projects/GitHub/cub/."/>
+					<Add directory="/home/aizhan/Рабочий стол/azat/cub/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D/fast"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 Cub3D/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="libft">
-				<Option output="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft"/>
+				<Option output="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/libft"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yeschall/Desktop/Projects/GitHub/cub/."/>
+					<Add directory="/home/aizhan/Рабочий стол/azat/cub/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="libft/fast">
-				<Option output="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft"/>
+				<Option output="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/libft/liblibft.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/libft"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/yeschall/Desktop/Projects/GitHub/cub/."/>
+					<Add directory="/home/aizhan/Рабочий стол/azat/cub/."/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
 					<Add directory="/usr/local/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
-					<Add directory="/System/Library/Frameworks"/>
-					<Add directory="/Library/Frameworks"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft/fast"/>
-					<CompileFile command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j6 -f &quot;/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 libft/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/aizhan/Рабочий\ стол/azat/cub/cmake-build-debug/libft/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/_config.h">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/_config.h">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/errors/ft_error.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/errors/ft_error.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/ft_cub.h">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_atoi.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_atoi.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_bzero.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_bzero.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_calloc.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_calloc.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_free.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_free.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_isalnum.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_isalnum.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_isalpha.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_isalpha.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_isascii.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_isascii.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_isdigit.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_isdigit.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_isprint.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_isprint.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_itoa.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_itoa.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_itoa_hex.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_itoa_hex.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_itoa_u.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_itoa_u.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_itoa_uhex.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_itoa_uhex.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstadd_back.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstadd_back.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstadd_front.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstadd_front.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstclear.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstclear.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstdelone.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstdelone.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstiter.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstiter.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstlast.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstlast.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstmap.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstmap.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstnew.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstnew.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_lstsize.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_lstsize.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memccpy.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memccpy.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memchr.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memchr.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memcmp.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memcmp.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memcpy.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memcpy.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memmove.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memmove.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_memset.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_memset.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_putchar_fd.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_putchar_fd.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_putendl_fd.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_putendl_fd.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_putnbr_fd.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_putnbr_fd.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_putstr_fd.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_putstr_fd.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_split.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_split.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strchr.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strchr.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strdup.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strdup.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strjoin.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strjoin.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strlcat.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strlcat.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strlcpy.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strlcpy.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strlen.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strlen.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strmapi.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strmapi.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strmultiply.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strmultiply.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strncmp.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strncmp.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strnstr.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strnstr.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strrchr.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strrchr.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_strtrim.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_strtrim.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_substr.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_substr.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_tolower.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_tolower.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/ft_toupper.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/ft_toupper.c">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/libft.h">
 			<Option target="libft"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/main.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/main.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/binary_utils.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/parser/ft_parse_head.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/parser/ft_parser.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_map.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/parser/ft_validator.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parser.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/regexp/ft_regexp.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_validator.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/regexp/ft_regexp.h">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/utils0.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/map.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/map.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/moving.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/moving.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/player.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/screenshot.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/screenshot.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/vector_utils.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/vector_utils.c">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/window/window.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/window/window.c">
-			<Option target="Cub3D"/>
-		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/CMakeLists.txt">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/libft/CMakeLists.txt">
+		<Unit filename="/home/aizhan/Рабочий стол/azat/cub/libft/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\libft\"/>
 		</Unit>
 	</Project>

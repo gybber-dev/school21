@@ -10,9 +10,7 @@ add_subdirectory(./libft)
 add_executable(Cub3D
 		errors/ft_error.c
 		parser/ft_parser.c
-		parser/binary_utils.c
 		parser/ft_parse_head.c
-		parser/ft_parse_map.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c
 		regexp/ft_regexp.c
@@ -25,7 +23,8 @@ add_executable(Cub3D
 		window/screenshot.c
 		_config.h
 		ft_cub.h
-		main.c)
+		main.c
+		utils0.c)
 
 if (APPLE)
 	target_link_libraries(Cub3D

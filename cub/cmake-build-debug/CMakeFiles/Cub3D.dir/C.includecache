@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+/home/aizhan/Рабочий стол/azat/cub/_config.h
 stdio.h
 -
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+/home/aizhan/Рабочий стол/azat/cub/ft_cub.h
 fcntl.h
 -
 unistd.h
 -
 libft/libft.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+/home/aizhan/Рабочий стол/azat/cub/libft/libft.h
 regexp/ft_regexp.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
+/home/aizhan/Рабочий стол/azat/cub/regexp/ft_regexp.h
 stdio.h
 -
 string.h
@@ -30,27 +30,27 @@ stdlib.h
 math.h
 -
 libmlx/mlx.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
-minilibx_opengl_20191021/mlx.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+/home/aizhan/Рабочий стол/azat/cub/libmlx/mlx.h
+libmlx_mac/mlx.h
+/home/aizhan/Рабочий стол/azat/cub/libmlx_mac/mlx.h
 _config.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/_config.h
+/home/aizhan/Рабочий стол/azat/cub/_config.h
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
+/home/aizhan/Рабочий стол/azat/cub/libft/libft.h
 stdlib.h
 -
 unistd.h
 -
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/libmlx/mlx.h
+/home/aizhan/Рабочий стол/azat/cub/libmlx/mlx.h
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/minilibx_opengl_20191021/mlx.h
+/home/aizhan/Рабочий стол/azat/cub/libmlx_mac/mlx.h
 
-/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h
-../libft/libft.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/libft/libft.h
-
-/Users/yeschall/Desktop/Projects/GitHub/cub/window/player.c
+/home/aizhan/Рабочий стол/azat/cub/parser/ft_parse_head.c
 ../ft_cub.h
-/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h
+/home/aizhan/Рабочий стол/azat/cub/ft_cub.h
+
+/home/aizhan/Рабочий стол/azat/cub/regexp/ft_regexp.h
+../libft/libft.h
+/home/aizhan/Рабочий стол/azat/cub/libft/libft.h
 

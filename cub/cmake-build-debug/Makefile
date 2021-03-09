@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
+RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub
+CMAKE_SOURCE_DIR = "/home/aizhan/Рабочий стол/azat/cub"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles" "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -210,33 +210,6 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/main.c.s
 .PHONY : main.c.s
 
-parser/binary_utils.o: parser/binary_utils.c.o
-
-.PHONY : parser/binary_utils.o
-
-# target to build an object file
-parser/binary_utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/binary_utils.c.o
-.PHONY : parser/binary_utils.c.o
-
-parser/binary_utils.i: parser/binary_utils.c.i
-
-.PHONY : parser/binary_utils.i
-
-# target to preprocess a source file
-parser/binary_utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/binary_utils.c.i
-.PHONY : parser/binary_utils.c.i
-
-parser/binary_utils.s: parser/binary_utils.c.s
-
-.PHONY : parser/binary_utils.s
-
-# target to generate assembly for a file
-parser/binary_utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/binary_utils.c.s
-.PHONY : parser/binary_utils.c.s
-
 parser/ft_parse_head.o: parser/ft_parse_head.c.o
 
 .PHONY : parser/ft_parse_head.o
@@ -263,33 +236,6 @@ parser/ft_parse_head.s: parser/ft_parse_head.c.s
 parser/ft_parse_head.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.s
 .PHONY : parser/ft_parse_head.c.s
-
-parser/ft_parse_map.o: parser/ft_parse_map.c.o
-
-.PHONY : parser/ft_parse_map.o
-
-# target to build an object file
-parser/ft_parse_map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o
-.PHONY : parser/ft_parse_map.c.o
-
-parser/ft_parse_map.i: parser/ft_parse_map.c.i
-
-.PHONY : parser/ft_parse_map.i
-
-# target to preprocess a source file
-parser/ft_parse_map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.i
-.PHONY : parser/ft_parse_map.c.i
-
-parser/ft_parse_map.s: parser/ft_parse_map.c.s
-
-.PHONY : parser/ft_parse_map.s
-
-# target to generate assembly for a file
-parser/ft_parse_map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.s
-.PHONY : parser/ft_parse_map.c.s
 
 parser/ft_parser.o: parser/ft_parser.c.o
 
@@ -371,6 +317,33 @@ regexp/ft_regexp.s: regexp/ft_regexp.c.s
 regexp/ft_regexp.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.s
 .PHONY : regexp/ft_regexp.c.s
+
+utils0.o: utils0.c.o
+
+.PHONY : utils0.o
+
+# target to build an object file
+utils0.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.o
+.PHONY : utils0.c.o
+
+utils0.i: utils0.c.i
+
+.PHONY : utils0.i
+
+# target to preprocess a source file
+utils0.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.i
+.PHONY : utils0.c.i
+
+utils0.s: utils0.c.s
+
+.PHONY : utils0.s
+
+# target to generate assembly for a file
+utils0.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.s
+.PHONY : utils0.c.s
 
 window/map.o: window/map.c.o
 
@@ -550,15 +523,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... parser/binary_utils.o"
-	@echo "... parser/binary_utils.i"
-	@echo "... parser/binary_utils.s"
 	@echo "... parser/ft_parse_head.o"
 	@echo "... parser/ft_parse_head.i"
 	@echo "... parser/ft_parse_head.s"
-	@echo "... parser/ft_parse_map.o"
-	@echo "... parser/ft_parse_map.i"
-	@echo "... parser/ft_parse_map.s"
 	@echo "... parser/ft_parser.o"
 	@echo "... parser/ft_parser.i"
 	@echo "... parser/ft_parser.s"
@@ -568,6 +535,9 @@ help:
 	@echo "... regexp/ft_regexp.o"
 	@echo "... regexp/ft_regexp.i"
 	@echo "... regexp/ft_regexp.s"
+	@echo "... utils0.o"
+	@echo "... utils0.i"
+	@echo "... utils0.s"
 	@echo "... window/map.o"
 	@echo "... window/map.i"
 	@echo "... window/map.s"
