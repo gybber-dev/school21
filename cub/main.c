@@ -1,19 +1,32 @@
 #include "ft_cub.h"
 #include <string.h>
 
-int					finish_program(t_set *set)
+int				finish_program(t_set *set)
 {
 	DEBUG printf("You exit the game. See you...\n");
 	auto_clear(set);
 	exit(EXIT_SUCCESS);
 }
 
-void				auto_clear(t_set *set)
+void			auto_clear(t_set *set)
 {
+	char		**p;
 
+	if (set->map.c_map)
+	{
+		p = set->map.c_map;
+		while (*p)
+		{
+			ft_free(p);
+			p++;
+		}
+		free(set->map.c_map);
+	}
+	if (set->tmp)
+		ft_free(&set->tmp);
 }
 
-static void				init_set(t_set *set)
+static void		init_set(t_set *set)
 {
 	set->tmp = NULL;
 	set->map.c_map = NULL;
@@ -44,9 +57,6 @@ int			main(int argc, char **argv)
 {
 	t_set 	set;
 
-	char *s = malloc(24);
-
-	printf("errno: %d\n", errno);
 	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;
 	if (argc == 2 || (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))

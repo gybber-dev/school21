@@ -29,8 +29,6 @@
 #  define DOWN 65364
 #  define RIGHT 65363
 #  define SPACE 32
-#  define LMOUSE none
-#  define RMOUSE none
 # else
 #  include "minilibx_opengl_20191021/mlx.h"
 #  define OS "MAC"
@@ -74,10 +72,10 @@
 # define ANGLE_STEP 0.02
 # define ZERO_VAL 0.0001
 # define PLANE_W 0.7
+
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
 # define ERR_PLAYERS 1003
-
 # define ERR_HEAD_0 1010
 # define ERR_HEAD_1 1011
 # define ERR_HEAD_2 1012
@@ -152,11 +150,11 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
-typedef struct		s_msgs
+typedef struct		s_msg
 {
 	int 			code;
 	char 			*text;
-}					t_msgs;
+}					t_msg;
 
 
 
