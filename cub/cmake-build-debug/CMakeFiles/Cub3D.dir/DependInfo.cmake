@@ -7,7 +7,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/yeschall/Desktop/Projects/GitHub/cub/errors/ft_error.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/errors/ft_error.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/main.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/main.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/binary_utils.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/binary_utils.c.o"
-  "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_file.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_map.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parser.c" "/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parser.c.o"

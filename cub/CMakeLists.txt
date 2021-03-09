@@ -11,7 +11,7 @@ add_executable(Cub3D
 		errors/ft_error.c
 		parser/ft_parser.c
 		parser/binary_utils.c
-		parser/ft_parse_file.c
+		parser/ft_parse_head.c
 		parser/ft_parse_map.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c

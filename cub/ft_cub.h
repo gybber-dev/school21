@@ -201,15 +201,9 @@ typedef struct		s_set
 
 void 				ft_parser(char *file_name, t_set *set);
 void				ft_parse_map(char *line, t_set *set);
-void				parse_resolution(t_set *set, char *line);
-void				set_mem_for_map(char *str, t_set *set);
+int					ft_parse_head(char *line, t_set *set);
 int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);
-int					read_file(t_set *set, int fd, char **file);
-int					get_b(int trgb);
-int					get_g(int trgb);
-int					get_r(int trgb);
-int					get_t(int trgb);
 int					create_trgb(int t, int r, int g, int b);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 int					display_img(t_set *set);

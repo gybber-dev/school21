@@ -4,12 +4,10 @@ SRCS	= \
 			errors/ft_error.c \
 			regexp/ft_regexp.c \
 			parser/ft_parser.c \
-			parser/ft_parse_file.c \
-			parser/binary_utils.c \
-			parser/ft_parse_map.c \
 			parser/ft_parse_head.c \
 			parser/ft_validator.c \
 			main.c \
+			utils0.c \
 			window/window.c \
 			window/player.c \
 			window/map.c \

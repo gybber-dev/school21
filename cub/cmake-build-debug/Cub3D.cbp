@@ -284,9 +284,6 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/binary_utils.c">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_file.c">
-			<Option target="Cub3D"/>
-		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/parser/ft_parse_head.c">
 			<Option target="Cub3D"/>
 		</Unit>
