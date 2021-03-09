@@ -29,10 +29,8 @@
 #  define DOWN 65364
 #  define RIGHT 65363
 #  define SPACE 32
-#  define LMOUSE none
-#  define RMOUSE none
 # else
-#  include "minilibx_opengl_20191021/mlx.h"
+#  include "libmlx_mac/mlx.h"
 #  define OS "MAC"
 #  define ESC 53
 #  define W 13
@@ -49,7 +47,6 @@
 #  define RMOUSE 0
 # endif
 
-#  define ESC_BIT 0
 #  define W_BIT 1
 #  define A_BIT 2
 #  define S_BIT 3
@@ -68,26 +65,21 @@
 */
 
 # define SCALE 30
-# define STEP 0.5
+# define STEP 0.2
 # define HOR_SIT 2.1
 # define HOR 2
-# define HOR_JUMP 1.5
-# define ANGLE_STEP 0.02
+# define ANGLE_STEP 0.05
 # define ZERO_VAL 0.0001
 # define PLANE_W 0.7
-# define RAYS_NUM 40
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
 # define ERR_PLAYERS 1003
+# define ERR_HEAD_0 1010
+# define ERR_HEAD_1 1011
+# define ERR_HEAD_2 1012
+# define ERR_LINE 1013
+# define ERR_MAP 1030
 
-# define NOT_VALID_HEAD_0 1010
-# define NOT_VALID_HEAD_1 1011
-# define NOT_VALID_HEAD_2 1012
-# define NOT_VALID_LINE 1013
-# define NOT_VALID_TEXTURE 1021
-# define PARALLEL_VECTORS_NOT_CROSS 1022
-
-# define MAP_SYMBOLS "10 2NSWE"
 # define SAVE "--save"
 
 // delete below:
@@ -107,22 +99,6 @@ typedef struct		s_fpix
 	double 			x;
 	double 			y;
 }					t_fpix;
-
-typedef struct		s_sprite
-{
-	int				num;
-	t_fpix			pos;
-	t_fpix			plane;
-	t_pix			wall;
-	t_pix			strip;
-	struct s_sprite	*next;
-	double			h;
-	double			dist;
-	int				side;
-
-}					t_sprite;
-
-
 
 typedef struct		s_spr
 {
@@ -153,11 +129,11 @@ typedef struct		s_img
 	int				endian;
 }					t_img;
 
-typedef struct		s_msgs
+typedef struct		s_msg
 {
 	int 			code;
 	char 			*text;
-}					t_msgs;
+}					t_msg;
 
 
 
@@ -169,7 +145,6 @@ typedef struct		s_ray
 	double			dist;
 	double			perp;
 	t_fpix			cross;
-	t_sprite		*slist;
 }					t_ray;
 
 typedef struct		s_win
@@ -182,7 +157,6 @@ typedef struct		s_win
 
 typedef struct		s_skin
 {
-	int				contents;
 	int				fl_col;
 	int				ce_col;
 	char			*no_ski;
@@ -198,6 +172,7 @@ typedef struct		s_map
 	int				lines;
 	int				player_counter;
 	char			player_dir;
+	t_fpix			pos;
 	int				isparsed;
 }					t_map;
 
@@ -253,5 +228,5 @@ t_fpix				v_mult_num(t_fpix vec, double x, double y);
 double				v_mult(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
-int					finish_programm(t_set *set);
+int					finish_program(t_set *set);
 #endif

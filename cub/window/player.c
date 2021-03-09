@@ -66,29 +66,9 @@ t_fpix			prj_to_vec(t_fpix m, t_fpix n, t_fpix d0, t_fpix dot)
 	return (proj);
 }
 
-
-int				put_sprite_pix(t_sprite *sprite, t_set *set, t_ray *ray, int y)
-{
-	int 		color;
-
-	if (y > sprite->strip.x && y < sprite->strip.y)
-	{
-		sprite->wall.y = (int)(((double)y - (double)sprite->strip.x) * (double)set->win.skins[4].res.y / (double)sprite->h);
-		color = get_color(&set->win.skins[4], sprite->wall.x, sprite->wall.y);
-		if (color)
-		{
-			my_mlx_pixel_put(set, ray->x, y, color);
-			return (1);
-		}
-	}
-	return (0);
-}
-
 void				draw_sprite(t_set *set, t_spr *sprite)
 {
 	double			h;
-	double			proj_ray;
-//	t_pix			height;
 	t_fpix			wall;
 	int				color;
 
@@ -100,8 +80,6 @@ void				draw_sprite(t_set *set, t_spr *sprite)
 	sprite->start.y = (double)set->win.img1.res.y / set->player.hor - h / 2 - 1;
 	sprite->start.x < 0 ? sprite->start.x = 0 : 0;
 	sprite->start.y < 0 ? sprite->start.y = 0 : 0;
-//	proj_ray = sqrt(pow(sprite->dist, 2) - pow(sprite->perp, 2));
-//	sprite->start.x = (double)set->win.img1.res.x / 2 - h / 2 - proj_ray;
 	while (++sprite->start.x <= sprite->end.x)
 	{
 		if (sprite->start.x < sprite->xlim.x || sprite->start.x > sprite->xlim.y + 1)
@@ -118,9 +96,7 @@ void				draw_sprite(t_set *set, t_spr *sprite)
 			color = get_color(&set->win.skins[4], (int)wall.x, (int)wall.y);
 			if (color)
 				my_mlx_pixel_put(set, (int)sprite->start.x, (int)sprite->start.y, color);
-//			sprite->start.y++;
 		}
-//		sprite->start.x += 1;
 	}
 }
 
@@ -128,8 +104,6 @@ void				draw_sprites(t_set *set)
 {
 	t_sl			*p;
 
-	// clear list
-	p = set->sl;
 	while (set->sl)
 	{
 		draw_sprite(set, &(set->sl->sprite));
@@ -138,36 +112,6 @@ void				draw_sprites(t_set *set)
 		free(p);
 	}
 }
-
-
-/*
-** returns 1 if sprite pixel was drawn and 0 if
-** it was nothing to draw.
-*/
-
-int				draw_sprite0(t_set *set, t_ray *ray, int y)
-{
-	t_sprite	*p;
-	int			res;
-
-	res = 0;
-	if (!ray->slist)
-		return (res);
-	p = ray->slist;
-	while(p)
-	{
-		res = put_sprite_pix(p, set, ray, y);
-		p = p->next;
-	}
-	while (y == set->win.img1.res.y && ray->slist)
-	{
-		p = ray->slist;
-		ray->slist = ray->slist->next;
-		free(p);
-	}
-	return (res);
-}
-
 
 void			insert_by_in_order(t_sl **list, t_sl *ns)
 {
@@ -204,7 +148,7 @@ void			insert_by_in_order(t_sl **list, t_sl *ns)
 }
 
 
-void			add_sprite1(t_set *set, t_ray *ray, t_pix map)
+void			add_sprite(t_set *set, t_ray *ray, t_pix map)
 {
 	t_sl		*p;
 	t_sl		*ns;
@@ -250,7 +194,6 @@ void				draw_strip(t_set *set, t_ray *ray)
 	double			h;
 	t_pix			strip;
 	t_pix			wall;
-	double			k;
 	int				y;
 
 	if (ray->perp <= 0.00001)
@@ -260,8 +203,8 @@ void				draw_strip(t_set *set, t_ray *ray)
 	strip.x = (int)((double)set->win.img1.res.y / set->player.hor - h / 2);
 	strip.y = (int)((double)set->win.img1.res.y / set->player.hor + h / 2);
 	wall.x = (ray->side % 2) ?
-		(int)((set->win.skins[ray->side].res.y - 1) * fmod(ray->cross.x, 1.0)) :
-		(int)((set->win.skins[ray->side].res.y - 1) * (1 - fmod(ray->cross.y, 1.0)));
+		(int)((set->win.skins[ray->side].res.x - 1) * fmod(ray->cross.x, 1.0)) :
+		(int)((set->win.skins[ray->side].res.x - 1) * (1 - fmod(ray->cross.y, 1.0)));
 	y = -1;
 	while(++y < set->win.img1.res.y)
 	{
@@ -274,7 +217,6 @@ void				draw_strip(t_set *set, t_ray *ray)
 		}
 		else if (y >= strip.y)
 			my_mlx_pixel_put(set, ray->x, (int)y, set->skin.fl_col);
-
 	}
 }
 
@@ -317,13 +259,9 @@ static void			count_ray_len(t_set *set, t_ray *ray)
 		}
 		ray->dist = dist.x < dist.y ? dist.x : dist.y;
 		if (set->map.c_map[map.y][map.x] == '2')
-		{
-			add_sprite1(set, ray, map);
-//			add_sprite(set, ray, map);
-		}
+			add_sprite(set, ray, map);
 		my_mlx_pixel_put(set, (int)(ray->cross.x * SCALE), (int)(ray->cross.y) * SCALE, 0xFF0000);
 	}
-//	ray->dist = dist.x < dist.y ? dist.x : dist.y;
 }
 
 
@@ -335,7 +273,6 @@ void				 drop_rays(t_set *set)
 	ray.x = 0;
 	while (ray.x < set->win.img1.res.x)
 	{
-		ray.slist = NULL;
 		cam = 2 * ray.x / (double)set->win.img1.res.x - 1;
 		ray.dir.x = set->player.dir.x + cam * set->player.plane.x;
 		ray.dir.y = set->player.dir.y + cam * set->player.plane.y;

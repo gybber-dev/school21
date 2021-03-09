@@ -1,20 +1,8 @@
 todo:
 
-0. exit by click on red "x" on the top right corner.
-0. Разрешение экрана для статической библиотеки
-1. auto_cleaner in ft_errors;
-1.1 Clear set.tmp if is not NULL; (*read_file)
-2. Add mlx_get_screen_size for MAC!
-4. In pressing two keys Player stops after release any second key.
-5. Map is bigger than resolution
-6. Correct the call of 'ft_error' function. Put into the body of a condition.
-7. Create vector_utils functions:
-	void set_vector(void *v, void x, void y)
-	void scale_vector(void *v, void k)
-	void *sum_vectors(void *v1, void *v2)
+1. Makefile
+2. Malloc set and free set. Is it realy so easy?
 
-8. Free sprites' list;
-9. Correct ft_strncmp in libft of 'main' branch.
 
 My check list:
 1. Replace lines in map.cub

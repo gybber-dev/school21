@@ -20,32 +20,27 @@ SRCS	= \
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)
 
-
 CC			= gcc
-FLAGS		= #-Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror
 HEADER		= ft_cub.h
-
 RM			= rm -f
+ifeq ($(OS), Darwin)
+LIB_FLAGS	= -Llibmlx_mac -lmlx -framework OpenGL -framework AppKit
+LIB_DIR		= libmlx_mac
+else
+LIB_FLAGS	= -Llibmlx -lmlx -lX11 -lm -lXext -lbsd
+LIB_DIR		= libmlx
+endif
 
 all:		init ${NAME}
 
-
-ifeq ($(OS), Darwin)
 init:
-			@ echo "......init...MAC..."
+			@ echo $(OS)
 			make -C libft
-			make -C minilibx_opengl_20191021
+			make -C $(LIB_DIR)
 
 $(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Lminilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit
-else
-init:
-			@ echo "......init...LINUX..."
-			make -C libft
-			make -C libmlx
-$(NAME):	$(OBJS) $(HEADER)
-			$(CC) $(FLAGS) ${OBJS} $(HEADER) -Llibft -lft -Llibmlx -lmlx -lX11 -lm -lXext -lbsd -o $(NAME)
-endif
+			$(CC) $(FLAGS) ${OBJS} -Llibft -lft $(LIB_FLAGS) -o $(NAME)
 
 %.o : %.c
 			${CC} $(FLAGS) -c $< -o $@
@@ -53,14 +48,12 @@ endif
 clean:
 			${RM} ${OBJS} ${BOBJS} *.out
 			make -C libft clean
-		
+			make -C $(LIB_DIR) clean
+
 fclean:		clean
 			$(RM) -rf $(NAME)
 			make -C libft fclean
-
-
-# 		!!!!!!!!	ADD FCLEAN FOR MLX          !!!!!!!!
-
+			make -C $(LIB_DIR) clean
 
 re:			fclean all
 
