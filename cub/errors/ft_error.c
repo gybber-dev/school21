@@ -7,24 +7,20 @@ static void			print_error(t_msg *errors, int code)
 
 	i = 0;
 	is_my_err = 0;
-	if (code != 0)
+	ft_putstr_fd("Error\n\tmessage: ", 1);
+	while(errors[i].text != NULL && errors[i].code != 0)
 	{
-		ft_putstr_fd("Error\n\tmessage: ", 1);
-		while(errors[i].text != NULL && errors[i].code != 0)
+		if (code == errors[i].code)
 		{
-			if (code == errors[i].code)
-			{
-				ft_putstr_fd(errors[i].text, 1);
-				is_my_err = 1;
-				break ;
-			}
-			i++;
+			ft_putstr_fd(errors[i].text, 1);
+			is_my_err = 1;
+			break ;
 		}
-		if (!is_my_err)
-			ft_putstr_fd(strerror(code), 1);
-		write(1, "\n", 1);
+		i++;
 	}
-
+	if (!is_my_err)
+		ft_putstr_fd(strerror(code), 1);
+	write(1, "\n", 1);
 }
 
 void				ft_error(t_set *set, int code)
@@ -42,7 +38,10 @@ void				ft_error(t_set *set, int code)
 			{ERR_MAP, "Map is not valid"},
 			{0, NULL}
 	};
-	print_error(errors, code);
-	auto_clear(set);
-	exit(EXIT_FAILURE);
+	if (code != 0)
+	{
+		print_error(errors, code);
+		auto_clear(set);
+		exit(EXIT_FAILURE);
+	}
 }

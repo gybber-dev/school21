@@ -15,14 +15,14 @@ add_executable(Cub3D
 		parser/ft_parse_head.c
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
-		window/window.c
-		window/player.c
-		window/map.c
-		window/moving.c
-		window/vector_utils.c
-		window/screenshot.c
+		game/game.c
+		game/player.c
+		game/moving.c
+		game/sprite.c
+		game/screenshot.c
 		_config.h
 		ft_cub.h
+		utils_vector.c
 		main.c
 		utils0.c)
 
@@ -32,7 +32,7 @@ if (APPLE)
 			libft
 			"-framework OpenGL"
 			"-framework AppKit"
-			${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
+			${CMAKE_SOURCE_DIR}/libmlx_mac/libmlx.a
 			)
 endif(APPLE)
 if (UNIX AND NOT APPLE)

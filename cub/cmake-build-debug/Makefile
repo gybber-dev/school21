@@ -59,19 +59,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/139/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/139/bin/cmake/linux/bin/cmake -E rm -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/aizhan/Рабочий стол/azat/cub"
+CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug"
+CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -79,7 +79,7 @@ CMAKE_BINARY_DIR = "/home/aizhan/Рабочий стол/azat/cub/cmake-build-de
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -90,7 +90,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/139/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles" "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/home/aizhan/Рабочий стол/azat/cub/cmake-build-debug/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -182,6 +182,141 @@ errors/ft_error.s: errors/ft_error.c.s
 errors/ft_error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/errors/ft_error.c.s
 .PHONY : errors/ft_error.c.s
+
+game/game.o: game/game.c.o
+
+.PHONY : game/game.o
+
+# target to build an object file
+game/game.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/game.c.o
+.PHONY : game/game.c.o
+
+game/game.i: game/game.c.i
+
+.PHONY : game/game.i
+
+# target to preprocess a source file
+game/game.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/game.c.i
+.PHONY : game/game.c.i
+
+game/game.s: game/game.c.s
+
+.PHONY : game/game.s
+
+# target to generate assembly for a file
+game/game.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/game.c.s
+.PHONY : game/game.c.s
+
+game/moving.o: game/moving.c.o
+
+.PHONY : game/moving.o
+
+# target to build an object file
+game/moving.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/moving.c.o
+.PHONY : game/moving.c.o
+
+game/moving.i: game/moving.c.i
+
+.PHONY : game/moving.i
+
+# target to preprocess a source file
+game/moving.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/moving.c.i
+.PHONY : game/moving.c.i
+
+game/moving.s: game/moving.c.s
+
+.PHONY : game/moving.s
+
+# target to generate assembly for a file
+game/moving.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/moving.c.s
+.PHONY : game/moving.c.s
+
+game/player.o: game/player.c.o
+
+.PHONY : game/player.o
+
+# target to build an object file
+game/player.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.o
+.PHONY : game/player.c.o
+
+game/player.i: game/player.c.i
+
+.PHONY : game/player.i
+
+# target to preprocess a source file
+game/player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.i
+.PHONY : game/player.c.i
+
+game/player.s: game/player.c.s
+
+.PHONY : game/player.s
+
+# target to generate assembly for a file
+game/player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.s
+.PHONY : game/player.c.s
+
+game/screenshot.o: game/screenshot.c.o
+
+.PHONY : game/screenshot.o
+
+# target to build an object file
+game/screenshot.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/screenshot.c.o
+.PHONY : game/screenshot.c.o
+
+game/screenshot.i: game/screenshot.c.i
+
+.PHONY : game/screenshot.i
+
+# target to preprocess a source file
+game/screenshot.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/screenshot.c.i
+.PHONY : game/screenshot.c.i
+
+game/screenshot.s: game/screenshot.c.s
+
+.PHONY : game/screenshot.s
+
+# target to generate assembly for a file
+game/screenshot.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/screenshot.c.s
+.PHONY : game/screenshot.c.s
+
+game/sprite.o: game/sprite.c.o
+
+.PHONY : game/sprite.o
+
+# target to build an object file
+game/sprite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/sprite.c.o
+.PHONY : game/sprite.c.o
+
+game/sprite.i: game/sprite.c.i
+
+.PHONY : game/sprite.i
+
+# target to preprocess a source file
+game/sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/sprite.c.i
+.PHONY : game/sprite.c.i
+
+game/sprite.s: game/sprite.c.s
+
+.PHONY : game/sprite.s
+
+# target to generate assembly for a file
+game/sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/sprite.c.s
+.PHONY : game/sprite.c.s
 
 main.o: main.c.o
 
@@ -345,167 +480,32 @@ utils0.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.s
 .PHONY : utils0.c.s
 
-window/map.o: window/map.c.o
+utils_vector.o: utils_vector.c.o
 
-.PHONY : window/map.o
-
-# target to build an object file
-window/map.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.o
-.PHONY : window/map.c.o
-
-window/map.i: window/map.c.i
-
-.PHONY : window/map.i
-
-# target to preprocess a source file
-window/map.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.i
-.PHONY : window/map.c.i
-
-window/map.s: window/map.c.s
-
-.PHONY : window/map.s
-
-# target to generate assembly for a file
-window/map.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/map.c.s
-.PHONY : window/map.c.s
-
-window/moving.o: window/moving.c.o
-
-.PHONY : window/moving.o
+.PHONY : utils_vector.o
 
 # target to build an object file
-window/moving.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.o
-.PHONY : window/moving.c.o
+utils_vector.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_vector.c.o
+.PHONY : utils_vector.c.o
 
-window/moving.i: window/moving.c.i
+utils_vector.i: utils_vector.c.i
 
-.PHONY : window/moving.i
-
-# target to preprocess a source file
-window/moving.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.i
-.PHONY : window/moving.c.i
-
-window/moving.s: window/moving.c.s
-
-.PHONY : window/moving.s
-
-# target to generate assembly for a file
-window/moving.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/moving.c.s
-.PHONY : window/moving.c.s
-
-window/player.o: window/player.c.o
-
-.PHONY : window/player.o
-
-# target to build an object file
-window/player.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.o
-.PHONY : window/player.c.o
-
-window/player.i: window/player.c.i
-
-.PHONY : window/player.i
+.PHONY : utils_vector.i
 
 # target to preprocess a source file
-window/player.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.i
-.PHONY : window/player.c.i
+utils_vector.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_vector.c.i
+.PHONY : utils_vector.c.i
 
-window/player.s: window/player.c.s
+utils_vector.s: utils_vector.c.s
 
-.PHONY : window/player.s
-
-# target to generate assembly for a file
-window/player.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/player.c.s
-.PHONY : window/player.c.s
-
-window/screenshot.o: window/screenshot.c.o
-
-.PHONY : window/screenshot.o
-
-# target to build an object file
-window/screenshot.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.o
-.PHONY : window/screenshot.c.o
-
-window/screenshot.i: window/screenshot.c.i
-
-.PHONY : window/screenshot.i
-
-# target to preprocess a source file
-window/screenshot.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.i
-.PHONY : window/screenshot.c.i
-
-window/screenshot.s: window/screenshot.c.s
-
-.PHONY : window/screenshot.s
+.PHONY : utils_vector.s
 
 # target to generate assembly for a file
-window/screenshot.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/screenshot.c.s
-.PHONY : window/screenshot.c.s
-
-window/vector_utils.o: window/vector_utils.c.o
-
-.PHONY : window/vector_utils.o
-
-# target to build an object file
-window/vector_utils.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.o
-.PHONY : window/vector_utils.c.o
-
-window/vector_utils.i: window/vector_utils.c.i
-
-.PHONY : window/vector_utils.i
-
-# target to preprocess a source file
-window/vector_utils.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.i
-.PHONY : window/vector_utils.c.i
-
-window/vector_utils.s: window/vector_utils.c.s
-
-.PHONY : window/vector_utils.s
-
-# target to generate assembly for a file
-window/vector_utils.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/vector_utils.c.s
-.PHONY : window/vector_utils.c.s
-
-window/window.o: window/window.c.o
-
-.PHONY : window/window.o
-
-# target to build an object file
-window/window.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.o
-.PHONY : window/window.c.o
-
-window/window.i: window/window.c.i
-
-.PHONY : window/window.i
-
-# target to preprocess a source file
-window/window.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.i
-.PHONY : window/window.c.i
-
-window/window.s: window/window.c.s
-
-.PHONY : window/window.s
-
-# target to generate assembly for a file
-window/window.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/window/window.c.s
-.PHONY : window/window.c.s
+utils_vector.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_vector.c.s
+.PHONY : utils_vector.c.s
 
 # Help Target
 help:
@@ -520,6 +520,21 @@ help:
 	@echo "... errors/ft_error.o"
 	@echo "... errors/ft_error.i"
 	@echo "... errors/ft_error.s"
+	@echo "... game/game.o"
+	@echo "... game/game.i"
+	@echo "... game/game.s"
+	@echo "... game/moving.o"
+	@echo "... game/moving.i"
+	@echo "... game/moving.s"
+	@echo "... game/player.o"
+	@echo "... game/player.i"
+	@echo "... game/player.s"
+	@echo "... game/screenshot.o"
+	@echo "... game/screenshot.i"
+	@echo "... game/screenshot.s"
+	@echo "... game/sprite.o"
+	@echo "... game/sprite.i"
+	@echo "... game/sprite.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -538,24 +553,9 @@ help:
 	@echo "... utils0.o"
 	@echo "... utils0.i"
 	@echo "... utils0.s"
-	@echo "... window/map.o"
-	@echo "... window/map.i"
-	@echo "... window/map.s"
-	@echo "... window/moving.o"
-	@echo "... window/moving.i"
-	@echo "... window/moving.s"
-	@echo "... window/player.o"
-	@echo "... window/player.i"
-	@echo "... window/player.s"
-	@echo "... window/screenshot.o"
-	@echo "... window/screenshot.i"
-	@echo "... window/screenshot.s"
-	@echo "... window/vector_utils.o"
-	@echo "... window/vector_utils.i"
-	@echo "... window/vector_utils.s"
-	@echo "... window/window.o"
-	@echo "... window/window.i"
-	@echo "... window/window.s"
+	@echo "... utils_vector.o"
+	@echo "... utils_vector.i"
+	@echo "... utils_vector.s"
 .PHONY : help
 
 

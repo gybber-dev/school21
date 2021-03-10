@@ -193,7 +193,7 @@ int	main()
   printf("OK\n");
   sleep(2);
 
-  printf(" => 2nd window,");
+  printf(" => 2nd game,");
   win2 = mlx_new_window(mlx,WIN1_SX,WIN1_SY,"Title2");
   if (!(im4 = mlx_new_image(mlx,IM3_SX, IM3_SY)))
     {
@@ -203,7 +203,7 @@ int	main()
   data4 = mlx_get_data_addr(im4,&bpp4,&sl4,&endian4);
   color_map_2(data4,bpp4,sl4,IM3_SX,IM3_SY,endian4, 2);
 
-  printf(" 3rd window, Installing hooks ...");
+  printf(" 3rd game, Installing hooks ...");
   win3 = mlx_new_window(mlx,WIN1_SX,WIN1_SY,"Title3");
   mlx_expose_hook(win1,expose_win1,0);
   mlx_mouse_hook(win1,mouse_win1,0);

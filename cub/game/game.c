@@ -1,16 +1,5 @@
 #include "../ft_cub.h"
 
-void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
-{
-	char		*dst;
-
-	if (y < set->win.img1.res.y && x < set->win.img1.res.x && x >= 0 && y >= 0)
-	{
-		dst = set->win.img1.addr + (y * set->win.img1.len + x * (set->win.img1.bpp / 8));
-		*(unsigned int *) dst = color;
-	}
-}
-
 static void		init_textures(t_set *set)
 {
 	if (!(set->win.skins[1].img = mlx_xpm_file_to_image(set->win.mlx,
@@ -74,6 +63,22 @@ static void		check_display_resolution(t_set *set, t_pix *res)
 		res->x = display.x;
 	if (display.x < res->y)
 		res->y = display.y;
+}
+
+
+static int				display_img(t_set *set)
+{
+	update_pos(set);
+	mlx_destroy_image(set->win.mlx, set->win.img1.img);
+	set->win.img1.img = mlx_new_image(set->win.mlx, set->win.img1.res.x, set->win.img1.res.y);
+	set->win.img1.addr = mlx_get_data_addr(set->win.img1.img, &set->win.img1.bpp,
+										   &set->win.img1.len, &set->win.img1.endian);
+//	draw_map(set);
+	drop_rays(set);
+	if (set->save == 1)
+		screen_image(set);
+	mlx_put_image_to_window(set->win.mlx, set->win.win, set->win.img1.img, 0, 0);
+	return (0);
 }
 
 void			run_game(t_set *set)

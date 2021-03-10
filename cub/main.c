@@ -79,6 +79,11 @@ int			main(int argc, char **argv)
 		run_game(&set);
 	}
 	else
-		ft_error(&set, 22);
+	{
+		ft_putstr_fd("Error\n\tmessage: ", 1);
+		ft_putstr_fd(strerror(22), 1);
+		write(1, "\n", 1);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

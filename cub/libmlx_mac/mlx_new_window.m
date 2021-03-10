@@ -49,7 +49,7 @@ int get_mouse_button(NSEventType eventtype)
 }
 
 
-// classes for window & events
+// classes for game & events
 
 
 
@@ -760,7 +760,7 @@ int     mlx_destroy_window(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_to_del)
   [(id)(win_to_del->winid) destroyMe];
   free(win_to_del);
 
-  //  printf("destroy window done.\n");
+  //  printf("destroy game done.\n");
   mlx_do_sync(mlx_ptr);
   return (0);
 }

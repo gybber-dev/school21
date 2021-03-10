@@ -1,4 +1,4 @@
-#include "../ft_cub.h"
+#include "ft_cub.h"
 
 double		v_len(t_fpix v)
 {

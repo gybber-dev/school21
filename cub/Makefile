@@ -8,12 +8,13 @@ SRCS	= \
 			parser/ft_validator.c \
 			main.c \
 			utils0.c \
-			window/window.c \
-			window/player.c \
-			window/map.c \
-			window/moving.c \
-			window/vector_utils.c \
-			window/screenshot.c \
+			game/game.c \
+			game/sprite.c \
+			game/player.c \
+			game/moving.c \
+			game/screenshot.c \
+			utils_vector.c \
+# 			game/map.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)

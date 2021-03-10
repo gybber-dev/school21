@@ -27,9 +27,9 @@ int		mlx_mouse_show(t_xvar *xvar, t_win_list *win)
 
 /*
 ** Queries the position of the mouse pointer relative to the origin of the
-** specified window and saves it to the provided location.
+** specified game and saves it to the provided location.
 **
-** If the pointer is not on the same screen as the specified window, both
+** If the pointer is not on the same screen as the specified game, both
 ** win_x_return and win_y_return are set to zero and the function returns 0.
 */
 

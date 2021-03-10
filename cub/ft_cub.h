@@ -206,10 +206,14 @@ int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);
 int					create_trgb(int t, int r, int g, int b);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
-int					display_img(t_set *set);
-void				draw_map(t_set *set);
+int					get_color(t_img *img, int x, int y);
 void				run_game(t_set *set);
+void				add_sprite(t_set *set, t_ray *ray, t_pix map);
+void				draw_sprites(t_set *set);
+
+
 void				update_pos(t_set *set);
+void				drop_rays(t_set *set);
 int					key_hook_up(int keycode, t_set *set);
 int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
