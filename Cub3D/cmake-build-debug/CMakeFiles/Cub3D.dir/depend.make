@@ -5,43 +5,79 @@ CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../errors/ft_error.c
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../regexp/ft_regexp.h
+
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../game/dda.c
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../regexp/ft_regexp.h
+
+CMakeFiles/Cub3D.dir/game/game.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/game.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/game.c.o: ../game/game.c
+CMakeFiles/Cub3D.dir/game/game.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/game.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/game.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/game.c.o: ../regexp/ft_regexp.h
+
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../game/moving.c
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/moving.c.o: ../regexp/ft_regexp.h
+
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../game/screenshot.c
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../regexp/ft_regexp.h
+
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../game/sprite.c
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/sprite.c.o: ../regexp/ft_regexp.h
 
 CMakeFiles/Cub3D.dir/main.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/main.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/main.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/main.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/main.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/main.c.o: ../main.c
-CMakeFiles/Cub3D.dir/main.c.o: ../minilibx_opengl_20191021/mlx.h
 CMakeFiles/Cub3D.dir/main.c.o: ../regexp/ft_regexp.h
 
-CMakeFiles/Cub3D.dir/parser/binary_utils.c.o: ../parser/binary_utils.c
-
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../parser/ft_parse_file.c
-CMakeFiles/Cub3D.dir/parser/ft_parse_file.c.o: ../regexp/ft_regexp.h
-
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../parser/ft_parse_map.c
-CMakeFiles/Cub3D.dir/parser/ft_parse_map.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../parser/ft_parse_head.c
+CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../regexp/ft_regexp.h
 
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../parser/ft_parser.c
 CMakeFiles/Cub3D.dir/parser/ft_parser.c.o: ../regexp/ft_regexp.h
 
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../minilibx_opengl_20191021/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../parser/ft_validator.c
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../regexp/ft_regexp.h
 
@@ -49,38 +85,19 @@ CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../libft/libft.h
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.c
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.h
 
-CMakeFiles/Cub3D.dir/window/map.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/window/map.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/window/map.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/window/map.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/window/map.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/window/map.c.o: ../window/map.c
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../utils_mlx.c
 
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/window/moving.c.o: ../window/moving.c
-
-CMakeFiles/Cub3D.dir/window/player.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/window/player.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/window/player.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/window/player.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/window/player.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/window/player.c.o: ../window/player.c
-
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/window/vector_utils.c.o: ../window/vector_utils.c
-
-CMakeFiles/Cub3D.dir/window/window.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/window/window.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/window/window.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/window/window.c.o: ../minilibx_opengl_20191021/mlx.h
-CMakeFiles/Cub3D.dir/window/window.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/window/window.c.o: ../window/window.c
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/utils_vector.c.o: ../utils_vector.c
 

@@ -6,5 +6,5 @@ C_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacO
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/yeschall/Desktop/Projects/GitHub/Cub3D/. 
+C_INCLUDES = -I/Users/yeschall/Desktop/Projects/GitHub/cub/. 
 

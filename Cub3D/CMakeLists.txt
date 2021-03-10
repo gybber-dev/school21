@@ -10,21 +10,21 @@ add_subdirectory(./libft)
 add_executable(Cub3D
 		errors/ft_error.c
 		parser/ft_parser.c
-		parser/binary_utils.c
-		parser/ft_parse_file.c
-		parser/ft_parse_map.c
+		parser/ft_parse_head.c
 		parser/ft_validator.c
+		parser/ft_parse_head.c
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
-		window/window.c
-		window/player.c
-		window/map.c
-		window/moving.c
-		window/vector_utils.c
-		save_screen.c
+		game/game.c
+		game/dda.c
+		game/moving.c
+		game/sprite.c
+		game/screenshot.c
 		_config.h
 		ft_cub.h
-		main.c)
+		utils_vector.c
+		main.c
+		utils_mlx.c)
 
 if (APPLE)
 	target_link_libraries(Cub3D
@@ -32,7 +32,7 @@ if (APPLE)
 			libft
 			"-framework OpenGL"
 			"-framework AppKit"
-			${CMAKE_SOURCE_DIR}/minilibx_opengl_20191021/libmlx.a
+			${CMAKE_SOURCE_DIR}/libmlx_mac/libmlx.a
 			)
 endif(APPLE)
 if (UNIX AND NOT APPLE)

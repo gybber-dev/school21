@@ -1,15 +1,72 @@
 #include "ft_cub.h"
 #include <string.h>
-//#include "minilibx_opengl_20191021/mlx.h"
 
-static void				init_set(t_set *set)
+int				finish_program(t_set *set)
 {
+	DEBUG printf("You exit the game. See you...\n");
+	auto_clear(set);
+	exit(EXIT_SUCCESS);
+}
+
+static int		check_extension(char *file, char *exp)
+{
+	int		f_len;
+	int		e_len;
+	int			i;
+
+	f_len = (int)ft_strlen(file);
+	e_len = (int)ft_strlen(exp);
+	i = -1;
+	if (f_len <= e_len)
+		return (0);
+	while (++i < e_len)
+		if (exp[e_len - 1 - i] != file[f_len - 1 - i])
+			return (0);
+	if (f_len - 1 - i >= 0 && file[f_len - 1 - i] == '/')
+		return (0);
+	return (1);
+}
+
+
+void			auto_clear(t_set *set)
+{
+	char		**p;
+	t_sl		*tmp;
+
+	if (set->map.c_map)
+	{
+		p = set->map.c_map;
+		while (*p)
+		{
+			ft_free(p);
+			p++;
+		}
+		free(set->map.c_map);
+	}
+	if (set->tmp)
+		ft_free(&set->tmp);
+	if (set->sl)
+	{
+		while (set->sl)
+		{
+			tmp = set->sl;
+			set->sl = set->sl->next;
+			free(tmp);
+		}
+	}
+}
+
+static void		init_set(t_set *set)
+{
+	set->tmp = NULL;
 	set->map.c_map = NULL;
-	set->map.ismalloced = 0;
+	set->map.isparsed = 0;
+	set->map.player_counter = 0;
+	set->map.player_dir = 0;
 	set->win.mlx = NULL;
 	set->win.win = NULL;
-	set->skin.fl_col = 0;
-	set->skin.ce_col = 0;
+	set->skin.fl_col = -1;
+	set->skin.ce_col = -1;
 	set->skin.no_ski = NULL;
 	set->skin.so_ski = NULL;
 	set->skin.we_ski = NULL;
@@ -23,6 +80,7 @@ static void				init_set(t_set *set)
 	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
+	set->os = (!ft_strncmp(OS, "MAC", 3)) ? 2 : 1;
 }
 
 int			main(int argc, char **argv)
@@ -31,7 +89,8 @@ int			main(int argc, char **argv)
 
 	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;
-	if (argc == 2 || (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
+	if ((argc == 2 && check_extension(argv[1], ".cub"))
+		|| (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
 	{
 		if (argc == 3)
 			set.save = 1;
@@ -40,6 +99,11 @@ int			main(int argc, char **argv)
 		run_game(&set);
 	}
 	else
-		ft_error(22);
+	{
+		ft_putstr_fd("Error\n\tmessage: ", 1);
+		ft_putstr_fd(strerror(22), 1);
+		write(1, "\n", 1);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }

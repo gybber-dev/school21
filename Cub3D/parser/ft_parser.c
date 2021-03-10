@@ -1,119 +1,104 @@
 #include "../ft_cub.h"
 
-static char			*parse_path(char *str)
-{
-	char			*res;
-	char			*p;
 
-	if ((p = ft_strchr(str, '\n')))
-		*p = '\0';
-	if (!(res = ft_strtrim(str, " ")))
-		ft_error(errno);
-	if (ft_strchr(res, ' ')) //not valid path
-		ft_error(NOT_VALID_HEAD_0);
-	return (res);
+void			ft_parse_map(char *line, t_set *set)
+{
+	char		**p;
+
+	if (set->map.isparsed)
+		ft_error(set, ERR_READ_FILE);
+	p = set->map.c_map;
+	while(*p != NULL)
+		p++;
+	if (!(*p = ft_strdup(line)))
+		ft_error(set, errno);
+	*(p + 1) = NULL;
 }
 
-static int 			parse_rgb(char *str)
-{
-	int				r;
-	int				g;
-	int				b;
-	char			*err_flag;
+/*
+** Counts the number of '\n' (lines) and mallocs (lines + 2)
+** for the last line and NULL-terminator
+*/
 
-	DEBUG printf("RGB_PARSING: '%s'\n", str);
-	r = ft_atoi(str);
-	if (!(err_flag = reg_pass_string("\\d,", str)))
-		return (-1);
-	g = ft_atoi(err_flag);
-	if (!(err_flag = reg_pass_string("\\d,\\d,", str)))
-		return (-1);
-	b = ft_atoi(err_flag);
-	return (create_trgb(0, r, g, b));
-}
-
-static int			ft_parse_head(char *line, t_set *set)
+static void			set_mem_for_map(char *str, t_set *set)
 {
-	if (*line == 'R' && *(line + 1) == ' ')
+	int			lines;
+	char		*p;
+
+	lines = 0;
+	while(*str)
 	{
-		if (!ft_strchr(line, ' ') || !reg_pass_string(" \\d", line))
-			ft_error(NOT_VALID_HEAD_0);
-		set->win.img1.res.x = ft_atoi(ft_strchr(line, ' '));
-		set->win.img1.res.y = ft_atoi(reg_pass_string(" \\d", line));
+		if(!(p = ft_strchr(str, '\n')))
+			break ;
+		lines++;
+		str = p + 1;
 	}
-	if (*line == 'N' && *(line + 1) == 'O')
-		if ((set->skin.no_ski = parse_path(line + 2)) == NULL)
-			ft_error(errno);
-	if (*line == 'S' && *(line + 1) == 'O')
-		if ((set->skin.so_ski = parse_path(line + 2)) == NULL)
-			ft_error(errno);
-	if (*line == 'W' && *(line + 1) == 'E') {
-		if ((set->skin.we_ski = parse_path(line + 2)) == NULL) {
-			ft_error(errno);
-		}
-	}
-	if (*line == 'E' && *(line + 1) == 'A') {
-		if ((set->skin.ea_ski = parse_path(line + 2)) == NULL) {
-			ft_error(errno);
-		}
-	}
-	if (*line == 'S' && *(line + 1) == ' ')
-		if ((set->skin.sprite_ski = parse_path(line + 2)) == NULL)
-			ft_error(errno);
-	if (*line == 'F' && *(line + 1) == ' ')
-		if ((set->skin.fl_col = parse_rgb(line + 1)) == -1)
-			ft_error(NOT_VALID_HEAD_0);
-	if (*line == 'C' && *(line + 1) == ' ')
-		if ((set->skin.ce_col = parse_rgb(line + 1)) == -1)
-			ft_error(NOT_VALID_HEAD_0);
-	return (1);
+	lines += 2;
+	if (!(set->map.c_map = (char**)malloc(sizeof(char *) * (lines))))
+		ft_error(set, errno);
+	*(set->map.c_map) = NULL;
+	set->map.lines = lines - 1;
 }
 
-void 			parse_file(char *file, t_set *set)
+static void 			parse_file(char *line, t_set *set)
 {
 	char		*p;
-	int			is_reading;
 
 	p = NULL;
-	is_reading = 0;
-	while(file && *file)
+	while(line && *line)
 	{
-		p = ft_strchr(file, '\n');
-		if (is_map(file) && !set->map.ismalloced)
-			set_mem_for_map(file, set);
-		if (p)
+		if ((*line == ' ' || ft_isdigit(*line)) && !set->map.c_map)
+			set_mem_for_map(line, set);
+		if ((p = ft_strchr(line, '\n')))
 			*p = '\0';
-		if(is_map(file) && set->map.ismalloced > 0)
+		if(ft_isdigit(*line) || *line == ' ')
 		{
-			set->map.ismalloced = (is_reading < 0)? -1 : set->map.ismalloced; // trying to parse splitted map
-			is_reading = 1;
-			ft_parse_map(file, set);
+			if (set->skin.ce_col == -1 || set->skin.fl_col == -1 ||
+				!set->win.img1.res.x || !set->win.img1.res.y || !set->skin.ea_ski ||
+				!set->skin.we_ski || !set->skin.so_ski || !set->skin.no_ski)
+				ft_error(set, ERR_FEW_DATA);
+			ft_parse_map(line, set);
 		}
 		else
 		{
-			is_reading = (is_reading) ? -1 : 0; // end of map
-			ft_parse_head(file, set);
+			if (set->map.c_map)
+				set->map.isparsed = 1;
+			ft_parse_head(line, set);
 		}
-		file = (p)? p + 1 : NULL;
+		line = (p)? p + 1 : NULL;
 	}
 }
 
+static int				read_file(t_set *set, int fd, char **file)
+{
+	int			bytes;
+	char		buf[501];
+	int			res;
+
+	res = 0;
+	if (!(*file = ft_strdup("")))
+		ft_error(set, errno);
+	while ((bytes = read(fd, buf, 500)) > 0)
+	{
+		buf[bytes] = '\0';
+		set->tmp = *file;
+		if (!(*file = ft_strjoin(*file, buf)))
+			ft_error(set, errno);
+		ft_free(&set->tmp);
+		res += bytes;
+	}
+	return(res);
+}
 
 void			ft_parser(char *file_name, t_set *set)
 {
 	int			fd;
 	char		*file;
 
-//	fd = open("map0.cub", O_RDONLY);
-//	file_name = ft_strjoin("../", file_name);
-//	ft_error(errno);
 	if ((fd = open(file_name, O_RDONLY)) == -1)
-	{
-		printf("check");
-		ft_error(errno);
-	}
-	if ((read_file(fd, &file)) < 1)
-		ft_error(ERR_READ_FILE);
+		ft_error(set, errno);
+	if ((read_file(set, fd, &file)) < 1)
+		ft_error(set, ERR_READ_FILE);
 	parse_file(file, set);
 	ft_validate_data(set);
 
@@ -122,13 +107,6 @@ void			ft_parser(char *file_name, t_set *set)
 			  set->skin.no_ski, set->skin.so_ski, set->skin.we_ski, set->skin.ea_ski, set->skin.fl_col, set->skin.ce_col,
 			  set->skin.sprite_ski);
 	DEBUG printf("\nMAP:\n");
-//	char **p = set->map.c_map;
-//	while(*p != NULL)
-//	{
-//		DEBUG printf("[%s]\n", *p);
-//		p++;
-//	}
-
 	DEBUG printf("I want to free: '%s'\n", file);
 	close(fd);
 	ft_free(&file);
