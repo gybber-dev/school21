@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_validator.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 19:16:58 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/10 19:17:01 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_cub.h"
 
 static void		default_map(char **map)
@@ -5,7 +17,7 @@ static void		default_map(char **map)
 	t_pix		m;
 
 	ft_bzero(&m, sizeof(t_pix));
-	while(map[m.y])
+	while (map[m.y])
 	{
 		m.x = 0;
 		while (map[m.y][m.x])
@@ -18,16 +30,15 @@ static void		default_map(char **map)
 		}
 		m.y++;
 	}
-
 }
 
 /*
 ** Validate parsed data from file:
- * 1. If all data are parsed
- * 2. If the map is valid
+** 1. If all data are parsed
+** 2. If the map is valid
 */
 
-static int	map_validator(t_map *map, int x, int y)
+static int		map_validator(t_map *map, int x, int y)
 {
 	if (x < 0 || y < 0 || map->c_map[y] == NULL ||
 			map->c_map[y][x] == 0 || map->c_map[y][x] == ' ')
@@ -53,13 +64,12 @@ static int	map_validator(t_map *map, int x, int y)
 			map_validator(map, x + 1, y));
 }
 
-int			ft_validate_data(t_set *set)
+int				ft_validate_data(t_set *set)
 {
-	t_pix	m;
-	int		res;
+	t_pix		m;
+	int			res;
 
-	if (!set->map.c_map)
-		ft_error(set, ERR_FEW_DATA);
+	(!set->map.c_map) ? ft_error(set, ERR_FEW_DATA) : 0;
 	ft_bzero(&m, sizeof(t_pix));
 	res = 1;
 	while (set->map.c_map[m.y] != NULL && res)

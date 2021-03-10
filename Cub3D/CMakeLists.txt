@@ -8,19 +8,16 @@ include_directories(.)
 add_subdirectory(./libft)
 
 add_executable(Cub3D
-		errors/ft_error.c
+		ft_error.c
 		parser/ft_parser.c
 		parser/ft_parse_head.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c
-		regexp/ft_regexp.c
-		regexp/ft_regexp.h
 		game/game.c
 		game/dda.c
 		game/moving.c
 		game/sprite.c
 		game/screenshot.c
-		_config.h
 		ft_cub.h
 		utils_vector.c
 		main.c

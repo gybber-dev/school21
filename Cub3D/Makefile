@@ -1,19 +1,18 @@
 NAME		= cub3D
 
 SRCS	= \
-			errors/ft_error.c \
-			regexp/ft_regexp.c \
 			parser/ft_parser.c \
 			parser/ft_parse_head.c \
 			parser/ft_validator.c \
-			main.c \
-			utils_mlx.c \
 			game/game.c \
 			game/sprite.c \
 			game/dda.c \
 			game/moving.c \
 			game/screenshot.c \
 			utils_vector.c \
+			utils_mlx.c \
+			ft_error.c \
+			main.c \
 
 OBJS		= $(patsubst %.c, %.o, $(SRCS))
 OS			:= $(shell uname)
@@ -55,7 +54,8 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+norm:
+			norminette $(SRCS)
+			norminette $(HEADER)
 
-# commands
-# http://rus-linux.net/nlib.php?name=/MyLDP/algol/gnu_make/gnu_make_3-79_russian_manual.html#SEC77
+.PHONY:		all clean fclean re norm

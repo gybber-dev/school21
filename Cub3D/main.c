@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 21:21:26 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/10 21:21:27 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_cub.h"
 #include <string.h>
 
 int				finish_program(t_set *set)
 {
-	DEBUG printf("You exit the game. See you...\n");
 	auto_clear(set);
 	exit(EXIT_SUCCESS);
 }
 
 static int		check_extension(char *file, char *exp)
 {
-	int		f_len;
-	int		e_len;
+	int			f_len;
+	int			e_len;
 	int			i;
 
 	f_len = (int)ft_strlen(file);
@@ -26,7 +37,6 @@ static int		check_extension(char *file, char *exp)
 		return (0);
 	return (1);
 }
-
 
 void			auto_clear(t_set *set)
 {
@@ -77,17 +87,16 @@ static void		init_set(t_set *set)
 	set->player.pos.y = -1;
 	set->player.hor = 2;
 	set->player.move = 0;
-	ft_bzero(&set->win.img1.res, sizeof(t_fpix));
+	ft_bzero(&set->win.img.res, sizeof(t_fpix));
 	ft_bzero(&set->player.dir, sizeof(t_fpix));
 	ft_bzero(&set->player.plane, sizeof(t_fpix));
 	set->os = (!ft_strncmp(OS, "MAC", 3)) ? 2 : 1;
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
-	t_set 	set;
+	t_set		set;
 
-	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;
 	if ((argc == 2 && check_extension(argv[1], ".cub"))
 		|| (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))

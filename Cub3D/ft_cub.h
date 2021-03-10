@@ -1,22 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_cub.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 21:08:39 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/10 21:08:44 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_CUB_H
 # define FT_CUB_H
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include "regexp/ft_regexp.h"
-
-# include <stdio.h> // for perror
-# include <string.h> // for strerror
-# include <errno.h> // for errno
-# include <stdlib.h> // for exit
+# include <stdio.h>
+# include <string.h>
+# include <errno.h>
+# include <stdlib.h>
 # include <math.h>
 
-
-# ifdef __linux__
-#  include "libmlx/mlx.h"
 /*
 ** KEYCODES:
 */
+
+# ifdef __linux__
+#  include "libmlx/mlx.h"
 #  define OS "LINUX"
 #  define ESC 65307
 #  define W 119
@@ -46,25 +56,23 @@
 #  define LMOUSE 0
 #  define RMOUSE 0
 # endif
-
-#  define W_BIT 1
-#  define A_BIT 2
-#  define S_BIT 3
-#  define D_BIT 4
-#  define C_BIT 12
-#  define UP_BIT 5
-#  define LEFT_BIT 6
-#  define DOWN_BIT 7
-#  define RIGHT_BIT 8
-#  define SPACE_BIT 9
-#  define LMOUSE_BIT 10
-#  define RMOUSE_BIT 11
+# define W_BIT 1
+# define A_BIT 2
+# define S_BIT 3
+# define D_BIT 4
+# define C_BIT 12
+# define UP_BIT 5
+# define LEFT_BIT 6
+# define DOWN_BIT 7
+# define RIGHT_BIT 8
+# define SPACE_BIT 9
+# define LMOUSE_BIT 10
+# define RMOUSE_BIT 11
 
 /*
 ** ERROR MESSAGES:
 */
 
-# define SCALE 30
 # define STEP 0.2
 # define HOR_SIT 2.1
 # define HOR 2
@@ -79,14 +87,7 @@
 # define ERR_HEAD_2 1012
 # define ERR_LINE 1013
 # define ERR_MAP 1030
-
 # define SAVE "--save"
-
-// delete below:
-
-# include "_config.h"
-
-// delete ^^^^^^
 
 typedef struct		s_pix
 {
@@ -96,8 +97,8 @@ typedef struct		s_pix
 
 typedef struct		s_fpix
 {
-	double 			x;
-	double 			y;
+	double			x;
+	double			y;
 }					t_fpix;
 
 typedef struct		s_spr
@@ -109,14 +110,13 @@ typedef struct		s_spr
 	t_fpix			proj_c;
 	double			dist;
 	double			perp;
-	double			height;
+	double			h;
 }					t_spr;
-
 
 typedef struct		s_sl
 {
-	t_spr			sprite;
-	struct s_sl 	*next;
+	t_spr			spr;
+	struct s_sl		*next;
 }					t_sl;
 
 typedef struct		s_img
@@ -131,11 +131,9 @@ typedef struct		s_img
 
 typedef struct		s_msg
 {
-	int 			code;
-	char 			*text;
+	int				code;
+	char			*text;
 }					t_msg;
-
-
 
 typedef struct		s_ray
 {
@@ -144,6 +142,7 @@ typedef struct		s_ray
 	t_fpix			dir;
 	double			dist;
 	double			perp;
+	double			h;
 	t_fpix			cross;
 }					t_ray;
 
@@ -151,8 +150,8 @@ typedef struct		s_win
 {
 	void			*mlx;
 	void			*win;
-	t_img			img1;
-	t_img 			skins[5];
+	t_img			img;
+	t_img			skins[5];
 }					t_win;
 
 typedef struct		s_skin
@@ -176,7 +175,6 @@ typedef struct		s_map
 	int				isparsed;
 }					t_map;
 
-
 typedef struct		s_player
 {
 	t_fpix			pos;
@@ -199,19 +197,17 @@ typedef struct		s_set
 	int				os;
 }					t_set;
 
-void 				ft_parser(char *file_name, t_set *set);
+void				ft_parser(char *file_name, t_set *set);
 void				ft_parse_map(char *line, t_set *set);
 int					ft_parse_head(char *line, t_set *set);
 int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);
-int					create_trgb(int t, int r, int g, int b);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
-int					get_color(t_img *img, int x, int y);
+int					get_clr(t_img *img, int x, int y);
 void				run_game(t_set *set);
 void				add_sprite(t_set *set, t_ray *ray, t_pix map);
 void				draw_sprites(t_set *set);
-
-
+t_fpix				prj_to_vec(t_fpix m, t_fpix n, t_fpix d0, t_fpix dot);
 void				update_pos(t_set *set);
 void				drop_rays(t_set *set);
 int					key_hook_up(int keycode, t_set *set);
@@ -219,11 +215,7 @@ int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
 double				v_dist(t_fpix d1, t_fpix d2);
 t_fpix				v_set(double val_x, double val_y);
-void				v_scale(t_fpix *v, double k);
 t_fpix				v_sub(t_fpix v1, t_fpix v2);
-t_fpix				v_sum_num(t_fpix src, double x, double y);
-t_fpix				v_mult_num(t_fpix vec, double x, double y);
-double				v_mult(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
 int					finish_program(t_set *set);

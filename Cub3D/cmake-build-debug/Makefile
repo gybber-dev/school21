@@ -68,10 +68,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub
+CMAKE_SOURCE_DIR = /Users/yeschall/Desktop/Projects/GitHub/Cub3D
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -156,32 +156,32 @@ libft/fast:
 	$(MAKE) $(MAKESILENT) -f libft/CMakeFiles/libft.dir/build.make libft/CMakeFiles/libft.dir/build
 .PHONY : libft/fast
 
-errors/ft_error.o: errors/ft_error.c.o
+ft_error.o: ft_error.c.o
 
-.PHONY : errors/ft_error.o
+.PHONY : ft_error.o
 
 # target to build an object file
-errors/ft_error.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/errors/ft_error.c.o
-.PHONY : errors/ft_error.c.o
+ft_error.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/ft_error.c.o
+.PHONY : ft_error.c.o
 
-errors/ft_error.i: errors/ft_error.c.i
+ft_error.i: ft_error.c.i
 
-.PHONY : errors/ft_error.i
+.PHONY : ft_error.i
 
 # target to preprocess a source file
-errors/ft_error.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/errors/ft_error.c.i
-.PHONY : errors/ft_error.c.i
+ft_error.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/ft_error.c.i
+.PHONY : ft_error.c.i
 
-errors/ft_error.s: errors/ft_error.c.s
+ft_error.s: ft_error.c.s
 
-.PHONY : errors/ft_error.s
+.PHONY : ft_error.s
 
 # target to generate assembly for a file
-errors/ft_error.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/errors/ft_error.c.s
-.PHONY : errors/ft_error.c.s
+ft_error.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/ft_error.c.s
+.PHONY : ft_error.c.s
 
 game/dda.o: game/dda.c.o
 
@@ -426,33 +426,6 @@ parser/ft_validator.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_validator.c.s
 .PHONY : parser/ft_validator.c.s
 
-regexp/ft_regexp.o: regexp/ft_regexp.c.o
-
-.PHONY : regexp/ft_regexp.o
-
-# target to build an object file
-regexp/ft_regexp.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o
-.PHONY : regexp/ft_regexp.c.o
-
-regexp/ft_regexp.i: regexp/ft_regexp.c.i
-
-.PHONY : regexp/ft_regexp.i
-
-# target to preprocess a source file
-regexp/ft_regexp.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.i
-.PHONY : regexp/ft_regexp.c.i
-
-regexp/ft_regexp.s: regexp/ft_regexp.c.s
-
-.PHONY : regexp/ft_regexp.s
-
-# target to generate assembly for a file
-regexp/ft_regexp.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.s
-.PHONY : regexp/ft_regexp.c.s
-
 utils_mlx.o: utils_mlx.c.o
 
 .PHONY : utils_mlx.o
@@ -517,9 +490,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Cub3D"
 	@echo "... libft"
-	@echo "... errors/ft_error.o"
-	@echo "... errors/ft_error.i"
-	@echo "... errors/ft_error.s"
+	@echo "... ft_error.o"
+	@echo "... ft_error.i"
+	@echo "... ft_error.s"
 	@echo "... game/dda.o"
 	@echo "... game/dda.i"
 	@echo "... game/dda.s"
@@ -547,9 +520,6 @@ help:
 	@echo "... parser/ft_validator.o"
 	@echo "... parser/ft_validator.i"
 	@echo "... parser/ft_validator.s"
-	@echo "... regexp/ft_regexp.o"
-	@echo "... regexp/ft_regexp.i"
-	@echo "... regexp/ft_regexp.s"
 	@echo "... utils_mlx.o"
 	@echo "... utils_mlx.i"
 	@echo "... utils_mlx.s"

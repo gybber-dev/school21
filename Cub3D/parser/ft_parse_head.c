@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_head.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 20:55:37 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/10 20:55:39 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_cub.h"
 
 static char			*parse_path(t_set *set, char *str, char **dst)
@@ -19,62 +31,55 @@ static char			*parse_path(t_set *set, char *str, char **dst)
 
 static void			parse_resolution(t_set *set, char *line)
 {
-	if (set->win.img1.res.x != 0 || set->win.img1.res.y != 0)
+	if (set->win.img.res.x != 0 || set->win.img.res.y != 0)
 		ft_error(set, ERR_HEAD_1);
-	while(*line == ' ')
+	while (*line == ' ')
 		line++;
 	if (ft_isdigit(*line))
-		set->win.img1.res.x = ft_atoi(line);
+		set->win.img.res.x = ft_atoi(line);
 	while (ft_isdigit(*line))
 		line++;
-	while(*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == ',')
 		line++;
 	if (ft_isdigit(*line))
-		set->win.img1.res.y = ft_atoi(line);
-	while(ft_isdigit(*line))
+		set->win.img.res.y = ft_atoi(line);
+	while (ft_isdigit(*line))
 		line++;
-	while(*line == ' ' || *line == ',')
+	while (*line == ' ' || *line == ',')
 		line++;
 	if (*line != 0 ||
-		set->win.img1.res.x <= 0 || set->win.img1.res.y <= 0)
+		set->win.img.res.x <= 0 || set->win.img.res.y <= 0)
 		ft_error(set, ERR_HEAD_2);
 }
 
-static void				parse_rgb(t_set *set, char *line, int *param)
+static void			parse_rgb(t_set *set, char *line, int *param)
 {
-	int				r;
-	int				g;
-	int				b;
+	int				col;
+	int				i;
 
+	i = 3;
 	if (*param != -1)
 		ft_error(set, ERR_HEAD_1);
-	while(*line == ' ')
+	while (*line == ' ')
 		line++;
-	if (ft_isdigit(*line))
-		r = ft_atoi(line);
-	while (ft_isdigit(*line))
-		line++;
-	while(*line == ' ' || *line == ',')
-		line++;
-	if (ft_isdigit(*line))
-		g = ft_atoi(line);
-	while(ft_isdigit(*line))
-		line++;
-	while(*line == ' ' || *line == ',')
-		line++;
-	if (ft_isdigit(*line))
-		b = ft_atoi(line);
-	while(ft_isdigit(*line))
-		line++;
-	while(*line == ' ' || *line == ',')
-		line++;
-	if (*line != 0 || r < 0 || g < 0 || b < 0
-		|| r > 255 || b > 255 || g > 255)
+	*param = (0 << 24);
+	while (i--)
+	{
+		if (ft_isdigit(*line))
+			col = ft_atoi(line);
+		while (ft_isdigit(*line))
+			line++;
+		while (*line == ' ' || *line == ',')
+			line++;
+		if (col < 0 || col > 255)
+			ft_error(set, ERR_HEAD_2);
+		*param |= (col << i * 8);
+	}
+	if (*line != 0)
 		ft_error(set, ERR_HEAD_2);
-	*param = create_trgb(0, r, g, b);
 }
 
-int			ft_parse_head(char *line, t_set *set)
+int					ft_parse_head(char *line, t_set *set)
 {
 	if (*line == 'R' && *(line + 1) == ' ')
 		parse_resolution(set, line + 2);

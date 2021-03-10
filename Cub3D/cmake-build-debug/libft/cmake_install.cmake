@@ -1,4 +1,4 @@
-# Install script for directory: /Users/yeschall/Desktop/Projects/GitHub/cub/libft
+# Install script for directory: /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Cub3D.dir/errors/ft_error.c.o"
+  "CMakeFiles/Cub3D.dir/ft_error.c.o"
   "CMakeFiles/Cub3D.dir/game/dda.c.o"
   "CMakeFiles/Cub3D.dir/game/game.c.o"
   "CMakeFiles/Cub3D.dir/game/moving.c.o"
@@ -9,7 +9,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
   "CMakeFiles/Cub3D.dir/parser/ft_parser.c.o"
   "CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"
-  "CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o"
   "CMakeFiles/Cub3D.dir/utils_mlx.c.o"
   "CMakeFiles/Cub3D.dir/utils_vector.c.o"
   "Cub3D"
