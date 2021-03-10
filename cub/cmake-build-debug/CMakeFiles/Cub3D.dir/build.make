@@ -155,18 +155,18 @@ CMakeFiles/Cub3D.dir/game/game.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/game/game.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/game/game.c -o CMakeFiles/Cub3D.dir/game/game.c.s
 
-CMakeFiles/Cub3D.dir/game/player.c.o: CMakeFiles/Cub3D.dir/flags.make
-CMakeFiles/Cub3D.dir/game/player.c.o: ../game/player.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Cub3D.dir/game/player.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/player.c.o   -c /Users/yeschall/Desktop/Projects/GitHub/cub/game/player.c
+CMakeFiles/Cub3D.dir/game/dda.c.o: CMakeFiles/Cub3D.dir/flags.make
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../game/dda.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Cub3D.dir/game/dda.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/dda.c.o   -c /Users/yeschall/Desktop/Projects/GitHub/cub/game/dda.c
 
-CMakeFiles/Cub3D.dir/game/player.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Cub3D.dir/game/player.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yeschall/Desktop/Projects/GitHub/cub/game/player.c > CMakeFiles/Cub3D.dir/game/player.c.i
+CMakeFiles/Cub3D.dir/game/dda.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Cub3D.dir/game/dda.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yeschall/Desktop/Projects/GitHub/cub/game/dda.c > CMakeFiles/Cub3D.dir/game/dda.c.i
 
-CMakeFiles/Cub3D.dir/game/player.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/game/player.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/game/player.c -o CMakeFiles/Cub3D.dir/game/player.c.s
+CMakeFiles/Cub3D.dir/game/dda.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/game/dda.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/game/dda.c -o CMakeFiles/Cub3D.dir/game/dda.c.s
 
 CMakeFiles/Cub3D.dir/game/moving.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/moving.c.o: ../game/moving.c
@@ -233,18 +233,18 @@ CMakeFiles/Cub3D.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/main.c.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/main.c -o CMakeFiles/Cub3D.dir/main.c.s
 
-CMakeFiles/Cub3D.dir/utils0.c.o: CMakeFiles/Cub3D.dir/flags.make
-CMakeFiles/Cub3D.dir/utils0.c.o: ../utils0.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Cub3D.dir/utils0.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/utils0.c.o   -c /Users/yeschall/Desktop/Projects/GitHub/cub/utils0.c
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: CMakeFiles/Cub3D.dir/flags.make
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../utils_mlx.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/yeschall/Desktop/Projects/GitHub/cub/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Cub3D.dir/utils_mlx.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/utils_mlx.c.o   -c /Users/yeschall/Desktop/Projects/GitHub/cub/utils_mlx.c
 
-CMakeFiles/Cub3D.dir/utils0.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Cub3D.dir/utils0.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yeschall/Desktop/Projects/GitHub/cub/utils0.c > CMakeFiles/Cub3D.dir/utils0.c.i
+CMakeFiles/Cub3D.dir/utils_mlx.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Cub3D.dir/utils_mlx.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/yeschall/Desktop/Projects/GitHub/cub/utils_mlx.c > CMakeFiles/Cub3D.dir/utils_mlx.c.i
 
-CMakeFiles/Cub3D.dir/utils0.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/utils0.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/utils0.c -o CMakeFiles/Cub3D.dir/utils0.c.s
+CMakeFiles/Cub3D.dir/utils_mlx.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/utils_mlx.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/yeschall/Desktop/Projects/GitHub/cub/utils_mlx.c -o CMakeFiles/Cub3D.dir/utils_mlx.c.s
 
 # Object files for target Cub3D
 Cub3D_OBJECTS = \
@@ -254,13 +254,13 @@ Cub3D_OBJECTS = \
 "CMakeFiles/Cub3D.dir/parser/ft_validator.c.o" \
 "CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o" \
 "CMakeFiles/Cub3D.dir/game/game.c.o" \
-"CMakeFiles/Cub3D.dir/game/player.c.o" \
+"CMakeFiles/Cub3D.dir/game/dda.c.o" \
 "CMakeFiles/Cub3D.dir/game/moving.c.o" \
 "CMakeFiles/Cub3D.dir/game/sprite.c.o" \
 "CMakeFiles/Cub3D.dir/game/screenshot.c.o" \
 "CMakeFiles/Cub3D.dir/utils_vector.c.o" \
 "CMakeFiles/Cub3D.dir/main.c.o" \
-"CMakeFiles/Cub3D.dir/utils0.c.o"
+"CMakeFiles/Cub3D.dir/utils_mlx.c.o"
 
 # External object files for target Cub3D
 Cub3D_EXTERNAL_OBJECTS =
@@ -271,13 +271,13 @@ Cub3D: CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
 Cub3D: CMakeFiles/Cub3D.dir/parser/ft_validator.c.o
 Cub3D: CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o
 Cub3D: CMakeFiles/Cub3D.dir/game/game.c.o
-Cub3D: CMakeFiles/Cub3D.dir/game/player.c.o
+Cub3D: CMakeFiles/Cub3D.dir/game/dda.c.o
 Cub3D: CMakeFiles/Cub3D.dir/game/moving.c.o
 Cub3D: CMakeFiles/Cub3D.dir/game/sprite.c.o
 Cub3D: CMakeFiles/Cub3D.dir/game/screenshot.c.o
 Cub3D: CMakeFiles/Cub3D.dir/utils_vector.c.o
 Cub3D: CMakeFiles/Cub3D.dir/main.c.o
-Cub3D: CMakeFiles/Cub3D.dir/utils0.c.o
+Cub3D: CMakeFiles/Cub3D.dir/utils_mlx.c.o
 Cub3D: CMakeFiles/Cub3D.dir/build.make
 Cub3D: libft/liblibft.a
 Cub3D: ../libmlx_mac/libmlx.a

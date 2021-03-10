@@ -131,13 +131,13 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/ft_cub.h">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/game/dda.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/game/game.c">
 			<Option target="Cub3D"/>
 		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/game/moving.c">
-			<Option target="Cub3D"/>
-		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/game/player.c">
 			<Option target="Cub3D"/>
 		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/game/screenshot.c">
@@ -311,7 +311,7 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/regexp/ft_regexp.h">
 			<Option target="Cub3D"/>
 		</Unit>
-		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/utils0.c">
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/utils_mlx.c">
 			<Option target="Cub3D"/>
 		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/cub/utils_vector.c">

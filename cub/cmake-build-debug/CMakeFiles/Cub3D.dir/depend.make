@@ -9,6 +9,14 @@ CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../libmlx/mlx.h
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/errors/ft_error.c.o: ../regexp/ft_regexp.h
 
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../game/dda.c
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/game/dda.c.o: ../regexp/ft_regexp.h
+
 CMakeFiles/Cub3D.dir/game/game.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/game/game.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/game/game.c.o: ../game/game.c
@@ -24,14 +32,6 @@ CMakeFiles/Cub3D.dir/game/moving.c.o: ../libft/libft.h
 CMakeFiles/Cub3D.dir/game/moving.c.o: ../libmlx/mlx.h
 CMakeFiles/Cub3D.dir/game/moving.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/game/moving.c.o: ../regexp/ft_regexp.h
-
-CMakeFiles/Cub3D.dir/game/player.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/game/player.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/game/player.c.o: ../game/player.c
-CMakeFiles/Cub3D.dir/game/player.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/game/player.c.o: ../libmlx/mlx.h
-CMakeFiles/Cub3D.dir/game/player.c.o: ../libmlx_mac/mlx.h
-CMakeFiles/Cub3D.dir/game/player.c.o: ../regexp/ft_regexp.h
 
 CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../ft_cub.h
@@ -85,13 +85,13 @@ CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../libft/libft.h
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.c
 CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.o: ../regexp/ft_regexp.h
 
-CMakeFiles/Cub3D.dir/utils0.c.o: ../_config.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../ft_cub.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../libft/libft.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../libmlx/mlx.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../libmlx_mac/mlx.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../regexp/ft_regexp.h
-CMakeFiles/Cub3D.dir/utils0.c.o: ../utils0.c
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../_config.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../regexp/ft_regexp.h
+CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../utils_mlx.c
 
 CMakeFiles/Cub3D.dir/utils_vector.c.o: ../_config.h
 CMakeFiles/Cub3D.dir/utils_vector.c.o: ../ft_cub.h

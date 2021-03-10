@@ -16,7 +16,7 @@ add_executable(Cub3D
 		regexp/ft_regexp.c
 		regexp/ft_regexp.h
 		game/game.c
-		game/player.c
+		game/dda.c
 		game/moving.c
 		game/sprite.c
 		game/screenshot.c
@@ -24,7 +24,7 @@ add_executable(Cub3D
 		ft_cub.h
 		utils_vector.c
 		main.c
-		utils0.c)
+		utils_mlx.c)
 
 if (APPLE)
 	target_link_libraries(Cub3D

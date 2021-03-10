@@ -38,6 +38,19 @@ static void			draw_strip(t_set *set, t_ray *ray)
 	}
 }
 
+static void			count_ray_len0(t_fpix *dist, t_ray *ray, t_set *set, t_pix map)
+{
+	ray->cross.x = (ray->dir.x < 0) ?
+			map.x + set->player.step.x + 1 : map.x + set->player.step.x;
+	ray->cross.y = (ray->dir.y < 0) ?
+			map.y + set->player.step.y + 1 : map.y + set->player.step.y;
+	dist->x = (ray->dir.x == 0) ? dist->x + 1 :
+			fabs((ray->cross.x - set->player.pos.x) / (ray->dir.x / v_len(ray->dir)));
+	dist->y = (ray->dir.y == 0) ? dist->y + 1 :
+			fabs((ray->cross.y - set->player.pos.y) / (ray->dir.y / v_len(ray->dir)));
+}
+
+
 /*
 ** counts the ray length and (optionally) put pixel in a
 ** cross of the ray and grid. Counts side of wall:
@@ -55,14 +68,7 @@ static void			count_ray_len(t_set *set, t_ray *ray)
 	map.y = (int)set->player.pos.y;
 	while (set->map.c_map[map.y][map.x] != '1')
 	{
-		ray->cross.x = (ray->dir.x < 0) ?
-				   map.x + set->player.step.x + 1 : map.x + set->player.step.x;
-		ray->cross.y = (ray->dir.y < 0) ?
-				   map.y + set->player.step.y + 1 : map.y + set->player.step.y;
-		dist.x = (ray->dir.x == 0) ? dist.x + 1 :
-				 fabs((ray->cross.x - set->player.pos.x) / (ray->dir.x / v_len(ray->dir)));
-		dist.y = (ray->dir.y == 0) ? dist.y + 1 :
-				 fabs((ray->cross.y - set->player.pos.y) / (ray->dir.y / v_len(ray->dir)));
+		count_ray_len0(&dist, ray, set, map);
 		if (dist.x < dist.y)
 		{
 			ray->cross.y = set->player.pos.y + dist.x * ray->dir.y / v_len(ray->dir);
@@ -78,7 +84,6 @@ static void			count_ray_len(t_set *set, t_ray *ray)
 		ray->dist = dist.x < dist.y ? dist.x : dist.y;
 		if (set->map.c_map[map.y][map.x] == '2')
 			add_sprite(set, ray, map);
-//		my_mlx_pixel_put(set, (int)(ray->cross.x * SCALE), (int)(ray->cross.y) * SCALE, 0xFF0000);
 	}
 }
 

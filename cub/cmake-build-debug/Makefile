@@ -183,6 +183,33 @@ errors/ft_error.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/errors/ft_error.c.s
 .PHONY : errors/ft_error.c.s
 
+game/dda.o: game/dda.c.o
+
+.PHONY : game/dda.o
+
+# target to build an object file
+game/dda.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/dda.c.o
+.PHONY : game/dda.c.o
+
+game/dda.i: game/dda.c.i
+
+.PHONY : game/dda.i
+
+# target to preprocess a source file
+game/dda.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/dda.c.i
+.PHONY : game/dda.c.i
+
+game/dda.s: game/dda.c.s
+
+.PHONY : game/dda.s
+
+# target to generate assembly for a file
+game/dda.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/dda.c.s
+.PHONY : game/dda.c.s
+
 game/game.o: game/game.c.o
 
 .PHONY : game/game.o
@@ -236,33 +263,6 @@ game/moving.s: game/moving.c.s
 game/moving.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/moving.c.s
 .PHONY : game/moving.c.s
-
-game/player.o: game/player.c.o
-
-.PHONY : game/player.o
-
-# target to build an object file
-game/player.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.o
-.PHONY : game/player.c.o
-
-game/player.i: game/player.c.i
-
-.PHONY : game/player.i
-
-# target to preprocess a source file
-game/player.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.i
-.PHONY : game/player.c.i
-
-game/player.s: game/player.c.s
-
-.PHONY : game/player.s
-
-# target to generate assembly for a file
-game/player.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/game/player.c.s
-.PHONY : game/player.c.s
 
 game/screenshot.o: game/screenshot.c.o
 
@@ -453,32 +453,32 @@ regexp/ft_regexp.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/regexp/ft_regexp.c.s
 .PHONY : regexp/ft_regexp.c.s
 
-utils0.o: utils0.c.o
+utils_mlx.o: utils_mlx.c.o
 
-.PHONY : utils0.o
+.PHONY : utils_mlx.o
 
 # target to build an object file
-utils0.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.o
-.PHONY : utils0.c.o
+utils_mlx.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_mlx.c.o
+.PHONY : utils_mlx.c.o
 
-utils0.i: utils0.c.i
+utils_mlx.i: utils_mlx.c.i
 
-.PHONY : utils0.i
+.PHONY : utils_mlx.i
 
 # target to preprocess a source file
-utils0.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.i
-.PHONY : utils0.c.i
+utils_mlx.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_mlx.c.i
+.PHONY : utils_mlx.c.i
 
-utils0.s: utils0.c.s
+utils_mlx.s: utils_mlx.c.s
 
-.PHONY : utils0.s
+.PHONY : utils_mlx.s
 
 # target to generate assembly for a file
-utils0.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils0.c.s
-.PHONY : utils0.c.s
+utils_mlx.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/utils_mlx.c.s
+.PHONY : utils_mlx.c.s
 
 utils_vector.o: utils_vector.c.o
 
@@ -520,15 +520,15 @@ help:
 	@echo "... errors/ft_error.o"
 	@echo "... errors/ft_error.i"
 	@echo "... errors/ft_error.s"
+	@echo "... game/dda.o"
+	@echo "... game/dda.i"
+	@echo "... game/dda.s"
 	@echo "... game/game.o"
 	@echo "... game/game.i"
 	@echo "... game/game.s"
 	@echo "... game/moving.o"
 	@echo "... game/moving.i"
 	@echo "... game/moving.s"
-	@echo "... game/player.o"
-	@echo "... game/player.i"
-	@echo "... game/player.s"
 	@echo "... game/screenshot.o"
 	@echo "... game/screenshot.i"
 	@echo "... game/screenshot.s"
@@ -550,9 +550,9 @@ help:
 	@echo "... regexp/ft_regexp.o"
 	@echo "... regexp/ft_regexp.i"
 	@echo "... regexp/ft_regexp.s"
-	@echo "... utils0.o"
-	@echo "... utils0.i"
-	@echo "... utils0.s"
+	@echo "... utils_mlx.o"
+	@echo "... utils_mlx.i"
+	@echo "... utils_mlx.s"
 	@echo "... utils_vector.o"
 	@echo "... utils_vector.i"
 	@echo "... utils_vector.s"

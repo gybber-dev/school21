@@ -6,8 +6,27 @@ int				finish_program(t_set *set)
 	DEBUG printf("You exit the game. See you...\n");
 	auto_clear(set);
 	exit(EXIT_SUCCESS);
-
 }
+
+static int		check_extension(char *file, char *exp)
+{
+	int		f_len;
+	int		e_len;
+	int			i;
+
+	f_len = (int)ft_strlen(file);
+	e_len = (int)ft_strlen(exp);
+	i = -1;
+	if (f_len <= e_len)
+		return (0);
+	while (++i < e_len)
+		if (exp[e_len - 1 - i] != file[f_len - 1 - i])
+			return (0);
+	if (f_len - 1 - i >= 0 && file[f_len - 1 - i] == '/')
+		return (0);
+	return (1);
+}
+
 
 void			auto_clear(t_set *set)
 {
@@ -70,7 +89,8 @@ int			main(int argc, char **argv)
 
 	DEBUG printf("OS detected: '%s'\n", OS);
 	set.save = 0;
-	if (argc == 2 || (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
+	if ((argc == 2 && check_extension(argv[1], ".cub"))
+		|| (argc == 3 && !ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))))
 	{
 		if (argc == 3)
 			set.save = 1;
