@@ -1,10 +1,10 @@
-R 640 4800
+R 6400 4800
 
-NO      ../textures/23f.xpm
-SO ../textures/walkstone.xpm
-WE ../textures/WALL16.xpm
-EA ../textures/1.xpm
-S ../textures/white_l64.xpm
+NO ../textures/sand.xpm
+SO ../textures/1.xpm
+WE ../textures/2.xpm
+EA ../textures/3.xpm
+S ../textures/barrel.xpm
 F 192,  192,    192
 C    204    , 204   ,255
 

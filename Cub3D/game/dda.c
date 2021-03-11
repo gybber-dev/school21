@@ -51,13 +51,13 @@ static void			draw_strip(t_set *set, t_ray *ray)
 static void			count_ray_len0(t_fpix *d, t_ray *r, t_set *set, t_pix map)
 {
 	r->cross.x = (r->dir.x < 0) ?
-			map.x + set->player.step.x + 1 : map.x + set->player.step.x;
+		map.x + set->player.step.x + 1 : map.x + set->player.step.x;
 	r->cross.y = (r->dir.y < 0) ?
-			map.y + set->player.step.y + 1 : map.y + set->player.step.y;
+		map.y + set->player.step.y + 1 : map.y + set->player.step.y;
 	d->x = (r->dir.x == 0) ? d->x + 1 :
-			fabs((r->cross.x - set->player.pos.x) / (r->dir.x / v_len(r->dir)));
+		fabs((r->cross.x - set->player.pos.x) / (r->dir.x / v_len(r->dir)));
 	d->y = (r->dir.y == 0) ? d->y + 1 :
-			fabs((r->cross.y - set->player.pos.y) / (r->dir.y / v_len(r->dir)));
+		fabs((r->cross.y - set->player.pos.y) / (r->dir.y / v_len(r->dir)));
 }
 
 /*
