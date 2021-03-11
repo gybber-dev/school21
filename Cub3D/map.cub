@@ -1,13 +1,13 @@
 R 1000 1000
 
-NO ./textures/1.xpm
-SO ./textures/planks.xpm
-WE ./textures/sand.xpm
-EA ./textures/woolsnow.xpm
-S ./textures/barrel.xpm
-F 220   ,   100  ,    0
+NO ./textures/sand.xpm
+SO ./textures/1.xpm
+WE ./textures/2.xpm
+EA ./textures/3.xpm
+S ./textures/sprite.xpm
+F 4   ,   75  ,    4
 
-C 255   ,  30,   30
+C 3   ,  3,   149
 
 
 

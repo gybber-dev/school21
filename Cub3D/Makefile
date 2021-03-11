@@ -29,7 +29,7 @@ LIB_FLAGS	= -Llibmlx -lmlx -lX11 -lm -lXext -lbsd
 LIB_DIR		= libmlx
 endif
 
-all:		init ${NAME}
+all:		init ${NAME} $(HEADER)
 
 init:
 			@ echo $(OS)
