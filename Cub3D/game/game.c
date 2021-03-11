@@ -73,7 +73,7 @@ static void		check_display_resolution(t_set *set, t_pix *res)
 		mlx_get_screen_size(set->win.mlx, &display.x, &display.y);
 	if (display.x < res->x)
 		res->x = display.x;
-	if (display.x < res->y)
+	if (display.y < res->y)
 		res->y = display.y;
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_u.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 16:17:46 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/11 16:17:50 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static size_t	count_len(unsigned int n)
@@ -7,7 +19,7 @@ static size_t	count_len(unsigned int n)
 	return (count_len(n / 10) + 1);
 }
 
-char		*ft_itoa_u(unsigned int n)
+char			*ft_itoa_u(unsigned int n)
 {
 	size_t		len;
 	char		*str;

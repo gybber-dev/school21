@@ -45,11 +45,11 @@ void				screen_image(t_set *set)
 	if (fd < 0)
 		ft_error(set, errno);
 	init_bmp_header(set, fd);
-	i = -1;
-	while (++i < set->win.img.res.y)
+	i = set->win.img.res.y;
+	while (i-- > 0)
 	{
 		write(fd, (set->win.img.addr + i * set->win.img.len),
-		(set->win.img.res.x * set->win.img.bpp / 8));
+			(set->win.img.res.x * set->win.img.bpp / 8));
 	}
 	close(fd);
 	exit(0);

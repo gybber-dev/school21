@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa_uhex.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yeschall <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/11 16:19:15 by yeschall          #+#    #+#             */
+/*   Updated: 2021/03/11 16:19:47 by yeschall         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static char		ft_hex(int n)
@@ -32,7 +44,6 @@ char			*ft_itoa_uhex(unsigned long int n)
 
 	len = count_len(n);
 	str = (char *)malloc(len + 1);
-//	str = ft_calloc(len + 1, 1);
 	if (str == NULL)
 		return (NULL);
 	str[len] = '\0';

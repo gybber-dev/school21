@@ -57,5 +57,6 @@ re:			fclean all
 norm:
 			norminette $(SRCS)
 			norminette $(HEADER)
+			norminette libft/*.c
 
 .PHONY:		all clean fclean re norm
