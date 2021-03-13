@@ -112,7 +112,6 @@ void				drop_rays(t_set *set)
 		if (ray.perp < ZERO_VAL)
 			ray.perp = ZERO_VAL;
 		ray.h = (double)set->win.img.res.y / ray.perp;
-//		ray.h = (double)set->win.skins[ray.side].res.x * (double)set->win.img.res.y / ray.perp / (double)set->win.img.res.x;
 		draw_strip(set, &ray);
 		ray.x++;
 	}
