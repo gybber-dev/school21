@@ -27,14 +27,18 @@ static void		init_textures(t_set *set)
 		set->skin.we_ski, &set->win.skins[2].res.x, &set->win.skins[2].res.y)))
 		ft_error(set, 1021);
 	if (!(set->win.skins[4].img = mlx_xpm_file_to_image(set->win.mlx,
-			set->skin.sprite_ski, &set->win.skins[4].res.x,
-			&set->win.skins[4].res.y)))
+		set->skin.spr_ski, &set->win.skins[4].res.x, &set->win.skins[4].res.y)))
 		ft_error(set, 1021);
+	write_addr(&set->win.skins[0]);
+	write_addr(&set->win.skins[1]);
+	write_addr(&set->win.skins[2]);
+	write_addr(&set->win.skins[3]);
+	write_addr(&set->win.skins[4]);
 	ft_free(&(set->skin.no_ski));
 	ft_free(&(set->skin.so_ski));
 	ft_free(&(set->skin.we_ski));
 	ft_free(&(set->skin.ea_ski));
-	ft_free(&(set->skin.sprite_ski));
+	ft_free(&(set->skin.spr_ski));
 }
 
 static void		init_player_pos(t_set *set)

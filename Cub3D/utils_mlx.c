@@ -24,12 +24,16 @@ void			my_mlx_pixel_put(t_set *set, int x, int y, int color)
 	}
 }
 
+void			write_addr(t_img *img)
+{
+	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->len, &img->endian);
+}
+
 int				get_clr(t_img *img, int x, int y)
 {
 	int			res;
 	char		*dst;
 
-	img->addr = mlx_get_data_addr(img->img, &img->bpp, &img->len, &img->endian);
 	dst = img->addr + y * img->len + x * (img->bpp / 8);
 	res = (*(int*)dst);
 	return (res);

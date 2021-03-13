@@ -92,7 +92,7 @@ int					ft_parse_head(char *line, t_set *set)
 	else if (*line == 'E' && *(line + 1) == 'A')
 		parse_path(set, line + 2, &set->skin.ea_ski);
 	else if (*line == 'S' && *(line + 1) == ' ')
-		parse_path(set, line + 2, &set->skin.sprite_ski);
+		parse_path(set, line + 2, &set->skin.spr_ski);
 	else if (*line == 'F' && *(line + 1) == ' ')
 		parse_rgb(set, line + 2, &set->skin.fl_col);
 	else if (*line == 'C' && *(line + 1) == ' ')

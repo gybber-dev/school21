@@ -163,7 +163,7 @@ typedef struct		s_skin
 	char			*so_ski;
 	char			*we_ski;
 	char			*ea_ski;
-	char			*sprite_ski;
+	char			*spr_ski;
 }					t_skin;
 
 typedef struct		s_map
@@ -204,6 +204,7 @@ int					ft_parse_head(char *line, t_set *set);
 int					ft_validate_data(t_set *set);
 void				ft_error(t_set *set, int code);
 void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
+void				write_addr(t_img *img);
 int					get_clr(t_img *img, int x, int y);
 void				run_game(t_set *set);
 void				add_sprite(t_set *set, t_ray *ray, t_pix map);
