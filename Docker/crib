@@ -1,0 +1,15 @@
+docker:
+	pull <image>					download image
+	pull ubuntu:18.10
+
+	images							show downloaded images
+
+	run <image>						run container (container is the place where virtual machine will be run.
+		<command in container>		But image is a default system from a container will be created. 
+	docker							You can't change an image, but you can create file/dir's in container).
+	 run ubuntu:18.10
+	  echo 'hello from ubuntu'		
+	
+	docker ps -a					show all containers
+
+	
