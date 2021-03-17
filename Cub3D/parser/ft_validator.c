@@ -85,7 +85,7 @@ int				ft_validate_data(t_set *set)
 		}
 		m.y++;
 	}
-	if (set->map.player_counter > 1)
+	if (set->map.player_counter != 1)
 		ft_error(set, ERR_PLAYERS);
 	if (!res)
 		ft_error(set, ERR_MAP);

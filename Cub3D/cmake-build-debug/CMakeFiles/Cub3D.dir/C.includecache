@@ -28,7 +28,27 @@ libmlx/mlx.h
 libmlx_mac/mlx.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
 
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_error.c
+ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/dda.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/game.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/moving.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/screenshot.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/sprite.c
 ../ft_cub.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 
@@ -41,4 +61,30 @@ unistd.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx/mlx.h
 
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c
+ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+string.h
+-
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_head.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_validator.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/utils_mlx.c
+ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/utils_vector.c
+ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 
