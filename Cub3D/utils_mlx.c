@@ -31,10 +31,8 @@ void			write_addr(t_img *img)
 
 int				get_clr(t_img *img, int x, int y)
 {
-	int			res;
 	char		*dst;
 
 	dst = img->addr + y * img->len + x * (img->bpp / 8);
-	res = (*(int*)dst);
-	return (res);
+	return (*(int*)dst);
 }
