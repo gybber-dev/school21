@@ -12,6 +12,15 @@
 
 #include "ft_cub.h"
 
+/*
+** Returns project of dot to m-n coordinate system with a center in d0
+**				   -1
+** dot_mn = [ m n ]	* [ dot ] =
+**
+**				n.y		-n.x		 dot.x
+** 1 / det * [	-m.y	m.x		] * [dot.y]
+*/
+
 t_fpix			prj_to_vec(t_fpix m, t_fpix n, t_fpix d0, t_fpix dot)
 {
 	t_fpix		proj;
