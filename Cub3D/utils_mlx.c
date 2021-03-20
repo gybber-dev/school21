@@ -33,6 +33,10 @@ int				get_clr(t_img *img, int x, int y)
 {
 	char		*dst;
 
-	dst = img->addr + y * img->len + x * (img->bpp / 8);
-	return (*(int*)dst);
+	if (x >= 0 && x <= img->res.x && y >= 0 && y <= img->res.y)
+	{
+		dst = img->addr + y * img->len + x * (img->bpp / 8);
+		return (*(int*)dst);
+	}
+	return (0);
 }

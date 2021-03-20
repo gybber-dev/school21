@@ -12,7 +12,7 @@
 
 #include "../ft_cub.h"
 
-static void		default_map(char **map)
+static int		default_map(char **map)
 {
 	t_pix		m;
 
@@ -26,10 +26,13 @@ static void		default_map(char **map)
 				map[m.y][m.x] = '0';
 			if (map[m.y][m.x] == '7')
 				map[m.y][m.x] = '2';
+			if (!ft_strchr("01257NEWS ", map[m.y][m.x]))
+				return (0);
 			m.x++;
 		}
 		m.y++;
 	}
+	return (1);
 }
 
 /*
@@ -85,10 +88,9 @@ int				ft_validate_data(t_set *set)
 		}
 		m.y++;
 	}
+	if (!res || !default_map(set->map.c_map))
+		ft_error(set, ERR_MAP);
 	if (set->map.player_counter != 1)
 		ft_error(set, ERR_PLAYERS);
-	if (!res)
-		ft_error(set, ERR_MAP);
-	default_map(set->map.c_map);
 	return (res);
 }

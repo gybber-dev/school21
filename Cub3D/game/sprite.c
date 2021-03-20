@@ -30,7 +30,7 @@ static void		draw_sprite(t_set *set, t_spr *sp)
 	sp->start.y = (double)set->win.img.res.y / set->player.hor - sp->h / 2 - 1;
 	sp->start.x < 0 ? sp->start.x = 0 : 0;
 	sp->start.y < 0 ? sp->start.y = 0 : 0;
-	while (++sp->start.x <= sp->end.x)
+	while (++sp->start.x <= sp->end.x && sp->start.x < set->win.img.res.x)
 	{
 		if (sp->start.x < sp->xlim.x || sp->start.x > sp->xlim.y + 1)
 			continue ;
