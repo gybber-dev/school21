@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Cub3D.dir/game/screenshot.c.o"
   "CMakeFiles/Cub3D.dir/game/sprite.c.o"
   "CMakeFiles/Cub3D.dir/main.c.o"
+  "CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o"
   "CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
   "CMakeFiles/Cub3D.dir/parser/ft_parser.c.o"
   "CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"

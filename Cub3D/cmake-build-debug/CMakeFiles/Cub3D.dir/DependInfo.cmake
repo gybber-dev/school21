@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/screenshot.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/game/screenshot.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/sprite.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/game/sprite.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/main.c.o"
+  "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_count_sprites.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_head.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_parser.c.o"
   "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_validator.c" "/Users/yeschall/Desktop/Projects/GitHub/Cub3D/cmake-build-debug/CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"

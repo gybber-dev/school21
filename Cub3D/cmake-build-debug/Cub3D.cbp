@@ -293,6 +293,9 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_count_sprites.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parse_head.c">
 			<Option target="Cub3D"/>
 		</Unit>

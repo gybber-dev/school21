@@ -107,6 +107,20 @@ static t_sl		*find_sprite(t_sl *list, t_pix map)
 	return (NULL);
 }
 
+void			add_sprite1(t_set *set, t_ray *ray, t_pix map)
+{
+	int 		i;
+
+	i = -1;
+	while (++i < set->sprites)
+	{
+		if ((int)set->sprs[i].pos.x == map.x &&
+				(int)set->sprs[i].pos.y == map.y)
+			ray->x = 0;
+	}
+}
+
+
 void			add_sprite(t_set *set, t_ray *ray, t_pix map)
 {
 	t_sl		*p;
@@ -115,7 +129,6 @@ void			add_sprite(t_set *set, t_ray *ray, t_pix map)
 	if ((p = find_sprite(set->sl, map)))
 		p->spr.xlim.y = ray->x;
 	ns = (t_sl *)malloc(sizeof(t_sl));
-	ns->spr.pos = v_set(map.x + 0.5, map.y + 0.5);
 	ns->spr.xlim = v_set(ray->x, ray->x);
 	ns->spr.proj_c = prj_to_vec(set->player.plane, set->player.dir,
 					set->player.pos, ns->spr.pos);

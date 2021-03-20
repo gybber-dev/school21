@@ -345,6 +345,33 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/main.c.s
 .PHONY : main.c.s
 
+parser/ft_count_sprites.o: parser/ft_count_sprites.c.o
+
+.PHONY : parser/ft_count_sprites.o
+
+# target to build an object file
+parser/ft_count_sprites.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o
+.PHONY : parser/ft_count_sprites.c.o
+
+parser/ft_count_sprites.i: parser/ft_count_sprites.c.i
+
+.PHONY : parser/ft_count_sprites.i
+
+# target to preprocess a source file
+parser/ft_count_sprites.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.i
+.PHONY : parser/ft_count_sprites.c.i
+
+parser/ft_count_sprites.s: parser/ft_count_sprites.c.s
+
+.PHONY : parser/ft_count_sprites.s
+
+# target to generate assembly for a file
+parser/ft_count_sprites.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.s
+.PHONY : parser/ft_count_sprites.c.s
+
 parser/ft_parse_head.o: parser/ft_parse_head.c.o
 
 .PHONY : parser/ft_parse_head.o
@@ -511,6 +538,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... parser/ft_count_sprites.o"
+	@echo "... parser/ft_count_sprites.i"
+	@echo "... parser/ft_count_sprites.s"
 	@echo "... parser/ft_parse_head.o"
 	@echo "... parser/ft_parse_head.i"
 	@echo "... parser/ft_parse_head.s"

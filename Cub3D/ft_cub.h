@@ -193,9 +193,11 @@ typedef struct		s_set
 	t_map			map;
 	t_player		player;
 	t_sl			*sl;
+	t_spr			*sprs;
 	int				save;
 	char			*tmp;
 	int				os;
+	int				sprites;
 }					t_set;
 
 void				ft_parser(char *file_name, t_set *set);
@@ -221,5 +223,5 @@ t_fpix				v_sub(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
 int					finish_program(t_set *set);
-void				ft_parse_sprites(t_set *set);
+void				set_sprites(t_set *set);
 #endif

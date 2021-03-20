@@ -43,6 +43,12 @@ CMakeFiles/Cub3D.dir/main.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/main.c
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
+ /Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_count_sprites.c
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
  /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h

@@ -64,6 +64,8 @@ void			auto_clear(t_set *set)
 			free(tmp);
 		}
 	}
+	if (set->sprs)
+		free(set->sprs);
 }
 
 static void		init_set(t_set *set)
@@ -82,6 +84,7 @@ static void		init_set(t_set *set)
 	set->skin.we_ski = NULL;
 	set->skin.ea_ski = NULL;
 	set->sl = NULL;
+	set->sprs = NULL;
 	set->skin.spr_ski = NULL;
 	set->player.pos.x = -1;
 	set->player.pos.y = -1;

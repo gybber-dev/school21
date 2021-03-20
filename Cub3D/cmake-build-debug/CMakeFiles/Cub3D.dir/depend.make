@@ -43,6 +43,12 @@ CMakeFiles/Cub3D.dir/main.c.o: ../libmlx/mlx.h
 CMakeFiles/Cub3D.dir/main.c.o: ../libmlx_mac/mlx.h
 CMakeFiles/Cub3D.dir/main.c.o: ../main.c
 
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../ft_cub.h
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../libft/libft.h
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../libmlx/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../libmlx_mac/mlx.h
+CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../parser/ft_count_sprites.c
+
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../ft_cub.h
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../libft/libft.h
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../libmlx/mlx.h
