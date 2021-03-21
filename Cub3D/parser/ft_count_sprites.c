@@ -19,7 +19,7 @@ void				set_sprites(t_set *set)
 			{
 				spr.pos.x = m.x + 0.5;
 				spr.pos.y = m.y + 0.5;
-				spr.xlim = v_set(-1, -1);
+//				spr.xlim = v_set(-1, -1);
 				spr.dist = -1;
 				set->sprs[i] = spr;
 				i++;

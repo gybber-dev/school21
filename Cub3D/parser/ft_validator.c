@@ -51,7 +51,7 @@ static int		map_validator(t_map *map, int x, int y)
 			map->c_map[y][x] == 0 || map->c_map[y][x] == ' ')
 		return (0);
 	if (map->c_map[y][x] == '1' || map->c_map[y][x] == '5' ||
-			map->c_map[y][x] == '7' || map->c_map[y][x] == 'P')
+			map->c_map[y][x] == '7')
 		return (1);
 	if (map->c_map[y][x] == '0')
 		map->c_map[y][x] = '5';

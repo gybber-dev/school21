@@ -78,7 +78,7 @@
 # define HOR 2
 # define BCKGRND 0xFFFFFF
 # define ANGLE_STEP 0.05
-# define ZERO_VAL 0.0001
+# define Z_VAL 0.0001
 # define PLANE_W 0.7
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
@@ -105,12 +105,11 @@ typedef struct		s_fpix
 typedef struct		s_spr
 {
 	t_fpix			pos;
-	t_fpix			xlim;
+	double 			x_max;
 	t_fpix			start;
 	t_fpix			end;
 	t_fpix			proj_c;
 	double			dist;
-	double			perp;
 	double			h;
 }					t_spr;
 
@@ -210,6 +209,8 @@ void				write_addr(t_img *img);
 int					get_clr(t_img *img, int x, int y);
 void				run_game(t_set *set);
 void				add_sprite(t_set *set, t_ray *ray, t_pix map);
+void				sprite_on(t_set *set, t_ray *ray, t_pix map);
+void				sprites_off(t_set *set);
 void				draw_sprites(t_set *set);
 t_fpix				prj_to_vec(t_fpix m, t_fpix n, t_fpix d0, t_fpix dot);
 void				update_pos(t_set *set);

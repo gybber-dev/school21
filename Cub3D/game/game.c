@@ -63,8 +63,8 @@ static void		init_player_pos(t_set *set)
 		set->player.plane.y = PLANE_W;
 		set->player.dir.x = 1;
 	}
-	set->player.pos.x = set->map.pos.x + 0.3;
-	set->player.pos.y = set->map.pos.y + 0.3;
+	set->player.pos.x = set->map.pos.x + 0.5;
+	set->player.pos.y = set->map.pos.y + 0.5;
 }
 
 static void		check_display_resolution(t_set *set, t_pix *res)

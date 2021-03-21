@@ -91,7 +91,7 @@ static void			count_ray_len(t_set *set, t_ray *r)
 			r->side = (r->dir.y < 0) ? 1 : 3;
 		}
 		r->dist = dist.x < dist.y ? dist.x : dist.y;
-		(set->map.c_map[map.y][map.x] == '2') ? add_sprite(set, r, map) : 0;
+		(set->map.c_map[map.y][map.x] == '2') ? sprite_on(set, r, map) : 0;
 	}
 }
 
@@ -101,6 +101,7 @@ void				drop_rays(t_set *set)
 	double			cam;
 
 	ray.x = 0;
+	sprites_off(set);
 	while (ray.x < set->win.img.res.x)
 	{
 		cam = 2 * ray.x / (double)set->win.img.res.x - 1;
@@ -109,8 +110,8 @@ void				drop_rays(t_set *set)
 		count_ray_len(set, &ray);
 		ray.perp = ray.dist / v_len(set->player.dir) / v_len(ray.dir) *
 			(ray.dir.x * set->player.dir.x + ray.dir.y * set->player.dir.y);
-		if (ray.perp < ZERO_VAL)
-			ray.perp = ZERO_VAL;
+		if (ray.perp < Z_VAL)
+			ray.perp = Z_VAL;
 		ray.h = (double)set->win.img.res.y / ray.perp;
 		draw_strip(set, &ray);
 		ray.x++;

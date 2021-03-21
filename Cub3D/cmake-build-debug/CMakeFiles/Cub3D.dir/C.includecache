@@ -28,6 +28,10 @@ libmlx/mlx.h
 libmlx_mac/mlx.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
 
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/game/sprite.c
+../ft_cub.h
+/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
+
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libft/libft.h
 stdlib.h
 -
@@ -37,8 +41,4 @@ unistd.h
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx/mlx.h
 
 /Users/yeschall/Desktop/Projects/GitHub/Cub3D/libmlx_mac/mlx.h
-
-/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_count_sprites.c
-../ft_cub.h
-/Users/yeschall/Desktop/Projects/GitHub/Cub3D/ft_cub.h
 
