@@ -12,10 +12,11 @@
 
 #include "../ft_cub.h"
 
-static void		default_map(char **map)
+static int		default_map(t_set *set, char **map)
 {
 	t_pix		m;
 
+	set->sprites = 0;
 	ft_bzero(&m, sizeof(t_pix));
 	while (map[m.y])
 	{
@@ -25,11 +26,17 @@ static void		default_map(char **map)
 			if (map[m.y][m.x] == '5')
 				map[m.y][m.x] = '0';
 			if (map[m.y][m.x] == '7')
+			{
+				set->sprites += 1;
 				map[m.y][m.x] = '2';
+			}
+			if (!ft_strchr("01257NEWS ", map[m.y][m.x]))
+				return (0);
 			m.x++;
 		}
 		m.y++;
 	}
+	return (1);
 }
 
 /*
@@ -44,7 +51,7 @@ static int		map_validator(t_map *map, int x, int y)
 			map->c_map[y][x] == 0 || map->c_map[y][x] == ' ')
 		return (0);
 	if (map->c_map[y][x] == '1' || map->c_map[y][x] == '5' ||
-			map->c_map[y][x] == '7' || map->c_map[y][x] == 'P')
+			map->c_map[y][x] == '7')
 		return (1);
 	if (map->c_map[y][x] == '0')
 		map->c_map[y][x] = '5';
@@ -85,10 +92,9 @@ int				ft_validate_data(t_set *set)
 		}
 		m.y++;
 	}
+	if (!res || !default_map(set, set->map.c_map))
+		ft_error(set, ERR_MAP);
 	if (set->map.player_counter != 1)
 		ft_error(set, ERR_PLAYERS);
-	if (!res)
-		ft_error(set, ERR_MAP);
-	default_map(set->map.c_map);
 	return (res);
 }

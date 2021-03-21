@@ -13,6 +13,7 @@ add_executable(Cub3D
 		parser/ft_parse_head.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c
+		parser/ft_count_sprites.c
 		game/game.c
 		game/dda.c
 		game/moving.c

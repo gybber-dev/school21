@@ -112,6 +112,7 @@ void			ft_parser(char *file_name, t_set *set)
 		ft_error(set, ERR_READ_FILE);
 	parse_file(file, set);
 	ft_validate_data(set);
+	set_sprites(set);
 	close(fd);
 	ft_free(&file);
 }

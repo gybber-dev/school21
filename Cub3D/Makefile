@@ -2,6 +2,7 @@ NAME		= cub3D
 
 SRCS	= \
 			parser/ft_parser.c \
+			parser/ft_count_sprites.c \
 			parser/ft_parse_head.c \
 			parser/ft_validator.c \
 			game/game.c \

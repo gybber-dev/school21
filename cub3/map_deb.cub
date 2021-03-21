@@ -1,0 +1,17 @@
+R 6400 4800
+
+NO ./textures/sand.xpm
+SO ./textures/1.xpm
+WE ./textures/2.xpm
+EA ./textures/3.xpm
+S ./textures/barrel.xpm
+F 192,  192,    192
+C    204    , 204   ,255
+
+111111111111
+100000200001
+100000000001
+100000000001
+100000N00001
+100000000001
+111111111111
