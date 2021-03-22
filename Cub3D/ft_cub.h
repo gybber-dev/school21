@@ -73,12 +73,12 @@
 ** ERROR MESSAGES:
 */
 
-# define STEP 0.2
+# define STEP 0.19
 # define HOR_SIT 2.1
 # define HOR 2
 # define BCKGRND 0xFFFFFF
 # define ANGLE_STEP 0.05
-# define Z_VAL 0.01
+# define ZER 0.01
 # define PLANE_W 0.7
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
@@ -105,20 +105,12 @@ typedef struct		s_fpix
 typedef struct		s_spr
 {
 	t_fpix			pos;
-	double 			x_max;
+	double			x_max;
 	t_fpix			start;
 	t_fpix			end;
 	t_fpix			proj_c;
-	double			dist;
 	double			h;
-	struct s_spr	*next;
 }					t_spr;
-
-typedef struct		s_sl
-{
-	t_spr			spr;
-	struct s_sl		*next;
-}					t_sl;
 
 typedef struct		s_img
 {
@@ -169,7 +161,6 @@ typedef struct		s_skin
 typedef struct		s_map
 {
 	char			**c_map;
-	int				lines;
 	int				player_counter;
 	char			player_dir;
 	t_fpix			pos;
@@ -192,7 +183,6 @@ typedef struct		s_set
 	t_skin			skin;
 	t_map			map;
 	t_player		player;
-	t_spr			*sl;
 	t_spr			*sprs;
 	int				save;
 	char			*tmp;
@@ -209,7 +199,6 @@ void				my_mlx_pixel_put(t_set *set, int x, int y, int color);
 void				write_addr(t_img *img);
 int					get_clr(t_img *img, int x, int y);
 void				run_game(t_set *set);
-void				add_sprite(t_set *set, t_ray *ray, t_pix map);
 void				sprite_on(t_set *set, t_ray *ray, t_pix map);
 void				sprites_off(t_set *set);
 void				draw_sprites(t_set *set);
@@ -219,7 +208,6 @@ void				drop_rays(t_set *set);
 int					key_hook_up(int keycode, t_set *set);
 int					key_hook_press(int keycode, t_set *set);
 double				v_len(t_fpix v);
-double				v_dist(t_fpix d1, t_fpix d2);
 t_fpix				v_set(double val_x, double val_y);
 t_fpix				v_sub(t_fpix v1, t_fpix v2);
 void				screen_image(t_set *set);

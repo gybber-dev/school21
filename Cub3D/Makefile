@@ -34,7 +34,7 @@ endif
 all:		init ${NAME} $(HEADER)
 
 init:
-			@ echo $(OS)
+			@ echo OS detecting... $(OS)
 			make -C libft
 			make -C $(LIB_DIR)
 

@@ -54,7 +54,6 @@ static void		set_mem_for_map(char *str, t_set *set)
 	if (!(set->map.c_map = (char**)malloc(sizeof(char *) * (lines))))
 		ft_error(set, errno);
 	*(set->map.c_map) = NULL;
-	set->map.lines = lines - 1;
 }
 
 static void		parse_file(char *line, t_set *set)

@@ -73,7 +73,6 @@ static void		init_set(t_set *set)
 	set->skin.so_ski = NULL;
 	set->skin.we_ski = NULL;
 	set->skin.ea_ski = NULL;
-	set->sl = NULL;
 	set->sprs = NULL;
 	set->skin.spr_ski = NULL;
 	set->player.pos.x = -1;
