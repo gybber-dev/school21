@@ -426,6 +426,33 @@ parser/ft_parser.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parser.c.s
 .PHONY : parser/ft_parser.c.s
 
+parser/ft_parser_utils.o: parser/ft_parser_utils.c.o
+
+.PHONY : parser/ft_parser_utils.o
+
+# target to build an object file
+parser/ft_parser_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o
+.PHONY : parser/ft_parser_utils.c.o
+
+parser/ft_parser_utils.i: parser/ft_parser_utils.c.i
+
+.PHONY : parser/ft_parser_utils.i
+
+# target to preprocess a source file
+parser/ft_parser_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.i
+.PHONY : parser/ft_parser_utils.c.i
+
+parser/ft_parser_utils.s: parser/ft_parser_utils.c.s
+
+.PHONY : parser/ft_parser_utils.s
+
+# target to generate assembly for a file
+parser/ft_parser_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Cub3D.dir/build.make CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.s
+.PHONY : parser/ft_parser_utils.c.s
+
 parser/ft_validator.o: parser/ft_validator.c.o
 
 .PHONY : parser/ft_validator.o
@@ -547,6 +574,9 @@ help:
 	@echo "... parser/ft_parser.o"
 	@echo "... parser/ft_parser.i"
 	@echo "... parser/ft_parser.s"
+	@echo "... parser/ft_parser_utils.o"
+	@echo "... parser/ft_parser_utils.i"
+	@echo "... parser/ft_parser_utils.s"
 	@echo "... parser/ft_validator.o"
 	@echo "... parser/ft_validator.i"
 	@echo "... parser/ft_validator.s"

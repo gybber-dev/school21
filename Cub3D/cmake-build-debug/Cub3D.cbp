@@ -302,6 +302,9 @@
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_parser_utils.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/Users/yeschall/Desktop/Projects/GitHub/Cub3D/parser/ft_validator.c">
 			<Option target="Cub3D"/>
 		</Unit>
