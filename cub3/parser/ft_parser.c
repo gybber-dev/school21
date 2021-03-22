@@ -41,6 +41,12 @@ static void		set_mem_for_map(char *str, t_set *set)
 	{
 		if (!(p = ft_strchr(str, '\n')))
 			break ;
+		if (p)
+			*p = 0;
+		if (!is_map(str))
+			ft_error(set, ERR_MAP);
+		if (!*p)
+			*p = '\n';
 		lines++;
 		str = p + 1;
 	}

@@ -61,6 +61,12 @@ CMakeFiles/Cub3D.dir/parser/ft_parser.c.o
  /udata/GitHub/cub3/libmlx/mlx.h
  /udata/GitHub/cub3/libmlx_mac/mlx.h
  /udata/GitHub/cub3/parser/ft_parser.c
+CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o
+ /udata/GitHub/cub3/ft_cub.h
+ /udata/GitHub/cub3/libft/libft.h
+ /udata/GitHub/cub3/libmlx/mlx.h
+ /udata/GitHub/cub3/libmlx_mac/mlx.h
+ /udata/GitHub/cub3/parser/ft_parser_utils.c
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o
  /udata/GitHub/cub3/ft_cub.h
  /udata/GitHub/cub3/libft/libft.h

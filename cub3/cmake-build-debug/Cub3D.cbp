@@ -298,6 +298,9 @@
 		<Unit filename="/udata/GitHub/cub3/parser/ft_parser.c">
 			<Option target="Cub3D"/>
 		</Unit>
+		<Unit filename="/udata/GitHub/cub3/parser/ft_parser_utils.c">
+			<Option target="Cub3D"/>
+		</Unit>
 		<Unit filename="/udata/GitHub/cub3/parser/ft_validator.c">
 			<Option target="Cub3D"/>
 		</Unit>

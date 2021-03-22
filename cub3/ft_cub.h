@@ -78,7 +78,7 @@
 # define HOR 2
 # define BCKGRND 0xFFFFFF
 # define ANGLE_STEP 0.05
-# define Z_VAL 0.0001
+# define Z_VAL 0.01
 # define PLANE_W 0.7
 # define ERR_READ_FILE 1001
 # define ERR_FEW_DATA 1002
@@ -111,6 +111,7 @@ typedef struct		s_spr
 	t_fpix			proj_c;
 	double			dist;
 	double			h;
+	struct s_spr	*next;
 }					t_spr;
 
 typedef struct		s_sl
@@ -191,7 +192,7 @@ typedef struct		s_set
 	t_skin			skin;
 	t_map			map;
 	t_player		player;
-	t_sl			*sl;
+	t_spr			*sl;
 	t_spr			*sprs;
 	int				save;
 	char			*tmp;
@@ -225,4 +226,5 @@ void				screen_image(t_set *set);
 void				auto_clear(t_set *set);
 int					finish_program(t_set *set);
 void				set_sprites(t_set *set);
+int					is_map(char *str);
 #endif

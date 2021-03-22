@@ -1,0 +1,5 @@
+1. Player on a project line of sprite (infinity values)
+2. No players, no sprites
+3. Invalid symbols on the map (including painting symbols)
+4. Invalid paths (path to directory, path to an empty files)
+5.

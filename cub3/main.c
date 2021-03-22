@@ -41,7 +41,6 @@ static int		check_extension(char *file, char *exp)
 void			auto_clear(t_set *set)
 {
 	char		**p;
-	t_sl		*tmp;
 
 	if (set->map.c_map)
 	{
@@ -55,15 +54,6 @@ void			auto_clear(t_set *set)
 	}
 	if (set->tmp)
 		ft_free(&set->tmp);
-	if (set->sl)
-	{
-		while (set->sl)
-		{
-			tmp = set->sl;
-			set->sl = set->sl->next;
-			free(tmp);
-		}
-	}
 	if (set->sprs)
 		free(set->sprs);
 }

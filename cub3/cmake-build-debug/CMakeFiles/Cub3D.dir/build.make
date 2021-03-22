@@ -103,9 +103,22 @@ CMakeFiles/Cub3D.dir/parser/ft_parser.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/parser/ft_parser.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /udata/GitHub/cub3/parser/ft_parser.c -o CMakeFiles/Cub3D.dir/parser/ft_parser.c.s
 
+CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o: CMakeFiles/Cub3D.dir/flags.make
+CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o: ../parser/ft_parser_utils.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o   -c /udata/GitHub/cub3/parser/ft_parser_utils.c
+
+CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /udata/GitHub/cub3/parser/ft_parser_utils.c > CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.i
+
+CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /udata/GitHub/cub3/parser/ft_parser_utils.c -o CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.s
+
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o: ../parser/ft_parse_head.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o   -c /udata/GitHub/cub3/parser/ft_parse_head.c
 
 CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.i: cmake_force
@@ -118,7 +131,7 @@ CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.o: ../parser/ft_validator.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Cub3D.dir/parser/ft_validator.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/parser/ft_validator.c.o   -c /udata/GitHub/cub3/parser/ft_validator.c
 
 CMakeFiles/Cub3D.dir/parser/ft_validator.c.i: cmake_force
@@ -131,7 +144,7 @@ CMakeFiles/Cub3D.dir/parser/ft_validator.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o: ../parser/ft_count_sprites.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o   -c /udata/GitHub/cub3/parser/ft_count_sprites.c
 
 CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.i: cmake_force
@@ -144,7 +157,7 @@ CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/game/game.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/game.c.o: ../game/game.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Cub3D.dir/game/game.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Cub3D.dir/game/game.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/game.c.o   -c /udata/GitHub/cub3/game/game.c
 
 CMakeFiles/Cub3D.dir/game/game.c.i: cmake_force
@@ -157,7 +170,7 @@ CMakeFiles/Cub3D.dir/game/game.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/game/dda.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/dda.c.o: ../game/dda.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Cub3D.dir/game/dda.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Cub3D.dir/game/dda.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/dda.c.o   -c /udata/GitHub/cub3/game/dda.c
 
 CMakeFiles/Cub3D.dir/game/dda.c.i: cmake_force
@@ -170,7 +183,7 @@ CMakeFiles/Cub3D.dir/game/dda.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/game/moving.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/moving.c.o: ../game/moving.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Cub3D.dir/game/moving.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Cub3D.dir/game/moving.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/moving.c.o   -c /udata/GitHub/cub3/game/moving.c
 
 CMakeFiles/Cub3D.dir/game/moving.c.i: cmake_force
@@ -183,7 +196,7 @@ CMakeFiles/Cub3D.dir/game/moving.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/game/sprite.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/sprite.c.o: ../game/sprite.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Cub3D.dir/game/sprite.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Cub3D.dir/game/sprite.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/sprite.c.o   -c /udata/GitHub/cub3/game/sprite.c
 
 CMakeFiles/Cub3D.dir/game/sprite.c.i: cmake_force
@@ -196,7 +209,7 @@ CMakeFiles/Cub3D.dir/game/sprite.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/game/screenshot.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/game/screenshot.c.o: ../game/screenshot.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Cub3D.dir/game/screenshot.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Cub3D.dir/game/screenshot.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/game/screenshot.c.o   -c /udata/GitHub/cub3/game/screenshot.c
 
 CMakeFiles/Cub3D.dir/game/screenshot.c.i: cmake_force
@@ -209,7 +222,7 @@ CMakeFiles/Cub3D.dir/game/screenshot.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/utils_vector.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/utils_vector.c.o: ../utils_vector.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Cub3D.dir/utils_vector.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Cub3D.dir/utils_vector.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/utils_vector.c.o   -c /udata/GitHub/cub3/utils_vector.c
 
 CMakeFiles/Cub3D.dir/utils_vector.c.i: cmake_force
@@ -222,7 +235,7 @@ CMakeFiles/Cub3D.dir/utils_vector.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/main.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Cub3D.dir/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Cub3D.dir/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/main.c.o   -c /udata/GitHub/cub3/main.c
 
 CMakeFiles/Cub3D.dir/main.c.i: cmake_force
@@ -235,7 +248,7 @@ CMakeFiles/Cub3D.dir/main.c.s: cmake_force
 
 CMakeFiles/Cub3D.dir/utils_mlx.c.o: CMakeFiles/Cub3D.dir/flags.make
 CMakeFiles/Cub3D.dir/utils_mlx.c.o: ../utils_mlx.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Cub3D.dir/utils_mlx.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Cub3D.dir/utils_mlx.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Cub3D.dir/utils_mlx.c.o   -c /udata/GitHub/cub3/utils_mlx.c
 
 CMakeFiles/Cub3D.dir/utils_mlx.c.i: cmake_force
@@ -250,6 +263,7 @@ CMakeFiles/Cub3D.dir/utils_mlx.c.s: cmake_force
 Cub3D_OBJECTS = \
 "CMakeFiles/Cub3D.dir/ft_error.c.o" \
 "CMakeFiles/Cub3D.dir/parser/ft_parser.c.o" \
+"CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o" \
 "CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o" \
 "CMakeFiles/Cub3D.dir/parser/ft_validator.c.o" \
 "CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o" \
@@ -267,6 +281,7 @@ Cub3D_EXTERNAL_OBJECTS =
 
 Cub3D: CMakeFiles/Cub3D.dir/ft_error.c.o
 Cub3D: CMakeFiles/Cub3D.dir/parser/ft_parser.c.o
+Cub3D: CMakeFiles/Cub3D.dir/parser/ft_parser_utils.c.o
 Cub3D: CMakeFiles/Cub3D.dir/parser/ft_parse_head.c.o
 Cub3D: CMakeFiles/Cub3D.dir/parser/ft_validator.c.o
 Cub3D: CMakeFiles/Cub3D.dir/parser/ft_count_sprites.c.o
@@ -282,7 +297,7 @@ Cub3D: CMakeFiles/Cub3D.dir/build.make
 Cub3D: libft/liblibft.a
 Cub3D: ../libmlx/libmlx.a
 Cub3D: CMakeFiles/Cub3D.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking C executable Cub3D"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/udata/GitHub/cub3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking C executable Cub3D"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Cub3D.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

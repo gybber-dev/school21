@@ -10,6 +10,7 @@ add_subdirectory(./libft)
 add_executable(Cub3D
 		ft_error.c
 		parser/ft_parser.c
+		parser/ft_parser_utils.c
 		parser/ft_parse_head.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c
