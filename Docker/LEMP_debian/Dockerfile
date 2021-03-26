@@ -1,8 +1,14 @@
 FROM debian:buster
 
-# install sudo
-RUN apt-get update && apt-get -y install sudo
-
 # install nginx:
-RUN sudo apt-get update
-RUN sudo apt-get upgrade -y
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install nginx -y
+# RUN apt install mariadb-server -y
+# RUN apt install php-fpm php-mysql -y
+
+
+COPY nginx.config /etc/nginx/sites-available/
+EXPOSE 80
+
+
