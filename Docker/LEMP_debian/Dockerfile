@@ -28,12 +28,14 @@ RUN unlink /etc/nginx/sites-enabled/default
 
 # insert my config
 WORKDIR /var/www/html
-COPY start.sh /var/www/html/start.sh
-RUN chmod 777 start.sh
+COPY config.inc.php /phpmyadmin/config.inc.php
+COPY wp-config.php /wordpress/wp-config.php
 
-RUN echo "BBB"
-ENV AUTOINDEX on
-RUN echo $AUTOINDEX
-#RUN chown -R www-data:www-data *
+# ENV AUTOINDEX on
+RUN chown -R www-data:www-data *
 
-CMD bash start.sh $AUTOINDEX
+WORKDIR /
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+CMD bash /start.sh
