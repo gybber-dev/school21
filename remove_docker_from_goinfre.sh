@@ -14,3 +14,4 @@ rm -fr $GOINFRE/Caches/
 rm -fr ~/Library/Caches/com.docker.docker
 mkdir -p ~/Library/Caches/com.docker.docker
 echo "goinfre is clear"
+
