@@ -48,7 +48,7 @@ static int		default_map(t_set *set, char **map)
 static int		map_validator(t_map *map, int x, int y)
 {
 	if (x < 0 || y < 0 || map->c_map[y] == NULL ||
-			map->c_map[y][x] == 0 || map->c_map[y][x] == ' ')
+			!ft_strchr("10257NEWS", map->c_map[y][x]))
 		return (0);
 	if (map->c_map[y][x] == '1' || map->c_map[y][x] == '5' ||
 			map->c_map[y][x] == '7')

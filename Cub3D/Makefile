@@ -2,6 +2,7 @@ NAME		= cub3D
 
 SRCS	= \
 			parser/ft_parser.c \
+			parser/ft_parser_utils.c \
 			parser/ft_count_sprites.c \
 			parser/ft_parse_head.c \
 			parser/ft_validator.c \
@@ -33,7 +34,7 @@ endif
 all:		init ${NAME} $(HEADER)
 
 init:
-			@ echo $(OS)
+			@ echo OS detecting... $(OS)
 			make -C libft
 			make -C $(LIB_DIR)
 

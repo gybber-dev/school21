@@ -1,6 +1,0 @@
-/udata/GitHub/cub3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/udata/GitHub/cub3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/udata/GitHub/cub3/cmake-build-debug/CMakeFiles/Cub3D.dir
-/udata/GitHub/cub3/cmake-build-debug/libft/CMakeFiles/rebuild_cache.dir
-/udata/GitHub/cub3/cmake-build-debug/libft/CMakeFiles/edit_cache.dir
-/udata/GitHub/cub3/cmake-build-debug/libft/CMakeFiles/libft.dir

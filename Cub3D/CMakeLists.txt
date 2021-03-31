@@ -10,6 +10,7 @@ add_subdirectory(./libft)
 add_executable(Cub3D
 		ft_error.c
 		parser/ft_parser.c
+		parser/ft_parser_utils.c
 		parser/ft_parse_head.c
 		parser/ft_validator.c
 		parser/ft_parse_head.c
@@ -39,7 +40,6 @@ if (UNIX AND NOT APPLE)
 			libft
 			${CMAKE_SOURCE_DIR}/libmlx/libmlx.a
 			"-lX11"
-			"-lz"
 			"-lm"
 			"-lXext"
 	)

@@ -110,8 +110,8 @@ void				drop_rays(t_set *set)
 		count_ray_len(set, &ray);
 		ray.perp = ray.dist / v_len(set->player.dir) / v_len(ray.dir) *
 			(ray.dir.x * set->player.dir.x + ray.dir.y * set->player.dir.y);
-		if (ray.perp < Z_VAL)
-			ray.perp = Z_VAL;
+		if (ray.perp < ZER)
+			ray.perp = ZER;
 		ray.h = (double)set->win.img.res.y / ray.perp;
 		draw_strip(set, &ray);
 		ray.x++;

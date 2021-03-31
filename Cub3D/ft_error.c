@@ -46,7 +46,7 @@ void				ft_error(t_set *set, int code)
 			{ERR_HEAD_2, "Not a valid head. Incorrect format of data"},
 			{ERR_LINE, "Not a valid string"},
 			{ERR_FEW_DATA, "There is too few data in the file"},
-			{ERR_PLAYERS, "Incorrect number of players"},
+			{ERR_PLAYERS, "Not a valid number of players"},
 			{ERR_MAP, "Map is not valid"},
 			{0, NULL}
 	};
