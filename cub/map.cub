@@ -1,4 +1,4 @@
-R 500 500
+R 1500 5000
 NO ./textures/sand.xpm
 
 SO ./textures/1.xpm

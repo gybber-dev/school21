@@ -1,14 +1,14 @@
 FROM debian:buster
 
-RUN apt-get update
-RUN apt-get upgrade -y
-RUN apt-get install nginx -y
-RUN apt install mariadb-server -y
-RUN apt install php-fpm php-mysql -y
+RUN apt update
+RUN apt -y upgrade
+RUN apt -y install nginx
+RUN apt -y install mariadb-server
+RUN apt -y install php-fpm php-mysql
 
 # for phpmyadmin
-RUN apt-get -y install wget
-RUN apt-get -y install php7.3
+RUN apt -y install wget
+RUN apt -y install php7.3
 
 RUN wget https://files.phpmyadmin.net/phpMyAdmin/5.0.1/phpMyAdmin-5.0.1-english.tar.gz
 RUN tar -xf phpMyAdmin-5.0.1-english.tar.gz  &&  rm -rf phpMyAdmin-5.0.1-english.tar.gz
@@ -38,6 +38,6 @@ RUN		chmod +x /tools/toggle_autoindex.sh
 WORKDIR /tools
 
 
-RUN apt-get -y install vim
+RUN apt -y install vim
 
 CMD bash start.sh
