@@ -1,5 +1,5 @@
 #!/bin/sh
-# sh docker_setup.sh
+
 # from https://gist.github.com/gcamerli/b8cf836f8627cb285f33086db10096a2
 GOINFRE="/goinfre/$USER";
 echo $GOINFRE
