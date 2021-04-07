@@ -1,5 +1,4 @@
 #!/bin/sh
 
-service nginx start
-sh
-#nginx -g 'daemon off;'
+echo "nginx is starting..."
+nginx -g 'daemon off;'
