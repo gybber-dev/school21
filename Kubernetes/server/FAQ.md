@@ -25,3 +25,24 @@ Deployment - для стабилизации работы подов. Services -
 
 [Про Services](https://kubernetes.io/ru/docs/tutorials/kubernetes-basics/expose/expose-intro/)
 [Habr](https://habr.com/ru/company/ruvds/blog/438984/)
+
+#### Как поставить под на прослушивание?
+
+````
+kubectl port-forward nginx-svc 8080:80
+````
+[Habr](https://habr.com/ru/company/ruvds/blog/438984/)
+
+
+#### Как обратиться к сервису?
+
+````
+minikube service sa-frontend-lb
+````
+
+
+
+### TO DO:
+
+Добавить файл-конфигурацию для metalLB
+Добавить файл-конфигурацию для Deployment

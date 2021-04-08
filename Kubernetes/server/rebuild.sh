@@ -2,6 +2,7 @@
 
 NGINX_IMG="nginx_img";
 
+eval $(minikube -p minikube docker-env)
 docker build . -t $NGINX_IMG
 echo "Deleting pods:"
 kubectl get pods

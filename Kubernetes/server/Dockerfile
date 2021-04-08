@@ -14,7 +14,7 @@ COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 # copy scripts:
 COPY	srcs/start.sh /tools/start.sh
 RUN		chmod +x /tools/start.sh
-RUN		mkdir /run/nginx
+RUN		mkdir -p /run/nginx
 
 WORKDIR /tools
 
