@@ -18,16 +18,16 @@ eval $(minikube -p minikube docker-env)
 echo -e "${MY_MSG}CREATING images${NORMAL}"
 docker build . -t $NGINX_IMG
 
-# set configs for Kubernetes
-echo -e "${MY_MSG}MetalLB enable...${NORMAL}"
-minikube addons enable metallb
-
 
 # apply configs:
 kubectl apply -f nginx.yml
 echo -e "${MY_MSG}Waiting for pods' starting...${NORMAL}"
 sleep 2s
 kubectl get pods
+
+## set configs for Kubernetes
+echo -e "${MY_MSG}MetalLB enable...${NORMAL}"
+minikube addons enable metallb
 
 #optionally:
 sleep 5s
