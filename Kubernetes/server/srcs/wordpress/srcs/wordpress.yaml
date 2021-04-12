@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 5050
+      protocol: TCP
+  selector:
+    app: wordpress-lbl
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress-lbl
+  template:
+    metadata:
+      labels:
+        app: wordpress-lbl
+    spec:
+      containers:
+        - image: wordpress_img
+          imagePullPolicy: Never
+          name: wordpress
+          ports:
+            - containerPort: 80

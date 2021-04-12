@@ -40,9 +40,32 @@ kubectl port-forward nginx-svc 8080:80
 minikube service sa-frontend-lb
 ````
 
+#### Как запустить терминал в поде?
+
+Через dashboard зайти на стринциу Пода и нажать на кнопку "Exec into Pod"
+
+#### Как запустить 2 процесса в одном поде?
+
+Отключить supervisor. Подробнее в видео ~1:40:00
+
+#### Как создать пароль для входа в wordpress
+
+Для конфиг файла из [документации](https://raw.githubusercontent.com/kubernetes/website/master/content/en/examples/application/wordpress/mysql-deployment.yaml)
+выполнить:
+
+````
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
+````
+
+#### Как перезапустить nginx в Alpine:
+
+````
+nginx -s reload
+````
 
 
 ### TO DO:
 
 Добавить файл-конфигурацию для metalLB
 Добавить файл-конфигурацию для Deployment
+
