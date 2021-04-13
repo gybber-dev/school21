@@ -25,14 +25,17 @@ docker build srcs/wordpress/. -t $WORDPRESS_IMG
 ## set configs for Kubernetes
 echo -e "${MSG}Metal LB enable...${END_MSG}"
 minikube addons enable metallb
+
+# update metallb addon
+docker pull metallb/speaker:v0.8.2
+docker pull metallb/controller:v0.8.2
+
 kubectl apply -f srcs/configmap.yaml
-
-
-
 
 # apply configs:
 kubectl apply -f srcs/nginx/srcs/nginx.yaml
-#kubectl apply -f srcs/nginx/srcs/wordpress.yaml
+kubectl apply -f srcs/wordpress/srcs/wordpress0.yaml
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 
 echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
 sleep 2s

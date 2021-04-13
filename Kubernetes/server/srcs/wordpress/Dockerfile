@@ -14,17 +14,16 @@ RUN tar -xvzf latest.tar.gz    &&    rm -rf latest.tar.gz
 
 # insert my configs:
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
-COPY srcs/wp-config.php /wordpress/wp-config.php
-RUN  mkdir /var/www/html
+# COPY srcs/wp-config.php /wordpress/wp-config.php
 RUN  ln -s wordpress /var/www/localhost/wordpress
 
 
-# copy scripts:
-COPY	srcs/start.sh /tools/start.sh
-RUN		chmod +x /tools/start.sh
-RUN		mkdir -p /run/nginx
+RUN     mkdir /tools
+COPY    srcs/start.sh /tools/start.sh
+RUN     chmod +x /tools/start.sh
+RUN     mkdir -p /run/nginx
 
 EXPOSE 80
 
-CMD ["sh", "start.sh"]
+CMD ["sh", "/tools/start.sh"]
 # CMD ["nginx", "-g", "daemon off;"]
