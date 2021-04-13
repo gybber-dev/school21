@@ -1,31 +1,43 @@
 #!/bin/bash
 
-MY_MSG='\033[1;33m'
-NORMAL='\033[0m'
+MSG='\033[1;33m'
+END_MSG='\033[0m'
 # Sample:
-# echo -e "${MY_MSG}sample${NORMAL}"
+# echo -e "${MSG}sample${END_MSG}"
 
 
 
 NGINX_IMG="nginx_img";
+WORDPRESS_IMG="wordpress_img"
 
 # start minikube
-echo -e "${MY_MSG}MINIKUBE STARTING...${NORMAL}"
+echo -e "${MSG}MINIKUBE STARTING...${END_MSG}"
 minikube start --vm-driver=virtualbox
 eval $(minikube -p minikube docker-env)
 
 # create images:
-echo -e "${MY_MSG}CREATING images${NORMAL}"
-docker build . -t $NGINX_IMG
+echo -e "${MSG}CREATING images${END_MSG}"
+docker build srcs/nginx/. -t $NGINX_IMG
+docker build srcs/wordpress/. -t $WORDPRESS_IMG
+
+
 
 ## set configs for Kubernetes
-echo -e "${MY_MSG}Metal LB enable...${NORMAL}"
+echo -e "${MSG}Metal LB enable...${END_MSG}"
 minikube addons enable metallb
-kubectl apply -f configmap.yml
+
+# update metallb addon
+docker pull metallb/speaker:v0.8.2
+docker pull metallb/controller:v0.8.2
+
+kubectl apply -f srcs/configmap.yaml
 
 # apply configs:
-kubectl apply -f nginx.yml
-echo -e "${MY_MSG}Waiting for pods' starting...${NORMAL}"
+kubectl apply -f srcs/nginx/srcs/nginx.yaml
+kubectl apply -f srcs/wordpress/srcs/wordpress0.yaml
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
+
+echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
 sleep 2s
 kubectl get pods
 

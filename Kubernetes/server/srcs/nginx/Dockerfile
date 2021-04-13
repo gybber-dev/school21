@@ -12,9 +12,9 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Russia/L=Kazan/O=School21
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 
 # copy scripts:
-COPY	srcs/start.sh /tools/start.sh
-RUN		chmod +x /tools/start.sh
-RUN		mkdir -p /run/nginx
+COPY    srcs/start.sh /tools/start.sh
+RUN     chmod +x /tools/start.sh
+RUN     mkdir -p /run/nginx
 
 WORKDIR /tools
 
