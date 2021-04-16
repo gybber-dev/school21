@@ -63,6 +63,12 @@ kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 nginx -s reload
 ````
 
+#### Не открывается сервис, переходя по ссылке пода в dashboard'e по протоколу http, если установлен порт 80
+
+Установил другие значения портов для каждого сервиса
+
+
+#### При переходе в папку wordpress скачивается файл, но не открывается
 
 ### TO DO:
 

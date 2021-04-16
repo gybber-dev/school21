@@ -34,7 +34,7 @@ kubectl apply -f srcs/configmap.yaml
 
 # apply configs:
 kubectl apply -f srcs/nginx/srcs/nginx.yaml
-kubectl apply -f srcs/wordpress/srcs/wordpress0.yaml
+kubectl apply -f srcs/wordpress/srcs/wordpress.yaml
 kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 
 echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
