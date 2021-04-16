@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 RUN apk update && apk upgrade
-RUN apk add nginx openssl wget
+RUN apk add nginx openssl wget php7 php7-fpm
 
 # optionally:
 RUN apk add vim
@@ -23,10 +23,10 @@ RUN tar -xvzf latest.tar.gz    &&    rm -rf latest.tar.gz
 
 # insert my configs:
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
-# COPY srcs/wp-config.php /wordpress/wp-config.php
+COPY srcs/wp-config.php ./wordpress/wp-config.php
 
 
-EXPOSE 80
+EXPOSE 5050
 
 CMD ["sh", "/tools/start.sh"]
 # CMD ["nginx", "-g", "daemon off;"]

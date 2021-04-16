@@ -7,12 +7,11 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
+    - port: 5050
       protocol: TCP
-      targetPort: 5050
   selector:
     app: wordpress
-    tier: frontend
+#    tier: frontend
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -38,7 +37,7 @@ spec:
   selector:
     matchLabels:
       app: wordpress
-      tier: frontend
+#      tier: frontend
   strategy:
     type: Recreate
   template:
@@ -60,7 +59,7 @@ spec:
                   name: mysql-pass
                   key: password
           ports:
-            - containerPort: 80
+            - containerPort: 5050
               name: wordpress
           volumeMounts:
             - name: wordpress-persistent-storage
