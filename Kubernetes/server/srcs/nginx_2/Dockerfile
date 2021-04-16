@@ -16,6 +16,6 @@ COPY    srcs/start.sh /tools/start.sh
 RUN     chmod +x /tools/start.sh
 RUN     mkdir -p /run/nginx
 
-EXPOSE 443 80
+EXPOSE 5050
 
 CMD ["sh", "/tools/start.sh"]

@@ -5,14 +5,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 80
-      name: http
+    - port: 5050
       protocol: TCP
-      targetPort: 81
-    - port: 443
-      name: https
-      protocol: TCP
-      targetPort: 444
   selector:
     app: nginx-lbl2
 ---
@@ -35,5 +29,4 @@ spec:
           imagePullPolicy: Never
           name: nginx2
           ports:
-            - containerPort: 80
-            - containerPort: 443
+            - containerPort: 5050
