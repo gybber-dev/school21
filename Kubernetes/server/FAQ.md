@@ -72,6 +72,5 @@ nginx -s reload
 
 ### TO DO:
 
-Добавить файл-конфигурацию для metalLB
-Добавить файл-конфигурацию для Deployment
+Попробовать запустить самый простой index.php в wordpress'e
 

@@ -43,4 +43,6 @@ kubectl get pods
 
 #optionally:
 sleep 5s
+
+echo -e "${MSG}Starting dashboard{END_MSG}"
 minikube dashboard

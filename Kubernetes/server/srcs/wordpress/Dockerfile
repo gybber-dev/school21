@@ -1,7 +1,7 @@
 FROM alpine:3.7
 
 RUN apk update && apk upgrade
-RUN apk add nginx openssl wget php7 php7-fpm
+RUN apk add nginx openssl wget php7 php7-fpm supervisor
 
 # optionally:
 RUN apk add vim
@@ -24,6 +24,7 @@ RUN tar -xvzf latest.tar.gz    &&    rm -rf latest.tar.gz
 # insert my configs:
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 COPY srcs/wp-config.php ./wordpress/wp-config.php
+COPY srcs/supervisor.conf /etc/supervisord.conf
 
 
 EXPOSE 5050
