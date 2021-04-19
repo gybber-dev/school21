@@ -10,7 +10,7 @@ docker build srcs/wordpress/. -t $WORDPRESS_IMG
 
 echo "Deleting nodes:"
 kubectl get all
-kubectl delete deploy wordpress-deploy
+kubectl delete deploy wordpress
 kubectl delete svc wordpress-svc
 #echo "Create nginx pod:"
 #kubectl create -f nginx.yml
