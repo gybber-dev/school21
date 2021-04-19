@@ -1,3 +1,4 @@
 #!/bin/bash
 
-eval $(minikube -p minikube docker-env)
+eval $(minikube docker-env)
+docker images

@@ -3,7 +3,7 @@
 NGINX_IMG="nginx_img";
 WORDPRESS_IMG="wordpress_img"
 
-eval $(minikube -p minikube docker-env)
+eval $(minikube docker-env)
 
 #docker build . -t $NGINX_IMG
 docker build srcs/wordpress/. -t $WORDPRESS_IMG
