@@ -3,4 +3,4 @@
 echo "NGINX is starting..."
 
 #sh
-nginx -g 'daemon off;'
+0_nginx -g 'daemon off;'

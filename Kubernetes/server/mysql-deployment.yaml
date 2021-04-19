@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-mysql
+  name: 1_wordpress-4_mysql
   labels:
-    app: wordpress
+    app: 1_wordpress
 spec:
   ports:
     - port: 3306
   selector:
-    app: wordpress
-    tier: mysql
+    app: 1_wordpress
+    tier: 4_mysql
   clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mysql-pv-claim
+  name: 4_mysql-pv-claim
   labels:
-    app: wordpress
+    app: 1_wordpress
 spec:
   accessModes:
     - ReadWriteOnce
@@ -28,38 +28,38 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wordpress-mysql
+  name: 1_wordpress-4_mysql
   labels:
-    app: wordpress
+    app: 1_wordpress
 spec:
   selector:
     matchLabels:
-      app: wordpress
-      tier: mysql
+      app: 1_wordpress
+      tier: 4_mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
-        tier: mysql
+        app: 1_wordpress
+        tier: 4_mysql
     spec:
       containers:
-      - image: mysql:5.6
-        name: mysql
+      - image: 4_mysql:5.6
+        name: 4_mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-pass
+              name: 4_mysql-pass
               key: password
         ports:
         - containerPort: 3306
-          name: mysql
+          name: 4_mysql
         volumeMounts:
-        - name: mysql-persistent-storage
-          mountPath: /var/lib/mysql
+        - name: 4_mysql-persistent-storage
+          mountPath: /var/lib/4_mysql
       volumes:
-      - name: mysql-persistent-storage
+      - name: 4_mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-pv-claim
+          claimName: 4_mysql-pv-claim

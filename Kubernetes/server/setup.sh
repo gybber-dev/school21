@@ -10,6 +10,7 @@ END_MSG='\033[0m'
 NGINX_IMG="nginx_img";
 WORDPRESS_IMG="wordpress_img"
 PHP_IMG="php_img"
+MYSQL_IMG="php_img"
 
 # start minikube
 echo -e "${MSG}MINIKUBE STARTING...${END_MSG}"
@@ -18,9 +19,10 @@ eval $(minikube -p minikube docker-env)
 
 # create images:
 echo -e "${MSG}CREATING images${END_MSG}"
-docker build srcs/nginx/. -t $NGINX_IMG
+docker build srcs/0_nginx/. -t $NGINX_IMG
 docker build srcs/wordpress/. -t $WORDPRESS_IMG
 docker build srcs/phpmyadmin/. -t $PHP_IMG
+docker build srcs/phpmyadmin/. -t $MYSQL_IMG
 
 
 
@@ -38,7 +40,7 @@ kubectl apply -f srcs/configmap.yaml
 kubectl apply -f srcs/nginx/srcs/nginx.yaml
 kubectl apply -f srcs/wordpress/srcs/wordpress.yaml
 kubectl apply -f srcs/phpmyadmin/srcs/php.yaml
-kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
+kubectl create secret generic 4_mysql-pass --from-literal=password=YOUR_PASSWORD
 
 echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
 sleep 2s
