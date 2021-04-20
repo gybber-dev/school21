@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sql-svc
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 3306
+      protocol: TCP
+  selector:
+    app: sql-lbl
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sql-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sql-lbl
+  template:
+    metadata:
+      labels:
+        app: sql-lbl
+    spec:
+      containers:
+        - image: mysql_img
+          imagePullPolicy: Never
+          name: mysql
+          ports:
+            - containerPort: 3306
