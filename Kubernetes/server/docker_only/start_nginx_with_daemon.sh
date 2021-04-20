@@ -1,6 +1,6 @@
 #!/bin/sh
 
 echo "nginx is starting..."
-0_nginx
+nginx
 sh
-#0_nginx -g 'daemon off;'
+#nginx -g 'daemon off;'

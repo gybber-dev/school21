@@ -3,7 +3,7 @@
 NGINX_IMG="nginx_img";
 WORDPRESS_IMG="wordpress_img"
 
-¡
+eval $(minikube docker-env)
 
 #docker build . -t $NGINX_IMG
 docker build srcs/wordpress/. -t $WORDPRESS_IMG
@@ -12,8 +12,8 @@ echo "Deleting nodes:"
 kubectl get all
 kubectl delete deploy wordpress
 kubectl delete svc wordpress-svc
-#echo "Create 0_nginx pod:"
-#kubectl create -f 0_nginx.yml
+#echo "Create nginx pod:"
+#kubectl create -f nginx.yml
 
 kubectl apply -f nginx.yml
 kubectl apply -f srcs/wordpress/srcs/wordpress.yaml

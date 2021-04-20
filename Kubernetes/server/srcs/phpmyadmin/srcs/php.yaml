@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 0_nginx-php-svc
+  name: nginx-php-svc
 spec:
   type: LoadBalancer
   ports:
@@ -27,6 +27,6 @@ spec:
       containers:
         - image: php_img
           imagePullPolicy: Never
-          name: 3_phpmyadmin
+          name: phpmyadmin
           ports:
             - containerPort: 5000
