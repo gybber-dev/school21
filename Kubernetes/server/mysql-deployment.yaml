@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: 1_wordpress-4_mysql
+  name: wordpress-mysql
   labels:
-    app: 1_wordpress
+    app: wordpress
 spec:
   ports:
     - port: 3306
   selector:
-    app: 1_wordpress
-    tier: 4_mysql
+    app: wordpress
+    tier: mysql
   clusterIP: None
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: 4_mysql-pv-claim
+  name: mysql-pv-claim
   labels:
-    app: 1_wordpress
+    app: wordpress
 spec:
   accessModes:
     - ReadWriteOnce
@@ -28,38 +28,38 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: 1_wordpress-4_mysql
+  name: wordpress-mysql
   labels:
-    app: 1_wordpress
+    app: wordpress
 spec:
   selector:
     matchLabels:
-      app: 1_wordpress
-      tier: 4_mysql
+      app: wordpress
+      tier: mysql
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: 1_wordpress
-        tier: 4_mysql
+        app: wordpress
+        tier: mysql
     spec:
       containers:
-      - image: 4_mysql:5.6
-        name: 4_mysql
-        env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: 4_mysql-pass
-              key: password
-        ports:
-        - containerPort: 3306
-          name: 4_mysql
-        volumeMounts:
-        - name: 4_mysql-persistent-storage
-          mountPath: /var/lib/4_mysql
+        - image: mysql:5.6
+          name: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
       volumes:
-      - name: 4_mysql-persistent-storage
-        persistentVolumeClaim:
-          claimName: 4_mysql-pv-claim
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
