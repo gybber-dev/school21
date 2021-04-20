@@ -1,14 +1,13 @@
 FROM alpine:3.7
 
 RUN apk update && apk upgrade
-RUN apk add nginx mysql mysql-client
+RUN apk add nginx mysql mysql-client supervisor
 
 # optionally:
 RUN apk add vim
 
 # insert my configs:
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
-COPY srcs/config.inc.php /var/www/localhost/phpmyadmin/config.inc.php
 COPY srcs/supervisor.conf /etc/supervisord.conf
 
 
