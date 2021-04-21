@@ -13,4 +13,7 @@ rm -fr $GOINFRE/Containers
 rm -fr $GOINFRE/Caches/
 rm -fr ~/Library/Caches/com.docker.docker
 mkdir -p ~/Library/Caches/com.docker.docker
+rm -fr $GOINFRE/.minikube
+rm -fr ~/.minikube
+mkdir -p ~/.minikube
 echo "goinfre is clear"
