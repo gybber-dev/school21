@@ -91,8 +91,7 @@ int				main(int argc, char **argv)
 
 	set.save = 0;
 	if ((argc == 2 && check_extension(argv[1], ".cub"))
-		|| (argc == 3 && (!ft_strncmp(argv[2], SAVE, ft_strlen(SAVE))
-		&& !argv[2][ft_strlen(SAVE)])))
+		|| (argc == 3 && (!ft_strncmp(argv[2], SAVE, ft_strlen(SAVE) + 1))))
 	{
 		if (argc == 3)
 			set.save = 1;
