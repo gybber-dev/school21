@@ -1,10 +1,8 @@
-FROM alpine:3.7
-
-RUN apk update && apk upgrade
-RUN apk add nginx php7 php7-fpm php7-mysqli php7-xml wget supervisor
+FROM alpine_nginx
 
 # optionally:
-RUN apk add vim
+RUN apk add wget php7 php7-fpm php7-mysqli php7-xml php7-iconv php7-json php7-zlib php7-curl php7-mbstring php7-session
+
 
 RUN wget https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-english.tar.gz
 RUN tar -xf phpMyAdmin-latest-english.tar.gz  &&  rm -rf phpMyAdmin-latest-english.tar.gz
