@@ -3,7 +3,7 @@ FROM alpine_nginx
 # optionally:
 RUN apk add wget php7 php7-fpm
 
-RUN     apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli
+RUN     apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli php7-json
 
 # RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Russia/L=Kazan/O=School21/OU=21School/CN=wp-ssl" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt
 
