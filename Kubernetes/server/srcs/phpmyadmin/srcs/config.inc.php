@@ -16,10 +16,10 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 
 // Change 'localhost' to 'mysql'. And add port number
 $cfg['Servers'][$i]['host'] = 'sql-svc:3306';
-$cfg['Servers'][$i]['user'] = 'wordpress';
+$cfg['Servers'][$i]['user'] = 'admin';
 $cfg['Servers'][$i]['password'] = '1234';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = true;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
