@@ -15,7 +15,7 @@ mysql -e "GRANT ALL PRIVILEGES ON ${MAINDB}.* TO '${USER}'@'%';"
 mysql -e "FLUSH PRIVILEGES;"
 
 
-mysql -u ${USER} -p ${MAINDB} < /tools/wordpress.sql
+mysql wordpress < /tools/wordpress.sql
 
 /usr/bin/supervisord -c /etc/supervisord.conf
 

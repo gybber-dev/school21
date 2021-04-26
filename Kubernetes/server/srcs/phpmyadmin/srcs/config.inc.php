@@ -20,6 +20,7 @@ $cfg['Servers'][$i]['user'] = 'admin';
 $cfg['Servers'][$i]['password'] = '1234';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['TempDir'] = '/tmp';
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
 
