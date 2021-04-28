@@ -1,18 +1,18 @@
 #!/bin/bash
 
-DEPLOY_NAME="sql-deploy";
-SERVICE_NAME="sql-svc";
-YAML_FILE="mysql/srcs/mysql.yaml"
-IMG_NAME="";
-#DEPLOY_NAME="wordpress";
-#SERVICE_NAME="wordpress-svc"
-#IMG_NAME="wordpress_img";
-#YAML_FILE="wordpress/srcs/wordpress.yaml"
+#DEPLOY_NAME="sql-deploy";
+#SERVICE_NAME="sql-svc";
+#YAML_FILE="mysql/srcs/mysql.yaml"
+#IMG_NAME="";
+DEPLOY_NAME="wordpress";
+SERVICE_NAME="wordpress-svc"
+IMG_NAME="wordpress_img";
+YAML_FILE="wordpress/srcs/wordpress.yaml"
 
 eval $(minikube docker-env)
 
 #docker build . -t $NGINX_IMG
-#docker build srcs/wordpress/. -t $IMG_NAME
+docker build srcs/wordpress/. -t $IMG_NAME
 
 echo "Deleting nodes:"
 kubectl get all

@@ -54,7 +54,7 @@ spec:
           name: wordpress
           env:
             - name: WORDPRESS_DB_HOST
-              value: wordpress-mysql
+              value: sql-svc
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
