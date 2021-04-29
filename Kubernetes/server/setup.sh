@@ -13,6 +13,7 @@ WORDPRESS_IMG="wordpress_img"
 PHP_IMG="php_img"
 SQL_IMG="mysql_img"
 CORE_IMG="alpine_nginx"
+GRAF_IMG="grafana_img"
 
 # start minikube
 echo -e "${MSG}MINIKUBE STARTING...${END_MSG}"
@@ -26,7 +27,7 @@ docker build srcs/nginx/. -t $NGINX_IMG          || echo -e "${ERR_MSG}\t✗${EN
 docker build srcs/wordpress/. -t $WORDPRESS_IMG  || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/phpmyadmin/. -t $PHP_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/mysql/. -t $SQL_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
-
+docker build srcs/grafana/. -t $GRAF_IMG         || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 
 ## set configs for Kubernetes
@@ -40,11 +41,12 @@ docker pull metallb/controller:v0.8.2  || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/configmap.yaml   || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 # apply configs:
+kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/nginx/srcs/nginx.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/wordpress/srcs/wordpress.yaml    || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/phpmyadmin/srcs/php.yaml         || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/mysql/srcs/mysql.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
-kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD || echo -e "${ERR_MSG}\t✗${END_MSG}"
+kubectl apply -f srcs/grafana/srcs/grafana.yaml     || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
 sleep 2s

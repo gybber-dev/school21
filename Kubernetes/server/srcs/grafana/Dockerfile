@@ -1,7 +1,7 @@
 FROM alpine_nginx
 
 # optionally:
-RUN apk add wget
+RUN apk add wget supervisor
 
 
 RUN wget https://dl.grafana.com/enterprise/release/grafana-enterprise-7.5.5.linux-amd64.tar.gz
@@ -12,14 +12,14 @@ RUN wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0/
 # insert my configs:
 # COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 # COPY srcs/config.inc.php /var/www/localhost/phpmyadmin/config.inc.php
-# COPY srcs/supervisor.conf /etc/supervisord.conf
+COPY srcs/supervisor.conf /etc/supervisord.conf
 
 
 # copy scripts:
 COPY    srcs/start.sh /tools/start.sh
 RUN     chmod +x /tools/start.sh
 RUN     mkdir -p /run/nginx
-
-EXPOSE 5000
+WORKDIR grafana-7.5.5
+EXPOSE 3000
 
 CMD ["sh", "/tools/start.sh"]
