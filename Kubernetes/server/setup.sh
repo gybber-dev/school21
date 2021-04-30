@@ -14,6 +14,7 @@ PHP_IMG="php_img"
 SQL_IMG="mysql_img"
 CORE_IMG="alpine_nginx"
 GRAF_IMG="grafana_img"
+INFLUXDB_IMG="influxdb_img"
 
 minikube delete
 
@@ -30,7 +31,7 @@ docker build srcs/wordpress/. -t $WORDPRESS_IMG  || echo -e "${ERR_MSG}\t✗${EN
 docker build srcs/phpmyadmin/. -t $PHP_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/mysql/. -t $SQL_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/grafana/. -t $GRAF_IMG         || echo -e "${ERR_MSG}\t✗${END_MSG}"
-
+docker build . -t $INFLUXDB_IMG                  || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 ## set configs for Kubernetes
 echo -e "${MSG}Metal LB enable...${END_MSG}" || echo -e "${ERR_MSG}\t✗${END_MSG}"
@@ -48,7 +49,8 @@ kubectl apply -f srcs/nginx/srcs/nginx.yaml            || echo -e "${ERR_MSG}\t�
 kubectl apply -f srcs/wordpress/srcs/wordpress.yaml    || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/phpmyadmin/srcs/php.yaml         || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/mysql/srcs/mysql.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
-kubectl apply -f srcs/grafana/srcs/grafana.yaml     || echo -e "${ERR_MSG}\t✗${END_MSG}"
+kubectl apply -f srcs/grafana/srcs/grafana.yaml        || echo -e "${ERR_MSG}\t✗${END_MSG}"
+kubectl apply -f srcs/influxdb/srcs/influxdb.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
 sleep 2s
