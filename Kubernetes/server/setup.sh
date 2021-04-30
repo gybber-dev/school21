@@ -15,6 +15,8 @@ SQL_IMG="mysql_img"
 CORE_IMG="alpine_nginx"
 GRAF_IMG="grafana_img"
 
+minikube delete
+
 # start minikube
 echo -e "${MSG}MINIKUBE STARTING...${END_MSG}"
 minikube start --vm-driver=virtualbox            || echo -e "${ERR_MSG}\t✗${END_MSG}"
