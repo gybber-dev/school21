@@ -31,7 +31,7 @@ docker build srcs/wordpress/. -t $WORDPRESS_IMG  || echo -e "${ERR_MSG}\t✗${EN
 docker build srcs/phpmyadmin/. -t $PHP_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/mysql/. -t $SQL_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/grafana/. -t $GRAF_IMG         || echo -e "${ERR_MSG}\t✗${END_MSG}"
-docker build . -t $INFLUXDB_IMG                  || echo -e "${ERR_MSG}\t✗${END_MSG}"
+docker build srcs/influxdb/. -t $INFLUXDB_IMG    || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 ## set configs for Kubernetes
 echo -e "${MSG}Metal LB enable...${END_MSG}" || echo -e "${ERR_MSG}\t✗${END_MSG}"

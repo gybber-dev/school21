@@ -2,7 +2,7 @@
 
 echo "influxdb is starting..."
 #cd /influxdb
-influxd
+
 #PASSWDDB='1234'
 #MAINDB='wordpress'
 #USER='admin'
@@ -18,7 +18,7 @@ influxd
 #
 #mysql wordpress < /tools/wordpress.sql
 #
-#/usr/bin/supervisord -c /etc/supervisord.conf
+/usr/bin/supervisord -c /etc/supervisord.conf
 #
 #if [ $? -eq 1 ]
 #then

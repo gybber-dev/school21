@@ -75,6 +75,21 @@ web-сервера. См. логи nginx.
 
 #### Что такое редирект
 
+#### Как скопировать файл из контейнера пода в хост?
+
+kubectl cp -h           =>      установить tar в контейнер
+kubectl cp default/grafana-deploy-7856d949bd-2sfw4:/etc/telegraf/telegraf.conf telegraf.conf
+
+kubectl cp  <namespace>/<pod>:<src path> <dst path>
+(kubectl get namespaces)
+````
+kubectl cp default/grafana-deploy-7856d949bd-2sfw4:/etc/telegraf/telegraf.conf telegraf.conf
+````
+
+
+
+
+
 ### TO DO:
 
 Попробовать запустить самый простой index.php в wordpress'e
