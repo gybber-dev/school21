@@ -83,9 +83,11 @@ kubectl cp default/grafana-deploy-7856d949bd-2sfw4:/etc/telegraf/telegraf.conf t
 kubectl cp  <namespace>/<pod>:<src path> <dst path>
 (kubectl get namespaces)
 ````
-kubectl cp default/grafana-deploy-7856d949bd-2sfw4:/etc/telegraf/telegraf.conf telegraf.conf
+kubectl cp default/influxdb-deploy-77ccc594d8-jmq48:/etc/telegraf/telegraf.conf telegraf.conf
 ````
 
+Установка пакетов alpine из сторонних репозиториев
+https://pkgs.org/
 
 
 
