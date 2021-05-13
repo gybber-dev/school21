@@ -86,7 +86,11 @@ kubectl cp  <namespace>/<pod>:<src path> <dst path>
 kubectl cp default/influxdb-deploy-77ccc594d8-jmq48:/etc/telegraf/telegraf.conf telegraf.conf
 ````
 
-Установка пакетов alpine из сторонних репозиториев
+#### Установка и настройка telegraf:
+https://vk.com/@swquinc-chast-monitoring-kubernetes-influxdb-telegraf-grafana
+https://octoperf.com/blog/2019/09/19/kraken-kubernetes-influxdb-grafana-telegraf/#prerequisites
+
+#### Установка пакетов alpine из сторонних репозиториев
 https://pkgs.org/
 
 
@@ -96,3 +100,5 @@ https://pkgs.org/
 
 Попробовать запустить самый простой index.php в wordpress'e
 
+config
+persistantVolume

@@ -12,14 +12,20 @@
 #SERVICE_NAME="grafana-svc"
 #IMG_NAME="grafana_img";
 #YAML_FILE="grafana/srcs/grafana.yaml"
-DEPLOY_NAME="influxdb-deploy";
-SERVICE_NAME="influxdb-svc"
-IMG_NAME="influxdb_img";
-YAML_FILE="influxdb/srcs/influxdb.yaml"
+#DEPLOY_NAME="influxdb-deploy";
+#SERVICE_NAME="influxdb-svc"
+#IMG_NAME="influxdb_img";
+#YAML_FILE="influxdb/srcs/influxdb.yaml"
+
+DEPLOY_NAME="ftps-deploy";
+SERVICE_NAME="ftps-svc"
+IMG_NAME="ftps_img";
+YAML_FILE="ftps/srcs/ftps.yaml"
+
 eval $(minikube docker-env)
 
 #docker build . -t $NGINX_IMG
-docker build srcs/influxdb/. -t $IMG_NAME
+docker build srcs/ftps/. -t $IMG_NAME
 
 echo "Deleting nodes:"
 kubectl get all
