@@ -12,10 +12,10 @@
 anonymous_enable=YES
 #
 # Uncomment this to allow local users to log in.
-local_enable=YES
+#local_enable=YES
 #
 # Uncomment this to enable any form of FTP write command.
-write_enable=YES
+#write_enable=YES
 #
 # Default umask for local users is 077. You may wish to change this to 022,
 # if your users expect that (022 is used by most other ftpd's)
@@ -95,7 +95,7 @@ connect_from_port_20=YES
 # (Warning! chroot'ing can be very dangerous. If using chroot, make sure that
 # the user does not have write access to the top level directory within the
 # chroot)
-chroot_local_user=YES
+#chroot_local_user=YES
 #chroot_list_enable=YES
 # (default follows)
 #chroot_list_file=/etc/vsftpd.chroot_list
@@ -115,26 +115,3 @@ listen=YES
 # sockets, you must run two copies of vsftpd with two configuration files.
 # Make sure, that one of the listen options is commented !!
 #listen_ipv6=YES
-
-user_sub_token=$USER
-local_root=/home/$USER/ftp/
-pasv_min_port=30021
-pasv_max_port=30021
-userlist_enable=YES
-userlist_file=/etc/vsftpd/vsftpd.userlist
-userlist_deny=NO
-
-ssl_enable=YES
-allow_anon_ssl=NO
-force_local_data_ssl=YES
-force_local_logins_ssl=YES
-ssl_tlsv1=YES
-ssl_sslv2=YES
-ssl_sslv3=YES
-rsa_cert_file=/etc/ssl/vsftpd.crt
-rsa_private_key_file=/etc/ssl/vsftpd.key
-
-seccomp_sandbox=NO
-pasv_address=192.168.99.102
-require_ssl_reuse=NO
-ssl_ciphers=HIGH

@@ -8,6 +8,10 @@ spec:
   type: LoadBalancer
   ports:
     - port: 21
+      name: ftp21
+      protocol: TCP
+    - port: 30021
+      name: ftp30021
       protocol: TCP
   selector:
     app: ftps-lbl
@@ -32,3 +36,4 @@ spec:
           name: ftps
           ports:
             - containerPort: 21
+            - containerPort: 30021
