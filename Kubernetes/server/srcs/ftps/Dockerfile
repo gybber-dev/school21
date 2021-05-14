@@ -6,18 +6,15 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Russia/L=Kazan/O=School21
 
 
 # insert my configs:
-COPY srcs/supervisor.conf /etc/supervisord.conf
-
+RUN     mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.backup
+COPY    srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY    srcs/vsftpd.userlist /etc/vsftpd/vsftpd.userlist
 
 # copy scripts:
 COPY    srcs/start.sh /tools/start.sh
 RUN     chmod +x /tools/start.sh
-RUN     mkdir -p /run/nginx
-RUN     rc-update add vsftpd default
-RUN     mv /etc/vsftpd/vsftpd.conf /etc/vsftpd/vsftpd.conf.backup
-COPY    srcs/vsftpd.conf /etc/vsftpd/vsftpd.conf
-COPY    srcs/vsftpd.userlist /etc/vsftpd/vsftpd.userlist
-# RUN     rc-service vsftpd restart || echo "Can't start"
+
+# RUN     rc-update add vsftpd default
 
 EXPOSE 21 30021
 

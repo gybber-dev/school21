@@ -93,12 +93,13 @@ https://octoperf.com/blog/2019/09/19/kraken-kubernetes-influxdb-grafana-telegraf
 #### Установка пакетов alpine из сторонних репозиториев
 https://pkgs.org/
 
-
+#### Настройка сервера ftps:
+Установка в alpine
+https://www.hostinger.ru/rukovodstva/kak-ustanovit-ftp-server-na-ubuntu-vps/#-6--FileZilla
 
 
 ### TO DO:
 
 Попробовать запустить самый простой index.php в wordpress'e
 
-config
-persistantVolume
+
