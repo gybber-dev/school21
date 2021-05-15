@@ -1,9 +1,6 @@
 <?php
-
 declare(strict_types=1);
-
 $cfg['blowfish_secret'] = '12345678901234567890123456789012'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
-
 /**
  * Servers configuration
  */
@@ -23,6 +20,4 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['TempDir'] = '/tmp';
 $cfg['UploadDir'] = '';
 $cfg['SaveDir'] = '';
-
-
 ?>

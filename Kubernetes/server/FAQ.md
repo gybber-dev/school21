@@ -63,6 +63,26 @@ kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 nginx -s reload
 ````
 
+#### Как вывести значение переменной из nginx config-файла
+Прямого пути нет. Но способ есть - вывести значение в хедер запроса.
+
+Добавить в поле запроса строки типа
+````
+add_header X-uri "$host";
+add_header X-uri1 "http://$host:5000/";
+````
+Выглядит примерно так:
+````
+location /phpmyadmin/ {
+    add_header X-uri "$host";
+    add_header X-uri1 "http://$host:5000/";
+    proxy_pass http://$host:5000/;
+}
+````
+Перходим на страницу, открываем Chrome DevTool -> Network. ОБНОВИТЬ СТРАНИЦУ, чтобы сработал запрос
+В Графе Header в поле X-uri и X-uri1 выведутся значения переменных.
+[источник](https://azimut7.ru/blog/nginx-variables-debug)
+
 #### Не открывается сервис, переходя по ссылке пода в dashboard'e по протоколу http, если установлен порт 80
 
 Установил другие значения портов для каждого сервиса
