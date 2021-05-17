@@ -24,7 +24,7 @@ RUN tar -xvzf latest.tar.gz    &&    rm -rf latest.tar.gz
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 COPY srcs/wp-config.php ./wordpress/wp-config.php
 COPY srcs/supervisor.conf /etc/supervisord.conf
-
+COPY srcs/themes /var/www/localhost/wordpress/wp-content/themes
 
 EXPOSE 5050
 

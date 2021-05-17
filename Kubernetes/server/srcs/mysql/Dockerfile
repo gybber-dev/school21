@@ -11,7 +11,7 @@ COPY srcs/supervisor.conf /etc/supervisord.conf
 RUN     cp /etc/mysql/my.cnf /etc/mysql/my.cnf.orig
 COPY    srcs/start.sh /tools/
 COPY    srcs/my.cnf /etc/mysql/
-COPY    srcs/wordpress.sql /tools
+COPY    srcs/wordpress.sql /tools/wordpress.sql
 RUN     chmod +x /tools/start.sh
 
 EXPOSE 3306

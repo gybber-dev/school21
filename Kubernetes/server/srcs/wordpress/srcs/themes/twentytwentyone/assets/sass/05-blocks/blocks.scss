@@ -1,0 +1,37 @@
+// Blocks
+// - These styles replace key Gutenberg Block styles with font, color, and
+//   spacing with CSS-variables overrides
+// - In the future the Block styles may get compiled to individual .css
+//   files and conditionally loaded
+
+@import "assets/sass/05-blocks/audio/style";
+@import "assets/sass/05-blocks/button/style";
+@import "assets/sass/05-blocks/code/style";
+@import "assets/sass/05-blocks/columns/style";
+@import "assets/sass/05-blocks/cover/style";
+@import "assets/sass/05-blocks/file/style";
+@import "assets/sass/05-blocks/gallery/style";
+@import "assets/sass/05-blocks/group/style";
+@import "assets/sass/05-blocks/heading/style";
+@import "assets/sass/05-blocks/image/style";
+@import "assets/sass/05-blocks/latest-comments/style";
+@import "assets/sass/05-blocks/latest-posts/style";
+@import "assets/sass/05-blocks/legacy/style"; // "Blocks" from the legacy WP editor, ie: galleries, .button class, etc.
+@import "assets/sass/05-blocks/list/style";
+@import "assets/sass/05-blocks/media-text/style";
+@import "assets/sass/05-blocks/navigation/style";
+@import "assets/sass/05-blocks/paragraph/style";
+@import "assets/sass/05-blocks/preformatted/style";
+@import "assets/sass/05-blocks/pullquote/style";
+@import "assets/sass/05-blocks/quote/style";
+@import "assets/sass/05-blocks/rss/style";
+@import "assets/sass/05-blocks/search/style";
+@import "assets/sass/05-blocks/separator/style";
+@import "assets/sass/05-blocks/social-icons/style";
+@import "assets/sass/05-blocks/spacer/style";
+@import "assets/sass/05-blocks/table/style";
+@import "assets/sass/05-blocks/tag-clould/style";
+@import "assets/sass/05-blocks/verse/style";
+@import "assets/sass/05-blocks/video/style";
+@import "assets/sass/05-blocks/utilities/font-sizes";
+@import "assets/sass/05-blocks/utilities/style"; // Import LAST to cascade properly
