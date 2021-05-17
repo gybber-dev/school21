@@ -118,8 +118,15 @@ https://pkgs.org/
 https://www.hostinger.ru/rukovodstva/kak-ustanovit-ftp-server-na-ubuntu-vps/#-6--FileZilla
 
 
-### TO DO:
+## TO DO:
 
-Попробовать запустить самый простой index.php в wordpress'e
+### Users:
+1. wordpress:
+admin (admin)
+user1 (user1)
+user2 (user2)
+   
+   
+
 
 
