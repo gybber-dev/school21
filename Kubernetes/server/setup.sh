@@ -57,7 +57,7 @@ kubectl apply -f srcs/phpmyadmin/srcs/php.yaml         || echo -e "${ERR_MSG}\t�
 kubectl apply -f srcs/mysql/srcs/mysql.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/grafana/srcs/grafana.yaml        || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/influxdb/srcs/influxdb.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
-kubectl apply -f srcs/telegraf/srcs/telegraf.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
+#kubectl apply -f srcs/telegraf/srcs/telegraf.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/ftps/srcs/ftps.yaml              || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 

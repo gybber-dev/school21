@@ -10,11 +10,11 @@
 #IMG_NAME="grafana/. -t grafana_img";
 #YAML_FILE="grafana/srcs/grafana.yaml"
 
-#IMG_NAME="influxdb/. -t influxdb_img";
-#YAML_FILE="influxdb/srcs/influxdb.yaml"
+IMG_NAME="influxdb/. -t influxdb_img";
+YAML_FILE="influxdb/srcs/influxdb.yaml"
 
-IMG_NAME="telegraf/. -t telegraf_img";
-YAML_FILE="telegraf/srcs/telegraf.yaml"
+#IMG_NAME="telegraf/. -t telegraf_img";
+#YAML_FILE="telegraf/srcs/telegraf.yaml"
 #DEPLOY_NAME="ftps-deploy";
 #SERVICE_NAME="ftps-svc"
 #IMG_NAME="ftps_img";
@@ -26,6 +26,7 @@ eval $(minikube docker-env)
 docker build srcs/$IMG_NAME
 kubectl delete -f srcs/${YAML_FILE}
 kubectl apply -f srcs/${YAML_FILE}
+#kubectl apply -R -f  srcs/telegraf/srcs/examples/.
 
 sleep 2s
 kubectl get all

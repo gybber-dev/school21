@@ -13,6 +13,7 @@ COPY srcs/telegraf-1.18.2_linux_amd64.tar.gz telegraf-1.18.2_linux_amd64.tar.gz
 RUN  tar -zxvf telegraf-1.18.2_linux_amd64.tar.gz
 
 # copy scripts:
+# RUN		mkdir -p /etc/telegraf && ./telegraf-1.18.2/usr/bin/telegraf -sample-config --input-filter docker --output-filter influxdb > /etc/telegraf/telegraf.conf
 RUN		mkdir -p /etc/telegraf && ./telegraf-1.18.2/usr/bin/telegraf -sample-config --input-filter docker --output-filter influxdb > /etc/telegraf/telegraf.conf
 
 # insert my configs:
