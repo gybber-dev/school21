@@ -63,6 +63,26 @@ kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD
 nginx -s reload
 ````
 
+#### Как вывести значение переменной из nginx config-файла
+Прямого пути нет. Но способ есть - вывести значение в хедер запроса.
+
+Добавить в поле запроса строки типа
+````
+add_header X-uri "$host";
+add_header X-uri1 "http://$host:5000/";
+````
+Выглядит примерно так:
+````
+location /phpmyadmin/ {
+    add_header X-uri "$host";
+    add_header X-uri1 "http://$host:5000/";
+    proxy_pass http://$host:5000/;
+}
+````
+Перходим на страницу, открываем Chrome DevTool -> Network. ОБНОВИТЬ СТРАНИЦУ, чтобы сработал запрос
+В Графе Header в поле X-uri и X-uri1 выведутся значения переменных.
+[источник](https://azimut7.ru/blog/nginx-variables-debug)
+
 #### Не открывается сервис, переходя по ссылке пода в dashboard'e по протоколу http, если установлен порт 80
 
 Установил другие значения портов для каждого сервиса
@@ -70,7 +90,43 @@ nginx -s reload
 
 #### При переходе в папку wordpress скачивается файл, но не открывается
 
-### TO DO:
+Не срабатывает php, необходимо установить все расширения. Возможно, список необходимых расширений будет указан в логе 
+web-сервера. См. логи nginx.
 
-Попробовать запустить самый простой index.php в wordpress'e
+#### Что такое редирект
+
+#### Как скопировать файл из контейнера пода в хост?
+
+kubectl cp -h           =>      установить tar в контейнер
+kubectl cp default/grafana-deploy-7856d949bd-2sfw4:/etc/telegraf/telegraf.conf telegraf.conf
+
+kubectl cp  <namespace>/<pod>:<src path> <dst path>
+(kubectl get namespaces)
+````
+kubectl cp default/influxdb-deploy-77ccc594d8-jmq48:/etc/telegraf/telegraf.conf telegraf.conf
+````
+
+#### Установка и настройка telegraf:
+https://vk.com/@swquinc-chast-monitoring-kubernetes-influxdb-telegraf-grafana
+https://octoperf.com/blog/2019/09/19/kraken-kubernetes-influxdb-grafana-telegraf/#prerequisites
+
+#### Установка пакетов alpine из сторонних репозиториев
+https://pkgs.org/
+
+#### Настройка сервера ftps:
+Установка в alpine
+https://www.hostinger.ru/rukovodstva/kak-ustanovit-ftp-server-na-ubuntu-vps/#-6--FileZilla
+
+
+## TO DO:
+
+### Users:
+1. wordpress:
+admin (admin)
+user1 (user1)
+user2 (user2)
+   
+   
+
+
 

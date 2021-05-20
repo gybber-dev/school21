@@ -18,26 +18,14 @@
  * @package WordPress
  */
 
-// ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
 define( 'DB_NAME', 'wordpress' );
-
-/** MySQL database username */
-define( 'DB_USER', 'root' );
-
-/** MySQL database password */
-define( 'DB_PASSWORD', '' );
-
-/** MySQL hostname */
-
-// Написать название сервиса + ":" + "порт"
-define( 'DB_HOST', 'localhost' );
-
-/** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8mb4' );
-
-/** The Database Collate type. Don't change this if in doubt. */
+define( 'DB_USER', 'admin' );
+define( 'DB_PASSWORD', '1234' );
+define( 'DB_HOST', 'sql-svc' );
+define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
+define('WP_HOME','http://192.168.99.102:5050/');
+define('WP_SITEURL','http://192.168.99.102:5050/');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -79,7 +67,7 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* That's all, stop editing! Happy publishing. */
 
