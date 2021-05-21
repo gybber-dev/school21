@@ -34,7 +34,7 @@ docker build srcs/phpmyadmin/. -t $PHP_IMG       || echo -e "${ERR_MSG}\t✗${EN
 docker build srcs/mysql/. -t $SQL_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/grafana/. -t $GRAF_IMG         || docker build srcs/grafana/. -t $GRAF_IMG || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/influxdb/. -t $INFLUXDB_IMG    || echo -e "${ERR_MSG}\t✗${END_MSG}"
-docker build srcs/telegraf/. -t $TLGRF_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
+#docker build srcs/telegraf/. -t $TLGRF_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/ftps/. -t $FTPS_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 
@@ -50,7 +50,7 @@ docker pull metallb/controller:v0.8.2  || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/configmap.yaml   || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 # apply configs:
-kubectl create secret generic mysql-pass --from-literal=password=YOUR_PASSWORD || echo -e "${ERR_MSG}\t✗${END_MSG}"
+kubectl create secret generic mysql-pass --from-literal=password='1234' || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/nginx/srcs/nginx.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/wordpress/srcs/wordpress.yaml    || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/phpmyadmin/srcs/php.yaml         || echo -e "${ERR_MSG}\t✗${END_MSG}"

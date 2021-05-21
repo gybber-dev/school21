@@ -5,14 +5,8 @@ RUN apk add wget php7 php7-fpm
 
 RUN     apk add php7 php7-fpm php7-opcache php7-gd php7-mysqli php7-json
 
-# RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Russia/L=Kazan/O=School21/OU=21School/CN=wp-ssl" -newkey rsa:2048 -keyout /etc/ssl/nginx-selfsigned.key -out /etc/ssl/nginx-selfsigned.crt
-
-# RUN  ln -s /wordpress /var/www/localhost/wordpress
 RUN     mkdir /tools
-COPY    srcs/start.sh /tools/start.sh
-RUN     chmod +x /tools/start.sh
 RUN     mkdir -p /run/nginx
-
 
 WORKDIR /var/www/localhost
 
@@ -27,6 +21,4 @@ COPY srcs/supervisor.conf /etc/supervisord.conf
 COPY srcs/themes /var/www/localhost/wordpress/wp-content/themes
 
 EXPOSE 5050
-
-CMD ["sh", "/tools/start.sh"]
-# CMD ["nginx", "-g", "daemon off;"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]

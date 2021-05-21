@@ -40,6 +40,14 @@ spec:
         - image: mysql_img
           imagePullPolicy: Never
           name: mysql
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: 'sql-svc'
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           ports:
             - containerPort: 3306
           volumeMounts:

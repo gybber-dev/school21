@@ -13,7 +13,6 @@ spec:
       protocol: TCP
   selector:
     app: wordpress
-#    tier: frontend
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -22,7 +21,6 @@ metadata:
   labels:
     app: wordpress
 spec:
-  #storageClassName: manual # from notion...
   accessModes:
     - ReadWriteMany
   resources:
@@ -39,7 +37,6 @@ spec:
   selector:
     matchLabels:
       app: wordpress
-#      tier: frontend
   strategy:
     type: Recreate
   template:
@@ -54,7 +51,7 @@ spec:
           name: wordpress
           env:
             - name: WORDPRESS_DB_HOST
-              value: sql-svc
+              value: 'sql-svc'
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:

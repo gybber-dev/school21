@@ -8,13 +8,8 @@ RUN openssl req -x509 -nodes -days 365 -subj "/C=RU/ST=Russia/L=Kazan/O=School21
 # insert my configs:
 COPY srcs/nginx.config /etc/nginx/conf.d/default.conf
 
-# copy scripts:
-COPY    srcs/start.sh /tools/start.sh
-RUN     chmod +x /tools/start.sh
 RUN     mkdir -p /run/nginx
-
 WORKDIR /tools
 
 EXPOSE 80 443
-
-CMD ["sh", "start.sh"]
+CMD nginx -g 'daemon off;'

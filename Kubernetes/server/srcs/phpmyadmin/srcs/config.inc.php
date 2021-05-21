@@ -9,12 +9,15 @@ $i = 0;
 $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'cookie';
-/* Server parameters */
 
-// Change 'localhost' to 'mysql'. And add port number
+/* Server parameters */
 $cfg['Servers'][$i]['host'] = 'sql-svc:3306';
-$cfg['Servers'][$i]['user'] = 'admin';
 $cfg['Servers'][$i]['password'] = '1234';
+// $cfg['Servers'][$i]['host'] = getenv('WORDPRESS_DB_HOST');
+// $cfg['Servers'][$i]['password'] = getenv('WORDPRESS_DB_PASSWORD');
+
+$cfg['Servers'][$i]['user'] = 'admin';
+
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
 $cfg['TempDir'] = '/tmp';
