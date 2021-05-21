@@ -27,14 +27,13 @@ eval $(minikube -p minikube docker-env)          || echo -e "${ERR_MSG}\t✗${EN
 
 # create images:
 echo -e "${MSG}CREATING images${END_MSG}"
-docker build . -f core.Dockerfile -t $CORE_IMG
+docker build . -f srcs/core.Dockerfile -t $CORE_IMG
 docker build srcs/nginx/. -t $NGINX_IMG          || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/wordpress/. -t $WORDPRESS_IMG  || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/phpmyadmin/. -t $PHP_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/mysql/. -t $SQL_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/grafana/. -t $GRAF_IMG         || docker build srcs/grafana/. -t $GRAF_IMG || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/influxdb/. -t $INFLUXDB_IMG    || echo -e "${ERR_MSG}\t✗${END_MSG}"
-#docker build srcs/telegraf/. -t $TLGRF_IMG       || echo -e "${ERR_MSG}\t✗${END_MSG}"
 docker build srcs/ftps/. -t $FTPS_IMG            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 
@@ -57,13 +56,7 @@ kubectl apply -f srcs/phpmyadmin/srcs/php.yaml         || echo -e "${ERR_MSG}\t�
 kubectl apply -f srcs/mysql/srcs/mysql.yaml            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/grafana/srcs/grafana.yaml        || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/influxdb/srcs/influxdb.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
-#kubectl apply -f srcs/telegraf/srcs/telegraf.yaml      || echo -e "${ERR_MSG}\t✗${END_MSG}"
 kubectl apply -f srcs/ftps/srcs/ftps.yaml              || echo -e "${ERR_MSG}\t✗${END_MSG}"
-
-
-echo -e "${MSG}Waiting for pods' starting...${END_MSG}"
-sleep 2s
-kubectl get pods     || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 #echo -e "${MSG}Starting dashboard${END_MSG}"
 #minikube dashboard
