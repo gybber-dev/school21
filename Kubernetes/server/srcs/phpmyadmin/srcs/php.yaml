@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-php-svc
+  name: phpmyadmin-svc
   annotations:
     metallb.universe.tf/allow-shared-ip: main-claster
 spec:
@@ -30,5 +30,13 @@ spec:
         - image: php_img
           imagePullPolicy: Never
           name: phpmyadmin
+          env:
+            - name: WORDPRESS_DB_HOST
+              value: 'sql-svc'
+            - name: WORDPRESS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           ports:
             - containerPort: 5000

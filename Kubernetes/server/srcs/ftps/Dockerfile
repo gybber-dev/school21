@@ -14,8 +14,6 @@ COPY    srcs/vsftpd.userlist /etc/vsftpd/vsftpd.userlist
 COPY    srcs/start.sh /tools/start.sh
 RUN     chmod +x /tools/start.sh
 
-# RUN     rc-update add vsftpd default
-
 EXPOSE 21 30021
 
 CMD ["sh", "/tools/start.sh"]

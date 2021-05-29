@@ -7,35 +7,17 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - protocol: TCP
-      port: 8086
-      targetPort: 8086
+    - port: 8086
   selector:
     app: influx
 ---
 apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: influx-pv-volume
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 2Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/data"
----
-apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: influx-pv-claim
+  name: influxdb-pv-claim
   labels:
     app: influx
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
@@ -45,7 +27,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: influx-deployment
+  name: influx-deploy
   labels:
     app: influx
 spec:
@@ -64,7 +46,7 @@ spec:
           image: influxdb_img
           imagePullPolicy: Never
           ports:
-            - containerPort: 3306
+            - containerPort: 8086
               name: influx
           volumeMounts:
             - name: influx-pv-storage
@@ -74,7 +56,7 @@ spec:
       volumes:
         - name: influx-pv-storage
           persistentVolumeClaim:
-            claimName: influx-pv-claim
+            claimName: influxdb-pv-claim
         - name: dockersocket
           hostPath:
             path: /var/run/docker.sock

@@ -10,9 +10,7 @@ RUN 	wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.33-r0
 RUN		wget https://dl.influxdata.com/telegraf/releases/telegraf-1.18.1_linux_amd64.tar.gz && tar -zxvf telegraf-1.18.1_linux_amd*64.tar.gz
 
 COPY	./srcs/supervisord.conf /etc/supervisord.conf
-# COPY	./srcs/telegraf.conf /etc/telegraf.conf
-# RUN		sh -c "influxd &" && sleep 4 && echo "CREATE DATABASE telegraf" | influx && echo "CREATE USER admin WITH PASSWORD 'admin' WITH ALL PRIVILEGES" | influx
-
+COPY	./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 RUN		mkdir -p /etc/telegraf && ./telegraf-1.18.1/usr/bin/telegraf -sample-config --input-filter docker --output-filter influxdb > /etc/telegraf/telegraf.conf
 
 CMD		["/usr/bin/supervisord"]
