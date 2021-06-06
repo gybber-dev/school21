@@ -1,6 +1,0 @@
-kubernetes:
-	minikube start --vm-driver=virtualbox
-	minikube dashboard
-show error logs:
-	kubectl describe pods nginx
-	kubectl logs <container name>
