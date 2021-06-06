@@ -22,7 +22,7 @@ minikube delete
 
 # start minikube
 echo -e "${MSG}MINIKUBE STARTING...${END_MSG}"
-minikube start --vm-driver=none            || echo -e "${ERR_MSG}\t✗${END_MSG}"
+minikube start --vm-driver=virtualbox            || echo -e "${ERR_MSG}\t✗${END_MSG}"
 eval $(minikube -p minikube docker-env)          || echo -e "${ERR_MSG}\t✗${END_MSG}"
 
 # create images:
