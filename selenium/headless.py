@@ -73,35 +73,37 @@ def _detect_curret_page(driver):
     '''
     keywords = [
         'Введите номер телефона',
-        '',
-        'Банк отправил код подтверждения на номер'
+        'Введите пароль',
+        'Банк отправил код подтверждения на номер',
+        'Не сообщайте логин, пароль и код подтверждения'
     ]
-    try:
+    # try:
+    contents = driver.find_elements_by_css_selector('div[data-qa-file="Container"]')
+    entry_page = 'https://www.tinkoff.ru/login/'
+    # if it is not entry page:
+    if len(contents) == 0 or contents[0].text.find(keywords[3]) == -1:
+        print('no content')
+        driver.get(entry_page)
+        sleep(3)
         contents = driver.find_elements_by_css_selector('div[data-qa-file="Container"]')
-        entry_page = 'https://www.tinkoff.ru/login/'
-        # if it is not entry page:
-        if not len(contents):
-            print('no content')
-            driver.get(entry_page)
-            contents = driver.find_elements_by_css_selector('div[data-qa-file="Container"]')
-            if not len(contents):
-                print("Can't reach entry page" + entry_page)
-                return 3
+        if len(contents) == 0 or contents[0].text.find(keywords[3]) == -1:
+            print("Can't reach entry page" + entry_page)
+            return 3
 
-        if contents[0].text.find(keywords[0]) != -1:
-            print('phone page')
-            return 0
-        elif contents[2].get_attribute('innerText').find(keywords[2]) != -1:
-            print('code page')
-            return 1
-        elif contents[0].get_attribute('innerText').find(keywords[0]) != -1:
-            print('psw page')
-            return 2
-        print("Can't find entry keywords")
-        return 3
-    except:
-        print('error 1')
-        return 3
+    if contents[0].text.find(keywords[0]) != -1:
+        print('phone page')
+        return 0
+    elif contents[0].text.find(keywords[2]) != -1:
+        print('code page')
+        return 1
+    elif contents[0].text.find(keywords[1]) != -1:
+        print('psw page')
+        return 2
+    print("Can't find entry keywords")
+    return 3
+    # except:
+    #     print('error 1')
+    #     return 3
 
 def _enter_phone(driver, phone):
     try:
@@ -120,42 +122,114 @@ def _enter_phone(driver, phone):
 def _enter_code(driver, code):
     try:
         print('enter code')
+        elements = driver.find_elements_by_css_selector('input[type="tel"]')
+        if not len(elements):
+            return False
+        elements[0].send_keys(code)
+        # submit_buttons = driver.find_elements_by_css_selector('button[type="submit"]')
+        # if not len(submit_buttons):
+        #     return False
+        # submit_buttons[0].click()
     except:
         print("Enter code error")
         return False
 
+def _enter_psw(driver, psw):
+    try:
+        print('enter psw')
+        elements = driver.find_elements_by_css_selector('input[type="password"]')
+        if not len(elements):
+            return False
+        elements[0].send_keys(psw)
+        submit_buttons = driver.find_elements_by_css_selector('button[type="submit"]')
+        if not len(submit_buttons):
+            return False
+        submit_buttons[0].click()
+    except:
+        print("Enter psw error")
+        return False
 
 def auth(phone, psw, code, id, url):
     driver = _connect_to_session(id, url)
     if check_auth(id, url):
         print("Logged in")
         return 0
-    if _detect_curret_page(driver) == 0:
-        if not _enter_phone(driver, "89178811890"):
+    page_type = _detect_curret_page(driver)
+    if page_type == 0:
+        if not _enter_phone(driver, phone):
             print("Can't enter phone number")
         else:
             # TODO run once!
-            auth(phone, psw, code, id, url)
-    if _detect_curret_page(driver) == 1:
+            status = auth(phone, psw, code, id, url)
+            if status == 0:
+                return status
+    if page_type == 1:
         if not code:
             print("Need to code")
             return 1
         else:
             _enter_code(driver, code)
+            sleep(10)
+            if auth(phone, psw, code, id, url) == 0:
+                return 0
+    if page_type == 2:
+        if not psw:
+            print("no password")
+            return 2
+        else:
+            _enter_psw(driver, psw)
+            sleep(10)
+            if auth(phone, psw, code, id, url) == 0:
+                return 0
 
-    print(phone)
-    print(code)
-    print(psw)
+
+def sell(page, id, url):
+    driver = _connect_to_session(id, url)
+    driver.get(page)
+    sleep(3)
+    sell_buttons = driver.find_elements_by_css_selector('div[data-qa-file="Sticky"] a[href*="sell"]')
+    if not len(sell_buttons):
+        print('no buttons yet')
+        return False
+    sell_buttons[0].click()
+    sleep(3)
+    # market price
+    sell_options = driver.find_elements_by_css_selector('label[unselectable="on"]')
+    print(sell_options)
+    print(len(sell_options))
+    if len(sell_options) != 3:
+        print("no options yet")
+        return False
+    sell_options[2].click()
+    sleep(3)
+    # insert count of product
+    countForms = driver.find_elements_by_css_selector('input[data-qa-file="MarketSellFormPure"]')
+    if not len(sell_buttons):
+        print('no forms yet')
+        return False
+    countForms[0].send_keys("1")
+    sleep(3)
+    # click accept button
+    accept_buttons = driver.find_elements_by_css_selector('button[data-qa-type="uikit/button"]')
+    if not len(accept_buttons):
+        print('no apply buttons yet')
+        return False
+    accept_buttons[0].click()
+
+
 
 
 
 session = {
-    "id": "5598b37f62b6d1c4ca52a416a2b7b2ab",
-    "url": "http://127.0.0.1:51297"
+    "id": "1bad0c49ef3e222474210a69f3a97ba3",
+    "url": "http://127.0.0.1:52808"
 }
+# print(check_auth(**session))
+status = auth("", None, None, **session)
+print(status)
+if status == 0:
+    sell('https://www.tinkoff.ru/invest/currencies/USDRUB/', **session)
 
-print(check_auth(**session))
-auth(1, 2, 3, **session)
 # assert "Python" in driver.title
 # elem = driver.find_element_by_name("q")
 # elem.send_keys("pycon")
