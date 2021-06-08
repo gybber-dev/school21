@@ -15,20 +15,6 @@ def create_session():
 # parsed = json.loads(your_json) # from string to dictionary
 # print(json.dumps(dict, indent=4, sort_keys=True))
 
-
-
-
-
-# delete after debugging:
-# driver = webdriver.Chrome('./chromedriver.exe')
-# driver.get("https://www.tinkoff.ru/login/?redirectTo=%2Finvest%2Fbroker_account%2F&redirectType=")
-# dict = {'url': driver.command_executor._url, 'id': driver.session_id}
-# print(json.dumps(dict, indent=4, sort_keys=True))
-
-
-# while True:
-#     ()
-
 def check_auth(id, url):
     driver = webdriver.Remote(command_executor=url, desired_capabilities={})
     driver.close()  # this prevents the dummy browser
@@ -229,6 +215,22 @@ session = {
     "id": "92d13d1ea03baec13cefa975edb188d5",
     "url": "http://127.0.0.1:49413"
 }
+
+
+f = open('sample.json', 'r+')
+data = json.load(f)
+print(data['tel_id0'])
+
+
+
+# delete after debugging:
+# driver = webdriver.Chrome('./chromedriver.exe')
+# driver.get("https://www.tinkoff.ru/login/?redirectTo=%2Finvest%2Fbroker_account%2F&redirectType=")
+# dict = {'url': driver.command_executor._url, 'id': driver.session_id}
+# print(json.dumps(dict, indent=4, sort_keys=True))
+
+
+
 # print(check_auth(**session))
 status = auth("", "", None, **session)
 # print(status)
@@ -241,3 +243,4 @@ status = auth("", "", None, **session)
 # elem.send_keys(Keys.RETURN)
 # assert "No results found." not in driver.page_source
 # driver.close()
+f.close()

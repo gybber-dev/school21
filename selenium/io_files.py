@@ -1,18 +1,21 @@
 import json
 
 # Data to be written
-dictionary = {
-    "name": "sathiyajith",
-    "rollno": 56,
-    "cgpa": 8.6,
-    "phonenumber": "9976770500"
-}
+# dictionary = {
+#     "name": "sathiyajith",
+#     "rollno": 56,
+#     "cgpa": 8.6,
+#     "phonenumber": "9976770500"
+# }
+#
+# with open("sample.json", "w") as outfile:
+#     json.dump(dictionary, outfile)
+# outfile.close()
 
-with open("sample.json", "w") as outfile:
-    json.dump(dictionary, outfile)
+# read
 
-outfile.close()
-f = open('sample.json', )
+f = open('data.json', 'r+')
 data = json.load(f)
-print(data['name'])
+id = '0'
+print(data[id])
 f.close()
