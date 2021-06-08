@@ -5,8 +5,8 @@ from time import sleep
 
 def create_session():
     # change for another OS
-    # driver = webdriver.Chrome('./chromedriver.exe')
-    driver = webdriver.Chrome('./chromedriver')
+    driver = webdriver.Chrome('./chromedriver.exe')
+    # driver = webdriver.Chrome('./chromedriver')
     driver.get("https://www.tinkoff.ru/login/?redirectTo=%2Finvest%2Fbroker_account%2F&redirectType=")
     return {'url': driver.command_executor._url, 'id': driver.session_id}
 
@@ -20,7 +20,7 @@ def create_session():
 
 
 # delete after debugging:
-# driver = webdriver.Chrome('./chromedriver')
+# driver = webdriver.Chrome('./chromedriver.exe')
 # driver.get("https://www.tinkoff.ru/login/?redirectTo=%2Finvest%2Fbroker_account%2F&redirectType=")
 # dict = {'url': driver.command_executor._url, 'id': driver.session_id}
 # print(json.dumps(dict, indent=4, sort_keys=True))
@@ -149,39 +149,44 @@ def _enter_psw(driver, psw):
         print("Enter psw error")
         return False
 
-def auth(phone, psw, code, id, url):
-    driver = _connect_to_session(id, url)
-    if check_auth(id, url):
-        print("Logged in")
-        return 0
-    page_type = _detect_curret_page(driver)
-    if page_type == 0:
-        if not _enter_phone(driver, phone):
-            print("Can't enter phone number")
-        else:
-            # TODO run once!
-            status = auth(phone, psw, code, id, url)
-            if status == 0:
-                return status
-    if page_type == 1:
-        if not code:
-            print("Need to code")
-            return 1
-        else:
-            _enter_code(driver, code)
-            sleep(10)
-            if auth(phone, psw, code, id, url) == 0:
-                return 0
-    if page_type == 2:
-        if not psw:
-            print("no password")
-            return 2
-        else:
-            _enter_psw(driver, psw)
-            sleep(10)
-            if auth(phone, psw, code, id, url) == 0:
-                return 0
+once_flag = 2
 
+def auth(phone, psw, code, id, url):
+
+    for i in range(3):
+        print("auth function")
+        driver = _connect_to_session(id, url)
+        if check_auth(id, url):
+            print("Logged in")
+            return 0
+        page_type = _detect_curret_page(driver)
+        if page_type == 0:
+            print("page_type == 0")
+            if not _enter_phone(driver, phone):
+                print("Can't enter phone number")
+                break
+            else:
+                sleep(3)
+                continue
+        if page_type == 1:
+            print("page_type == 1")
+            if not code:
+                print("Need to code")
+                return 1
+            else:
+                _enter_code(driver, code)
+                sleep(10)
+                continue
+        if page_type == 2:
+            print("page_type == 2")
+            if not psw:
+                print("no password")
+                return 2
+            else:
+                _enter_psw(driver, psw)
+                sleep(10)
+                continue
+        return 3
 
 def sell(page, id, url):
     driver = _connect_to_session(id, url)
@@ -221,14 +226,14 @@ def sell(page, id, url):
 
 
 session = {
-    "id": "1bad0c49ef3e222474210a69f3a97ba3",
-    "url": "http://127.0.0.1:52808"
+    "id": "92d13d1ea03baec13cefa975edb188d5",
+    "url": "http://127.0.0.1:49413"
 }
 # print(check_auth(**session))
-status = auth("", None, None, **session)
-print(status)
-if status == 0:
-    sell('https://www.tinkoff.ru/invest/currencies/USDRUB/', **session)
+status = auth("", "", None, **session)
+# print(status)
+# if status == 0:
+#     sell('https://www.tinkoff.ru/invest/currencies/USDRUB/', **session)
 
 # assert "Python" in driver.title
 # elem = driver.find_element_by_name("q")
