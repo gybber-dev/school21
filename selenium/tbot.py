@@ -3,6 +3,8 @@ import asyncio
 import json
 import telebot
 import tinvest
+import headless
+
 
 bot = telebot.TeleBot("1880314498:AAGEPrpOTzZH_0zzwcaZgdkoEPShohgF_tM")
 
@@ -39,21 +41,67 @@ async def get_balance(TOKEN, ticker):
     await client.close()
     return position.balance
 
+def sell_ticker(id):
+    id = str(id)
+    data = read_file("data.json")
+    print(data)
+    print(id)
+    if data[id]["session"]["id"] == None or data[id]["session"]["url"] == None:
+        data[id]["session"] = headless.create_session()
+        # write(".data.json", data)
+        # telebot
+    # if not headless.check_auth(**data[id]["session"]):
+    #     status = headless.auth(data[id]["phone"], data[id]["psw"], None, **data[id]["session"])
+    #     print(status)
+        # if status == 1:
+
+
+    # headless.check_auth()
+
 
 
 
 # bot.polling(none_stop=True)
+# def email_create_request_data(message):
+
+
+
 @bot.message_handler(commands=['start'])
 def start_command(message):
     print("start fun")
+    print(message)
+    # print(json.dumps(message, indent=4, sort_keys=True))
     tkn = get_tocken(message.from_user.id)
-    print(asyncio.run(get_balance(tkn, "TIPO")))
-    bot.send_message(
+    balance = asyncio.run(get_balance(tkn, "TIPO"))
+    keyboard = telebot.types.InlineKeyboardMarkup()
+    keyboard.row(
+        telebot.types.InlineKeyboardButton('Sell TIPO', callback_data='sell')
+    )
+    # keyboard.row(
+    #     telebot.types.InlineKeyboardButton('buy', callback_data='get-EUR'),
+    #     telebot.types.InlineKeyboardButton('sell', callback_data='get-RUR')
+    # )
+    # print(message.data)
+    ss = bot.send_message(
         message.chat.id,
-        'Greetings! I can show you exchange rates.\n' +
-        'To get the exchange rates press /exchange.\n' +
-        'To get help press /help.'
-  )
+        'Your balance: ' + str(balance),
+        reply_markup=keyboard
+    )
+    bot.register_next_step_handler(ss, print)
+
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def ans(message):
+    print(message)
+    if message.data == "sell":
+        sell_ticker(message.from_user.id)
+
+
+
+
+
+
 @bot.message_handler(commands=['help'])
 def help_command(message):
     keyboard = telebot.types.InlineKeyboardMarkup()

@@ -18,9 +18,9 @@ async def get_balance(TOKEN, ticker):
     await client.close()
     return position.balance
 
-def some_fun():
-    TOKEN = ""
-    print(asyncio.run(get_balance(TOKEN, "TIPO")))
+# def some_fun():
+#     TOKEN = ""
+#     print(asyncio.run(get_balance(TOKEN, "TIPO")))
 
 #
 # if __name__ == '__main__':

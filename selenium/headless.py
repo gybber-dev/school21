@@ -16,6 +16,8 @@ def create_session():
 # print(json.dumps(dict, indent=4, sort_keys=True))
 
 def check_auth(id, url):
+    if id == None or url == None:
+        return False
     driver = webdriver.Remote(command_executor=url, desired_capabilities={})
     driver.close()  # this prevents the dummy browser
     driver.session_id = id
@@ -211,15 +213,15 @@ def sell(page, id, url):
 
 
 
-session = {
-    "id": "92d13d1ea03baec13cefa975edb188d5",
-    "url": "http://127.0.0.1:49413"
-}
+# session = {
+#     "id": "e770ee221dd5b85948bcd26eff0ed49d",
+#     "url": "http://127.0.0.1:60034"
+# }
 
-
-f = open('sample.json', 'r+')
-data = json.load(f)
-print(data['tel_id0'])
+#
+# f = open('sample.json', 'r+')
+# data = json.load(f)
+# print(data['tel_id0'])
 
 
 
@@ -232,7 +234,7 @@ print(data['tel_id0'])
 
 
 # print(check_auth(**session))
-status = auth("", "", None, **session)
+# status = auth("", "", None, **session)
 # print(status)
 # if status == 0:
 #     sell('https://www.tinkoff.ru/invest/currencies/USDRUB/', **session)
@@ -243,4 +245,4 @@ status = auth("", "", None, **session)
 # elem.send_keys(Keys.RETURN)
 # assert "No results found." not in driver.page_source
 # driver.close()
-f.close()
+# f.close()
