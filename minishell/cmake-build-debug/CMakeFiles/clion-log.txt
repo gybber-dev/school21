@@ -1,7 +1,0 @@
-/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/yeschall/Desktop/Projects/GitHub/minishell
-CMake Error at Google_tests/lib/googletest-master/googlemock/CMakeLists.txt:70 (config_compiler_and_linker):
-  Unknown CMake command "config_compiler_and_linker".
-
-
--- Configuring incomplete, errors occurred!
-See also "/Users/yeschall/Desktop/Projects/GitHub/minishell/cmake-build-debug/CMakeFiles/CMakeOutput.log".
